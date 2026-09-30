@@ -467,7 +467,30 @@ class Optimizer:
                                              - baseline.title_odds[idea.partner])
         return shortlist
 
+    def _with_pending_accepted(self) -> dict[int, list[int]]:
+        """Rosters as if every trade we've offered gets accepted."""
+        rosters = {t: list(r) for t, r in self.rosters.items()}
+        for pending in self.league.pending_trades:
+            if pending.proposer != self.me:
+                continue
+            for item in pending.items:
+                pid, src, dst = item.get("playerId"), item.get("fromTeamId"), item.get("toTeamId")
+                if item.get("type") == "TRADE" and src in rosters and dst in rosters and pid in rosters[src]:
+                    rosters[src].remove(pid)
+                    rosters[dst].append(pid)
+        return rosters
+
     def do_trades(self, result: RunResult) -> None:
+        # Plan as if our pending offers go through, so we don't also trade away the
+        # backup for a player we've already offered (e.g. Goff after offering Burrow).
+        planned = self.rosters
+        self.rosters = self._with_pending_accepted()
+        try:
+            self._do_trades(result)
+        finally:
+            self.rosters = planned
+
+    def _do_trades(self, result: RunResult) -> None:
         tc = self.cfg.trades
         baseline = self.odds(self.rosters)
         ideas = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state, self.now)

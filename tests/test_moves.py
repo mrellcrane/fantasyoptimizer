@@ -234,3 +234,27 @@ def test_pitch_names_who_they_actually_start():
                 if any(league.players[pid].position == "RB" for pid in i.give)
                 and 16 not in i.get)
     assert "over RB16" in opt.pitch(idea)
+
+
+def test_trades_are_planned_as_if_pending_offers_go_through():
+    from fantasyoptimizer.engine import Optimizer
+    from fantasyoptimizer.models import PendingTrade
+
+    def wr_rich(base):
+        return [make_player(base + 1, "QB", 15), make_player(base + 2, "WR", 16),
+                make_player(base + 3, "WR", 15), make_player(base + 4, "WR", 14),
+                make_player(base + 5, "RB", 5), make_player(base + 6, "RB", 4)]
+    mine = [make_player(1, "QB", 15), make_player(2, "RB", 16), make_player(3, "RB", 15),
+            make_player(4, "RB", 14), make_player(5, "WR", 5), make_player(6, "WR", 4)]
+    league = make_league({1: mine, 2: wr_rich(10), 3: wr_rich(20)})
+    league.pending_trades = [PendingTrade(id="p", proposer=1, items=[
+        {"playerId": 2, "type": "TRADE", "fromTeamId": 1, "toTeamId": 2},
+        {"playerId": 12, "type": "TRADE", "fromTeamId": 2, "toTeamId": 1}])]
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    opt = Optimizer(league, cfg, State(), None, NOW)
+    rosters = opt._with_pending_accepted()
+    assert 12 in rosters[1] and 2 not in rosters[1] and 2 in rosters[2]
+    ideas = find_trades(league, rosters, opt.valuer, cfg, State(), NOW)
+    assert ideas and all(i.partner == 3 for i in ideas)
+    assert all(pid not in (2, 12) for i in ideas for pid in i.give + i.my_drops)

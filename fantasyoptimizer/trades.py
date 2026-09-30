@@ -130,11 +130,15 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     # Players already offered in one of our pending proposals aren't offered again.
     offered = {item.get("playerId") for pending in league.pending_trades if pending.proposer == me
                for item in pending.items if item.get("fromTeamId") == me}
+    # ...and players those offers would bring in aren't ours to offer (or drop) yet.
+    arriving = {item.get("playerId") for pending in league.pending_trades if pending.proposer == me
+                for item in pending.items if item.get("toTeamId") == me}
     mine = [league.players[pid] for pid in my_roster
             if not league.players[pid].trade_locked and not _matches(league.players[pid], untouchable)
-            and ros[pid] > 0 and pid not in offered]
+            and ros[pid] > 0 and pid not in offered and pid not in arriving]
     give_sets = trade_sets(mine, value, tc.pool_size, tc.max_players_per_side)
-    my_can_drop = lambda p: droppable(p, cfg, state, now) and not _matches(p, untouchable)  # noqa: E731
+    my_can_drop = lambda p: (droppable(p, cfg, state, now) and not _matches(p, untouchable)  # noqa: E731
+                             and p.id not in arriving)
     their_can_drop = lambda p: not (p.roster_locked or p.lineup_locked)  # noqa: E731
 
     ideas: list[TradeIdea] = []
