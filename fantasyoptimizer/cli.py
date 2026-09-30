@@ -62,7 +62,12 @@ def main(argv: list[str] | None = None) -> int:
         cfg.dry_run = True
     else:
         if not cfg.league_id:
-            ap.error("Set ESPN_LEAGUE_ID (and ESPN_S2 / ESPN_SWID for a private league).")
+            msg = "Set ESPN_LEAGUE_ID (and ESPN_S2 / ESPN_SWID for a private league)."
+            if os.environ.get("GITHUB_ACTIONS"):
+                # Not set up yet: skip quietly instead of failing (and emailing) every day.
+                print(f"::warning::Skipping run. {msg} See README.md.")
+                return 0
+            ap.error(msg)
         client = EspnClient(cfg.league_id, cfg.year, cfg.espn_s2, cfg.swid)
         league = client.load_league(cfg.team_id)
 
