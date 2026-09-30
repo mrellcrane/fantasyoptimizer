@@ -110,7 +110,7 @@ class Config:
     # injury status -> availability for this week, next week, ... (1.0 after the list ends)
     injury: dict[str, list[float]] = field(default_factory=lambda: {
         "OUT": [0.0, 0.75],
-        "DOUBTFUL": [0.3],
+        "DOUBTFUL": [0.3, 0.85],
         "QUESTIONABLE": [0.8],
         "INJURY_RESERVE": [0.0, 0.0, 0.0, 0.0, 0.5],
         "SUSPENSION": [0.0],

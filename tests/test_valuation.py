@@ -80,3 +80,16 @@ def test_playoff_weeks_weighted_up():
     league = make_league({1: [p], 2: []})
     # Weeks 1-2 count once, playoff weeks 3-4 count double.
     assert Valuer(league, cfg).value([1]) == 10 + 10 + 20 + 20
+
+
+def test_injured_players_next_week_espn_projection_is_discounted():
+    from fantasyoptimizer.projections import expected_points
+    cfg = Config()
+    p = make_player(1, "TE", 10, injury="DOUBTFUL")
+    p.period_projections = {1: 0.0, 2: 11.0}   # ESPN: out this week, 11 next week
+    league = make_league({1: [p], 2: []})
+    pts = expected_points(p, league, cfg)
+    assert pts[0] == 0.0                      # this week: ESPN's number as is
+    assert pts[1] == pytest.approx(11.0 * 0.85)
+    p.injury_status = "ACTIVE"
+    assert expected_points(p, league, cfg)[1] == 11.0
