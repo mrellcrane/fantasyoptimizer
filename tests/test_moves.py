@@ -203,3 +203,15 @@ def test_next_week_hole_with_no_backup_suggests_a_free_agent():
     check = Optimizer(league, fast_config(), State(), None, NOW).lineup_check()
     assert not check.swaps
     assert [(h.player, h.reason, h.fill, h.free_agent) for h in check.holes] == [(1, "on bye", None, 900)]
+
+
+def test_high_scoring_position_does_not_crowd_out_other_pickups():
+    # 70 free-agent linebackers outscore everyone, but a WR upgrade still gets found.
+    lbs = [make_player(1000 + i, "LB", 18) for i in range(70)]
+    wr = make_player(900, "WR", 16)
+    mine = full_roster(1, 0)[:5] + [make_player(7, "LB", 19, slot=15)]
+    league = make_league({1: mine, 2: full_roster(2, 100)}, lbs + [wr])
+    league.slot_counts[15] = 1
+    cfg = fast_config()
+    ideas = find_add_drops(league, league.teams[1].roster, Valuer(league, cfg), cfg, State(), NOW)
+    assert any(i.add.id == 900 for i in ideas)

@@ -55,8 +55,16 @@ def find_add_drops(league: League, roster: list[int], valuer: Valuer, cfg: Confi
     pool = [p for p in league.players.values()
             if p.available and p.id not in exclude and not p.lineup_locked
             and not state.dropped_recently(p.id, wc.readd_cooldown_days, now)]
-    pool.sort(key=lambda p: valuer.ros_points(p.id), reverse=True)
-    pool = [p for p in pool[:wc.pool_size] if valuer.ros_points(p.id) > 0]
+    # The best few at each position you can start. A single top-N list gets swamped by
+    # whichever position scores the most (linebackers, in IDP leagues).
+    by_position: dict[str, list[Player]] = {}
+    for p in pool:
+        row = valuer.row.get(p.id)
+        if row is not None and valuer.can_start[row] and valuer.ros_points(p.id) > 0:
+            by_position.setdefault(p.position, []).append(p)
+    pool = [p for group in by_position.values()
+            for p in sorted(group, key=lambda p: valuer.ros_points(p.id), reverse=True)
+            [:wc.pool_per_position]]
 
     drops = [league.players[pid] for pid in roster
              if pid not in exclude and droppable(league.players[pid], cfg, state, now)]

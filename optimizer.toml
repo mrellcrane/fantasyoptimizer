@@ -35,7 +35,7 @@ enabled = true
 max_moves_per_run = 1
 min_gain_points = 5.0        # Rest-of-season starting-lineup points a pickup must add
 min_title_gain = 0.0         # ...and it can't lower title odds (percentage points)
-pool_size = 60               # How many free agents to consider
+pool_per_position = 8        # How many free agents to consider at each position
 sim_candidates = 10
 never_drop = []              # e.g. ["Christian McCaffrey"]
 # A pickup that only starts a few weeks, all far off (say, one bye week in week 10),

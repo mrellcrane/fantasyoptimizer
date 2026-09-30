@@ -48,7 +48,7 @@ class WaiverConfig:
     max_moves_per_run: int = 1
     min_gain_points: float = 5.0   # Weighted rest-of-season points
     min_title_gain: float = 0.0    # Percentage points of championship odds
-    pool_size: int = 60
+    pool_per_position: int = 8     # Free agents considered at each position
     sim_candidates: int = 10
     never_drop: list[str] = field(default_factory=list)
     # Pickups that only fill a bye/injury hole weeks from now wait until closer to then.
