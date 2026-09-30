@@ -6,7 +6,7 @@ Every run, it:
 
 1. **Picks up free agents.** It finds the add/drop (or waiver claim, with a FAAB bid) that most improves your team for the rest of the season.
 2. **Sets your lineup.** It benches players who are on bye, OUT, or projected low, and starts the best available players. Players whose games have started stay put.
-3. **Proposes trades.** It looks for deals that make you better *and* look good to the other manager, since a lopsided offer just gets rejected. Then it sends the best one.
+3. **Proposes trades.** It looks for deals that make you better *and* fill a real need on the other manager's team, since a lopsided offer just gets rejected. Players are valued by how much better they are than the best free agent at their position. Each idea comes with a one-line pitch to send them.
 4. **Grades trade offers sent to you.** It tells you whether to accept. It never accepts on its own.
 5. **Writes a report** covering your playoff and title odds, your roster's projections for the next few weeks, what it did and why, the best pickups and trade ideas it found, and a table of the whole league's odds.
 
@@ -15,7 +15,7 @@ Every run, it:
 - **Player projections.** Each player gets an expected points-per-game. It blends ESPN's projection for this week, ESPN's rest-of-season projection, the preseason projection, and actual production so far (trusted more as games pile up). Byes come from the NFL schedule, and injuries lower availability for the next few weeks (see `[injury]` in `optimizer.toml`).
 - **Roster value.** For every remaining week, it solves for your best possible starting lineup given your slots (FLEX, superflex, and so on). A roster's value is the sum of those lineups, with fantasy playoff weeks weighted 1.5x and a little credit for bench depth. That means a backup RB is worth exactly as much as the weeks he'd actually start.
 - **Title odds.** It simulates the rest of your league's season 4,000 times, using the real schedule, current records, and each team's projected lineups, then plays out the playoff bracket. Every candidate move is re-simulated with the same random draws, so the difference in title odds reflects the move and not luck. This also catches trades that help you a little but help a rival more.
-- **Trade acceptance.** Humans judge trades by name value and by whether a deal fills a need. It models the chance of acceptance from both, and ranks offers by *your title odds gained × chance they accept*.
+- **Trade acceptance.** Humans judge trades by value and by whether a deal fills a need. Value is measured as points above what's free on waivers, since a linebacker scoring 19 a game isn't worth much when one scoring 18.6 is free. Need is how much the deal improves *their* best lineup. It models the chance of acceptance from both, and ranks offers by *your title odds gained × chance they accept*.
 
 ## Setup (about 10 minutes)
 
@@ -69,7 +69,8 @@ Everything lives in `optimizer.toml`, with comments. The ones you'll most likely
 - `trades.untouchable`: players it must never offer.
 - `trades.do_not_trade_with`: managers to leave alone.
 - `trades.max_proposals_per_run` / `team_cooldown_days`: how pushy it is. The default is one offer a day, max one per manager per week, and never the same offer twice in 30 days.
-- `trades.message`: a note attached to each offer.
+- `trades.message` / `trades.pitch_as_message`: a note attached to each offer, or the one-line pitch the report writes for each trade ("Burrow would start every week for you over...").
+- `trades.min_fairness` / `min_accept_chance`: how lopsided offers may be. There's a commented "bolder" setting in the file.
 - `waivers.never_drop`: players it must never cut.
 - `lineup.enabled`, `waivers.enabled`, `trades.enabled`: turn pieces off.
 

@@ -70,18 +70,19 @@ class TradeConfig:
     repeat_cooldown_days: int = 30
     min_gain_points: float = 10.0
     min_title_gain: float = 0.5
-    min_partner_gain_points: float = 0.0
-    min_fairness: float = 0.90     # What they get / what they give, in raw ROS points
+    min_partner_gain_points: float = 5.0  # It has to visibly help their lineup too
+    min_fairness: float = 0.90     # What they get / what they give, in points above waivers
     max_overpay: float = 1.6
     min_accept_chance: float = 0.30  # Skip offers they'd probably laugh at
     accept_fairness_weight: float = 6.0
-    accept_gain_scale: float = 30.0
+    accept_gain_scale: float = 20.0
     pool_size: int = 10
     max_players_per_side: int = 2
     sim_candidates: int = 30
     untouchable: list[str] = field(default_factory=list)
     do_not_trade_with: list[str] = field(default_factory=list)
     message: str = ""
+    pitch_as_message: bool = False  # Send the one-line pitch as the offer's note
     expiration_hours: int = 48
 
 

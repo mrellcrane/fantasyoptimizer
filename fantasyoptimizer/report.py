@@ -170,6 +170,8 @@ def render(result: RunResult, max_rows: int = 8) -> str:
             lines.append(f"- **{_status(a)}** {a.summary}{extra}")
             if a.why:
                 lines.append(f"  - Why: {a.why}")
+            if a.pitch:
+                lines.append(f"  - Pitch to send them: \"{a.pitch}\"")
     else:
         lines.append("- None today. Nothing cleared the thresholds.")
 
@@ -203,14 +205,13 @@ def render(result: RunResult, max_rows: int = 8) -> str:
                          f"| {note} |")
 
     if result.trade_ideas:
-        lines += ["", "## Best trade ideas", "",
-                  "| With | Deal | Your pts | Their pts | Your title odds | Their title odds | Accept chance |",
-                  "|---|---|---:|---:|---:|---:|---:|"]
-        for t in result.trade_ideas[:max_rows]:
-            lines.append(f"| {league.team_name(t.partner)} | {describe_trade(league, t)} "
-                         f"| {t.my_gain:+.1f} | {t.partner_gain:+.1f} "
-                         f"| {t.my_title_gain:+.1f}% | {t.partner_title_gain:+.1f}% "
-                         f"| ~{100 * t.accept_chance:.0f}% |")
+        lines += ["", "## Best trade ideas", ""]
+        for n, t in enumerate(result.trade_ideas[:5], 1):
+            lines.append(f"{n}. **{league.team_name(t.partner)}**: {describe_trade(league, t)}")
+            lines.append(f"   - You: {t.my_gain:+.1f} season pts, {t.my_title_gain:+.1f}% title odds. "
+                         f"Them: {t.partner_gain:+.1f} season pts. Accept chance ~{100 * t.accept_chance:.0f}%.")
+            if t.pitch:
+                lines.append(f"   - Pitch: \"{t.pitch}\"")
 
     lines += free_agent_section(result)
 
@@ -275,13 +276,14 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
             "title_odds": round(base.title_odds[t.id], 4),
             "projected_wins": round(base.expected_wins[t.id], 2),
         } for t in league.teams.values()],
-        "moves": [{"kind": a.kind, "summary": a.summary, "why": a.why,
+        "moves": [{"kind": a.kind, "summary": a.summary, "why": a.why, "pitch": a.pitch,
                    "status": _status(a), "response": a.response} for a in result.actions],
         "pickup_ideas": [{"add": i.add.name, "drop": i.drop.name if i.drop else None,
                           "season_points": round(i.gain, 1), "title_odds": i.title_gain,
                           "waiver": i.waiver, "start_weeks": i.start_weeks,
                           "patch": i.patch} for i in result.add_ideas],
         "trade_ideas": [{"partner": league.team_name(t.partner), "deal": describe_trade(league, t),
+                         "pitch": t.pitch,
                          "my_points": round(t.my_gain, 1), "their_points": round(t.partner_gain, 1),
                          "my_title_odds": t.my_title_gain, "their_title_odds": t.partner_title_gain,
                          "accept_chance": round(t.accept_chance, 2)} for t in result.trade_ideas],

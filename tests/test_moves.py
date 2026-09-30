@@ -150,3 +150,31 @@ def test_players_in_our_pending_offers_are_not_offered_again():
     again = find_trades(league, rosters, Valuer(league, cfg), cfg, State(), NOW)
     assert again and all(star not in i.give for i in again)
     assert all(i.partner != 2 for i in again)
+
+
+def test_players_you_can_get_on_waivers_are_poor_trade_bait():
+    # Same lopsided setup, but an RB as good as ours sits on waivers: our RB depth
+    # is worth nothing to them, so there's no fair RB-for-WR deal left.
+    league = lopsided_league()
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    rosters = {t: list(team.roster) for t, team in league.teams.items()}
+    assert find_trades(league, rosters, Valuer(league, cfg), cfg, State(), NOW)
+    free_rb = make_player(950, "RB", 16)
+    league.players[free_rb.id] = free_rb
+    assert not find_trades(league, rosters, Valuer(league, cfg), cfg, State(), NOW)
+
+
+def test_pitch_sells_the_deal_from_their_side():
+    from fantasyoptimizer.engine import Optimizer
+    league = lopsided_league()
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    opt = Optimizer(league, cfg, State(), None, NOW)
+    idea = find_trades(league, opt.rosters, opt.valuer, cfg, State(), NOW)[0]
+    line = opt.pitch(idea)
+    received = [league.players[pid].name for pid in idea.give]
+    assert line.endswith(".") and "for you" in line
+    assert any(name in line for name in received)
+    for pid in idea.get:  # never claims one of our new players "over" someone they're losing
+        assert f"over {league.players[pid].name}" not in line

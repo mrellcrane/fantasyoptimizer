@@ -22,10 +22,11 @@ class TradeIdea:
     partner_drops: tuple[int, ...]
     my_gain: float            # weighted rest-of-season points, our model
     partner_gain: float       # same, for them
-    fairness: float           # raw ROS points they receive / they give
+    fairness: float           # trade value they receive / they give (points above waivers)
     accept_chance: float = 0.5
     my_title_gain: float | None = None
     partner_title_gain: float | None = None
+    pitch: str = ""           # one line to send them: why it helps their team
 
     @property
     def key(self) -> str:
@@ -40,7 +41,7 @@ def accept_chance(fairness: float, partner_gain: float, cfg: Config) -> float:
     """Rough odds a human accepts: do the names look fair, and does it fill a need?"""
     tc = cfg.trades
     z = tc.accept_fairness_weight * (fairness - 1.0) + partner_gain / tc.accept_gain_scale
-    return 1.0 / (1.0 + math.exp(-z))
+    return min(0.95, 1.0 / (1.0 + math.exp(-z)))  # nobody accepts anything 100% of the time
 
 
 def _matches(p: Player, names: set[str]) -> bool:
@@ -78,8 +79,28 @@ def blocked_partners(league: League, cfg: Config, state: State, now: dt.datetime
     return blocked
 
 
-def trade_sets(players: list[Player], valuer: Valuer, pool_size: int, max_side: int):
-    ranked = sorted(players, key=lambda p: valuer.ros_points(p.id), reverse=True)
+def replacement_levels(league: League, valuer: Valuer) -> dict[str, float]:
+    """Rest-of-season points of the best player anyone can grab for free, by position."""
+    levels: dict[str, float] = {}
+    for p in league.players.values():
+        if p.available:
+            levels[p.position] = max(levels.get(p.position, 0.0), valuer.ros_points(p.id))
+    return levels
+
+
+def trade_value(league: League, valuer: Valuer) -> dict[int, float]:
+    """What a player is worth in a trade: points above the best free agent at his position.
+
+    This is how sharp managers think. A linebacker scoring 19 a game isn't worth much
+    when there's one scoring 18.6 on waivers.
+    """
+    levels = replacement_levels(league, valuer)
+    return {pid: max(0.0, valuer.ros_points(pid) - levels.get(p.position, 0.0))
+            for pid, p in league.players.items()}
+
+
+def trade_sets(players: list[Player], value: dict[int, float], pool_size: int, max_side: int):
+    ranked = sorted(players, key=lambda p: value[p.id], reverse=True)
     sets = [(p.id,) for p in ranked]
     top = [p.id for p in ranked[:pool_size]]
     for size in range(2, max_side + 1):
@@ -94,6 +115,7 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     untouchable = {n.lower() for n in tc.untouchable}
     blocked = blocked_partners(league, cfg, state, now)
     ros = {pid: valuer.ros_points(pid) for pid in league.players}
+    value = trade_value(league, valuer)
 
     my_roster = rosters[me]
     base_me = valuer.value(my_roster)
@@ -103,7 +125,7 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     mine = [league.players[pid] for pid in my_roster
             if not league.players[pid].trade_locked and not _matches(league.players[pid], untouchable)
             and ros[pid] > 0 and pid not in offered]
-    give_sets = trade_sets(mine, valuer, tc.pool_size, tc.max_players_per_side)
+    give_sets = trade_sets(mine, value, tc.pool_size, tc.max_players_per_side)
     my_can_drop = lambda p: droppable(p, cfg, state, now) and not _matches(p, untouchable)  # noqa: E731
     their_can_drop = lambda p: not (p.roster_locked or p.lineup_locked)  # noqa: E731
 
@@ -114,10 +136,12 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
         base_them = valuer.value(their_roster)
         theirs = [league.players[pid] for pid in their_roster
                   if not league.players[pid].trade_locked and ros[pid] > 0]
-        for get in trade_sets(theirs, valuer, tc.pool_size, tc.max_players_per_side):
-            raw_get = sum(ros[pid] for pid in get)
+        for get in trade_sets(theirs, value, tc.pool_size, tc.max_players_per_side):
+            value_get = sum(value[pid] for pid in get)
+            if value_get <= 0:
+                continue
             for give in give_sets:
-                fairness = sum(ros[pid] for pid in give) / raw_get
+                fairness = sum(value[pid] for pid in give) / value_get
                 if not tc.min_fairness <= fairness <= tc.max_overpay:
                     continue
                 new_me = [pid for pid in my_roster if pid not in give] + list(get)

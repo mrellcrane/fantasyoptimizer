@@ -28,6 +28,22 @@ class Action:
     ok: bool | None = None
     response: str = ""
     why: str = ""
+    pitch: str = ""
+
+
+@dataclass
+class LineupChange:
+    weeks: int
+    old_starts: Counter = field(default_factory=Counter)   # weeks each player started before
+    new_starts: Counter = field(default_factory=Counter)   # ...and after
+    benched: Counter = field(default_factory=Counter)      # starters who lose their spot
+    displaced: dict[int, Counter] = field(default_factory=dict)  # added player -> who sat
+
+
+def _join(items: list[str]) -> str:
+    if len(items) <= 2:
+        return " and ".join(items)
+    return ", ".join(items[:-1]) + ", and " + items[-1]
 
 
 @dataclass
@@ -81,32 +97,76 @@ class Optimizer:
         """Change in our championship odds, in percentage points."""
         return 100 * (self.odds(rosters).title_odds[self.me] - baseline.title_odds[self.me])
 
-    def explain(self, old: list[int], new: list[int]) -> str:
-        """Plain-English reason a roster change helps: who starts, and who sits instead."""
-        league, valuer = self.league, self.valuer
+    def lineup_change(self, old: list[int], new: list[int]) -> "LineupChange":
+        """Who starts in each remaining week before vs after a roster change."""
+        valuer = self.valuer
         added = [pid for pid in new if pid not in old]
-        removed = [pid for pid in old if pid not in new]
-        weeks = len(league.horizon)
-        starts: Counter = Counter()
-        benched: Counter = Counter()   # starters who lose their spot, by weeks lost
-        for j in range(weeks):
+        change = LineupChange(weeks=len(self.league.horizon))
+        change.displaced = {pid: Counter() for pid in added}
+        for j in range(change.weeks):
             before = set(valuer.solve(old, column=j)[1])
             after = set(valuer.solve(new, column=j)[1])
-            starts.update(pid for pid in added if pid in after)
-            benched.update(before - after)
+            change.old_starts.update(before)
+            change.new_starts.update(after)
+            change.benched.update(before - after)
+            for pid in added:
+                if pid in after:
+                    change.displaced[pid].update(before - after)
+        return change
+
+    def explain(self, old: list[int], new: list[int], whose: str = "your") -> str:
+        """Plain-English reason a roster change helps: who starts, and who sits instead."""
+        league = self.league
+        change = self.lineup_change(old, new)
+        added = [pid for pid in new if pid not in old]
+        removed = [pid for pid in old if pid not in new]
+        them = "you" if whose == "your" else "them"
 
         def label(pid: int) -> str:
             p = league.players[pid]
             return f"{p.name} ({p.position}, {per_game_rate(p, league, self.cfg):.1f} pts/gm)"
 
-        parts = [f"{label(pid)} would start {starts[pid]} of {weeks} weeks" for pid in added]
-        if benched:
-            out = ", ".join(f"{label(pid)} {n} wks" for pid, n in benched.most_common(3))
-            parts.append(f"out of your lineup: {out}")
-        idle = [label(pid) for pid in removed if pid not in benched]
+        parts = [f"{label(pid)} would start {change.new_starts[pid]} of {change.weeks} weeks"
+                 for pid in added]
+        if change.benched:
+            out = ", ".join(f"{label(pid)} {n} wks" for pid, n in change.benched.most_common(3))
+            parts.append(f"out of {whose} lineup: {out}")
+        idle = [label(pid) for pid in removed if pid not in change.benched]
         if idle:
-            parts.append(f"{', '.join(idle)} wouldn't start for you anyway")
+            parts.append(f"{', '.join(idle)} wouldn't start for {them} anyway")
         return "; ".join(parts) + "."
+
+    def pitch(self, idea: trades.TradeIdea) -> str:
+        """One line to send the other manager: what the deal does for their lineup."""
+        league = self.league
+        old = self.rosters[idea.partner]
+        change = self.lineup_change(old, trades.apply(self.rosters, self.me, idea)[idea.partner])
+        n = change.weeks
+        # Lead with the players who'd start the most for them; a one-week fill-in
+        # isn't a selling point unless it's all there is.
+        incoming = sorted((pid for pid in idea.give if change.new_starts[pid]),
+                          key=lambda pid: change.new_starts[pid], reverse=True)
+        regulars = [pid for pid in incoming if change.new_starts[pid] >= 0.4 * n] or incoming[:1]
+        bits = []
+        for pid in regulars:
+            k = change.new_starts[pid]
+            p = league.players[pid]
+            often = ("every week" if k >= n - 1 else "most weeks" if k >= 0.6 * n
+                     else f"{k} of the {n} weeks left")
+            text = f"{p.name} would start {often} for you"
+            same_spot = [q for q, _ in change.displaced[pid].most_common()
+                         if league.players[q].position == p.position and q in old and q not in idea.get]
+            if same_spot:
+                text += f" over {league.players[same_spot[0]].name}"
+            bits.append(text)
+        idle = [league.players[pid].name for pid in idea.get if change.old_starts[pid] <= 0.3 * n]
+        if idle and bits:
+            verb = "mostly sits" if len(idle) == 1 else "mostly sit"
+            bits.append(f"{_join(idle)} {verb} on your bench anyway")
+        if not bits:
+            return ""
+        line = _join(bits)
+        return line[0].upper() + line[1:] + "."
 
     # ------------------------------------------------------------ execution
 
@@ -250,6 +310,8 @@ class Optimizer:
             idea.partner_title_gain = 100 * (after.title_odds[idea.partner]
                                              - baseline.title_odds[idea.partner])
         shortlist.sort(key=lambda i: (i.expected_title_gain, i.my_gain), reverse=True)
+        for idea in shortlist[:8]:
+            idea.pitch = self.pitch(idea)
         result.trade_ideas = shortlist
 
         proposed_to: set[int] = set()
@@ -258,13 +320,16 @@ class Optimizer:
                 break
             if idea.partner in proposed_to or idea.my_title_gain < tc.min_title_gain:
                 continue
+            after = trades.apply(self.rosters, self.me, idea)
+            message = idea.pitch if tc.pitch_as_message and idea.pitch else tc.message
             action = self.execute(Action(
                 kind="trade",
                 summary=f"Propose to {self.league.team_name(idea.partner)}: {describe_trade(self.league, idea)}",
                 payload=espn.trade_payload(self.league, idea.partner, list(idea.give), list(idea.get),
-                                           list(idea.my_drops), tc.message, tc.expiration_hours, self.now),
-                why=self.explain(self.rosters[self.me],
-                                 trades.apply(self.rosters, self.me, idea)[self.me]),
+                                           list(idea.my_drops), message, tc.expiration_hours, self.now),
+                why=(f"For you: {self.explain(self.rosters[self.me], after[self.me])} "
+                     f"For them: {self.explain(self.rosters[idea.partner], after[idea.partner], 'their')}"),
+                pitch=idea.pitch,
             ))
             result.actions.append(action)
             proposed_to.add(idea.partner)

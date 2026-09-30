@@ -56,19 +56,25 @@ team_cooldown_days = 7       # Max one offer per manager per week
 repeat_cooldown_days = 30    # Never re-send the same offer within a month
 min_gain_points = 10.0       # Rest-of-season points the trade must add for you
 min_title_gain = 0.5         # ...and title odds must rise by this much (percentage points)
-min_partner_gain_points = 0.0  # Must not make their lineup worse (by our projections)
-min_fairness = 0.90          # They must get at least 90% of the raw value they give
+min_partner_gain_points = 5.0  # Must visibly help their lineup too (their need)
+min_fairness = 0.90          # They must get at least 90% of the value they give
+                             # (value = points above the best free agent at that position)
 max_overpay = 1.6
 min_accept_chance = 0.30     # Don't send offers they'd probably reject
 accept_fairness_weight = 6.0
-accept_gain_scale = 30.0
+accept_gain_scale = 20.0
 pool_size = 10               # Top N players per team considered for 2-player packages
 max_players_per_side = 2
 sim_candidates = 30
 untouchable = []             # e.g. ["Justin Jefferson"]
 do_not_trade_with = []       # Team names, abbreviations, or ids
 message = ""                 # Note attached to each offer
+pitch_as_message = false     # true = attach the one-line pitch from the report instead
 expiration_hours = 48
+# Feeling bolder? These send more offers, including ones that favor you more:
+#   max_proposals_per_run = 3    (still max one open offer per manager, and per player)
+#   min_fairness = 0.75          (they can get as little as 75% of what they give)
+#   min_accept_chance = 0.15
 
 [injury]
 # Chance a player plays this week, next week, ... (1.0 after the list ends).
