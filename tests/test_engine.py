@@ -217,3 +217,38 @@ def test_lineup_check_swaps_and_next_week_holes():
     assert tes and tes[0].reason == "on bye" and tes[0].fill is not None
     text = report.render(result)
     assert text.index("## Lineup check") < text.index("## Moves")
+
+
+def _names(league, team_id, pos, n):
+    return [league.players[pid].name for pid in league.teams[team_id].roster
+            if league.players[pid].position == pos][:n]
+
+
+def test_score_a_trade_typed_in_by_name():
+    league = demo_league()
+    give = _names(league, 1, "RB", 1) + _names(league, 1, "QB", 1)
+    get = _names(league, 3, "WR", 1)
+    text = f"give {give[0]}, {give[1]}; get {get[0]}"
+    result = Optimizer(league, config(), State(), None, NOW, score_trade=text).run()
+    t = result.asked_trade
+    assert t and t.partner == 3 and len(t.give) == 2 and len(t.get) == 1
+    assert t.my_title_gain is not None and "For them:" in result.asked_trade_why
+    rendered = report.render(result)
+    assert "## The trade you asked about" in rendered
+    assert rendered.index("The trade you asked about") < rendered.index("## Moves")
+    # "A for B" works too
+    alt = Optimizer(demo_league(), config(), State(), None, NOW,
+                    score_trade=f"{give[0]} for {get[0]}").run()
+    assert alt.asked_trade and alt.asked_trade.give == t.give[:1]
+
+
+def test_bad_trade_text_is_explained_not_crashed():
+    league = demo_league()
+    mine = _names(league, 1, "RB", 1)[0]
+    theirs = _names(league, 3, "WR", 1)[0] + ", " + _names(league, 4, "WR", 1)[0]
+    for text, message in [("give Nobody Atall; get Someone Else", "Couldn't find"),
+                          (f"give {mine}; get {theirs}", "same team"),
+                          ("just vibes", "Write the trade")]:
+        result = Optimizer(demo_league(), config(), State(), None, NOW, score_trade=text).run()
+        assert result.asked_trade is None and message in result.asked_trade_error
+        assert message in report.render(result)

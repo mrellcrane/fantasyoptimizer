@@ -180,6 +180,30 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     return ideas
 
 
+def evaluate_trade(league: League, rosters: dict[int, list[int]], valuer: Valuer, cfg: Config,
+                   state: State, now: dt.datetime, partner: int,
+                   give: tuple[int, ...], get: tuple[int, ...]) -> TradeIdea:
+    """Score one specific trade, whatever the thresholds would have said."""
+    me = league.my_team_id
+    value = trade_value(league, valuer)
+    my_roster, their_roster = rosters[me], rosters[partner]
+    new_me = [pid for pid in my_roster if pid not in give] + list(get)
+    my_drops = _forced_drops(league, valuer, my_roster, new_me, get,
+                             lambda p: droppable(p, cfg, state, now)) or ()
+    new_me = [pid for pid in new_me if pid not in my_drops]
+    new_them = [pid for pid in their_roster if pid not in get] + list(give)
+    their_drops = _forced_drops(league, valuer, their_roster, new_them, give,
+                                lambda p: not (p.roster_locked or p.lineup_locked)) or ()
+    new_them = [pid for pid in new_them if pid not in their_drops]
+    value_get = sum(value[pid] for pid in get)
+    fairness = sum(value[pid] for pid in give) / value_get if value_get > 0 else 10.0
+    partner_gain = valuer.value(new_them) - valuer.value(their_roster)
+    return TradeIdea(partner, tuple(give), tuple(get), tuple(my_drops), tuple(their_drops),
+                     my_gain=valuer.value(new_me) - valuer.value(my_roster),
+                     partner_gain=partner_gain, fairness=fairness,
+                     accept_chance=accept_chance(fairness, partner_gain, cfg))
+
+
 def apply(rosters: dict[int, list[int]], me: int, idea: TradeIdea) -> dict[int, list[int]]:
     out = dict(rosters)
     out[me] = [pid for pid in rosters[me] if pid not in idea.give and pid not in idea.my_drops] + list(idea.get)

@@ -104,6 +104,33 @@ def lineup_section(result: RunResult) -> list[str]:
     return lines
 
 
+def asked_trade_section(result: RunResult) -> list[str]:
+    league, t = result.league, result.asked_trade
+    if result.asked_trade_error:
+        return ["", "## The trade you asked about", "", f"Couldn't score it: {result.asked_trade_error}"]
+    if not t:
+        return []
+    if t.my_title_gain > 0.25 and t.my_gain > 0:
+        verdict = "**Worth sending.**"
+    elif t.my_gain > 0 and t.my_title_gain > 0:
+        verdict = "**Small win for you.** Fine to send, but it won't move the needle much."
+    else:
+        verdict = "**Not worth it for you.**"
+    lines = ["", "## The trade you asked about", "",
+             f"**{league.team_name(t.partner)}**: {describe_trade(league, t)}", "",
+             f"{verdict} You: {t.my_gain:+.1f} season pts, {t.my_title_gain:+.1f}% title odds. "
+             f"Them: {t.partner_gain:+.1f} season pts, {t.partner_title_gain:+.1f}% title odds. "
+             f"Accept chance ~{100 * t.accept_chance:.0f}%."]
+    if t.partner_drops:
+        drops = ", ".join(league.players[pid].name for pid in t.partner_drops)
+        lines.append(f"They'd have to drop {drops} to fit everyone.")
+    if t.pitch:
+        lines.append(f"\nPitch: \"{t.pitch}\"")
+    if result.asked_trade_why:
+        lines.append(f"\nWhy: {result.asked_trade_why}")
+    return lines
+
+
 def trade_list(league: League, ideas) -> list[str]:
     lines = []
     for n, t in enumerate(ideas, 1):
@@ -217,6 +244,7 @@ def render(result: RunResult, max_rows: int = 8) -> str:
           f"projected {base.expected_wins[me.id]:.1f} wins.",
     ]
     lines += lineup_section(result)
+    lines += asked_trade_section(result)
     lines += ["", "## Moves"]
     if result.actions:
         for a in result.actions:
@@ -344,6 +372,8 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
             "title_odds": round(base.title_odds[t.id], 4),
             "projected_wins": round(base.expected_wins[t.id], 2),
         } for t in league.teams.values()],
+        "asked_trade": (trade_json(result.asked_trade) if result.asked_trade
+                        else {"error": result.asked_trade_error} if result.asked_trade_error else None),
         "lineup_check": None if not result.lineup_check else {
             "week": result.lineup_check.week,
             "best_points": round(result.lineup_check.best, 1),

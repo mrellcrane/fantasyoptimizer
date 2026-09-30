@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import datetime as dt
 import logging
+import re
 from collections import Counter
 from dataclasses import dataclass, field
 
@@ -93,6 +94,9 @@ class RunResult:
     trade_ideas: list[trades.TradeIdea] = field(default_factory=list)
     long_shots: list[trades.TradeIdea] = field(default_factory=list)
     lineup_check: LineupCheck | None = None
+    asked_trade: trades.TradeIdea | None = None   # a trade the user asked us to score
+    asked_trade_why: str = ""
+    asked_trade_error: str = ""
     lineup_gain: float = 0.0
     incoming: list[IncomingOffer] = field(default_factory=list)
     actions: list[Action] = field(default_factory=list)
@@ -103,7 +107,9 @@ class RunResult:
 
 class Optimizer:
     def __init__(self, league: League, cfg: Config, state: State,
-                 client: espn.EspnClient | None = None, now: dt.datetime | None = None):
+                 client: espn.EspnClient | None = None, now: dt.datetime | None = None,
+                 score_trade: str | None = None):
+        self.asked = (score_trade or "").strip()
         self.league = league
         self.cfg = cfg
         self.state = state
@@ -198,6 +204,45 @@ class Optimizer:
         line = _join(bits)
         return line[0].upper() + line[1:] + "."
 
+    def _find(self, name: str, pool: list[int], where: str) -> int:
+        needle = name.strip().lower()
+        exact = [pid for pid in pool if self.league.players[pid].name.lower() == needle]
+        loose = exact or [pid for pid in pool if needle in self.league.players[pid].name.lower()]
+        if len(loose) == 1:
+            return loose[0]
+        if not loose:
+            raise ValueError(f"Couldn't find \"{name.strip()}\" {where}.")
+        names = ", ".join(self.league.players[pid].name for pid in loose[:5])
+        raise ValueError(f'"{name.strip()}" matches more than one player {where}: {names}.')
+
+    def score_trade(self, text: str, result: RunResult) -> None:
+        """Score a trade typed as "give A, B; get C, D" (or "A, B for C, D")."""
+        m = (re.match(r"(?is)\s*give\s+(.+?)\s*[;|/]\s*(?:get|for)\s+(.+)$", text)
+             or re.match(r"(?is)\s*(?:give\s+)?(.+?)\s+for\s+(.+)$", text))
+        if not m:
+            raise ValueError('Write the trade as "give Player A, Player B; get Player C".')
+        split = lambda part: [n for n in re.split(r"\s*(?:,|\+|&|\band\b)\s*", part) if n.strip()]  # noqa: E731
+        mine = self.rosters[self.me]
+        others = [pid for t, r in self.rosters.items() if t != self.me for pid in r]
+        give = tuple(self._find(n, mine, "on your roster") for n in split(m.group(1)))
+        get = tuple(self._find(n, others, "on another team") for n in split(m.group(2)))
+        partners = {self.league.players[pid].team_id for pid in get}
+        if len(partners) != 1:
+            raise ValueError("Everyone you get has to come from the same team.")
+        partner = partners.pop()
+        idea = trades.evaluate_trade(self.league, self.rosters, self.valuer, self.cfg, self.state,
+                                     self.now, partner, give, get)
+        baseline = self.odds(self.rosters)
+        after = trades.apply(self.rosters, self.me, idea)
+        odds = self.odds(after)
+        idea.my_title_gain = 100 * (odds.title_odds[self.me] - baseline.title_odds[self.me])
+        idea.partner_title_gain = 100 * (odds.title_odds[partner] - baseline.title_odds[partner])
+        idea.pitch = self.pitch(idea)
+        result.asked_trade = idea
+        result.asked_trade_why = (
+            f"For you: {self.explain(self.rosters[self.me], after[self.me])} "
+            f"For them: {self.explain(self.rosters[partner], after[partner], 'their')}")
+
     # ------------------------------------------------------------ execution
 
     def execute(self, action: Action) -> Action:
@@ -227,6 +272,11 @@ class Optimizer:
             result.notes.append("Season is over. Nothing to do.")
             return result
 
+        if self.asked:  # scored against today's real rosters, before any planned moves
+            try:
+                self.score_trade(self.asked, result)
+            except ValueError as exc:
+                result.asked_trade_error = str(exc)
         if cfg.waivers.enabled:
             self.do_waivers(result)
         result.lineup_check = self.lineup_check()

@@ -40,6 +40,8 @@ def main(argv: list[str] | None = None) -> int:
     mode.add_argument("--live", action="store_true", help="send moves to ESPN (overrides DRY_RUN)")
     mode.add_argument("--dry-run", action="store_true", help="never send anything to ESPN")
     ap.add_argument("--demo", action="store_true", help="run against a made-up league, offline")
+    ap.add_argument("--score-trade", default=os.environ.get("TRADE", ""),
+                    help='score one trade: "give A, B; get C, D"')
     ap.add_argument("--no-trades", action="store_true")
     ap.add_argument("--no-waivers", action="store_true")
     ap.add_argument("--no-lineup", action="store_true")
@@ -81,7 +83,7 @@ def main(argv: list[str] | None = None) -> int:
             raise
 
     state = State.load(args.state)
-    result = Optimizer(league, cfg, state, client).run()
+    result = Optimizer(league, cfg, state, client, score_trade=args.score_trade).run()
     if not result.dry_run:
         state.save()
 

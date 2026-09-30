@@ -13,6 +13,10 @@ on:
         type: choice
         options: [default, dry-run, live]
         default: default
+      trade:
+        description: 'Score a trade, e.g. "give Breece Hall, Joe Burrow; get Chris Olave"'
+        type: string
+        default: ""
 
 concurrency:
   group: fantasy-optimizer
@@ -51,6 +55,7 @@ jobs:
           ESPN_SWID: ${{ secrets.ESPN_SWID }}
           ESPN_TEAM_ID: ${{ vars.ESPN_TEAM_ID }}
           NOTIFY_URL: ${{ secrets.NOTIFY_URL }}
+          TRADE: ${{ inputs.trade }}
           DRY_RUN: ${{ inputs.mode == 'live' && 'false' || inputs.mode == 'dry-run' && 'true' || vars.DRY_RUN || 'true' }}
           EXTRA_ARGS: ${{ github.event.schedule == '7 16 * * 0' && '--no-trades --no-waivers' || '' }}
         run: python -m fantasyoptimizer $EXTRA_ARGS

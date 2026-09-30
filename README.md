@@ -52,6 +52,10 @@ ESPN_LEAGUE_ID=... ESPN_S2=... ESPN_SWID=... python -m fantasyoptimizer   # dry 
 python -m fantasyoptimizer --live                  # actually send moves
 ```
 
+## Score a trade you're considering
+
+**Actions → Daily fantasy moves → Run workflow**, then type the trade in the **trade** box, for example `give Breece Hall, Joe Burrow; get Chris Olave, RJ Harvey`. The report opens with the verdict: points and title odds for both sides, the chance they accept, the reasoning, and a pitch line. Partial names work if they're unique ("Olave").
+
 ## Reports
 
 Each run saves its report on the `reports` branch:
