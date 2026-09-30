@@ -46,7 +46,7 @@ class LineupConfig:
 class WaiverConfig:
     enabled: bool = True
     max_moves_per_run: int = 1
-    min_gain_points: float = 5.0   # Weighted rest-of-season points
+    min_gain_points: float = 12.0  # Weighted rest-of-season points (smaller is noise)
     min_title_gain: float = 0.0    # Percentage points of championship odds
     pool_per_position: int = 8     # Free agents considered at each position
     sim_candidates: int = 10

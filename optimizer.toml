@@ -33,7 +33,8 @@ enabled = true               # Set the best lineup every run (benches byes, OUT 
 [waivers]
 enabled = true
 max_moves_per_run = 1
-min_gain_points = 5.0        # Rest-of-season starting-lineup points a pickup must add
+min_gain_points = 12.0       # Rest-of-season starting-lineup points a pickup must add
+                             # (less than ~1 point a week isn't worth losing depth over)
 min_title_gain = 0.0         # ...and it can't lower title odds (percentage points)
 pool_per_position = 8        # How many free agents to consider at each position
 sim_candidates = 10
