@@ -61,6 +61,49 @@ def _week_headers(league: League) -> str:
     return " | ".join(f"Wk {sp}" for sp in league.horizon[:WEEKS_SHOWN])
 
 
+def lineup_section(result: RunResult) -> list[str]:
+    check, league, valuer = result.lineup_check, result.league, result.valuer
+    if not check or not valuer:
+        return []
+
+    def pts(pid: int, col: int) -> float:
+        return float(valuer.points[valuer.row[pid], col])
+
+    def name(pid: int) -> str:
+        return league.players[pid].name
+
+    lines = ["", "## Lineup check", ""]
+    if check.swaps:
+        done = (not result.dry_run
+                and any(a.kind == "lineup" and a.ok for a in result.actions))
+        lines.append(f"**Week {check.week}: swaps worth +{check.gain:.1f} projected points**"
+                     + (" (the bot already made them)" if done else ""))
+        lines += [f"- Start **{name(a)}** ({pts(a, 0):.1f}) over **{name(b)}** ({pts(b, 0):.1f})"
+                  for a, b in check.swaps]
+    else:
+        lines.append(f"**Week {check.week}:** your lineup is already your best one "
+                     f"({check.best:.1f} projected points).")
+    if check.next_week:
+        lines.append("")
+        if not check.holes:
+            lines.append(f"**Week {check.next_week}:** no byes or injuries among your starters.")
+        else:
+            lines.append(f"**Week {check.next_week} heads-up:**")
+            for h in check.holes:
+                text = f"- **{name(h.player)}** ({league.players[h.player].position}) is {h.reason}"
+                if h.fill is not None:
+                    text += f": start **{name(h.fill)}** ({pts(h.fill, 1):.1f}) instead."
+                elif h.free_agent is not None:
+                    fa = league.players[h.free_agent]
+                    where = "on waivers" if fa.status == "WAIVERS" else "a free agent"
+                    text += (f", and nobody on your bench can play {SLOT_NAMES.get(h.slot, h.slot)}. "
+                             f"Best pickup: **{fa.name}** ({pts(fa.id, 1):.1f}, {where}).")
+                else:
+                    text += ", and there's nobody to fill in."
+                lines.append(text)
+    return lines
+
+
 def trade_list(league: League, ideas) -> list[str]:
     lines = []
     for n, t in enumerate(ideas, 1):
@@ -172,9 +215,9 @@ def render(result: RunResult, max_rows: int = 8) -> str:
         + f". Playoff odds **{_pct(base.playoff_odds[me.id])}**, "
           f"title odds **{_pct(base.title_odds[me.id])}**, "
           f"projected {base.expected_wins[me.id]:.1f} wins.",
-        "",
-        "## Moves",
     ]
+    lines += lineup_section(result)
+    lines += ["", "## Moves"]
     if result.actions:
         for a in result.actions:
             extra = f" ({a.response})" if a.response else ""
@@ -251,6 +294,12 @@ def short_summary(result: RunResult) -> str:
     head = (f"{league.my_team.name}: title odds {_pct(base.title_odds[me])}, "
             f"playoffs {_pct(base.playoff_odds[me])}")
     moves = [f"[{_status(a)}] {a.summary}" for a in result.actions] or ["No moves today."]
+    check = result.lineup_check
+    if check and check.swaps:
+        moves.insert(0, f"Lineup: {len(check.swaps)} swap(s) worth +{check.gain:.1f} pts this week")
+    if check and check.holes:
+        names = ", ".join(league.players[h.player].name for h in check.holes)
+        moves.insert(0, f"Week {check.next_week} heads-up: {names} can't play")
     offers = [f"Offer from {league.team_name(o.partner)}: {o.title_gain:+.1f}% title odds"
               for o in result.incoming]
     return "\n".join([head, *moves, *offers])
@@ -295,6 +344,19 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
             "title_odds": round(base.title_odds[t.id], 4),
             "projected_wins": round(base.expected_wins[t.id], 2),
         } for t in league.teams.values()],
+        "lineup_check": None if not result.lineup_check else {
+            "week": result.lineup_check.week,
+            "best_points": round(result.lineup_check.best, 1),
+            "gain": round(result.lineup_check.gain, 1),
+            "swaps": [{"start": league.players[a].name, "sit": league.players[b].name}
+                      for a, b in result.lineup_check.swaps],
+            "next_week": result.lineup_check.next_week,
+            "holes": [{"player": league.players[h.player].name, "reason": h.reason,
+                       "fill": league.players[h.fill].name if h.fill is not None else None,
+                       "free_agent": (league.players[h.free_agent].name
+                                      if h.free_agent is not None else None)}
+                      for h in result.lineup_check.holes],
+        },
         "moves": [{"kind": a.kind, "summary": a.summary, "why": a.why, "pitch": a.pitch,
                    "status": _status(a), "response": a.response} for a in result.actions],
         "pickup_ideas": [{"add": i.add.name, "drop": i.drop.name if i.drop else None,

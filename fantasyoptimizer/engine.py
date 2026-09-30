@@ -32,6 +32,25 @@ class Action:
 
 
 @dataclass
+class LineupHole:
+    player: int                 # a starter who can't play next week
+    slot: int
+    reason: str                 # "on bye" / "out"
+    fill: int | None = None     # bench player who'd take the spot
+    free_agent: int | None = None  # if nobody on the bench can
+
+
+@dataclass
+class LineupCheck:
+    week: int
+    best: float                 # projected points of the best lineup this week
+    gain: float                 # ...minus what the current lineup would score
+    swaps: list[tuple[int, int]] = field(default_factory=list)  # (start, sit)
+    next_week: int | None = None
+    holes: list[LineupHole] = field(default_factory=list)
+
+
+@dataclass
 class LineupChange:
     weeks: int
     old_starts: Counter = field(default_factory=Counter)   # weeks each player started before
@@ -73,6 +92,7 @@ class RunResult:
     add_ideas: list[waivers.AddDrop] = field(default_factory=list)
     trade_ideas: list[trades.TradeIdea] = field(default_factory=list)
     long_shots: list[trades.TradeIdea] = field(default_factory=list)
+    lineup_check: LineupCheck | None = None
     lineup_gain: float = 0.0
     incoming: list[IncomingOffer] = field(default_factory=list)
     actions: list[Action] = field(default_factory=list)
@@ -209,6 +229,7 @@ class Optimizer:
 
         if cfg.waivers.enabled:
             self.do_waivers(result)
+        result.lineup_check = self.lineup_check()
         if cfg.lineup.enabled:
             self.do_lineup(result)
         if cfg.trades.enabled:
@@ -226,15 +247,17 @@ class Optimizer:
             roster = self.rosters[self.me]
             ideas = waivers.find_add_drops(self.league, roster, self.valuer, self.cfg,
                                            self.state, self.now, exclude=claimed)
+            # Bye-week patches are only shown, so they mustn't crowd out real pickups.
+            actionable = [i for i in ideas if not i.patch][:wc.sim_candidates]
+            patches = [i for i in ideas if i.patch][:3]
             base = self.odds(self.rosters)
-            for idea in ideas[:wc.sim_candidates]:
+            for idea in actionable + patches:
                 trial = {**self.rosters, self.me: waivers.apply(roster, idea)}
                 idea.title_gain = 100 * (self.odds(trial).title_odds[self.me] - base.title_odds[self.me])
             if not result.add_ideas:
-                result.add_ideas = ideas[:wc.sim_candidates]
-            good = [i for i in ideas[:wc.sim_candidates]
-                    if i.gain >= wc.min_gain_points and i.title_gain is not None
-                    and i.title_gain >= wc.min_title_gain and not i.patch]
+                result.add_ideas = actionable + patches
+            good = [i for i in actionable
+                    if i.gain >= wc.min_gain_points and i.title_gain >= wc.min_title_gain]
             if not good:
                 break
             best = max(good, key=lambda i: (round(i.title_gain, 2), i.gain))
@@ -266,10 +289,11 @@ class Optimizer:
                 p = self.league.players[best.add.id]
                 p.lineup_slot, p.team_id = BENCH_SLOT, self.me
 
-    def do_lineup(self, result: RunResult) -> None:
+    def lineup_plan(self) -> tuple[list[tuple[int, int, int]], float, float] | None:
+        """This week's best lineup: (moves, its projected points, current lineup's points)."""
         league, valuer = self.league, self.valuer
-        if league.horizon[0] != league.current_scoring_period:
-            return
+        if not league.horizon or league.horizon[0] != league.current_scoring_period:
+            return None
         players = [league.players[pid] for pid in self.lineup_roster]
         points = {p.id: valuer.points[valuer.row[p.id], 0] for p in players}
 
@@ -285,14 +309,22 @@ class Optimizer:
         best, assignment = valuer.solve(ids, np.array([points[pid] for pid in ids]),
                                         slots=open_slots, prefer=current)
         now_pts = sum(points[pid] for pid in ids if current[pid] not in (BENCH_SLOT, IR_SLOT))
-        result.lineup_gain = best - now_pts
         moves = []
         for pid in ids:
             target = valuer.slots[assignment[pid]] if pid in assignment else BENCH_SLOT
             if target != current[pid]:
                 moves.append((pid, current[pid], target))
+        return moves, best, now_pts
+
+    def do_lineup(self, result: RunResult) -> None:
+        plan = self.lineup_plan()
+        if plan is None:
+            return
+        moves, best, now_pts = plan
+        result.lineup_gain = best - now_pts
         if not moves or result.lineup_gain < 0.1:
             return
+        league = self.league
         desc = "; ".join(f"{league.players[pid].name} {SLOT_NAMES.get(a, a)}->{SLOT_NAMES.get(b, b)}"
                          for pid, a, b in moves)
         result.actions.append(self.execute(Action(
@@ -300,6 +332,62 @@ class Optimizer:
             summary=f"Set lineup (+{result.lineup_gain:.1f} projected pts this week): {desc}",
             payload=espn.lineup_payload(league, moves),
         )))
+
+    def lineup_check(self) -> LineupCheck | None:
+        """The quick wins: bench-for-starter swaps this week, and holes coming next week."""
+        plan = self.lineup_plan()
+        if plan is None:
+            return None
+        moves, best, now_pts = plan
+        league, valuer = self.league, self.valuer
+
+        def pts(pid: int, col: int) -> float:
+            return float(valuer.points[valuer.row[pid], col])
+
+        def starting(slot: int | None) -> bool:
+            return slot not in (None, BENCH_SLOT, IR_SLOT)
+
+        check = LineupCheck(week=league.horizon[0], best=best, gain=best - now_pts)
+        if check.gain >= 0.1:
+            # Pair each player coming off the bench with whoever leaves the same slot.
+            ins = sorted(((pid, b) for pid, a, b in moves if not starting(a) and starting(b)),
+                         key=lambda m: -pts(m[0], 0))
+            outs = [(pid, a) for pid, a, b in moves if starting(a) and not starting(b)]
+            for pid, slot in ins:
+                match = next((o for o in outs if o[1] == slot), outs[0] if outs else None)
+                if match is not None:
+                    outs.remove(match)
+                    check.swaps.append((pid, match[0]))
+        if len(league.horizon) < 2:
+            return check
+
+        # ESPN carries this week's lineup into next week, so look for starters who can't play.
+        check.next_week = league.horizon[1]
+        slot_after = {pid: league.players[pid].lineup_slot for pid in self.lineup_roster}
+        for pid, _, target in moves:
+            slot_after[pid] = target
+        starters = [pid for pid, slot in slot_after.items() if starting(slot)]
+        _, best_next = valuer.solve([pid for pid, slot in slot_after.items() if slot != IR_SLOT],
+                                    column=1)
+        newcomers = [pid for pid in best_next if pid not in starters]
+        for pid in starters:
+            if pts(pid, 1) > 0:
+                continue
+            p, slot = league.players[pid], slot_after[pid]
+            reason = ("on bye" if league.games(p.pro_team_id, check.next_week) == 0
+                      else p.injury_status.replace("_", " ").lower())
+            hole = LineupHole(player=pid, slot=slot, reason=reason)
+            hole.fill = next((q for q in newcomers if slot in league.players[q].eligible_slots), None)
+            if hole.fill is not None:
+                newcomers.remove(hole.fill)
+            else:
+                options = [q for q in league.players.values()
+                           if q.available and not q.lineup_locked and slot in q.eligible_slots
+                           and pts(q.id, 1) > 0]
+                if options:
+                    hole.free_agent = max(options, key=lambda q: pts(q.id, 1)).id
+            check.holes.append(hole)
+        return check
 
     def _shortlist(self, ideas: list[trades.TradeIdea], baseline: SimResult,
                    skip: set[str] = frozenset()) -> list[trades.TradeIdea]:

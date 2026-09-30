@@ -201,3 +201,19 @@ def test_waiver_claim_does_not_change_todays_lineup():
     claimed = next(i["playerId"] for i in claim["items"] if i["type"] == "ADD")
     for payload in (p for p in client.sent if p["type"] == "ROSTER"):
         assert claimed not in {i["playerId"] for i in payload["items"]}
+
+
+def test_lineup_check_swaps_and_next_week_holes():
+    league = demo_league()
+    result = Optimizer(league, config(), State(), None, NOW).run()
+    check = result.lineup_check
+    assert check.week == 4 and check.next_week == 5
+    assert check.swaps and check.gain > 0
+    for start, sit in check.swaps:  # same kind of spot, and the starter projects higher
+        assert league.players[start].position == league.players[sit].position
+        v = result.valuer
+        assert v.points[v.row[start], 0] >= v.points[v.row[sit], 0]
+    tes = [h for h in check.holes if league.players[h.player].position == "TE"]
+    assert tes and tes[0].reason == "on bye" and tes[0].fill is not None
+    text = report.render(result)
+    assert text.index("## Lineup check") < text.index("## Moves")

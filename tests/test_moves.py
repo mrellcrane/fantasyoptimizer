@@ -191,3 +191,15 @@ def test_long_shots_loosen_what_the_other_team_must_like():
     bold = find_trades(league, rosters, valuer, cfg, State(), NOW, long_shot=True)
     assert bold and all(i.partner_gain >= cfg.trades.long_shot_min_partner_gain_points for i in bold)
     assert [i.my_gain for i in bold] == sorted((i.my_gain for i in bold), reverse=True)
+
+
+def test_next_week_hole_with_no_backup_suggests_a_free_agent():
+    from fantasyoptimizer.engine import Optimizer
+    qb = make_player(1, "QB", 20, slot=0, pro=1)     # our only QB, on bye next week
+    rest = [make_player(2, "RB", 14, slot=2, pro=2), make_player(3, "WR", 14, slot=4, pro=2),
+            make_player(4, "RB", 10, slot=23, pro=2)]
+    fa_qb = make_player(900, "QB", 12, pro=3)
+    league = make_league({1: [qb] + rest, 2: full_roster(2, 100)}, [fa_qb], byes={1: 2})
+    check = Optimizer(league, fast_config(), State(), None, NOW).lineup_check()
+    assert not check.swaps
+    assert [(h.player, h.reason, h.fill, h.free_agent) for h in check.holes] == [(1, "on bye", None, 900)]
