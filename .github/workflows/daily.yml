@@ -51,7 +51,7 @@ jobs:
         run: python -m fantasyoptimizer $EXTRA_ARGS
 
       - name: Save memory
-        if: always()
+        if: always() && hashFiles('.state/state.json') != ''
         uses: actions/cache/save@v4
         with:
           path: .state
