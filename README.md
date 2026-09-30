@@ -28,15 +28,13 @@ These cookies are effectively your ESPN login, so only put them in GitHub secret
 
 ### 2. Add them to this repo
 
-Go to **Settings → Secrets and variables → Actions**.
+Your league and team ids are already in `optimizer.toml` (`[general]`). The cookies go in as secrets: **Settings → Secrets and variables → Actions → New repository secret**.
 
 | Kind | Name | Value |
 |---|---|---|
-| Secret | `ESPN_LEAGUE_ID` | your league id |
 | Secret | `ESPN_S2` | the `espn_s2` cookie |
 | Secret | `ESPN_SWID` | the `SWID` cookie, braces included |
 | Secret (optional) | `NOTIFY_URL` | an [ntfy.sh](https://ntfy.sh) topic URL, or a Discord/Slack webhook, for a phone ping after each run |
-| Variable (optional) | `ESPN_TEAM_ID` | only needed if it can't find your team from your SWID |
 | Variable | `DRY_RUN` | leave unset (dry run) until you trust it, then set to `false` |
 
 ### 3. Try it

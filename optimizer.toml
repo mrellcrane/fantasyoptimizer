@@ -1,7 +1,9 @@
-# Tuning knobs. Secrets (league id, cookies) go in environment variables, not here.
-# Every value below is the default; delete a line to keep the default.
+# Tuning knobs. The ESPN cookies are secrets: they go in GitHub secrets, never here.
+# Apart from your league and team, every value below is the default.
 
 [general]
+league_id = 473811221        # ScreamStream 2024 League (ESPN_LEAGUE_ID overrides)
+team_id = 4                  # Elliott Eats Everyone (ESPN_TEAM_ID overrides)
 # Safety switch. The DRY_RUN env var overrides this (the GitHub workflow sets it).
 dry_run = true
 

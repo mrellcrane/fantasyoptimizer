@@ -17,6 +17,8 @@ class Resp:
 
 def test_load_league_requests_and_parses(monkeypatch):
     league_json, free_agents, pro_teams = demo_data()
+    league_json["settings"]["rosterSettings"]["lineupSlotCounts"]["15"] = 1  # a DP slot
+    fa_filters = []
     rostered = [e["playerPoolEntry"] for t in league_json["teams"] for e in t["roster"]["entries"]]
     calls = []
 
@@ -29,6 +31,8 @@ def test_load_league_requests_and_parses(monkeypatch):
             filt = json.loads(headers["X-Fantasy-Filter"])["players"]
             # ESPN rejects a limit without a sort.
             assert "limit" in filt and any(k.startswith("sort") for k in filt)
+            if "filterIds" not in filt:
+                fa_filters.append(filt)
             return Resp({"players": rostered if "filterIds" in filt else free_agents})
         return Resp(league_json)
 
@@ -40,6 +44,8 @@ def test_load_league_requests_and_parses(monkeypatch):
     assert len(calls) == 4
     assert calls[0][1].endswith("/games/ffl/seasons/2026/segments/0/leagues/424242")
     assert ("view", "mRoster") in calls[0][2]
+    # Defensive players get fetched when the league starts them.
+    assert 15 in fa_filters[0]["filterSlotIds"]["value"]
 
 
 def test_errors_are_explained(monkeypatch):
@@ -51,3 +57,12 @@ def test_errors_are_explained(monkeypatch):
         assert "ESPN_S2" in str(exc)
     else:
         raise AssertionError("expected an error")
+
+
+def test_private_league_without_cookies_skips_in_ci(monkeypatch, tmp_path):
+    from fantasyoptimizer import cli
+    monkeypatch.setattr(requests.Session, "request", lambda *a, **k: Resp({"messages": ["nope"]}, 401))
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    monkeypatch.setenv("ESPN_LEAGUE_ID", "473811221")
+    monkeypatch.delenv("ESPN_S2", raising=False)
+    assert cli.main(["--config", str(tmp_path / "none.toml"), "--report", str(tmp_path / "r.md")]) == 0

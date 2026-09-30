@@ -87,3 +87,16 @@ def test_trade_respects_untouchable_cooldown_and_pending():
 
     cfg.trades.do_not_trade_with = ["Team 2"]
     assert not find_trades(league, rosters, valuer, cfg, State(), NOW)
+
+
+def test_idp_slot_gets_filled_by_pickup():
+    # Leagues with a DP slot: an empty DP slot makes a linebacker a real pickup.
+    fa_lb = make_player(900, "LB", 12)
+    league = make_league({1: full_roster(1, 0), 2: full_roster(2, 100)}, [fa_lb])
+    league.slot_counts[15] = 1
+    league.slot_counts[20] = 1   # keep the roster limit the same
+    cfg = fast_config()
+    valuer = Valuer(league, cfg)
+    assert 15 in valuer.slots
+    ideas = find_add_drops(league, league.teams[1].roster, valuer, cfg, State(), NOW)
+    assert ideas[0].add.id == 900 and ideas[0].gain == 12 * 4

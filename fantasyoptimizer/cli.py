@@ -12,7 +12,7 @@ import requests
 from . import report
 from .config import load_config
 from .engine import Optimizer
-from .espn import EspnClient
+from .espn import EspnClient, EspnError
 from .state import State
 
 log = logging.getLogger("fantasyoptimizer")
@@ -69,7 +69,14 @@ def main(argv: list[str] | None = None) -> int:
                 return 0
             ap.error(msg)
         client = EspnClient(cfg.league_id, cfg.year, cfg.espn_s2, cfg.swid)
-        league = client.load_league(cfg.team_id)
+        try:
+            league = client.load_league(cfg.team_id)
+        except EspnError as exc:
+            if exc.status in (401, 403) and not cfg.espn_s2 and os.environ.get("GITHUB_ACTIONS"):
+                print("::warning::Skipping run. The league is private: add the ESPN_S2 and "
+                      "ESPN_SWID secrets. See README.md.")
+                return 0
+            raise
 
     state = State.load(args.state)
     result = Optimizer(league, cfg, state, client).run()
