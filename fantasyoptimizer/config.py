@@ -51,6 +51,10 @@ class WaiverConfig:
     pool_size: int = 60
     sim_candidates: int = 10
     never_drop: list[str] = field(default_factory=list)
+    # Pickups that only fill a bye/injury hole weeks from now wait until closer to then.
+    patch_lookahead_weeks: int = 2
+    patch_min_near_gain: float = 1.0
+    patch_max_start_share: float = 0.34
     hold_days: int = 7             # Don't drop someone we picked up this recently
     readd_cooldown_days: int = 14  # Don't re-add someone we dropped this recently
     faab_max_fraction: float = 0.30

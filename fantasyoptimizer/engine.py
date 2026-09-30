@@ -52,6 +52,7 @@ class RunResult:
     actions: list[Action] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)
     valuer: Valuer | None = None
+    max_moves: int = 1
 
 
 class Optimizer:
@@ -130,7 +131,8 @@ class Optimizer:
     def run(self) -> RunResult:
         league, cfg = self.league, self.cfg
         baseline = self.odds(self.rosters)
-        result = RunResult(league=league, dry_run=self.dry_run, baseline=baseline, valuer=self.valuer)
+        result = RunResult(league=league, dry_run=self.dry_run, baseline=baseline, valuer=self.valuer,
+                           max_moves=cfg.waivers.max_moves_per_run)
         if not league.horizon:
             result.notes.append("Season is over. Nothing to do.")
             return result
@@ -162,7 +164,7 @@ class Optimizer:
                 result.add_ideas = ideas[:wc.sim_candidates]
             good = [i for i in ideas[:wc.sim_candidates]
                     if i.gain >= wc.min_gain_points and i.title_gain is not None
-                    and i.title_gain >= wc.min_title_gain]
+                    and i.title_gain >= wc.min_title_gain and not i.patch]
             if not good:
                 break
             best = max(good, key=lambda i: (round(i.title_gain, 2), i.gain))

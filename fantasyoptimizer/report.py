@@ -61,6 +61,25 @@ def _week_headers(league: League) -> str:
     return " | ".join(f"Wk {sp}" for sp in league.horizon[:WEEKS_SHOWN])
 
 
+def starts_text(weeks: list[int], total: int) -> str:
+    if 0 < len(weeks) <= 3:
+        return f"{len(weeks)} of {total} (wk {', '.join(map(str, weeks))})"
+    return f"{len(weeks)} of {total}"
+
+
+def pickup_rows(ideas, limit: int, per_position: int = 2):
+    """Best pickups without eight versions of the same move."""
+    seen: dict[str, int] = {}
+    rows = []
+    for i in ideas:
+        if seen.get(i.add.position, 0) < per_position:
+            seen[i.add.position] = seen.get(i.add.position, 0) + 1
+            rows.append(i)
+        if len(rows) >= limit:
+            break
+    return rows
+
+
 def roster_section(result: RunResult) -> list[str]:
     league = result.league
     if not league.horizon:
@@ -150,12 +169,18 @@ def render(result: RunResult, max_rows: int = 8) -> str:
 
     if result.add_ideas:
         lines += ["", "## Best pickups", "",
-                  "| Add | Drop | Type | Season pts | Title odds |",
-                  "|---|---|---|---:|---:|"]
-        for i in result.add_ideas[:max_rows]:
+                  "_Alternatives, best first (at most two per position). The bot makes at most "
+                  f"{result.max_moves} per run._", "",
+                  "| Add | Drop | Type | Starts | Season pts | Title odds | Note |",
+                  "|---|---|---|---|---:|---:|---|"]
+        for i in pickup_rows(result.add_ideas, max_rows):
             kind = (f"Waiver ${i.bid}" if league.uses_faab else "Waiver") if i.waiver else "Free agent"
             title = f"{i.title_gain:+.1f}%" if i.title_gain is not None else ""
-            lines.append(f"| {i.add} | {i.drop or '(open spot)'} | {kind} | {i.gain:+.1f} | {title} |")
+            note = (f"Only fills wk {', '.join(map(str, i.start_weeks))}: add it that week"
+                    if i.patch else "")
+            lines.append(f"| {i.add} | {i.drop or '(open spot)'} | {kind} | "
+                         f"{starts_text(i.start_weeks, len(league.horizon))} | {i.gain:+.1f} | {title} "
+                         f"| {note} |")
 
     if result.trade_ideas:
         lines += ["", "## Best trade ideas", "",
@@ -236,7 +261,8 @@ def snapshot(result: RunResult, free_agents: int = 60) -> dict:
                    "status": _status(a), "response": a.response} for a in result.actions],
         "pickup_ideas": [{"add": i.add.name, "drop": i.drop.name if i.drop else None,
                           "season_points": round(i.gain, 1), "title_odds": i.title_gain,
-                          "waiver": i.waiver} for i in result.add_ideas],
+                          "waiver": i.waiver, "start_weeks": i.start_weeks,
+                          "patch": i.patch} for i in result.add_ideas],
         "trade_ideas": [{"partner": league.team_name(t.partner), "deal": describe_trade(league, t),
                          "my_points": round(t.my_gain, 1), "their_points": round(t.partner_gain, 1),
                          "my_title_odds": t.my_title_gain, "their_title_odds": t.partner_title_gain,

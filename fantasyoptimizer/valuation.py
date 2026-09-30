@@ -107,6 +107,18 @@ class Valuer:
         starters, depth = self._weekly(frozenset(roster))
         return float(self.weights @ (starters + self.cfg.value.bench_weight * depth))
 
+    def value_window(self, roster: Iterable[int], weeks: int) -> float:
+        """Like value(), but only the next `weeks` scoring periods."""
+        starters, depth = self._weekly(frozenset(roster))
+        w = self.weights[:weeks]
+        return float(w @ (starters[:weeks] + self.cfg.value.bench_weight * depth[:weeks]))
+
+    def lineup_weeks(self, roster: Iterable[int], pid: int) -> list[int]:
+        """Scoring periods in which `pid` makes this roster's best lineup."""
+        roster = list(roster)
+        return [sp for j, sp in enumerate(self.league.horizon)
+                if pid in self.solve(roster, column=j)[1]]
+
     def period_means(self, roster: Iterable[int]) -> dict[int, float]:
         """Expected score of this roster in each remaining matchup period."""
         weekly = self.weekly_points(roster)

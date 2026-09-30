@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import datetime as dt
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from .config import Config
 from .models import IR_SLOT, League, Player
@@ -18,6 +18,12 @@ class AddDrop:
     waiver: bool
     bid: int = 0
     title_gain: float | None = None   # percentage points of championship odds
+    start_weeks: list[int] = field(default_factory=list)  # weeks they'd be in the lineup
+    patch: bool = False               # only fills a hole weeks from now; add it later
+
+    @property
+    def patch_weeks(self) -> list[int]:
+        return self.start_weeks if self.patch else []
 
 
 def droppable(p: Player, cfg: Config, state: State, now: dt.datetime) -> bool:
@@ -73,8 +79,15 @@ def find_add_drops(league: League, roster: list[int], valuer: Valuer, cfg: Confi
             continue
         gain, _, drop = best
         waiver = fa.status == "WAIVERS"
+        new_roster = apply(roster, AddDrop(fa, drop, gain, waiver))
+        weeks = valuer.lineup_weeks(new_roster, fa.id)
+        near = (valuer.value_window(new_roster, wc.patch_lookahead_weeks)
+                - valuer.value_window(roster, wc.patch_lookahead_weeks))
+        patch = (near < wc.patch_min_near_gain
+                 and len(weeks) < wc.patch_max_start_share * len(league.horizon))
         ideas.append(AddDrop(add=fa, drop=drop, gain=gain, waiver=waiver,
-                             bid=faab_bid(gain, league, cfg) if waiver else 0))
+                             bid=faab_bid(gain, league, cfg) if waiver else 0,
+                             start_weeks=weeks, patch=patch))
     ideas.sort(key=lambda i: i.gain, reverse=True)
     return ideas
 

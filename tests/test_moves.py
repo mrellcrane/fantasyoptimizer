@@ -100,3 +100,37 @@ def test_idp_slot_gets_filled_by_pickup():
     assert 15 in valuer.slots
     ideas = find_add_drops(league, league.teams[1].roster, valuer, cfg, State(), NOW)
     assert ideas[0].add.id == 900 and ideas[0].gain == 12 * 4
+
+
+def test_bye_week_filler_is_a_patch_not_a_pickup():
+    # Everyone we own is on bye in week 3. A scrub who'd only start that week should
+    # wait; a real upgrade should not.
+    scrub = make_player(900, "WR", 5, pro=3)
+    stud = make_player(901, "WR", 16, pro=3)
+    league = make_league({1: full_roster(1, 0), 2: full_roster(2, 100)}, [scrub, stud], byes={1: 3})
+    cfg = fast_config()
+    cfg.waivers.min_gain_points = 1
+    ideas = {i.add.id: i for i in find_add_drops(
+        league, league.teams[1].roster, Valuer(league, cfg), cfg, State(), NOW)}
+    assert ideas[900].patch and ideas[900].start_weeks == [3]
+    assert not ideas[901].patch and len(ideas[901].start_weeks) == 4
+
+
+def test_patch_pickups_are_not_made_today():
+    from fantasyoptimizer.engine import Optimizer
+    scrub = make_player(900, "WR", 5, pro=3)
+    league = make_league({1: full_roster(1, 0), 2: full_roster(2, 100)}, [scrub], byes={1: 3})
+    cfg = fast_config()
+    cfg.dry_run = False
+    cfg.waivers.min_gain_points, cfg.waivers.min_title_gain = 1, -100
+    cfg.trades.enabled = cfg.lineup.enabled = False
+    sent = []
+
+    class Client:
+        def submit(self, payload):
+            sent.append(payload)
+            return {"status": "EXECUTED"}
+
+    result = Optimizer(league, cfg, State(), Client(), NOW).run()
+    assert result.add_ideas and result.add_ideas[0].patch
+    assert sent == []

@@ -38,6 +38,11 @@ min_title_gain = 0.0         # ...and it can't lower title odds (percentage poin
 pool_size = 60               # How many free agents to consider
 sim_candidates = 10
 never_drop = []              # e.g. ["Christian McCaffrey"]
+# A pickup that only starts a few weeks, all far off (say, one bye week in week 10),
+# is a "patch": it's reported, but made closer to that week instead of now.
+patch_lookahead_weeks = 2    # "Now" means the next this-many weeks
+patch_min_near_gain = 1.0    # Helps less than this in those weeks...
+patch_max_start_share = 0.34 # ...and starts less than this share of remaining weeks
 hold_days = 7                # Don't cut someone we picked up within this many days
 readd_cooldown_days = 14     # Don't re-add someone we cut within this many days
 faab_max_fraction = 0.30     # Biggest bid, as a share of remaining FAAB
