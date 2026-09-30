@@ -1,11 +1,105 @@
 """Markdown summary of a run (printed, saved, and posted to the GitHub job summary)."""
 from __future__ import annotations
 
+import datetime as dt
+
 from .engine import RunResult, describe_trade
+from .models import IR_SLOT, SLOT_NAMES, League, Player
+from .projections import per_game_rate
+
+WEEKS_SHOWN = 3
+# How ESPN lists lineup slots: offense, flex spots, defensive players, D/ST, K.
+SLOT_DISPLAY_ORDER = [0, 1, 2, 3, 4, 5, 6, 23, 7, 24, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 
 
 def _pct(x: float) -> str:
     return f"{100 * x:.1f}%"
+
+
+def bye_week(league: League, p: Player) -> int | None:
+    games = league.pro_games.get(p.pro_team_id)
+    if not p.pro_team_id or not games:
+        return None
+    return next((sp for sp in range(1, league.final_scoring_period + 1) if not games.get(sp)), None)
+
+
+def week_projections(result: RunResult, p: Player) -> dict[int, tuple[float, bool]]:
+    """Upcoming weeks -> (points, came straight from ESPN)."""
+    valuer = result.valuer
+    row = valuer.row.get(p.id) if valuer else None
+    out = {}
+    for j, sp in enumerate(result.league.horizon[:WEEKS_SHOWN]):
+        if sp in p.period_projections:
+            out[sp] = (p.period_projections[sp], True)
+        elif row is not None:
+            out[sp] = (float(valuer.points[row, j]), False)
+    return out
+
+
+def _player_cells(result: RunResult, p: Player) -> list[str]:
+    league = result.league
+    weeks = week_projections(result, p)
+    cells = []
+    for sp in league.horizon[:WEEKS_SHOWN]:
+        pts, espn = weeks.get(sp, (0.0, False))
+        if p.pro_team_id and league.games(p.pro_team_id, sp) == 0:
+            cells.append("BYE")
+        else:
+            cells.append(f"{pts:.1f}" if espn else f"~{pts:.1f}")
+    bye = bye_week(league, p)
+    return cells + [f"{per_game_rate(p, league, result.valuer.cfg):.1f}" if result.valuer else "",
+                    str(bye) if bye else ""]
+
+
+def _slot_order(league: League, p: Player) -> tuple[int, str]:
+    if p.lineup_slot in SLOT_DISPLAY_ORDER:
+        return SLOT_DISPLAY_ORDER.index(p.lineup_slot), p.name
+    return (len(SLOT_DISPLAY_ORDER) + (1 if p.lineup_slot == IR_SLOT else 0)), p.name
+
+
+def _week_headers(league: League) -> str:
+    return " | ".join(f"Wk {sp}" for sp in league.horizon[:WEEKS_SHOWN])
+
+
+def roster_section(result: RunResult) -> list[str]:
+    league = result.league
+    if not league.horizon:
+        return []
+    n = len(league.horizon[:WEEKS_SHOWN])
+    lines = ["", "## Your roster", "",
+             f"| Slot | Player | NFL | Status | {_week_headers(league)} | ROS/gm | Bye |",
+             "|---|---|---|---|" + "---:|" * (n + 2)]
+    players = sorted((league.players[pid] for pid in league.my_team.roster),
+                     key=lambda p: _slot_order(league, p))
+    for p in players:
+        slot = SLOT_NAMES.get(p.lineup_slot, "BE") if p.lineup_slot is not None else "BE"
+        status = "" if p.injury_status == "ACTIVE" else p.injury_status.replace("_", " ").title()
+        if p.lineup_locked:
+            status = (status + " (locked)").strip()
+        nfl = league.pro_team_abbrevs.get(p.pro_team_id, "")
+        lines.append(f"| {slot} | {p.name} ({p.position}) | {nfl} | {status} | "
+                     + " | ".join(_player_cells(result, p)) + " |")
+    return lines
+
+
+def free_agent_section(result: RunResult, count: int = 12) -> list[str]:
+    league, valuer = result.league, result.valuer
+    if not league.horizon or not valuer:
+        return []
+    pool = sorted((p for p in league.players.values() if p.available),
+                  key=lambda p: valuer.ros_points(p.id), reverse=True)[:count]
+    n = len(league.horizon[:WEEKS_SHOWN])
+    lines = ["", "## Best available players", "",
+             f"| Player | NFL | Status | {_week_headers(league)} | ROS/gm | Bye | Rostered |",
+             "|---|---|---|" + "---:|" * (n + 3)]
+    for p in pool:
+        status = "Waivers" if p.status == "WAIVERS" else "FA"
+        if p.injury_status != "ACTIVE":
+            status += ", " + p.injury_status.replace("_", " ").title()
+        nfl = league.pro_team_abbrevs.get(p.pro_team_id, "")
+        lines.append(f"| {p.name} ({p.position}) | {nfl} | {status} | "
+                     + " | ".join(_player_cells(result, p)) + f" | {p.percent_owned:.0f}% |")
+    return lines
 
 
 def _status(action) -> str:
@@ -40,6 +134,8 @@ def render(result: RunResult, max_rows: int = 8) -> str:
     else:
         lines.append("- None today. Nothing cleared the thresholds.")
 
+    lines += roster_section(result)
+
     if result.incoming:
         lines += ["", "## Trade offers sent to you", "",
                   "| From | You give | You get | Season pts | Title odds | Verdict |",
@@ -71,6 +167,8 @@ def render(result: RunResult, max_rows: int = 8) -> str:
                          f"| {t.my_title_gain:+.1f}% | {t.partner_title_gain:+.1f}% "
                          f"| ~{100 * t.accept_chance:.0f}% |")
 
+    lines += free_agent_section(result)
+
     lines += ["", "## League outlook", "",
               "| Team | Record | Proj. wins | Playoffs | Title |", "|---|---|---:|---:|---:|"]
     for t in sorted(league.teams.values(), key=lambda t: -base.title_odds[t.id]):
@@ -80,7 +178,9 @@ def render(result: RunResult, max_rows: int = 8) -> str:
 
     if result.notes:
         lines += ["", "## Notes", ""] + [f"- {n}" for n in result.notes]
-    lines += ["", "_Season pts = change in projected starting-lineup points over the rest of the "
+    lines += ["", "_Weekly numbers are ESPN projections; ~ marks the bot's own estimate (ESPN hasn't "
+              "published that week yet). ROS/gm = the bot's rest-of-season points per game. "
+              "Season pts = change in projected starting-lineup points over the rest of the "
               "season (playoff weeks weighted up). Title odds = change in simulated championship "
               "probability, in percentage points._"]
     return "\n".join(lines) + "\n"
@@ -95,3 +195,51 @@ def short_summary(result: RunResult) -> str:
     offers = [f"Offer from {league.team_name(o.partner)}: {o.title_gain:+.1f}% title odds"
               for o in result.incoming]
     return "\n".join([head, *moves, *offers])
+
+
+def snapshot(result: RunResult, free_agents: int = 60) -> dict:
+    """Everything from a run as JSON, for looking back or talking it over later."""
+    league, base, valuer = result.league, result.baseline, result.valuer
+
+    def player(p: Player) -> dict:
+        weeks = week_projections(result, p)
+        return {
+            "id": p.id, "name": p.name, "position": p.position,
+            "nfl_team": league.pro_team_abbrevs.get(p.pro_team_id, ""),
+            "fantasy_team": league.team_name(p.team_id) if p.status == "ONTEAM" else None,
+            "slot": SLOT_NAMES.get(p.lineup_slot) if p.lineup_slot is not None else None,
+            "status": p.status, "injury": p.injury_status, "locked": p.lineup_locked,
+            "projections": {str(sp): {"points": round(pts, 2), "source": "espn" if espn else "bot"}
+                            for sp, (pts, espn) in weeks.items()},
+            "ros_per_game": round(per_game_rate(p, league, valuer.cfg), 2) if valuer else None,
+            "ros_points": round(valuer.ros_points(p.id), 1) if valuer else None,
+            "season_points": p.season_actual, "season_avg": p.season_average,
+            "bye": bye_week(league, p), "percent_rostered": p.percent_owned,
+        }
+
+    rostered = [league.players[pid] for t in league.teams.values() for pid in t.roster]
+    available = sorted((p for p in league.players.values() if p.available),
+                       key=lambda p: valuer.ros_points(p.id) if valuer else p.percent_owned,
+                       reverse=True)[:free_agents]
+    return {
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "league": {"id": league.id, "name": league.name, "season": league.year,
+                   "week": league.current_scoring_period, "my_team_id": league.my_team_id},
+        "dry_run": result.dry_run,
+        "teams": [{
+            "id": t.id, "name": t.name, "wins": t.wins, "losses": t.losses, "ties": t.ties,
+            "points_for": t.points_for, "playoff_odds": round(base.playoff_odds[t.id], 4),
+            "title_odds": round(base.title_odds[t.id], 4),
+            "projected_wins": round(base.expected_wins[t.id], 2),
+        } for t in league.teams.values()],
+        "moves": [{"kind": a.kind, "summary": a.summary, "why": a.why,
+                   "status": _status(a), "response": a.response} for a in result.actions],
+        "pickup_ideas": [{"add": i.add.name, "drop": i.drop.name if i.drop else None,
+                          "season_points": round(i.gain, 1), "title_odds": i.title_gain,
+                          "waiver": i.waiver} for i in result.add_ideas],
+        "trade_ideas": [{"partner": league.team_name(t.partner), "deal": describe_trade(league, t),
+                         "my_points": round(t.my_gain, 1), "their_points": round(t.partner_gain, 1),
+                         "my_title_odds": t.my_title_gain, "their_title_odds": t.partner_title_gain,
+                         "accept_chance": round(t.accept_chance, 2)} for t in result.trade_ideas],
+        "players": [player(p) for p in rostered + available],
+    }

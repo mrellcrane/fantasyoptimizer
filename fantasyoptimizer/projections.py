@@ -44,8 +44,8 @@ def expected_points(p: Player, league: League, cfg: Config, rate: float | None =
     current = league.current_scoring_period
     out = np.zeros(len(league.horizon))
     for j, sp in enumerate(league.horizon):
-        if sp in p.period_projections and sp == current:
-            # ESPN's own number for this week already accounts for matchup, bye and injury.
+        if sp in p.period_projections:
+            # ESPN's own weekly number already accounts for matchup, bye and injury.
             out[j] = max(0.0, p.period_projections[sp])
             continue
         games = league.games(p.pro_team_id, sp)

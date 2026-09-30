@@ -8,7 +8,7 @@ Every run, it:
 2. **Sets your lineup.** It benches players who are on bye, OUT, or projected low, and starts the best available players. Players whose games have started stay put.
 3. **Proposes trades.** It looks for deals that make you better *and* look good to the other manager, since a lopsided offer just gets rejected. Then it sends the best one.
 4. **Grades trade offers sent to you.** It tells you whether to accept. It never accepts on its own.
-5. **Writes a report** covering your playoff and title odds, what it did, the best pickups and trade ideas it found, and a table of the whole league's odds.
+5. **Writes a report** covering your playoff and title odds, your roster's projections for the next few weeks, what it did and why, the best pickups and trade ideas it found, and a table of the whole league's odds.
 
 ## How it decides
 
@@ -52,6 +52,16 @@ ESPN_LEAGUE_ID=... ESPN_S2=... ESPN_SWID=... python -m fantasyoptimizer   # dry 
 python -m fantasyoptimizer --live                  # actually send moves
 ```
 
+## Reports
+
+Each run saves its report on the `reports` branch:
+
+- `latest.md` is the report you'd read. It has your roster with this week's and the next two weeks' projections, the best available players, moves with the reasoning behind them, trade ideas, and the league's odds.
+- `latest.json` has the same data for every rostered player in the league plus the top free agents. It's handy for digging into trades or asking Claude about it.
+- `history/` keeps every past run.
+
+Weekly numbers come from ESPN when ESPN has published them. A `~` marks the bot's own estimate.
+
 ## Tuning
 
 Everything lives in `optimizer.toml`, with comments. The ones you'll most likely touch:
@@ -91,5 +101,5 @@ The layout:
 | `waivers.py` | Pickup search |
 | `trades.py` | Trade search |
 | `engine.py` | Runs it all and executes moves |
-| `report.py` | Builds the markdown report |
+| `report.py` | Builds the markdown report and JSON snapshot |
 | `demo.py` | Synthetic league for tests and `--demo` |

@@ -119,6 +119,18 @@ class EspnClient:
             "limit": free_agent_limit,
             "sortPercOwned": {"sortPriority": 1, "sortAsc": False},
         }}, sp)
+        final = (data.get("status") or {}).get("finalScoringPeriod") or 0
+        if sp and sp < final:
+            # ESPN's projections for next week, when it has published them.
+            ids = sorted({e.get("id") or (e.get("player") or {}).get("id") for e in entries} - {None})
+            try:
+                entries += self.players({"players": {
+                    "filterIds": {"value": ids},
+                    "limit": len(ids),
+                    "sortPercOwned": {"sortPriority": 1, "sortAsc": False},
+                }}, sp + 1)
+            except EspnError as exc:
+                log.warning("Could not load next week's projections (%s)", exc)
         try:
             pro = self.pro_teams()
         except EspnError as exc:

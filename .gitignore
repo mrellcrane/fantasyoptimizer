@@ -5,3 +5,5 @@ __pycache__/
 .state/
 report.md
 .env
+snapshot.json
+pub/

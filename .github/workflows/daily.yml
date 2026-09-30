@@ -22,6 +22,8 @@ jobs:
   optimize:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: write   # to save reports on the `reports` branch
     steps:
       - uses: actions/checkout@v4
 
@@ -62,5 +64,31 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: report
-          path: report.md
+          path: |
+            report.md
+            snapshot.json
           if-no-files-found: ignore
+
+      - name: Save report to the reports branch
+        if: success() && hashFiles('snapshot.json') != ''
+        run: |
+          set -euo pipefail
+          stamp=$(date -u +%Y-%m-%d-%H%M)
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth=1 origin reports; then
+            git worktree add --detach pub FETCH_HEAD
+            git -C pub checkout -q -B reports
+          else
+            git worktree add --detach pub
+            git -C pub checkout -q --orphan reports
+            git -C pub rm -rfq .
+          fi
+          mkdir -p pub/history
+          cp report.md pub/latest.md
+          cp snapshot.json pub/latest.json
+          cp report.md "pub/history/$stamp.md"
+          cp snapshot.json "pub/history/$stamp.json"
+          git -C pub add -A
+          git -C pub commit -qm "Report $stamp" || exit 0
+          git -C pub push -q origin reports

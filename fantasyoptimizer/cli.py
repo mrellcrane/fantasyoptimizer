@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import os
 import sys
@@ -34,6 +35,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--config", default="optimizer.toml")
     ap.add_argument("--state", default=".state/state.json")
     ap.add_argument("--report", default="report.md")
+    ap.add_argument("--snapshot", default="snapshot.json", help="full run data as JSON")
     mode = ap.add_mutually_exclusive_group()
     mode.add_argument("--live", action="store_true", help="send moves to ESPN (overrides DRY_RUN)")
     mode.add_argument("--dry-run", action="store_true", help="never send anything to ESPN")
@@ -86,6 +88,7 @@ def main(argv: list[str] | None = None) -> int:
     text = report.render(result)
     print(text)
     Path(args.report).write_text(text)
+    Path(args.snapshot).write_text(json.dumps(report.snapshot(result), indent=1))
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as fh:
             fh.write(text)

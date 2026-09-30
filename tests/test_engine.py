@@ -1,4 +1,5 @@
 import datetime as dt
+import json
 
 import pytest
 
@@ -60,6 +61,14 @@ def test_dry_run_sends_nothing():
     assert result.actions and all(not a.executed for a in result.actions)
     text = report.render(result)
     assert "Dry run" in text and "League outlook" in text
+    assert "## Your roster" in text and "## Best available players" in text
+    assert "| Wk 4 | Wk 5 | Wk 6 |" in text and "BYE" in text
+    snap = report.snapshot(result)
+    json.dumps(snap)  # serializable
+    mine = [p for p in snap["players"] if p["fantasy_team"] == "Claude's Crushers"]
+    assert len(mine) == len(result.league.my_team.roster)
+    assert mine[0]["projections"]["4"]["source"] == "espn"
+    assert mine[0]["projections"]["5"]["source"] == "bot"
     for action in result.actions:
         if action.kind in ("add", "waiver", "trade"):
             assert "would start" in action.why and "pts/gm" in action.why

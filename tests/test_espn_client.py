@@ -31,6 +31,12 @@ def test_load_league_requests_and_parses(monkeypatch):
             filt = json.loads(headers["X-Fantasy-Filter"])["players"]
             # ESPN rejects a limit without a sort.
             assert "limit" in filt and any(k.startswith("sort") for k in filt)
+            if ("scoringPeriodId", 5) in params:
+                # Next week's call: ESPN sends week-5 projection rows.
+                nxt = [{**e, "player": {**e["player"], "stats": [
+                    {"seasonId": 2026, "statSourceId": 1, "statSplitTypeId": 1,
+                     "scoringPeriodId": 5, "appliedTotal": 12.5}]}} for e in rostered]
+                return Resp({"players": nxt})
             if "filterIds" not in filt:
                 fa_filters.append(filt)
             return Resp({"players": rostered if "filterIds" in filt else free_agents})
@@ -41,7 +47,9 @@ def test_load_league_requests_and_parses(monkeypatch):
     league = client.load_league()
     assert league.my_team_id == 1
     assert client.session.cookies.get("SWID") == DEMO_SWID
-    assert len(calls) == 4
+    assert len(calls) == 5
+    some_player = league.players[league.my_team.roster[0]]
+    assert some_player.period_projections[4] > 0 and some_player.period_projections[5] == 12.5
     assert calls[0][1].endswith("/games/ffl/seasons/2026/segments/0/leagues/424242")
     assert ("view", "mRoster") in calls[0][2]
     # Defensive players get fetched when the league starts them.
