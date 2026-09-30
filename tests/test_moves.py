@@ -134,3 +134,19 @@ def test_patch_pickups_are_not_made_today():
     result = Optimizer(league, cfg, State(), Client(), NOW).run()
     assert result.add_ideas and result.add_ideas[0].patch
     assert sent == []
+
+
+def test_players_in_our_pending_offers_are_not_offered_again():
+    from fantasyoptimizer.models import PendingTrade
+    league = lopsided_league()
+    league.teams[3] = league.teams[2]  # a second partner with the same roster needs
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    rosters = {t: list(team.roster) for t, team in league.teams.items()}
+    ideas = find_trades(league, rosters, Valuer(league, cfg), cfg, State(), NOW)
+    star = ideas[0].give[0]
+    league.pending_trades = [PendingTrade(id="x", proposer=1, items=[
+        {"playerId": star, "type": "TRADE", "fromTeamId": 1, "toTeamId": 2}])]
+    again = find_trades(league, rosters, Valuer(league, cfg), cfg, State(), NOW)
+    assert again and all(star not in i.give for i in again)
+    assert all(i.partner != 2 for i in again)
