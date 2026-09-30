@@ -60,6 +60,10 @@ def test_dry_run_sends_nothing():
     assert result.actions and all(not a.executed for a in result.actions)
     text = report.render(result)
     assert "Dry run" in text and "League outlook" in text
+    for action in result.actions:
+        if action.kind in ("add", "waiver", "trade"):
+            assert "would start" in action.why and "pts/gm" in action.why
+            assert f"Why: {action.why}" in text
     assert "\u2014" not in text  # no em-dashes in anything we show
 
 

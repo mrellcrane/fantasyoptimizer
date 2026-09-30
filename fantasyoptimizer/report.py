@@ -35,6 +35,8 @@ def render(result: RunResult, max_rows: int = 8) -> str:
         for a in result.actions:
             extra = f" ({a.response})" if a.response else ""
             lines.append(f"- **{_status(a)}** {a.summary}{extra}")
+            if a.why:
+                lines.append(f"  - Why: {a.why}")
     else:
         lines.append("- None today. Nothing cleared the thresholds.")
 

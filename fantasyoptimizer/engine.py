@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import datetime as dt
 import logging
+from collections import Counter
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -10,6 +11,7 @@ import numpy as np
 from . import espn, trades, waivers
 from .config import Config
 from .models import BENCH_SLOT, IR_SLOT, SLOT_NAMES, League, PendingTrade
+from .projections import per_game_rate
 from .simulate import SeasonSimulator, SimResult
 from .state import State
 from .valuation import Valuer
@@ -25,6 +27,7 @@ class Action:
     executed: bool = False
     ok: bool | None = None
     response: str = ""
+    why: str = ""
 
 
 @dataclass
@@ -75,6 +78,33 @@ class Optimizer:
     def title_gain(self, rosters: dict[int, list[int]], baseline: SimResult) -> float:
         """Change in our championship odds, in percentage points."""
         return 100 * (self.odds(rosters).title_odds[self.me] - baseline.title_odds[self.me])
+
+    def explain(self, old: list[int], new: list[int]) -> str:
+        """Plain-English reason a roster change helps: who starts, and who sits instead."""
+        league, valuer = self.league, self.valuer
+        added = [pid for pid in new if pid not in old]
+        removed = [pid for pid in old if pid not in new]
+        weeks = len(league.horizon)
+        starts: Counter = Counter()
+        benched: Counter = Counter()   # starters who lose their spot, by weeks lost
+        for j in range(weeks):
+            before = set(valuer.solve(old, column=j)[1])
+            after = set(valuer.solve(new, column=j)[1])
+            starts.update(pid for pid in added if pid in after)
+            benched.update(before - after)
+
+        def label(pid: int) -> str:
+            p = league.players[pid]
+            return f"{p.name} ({p.position}, {per_game_rate(p, league, self.cfg):.1f} pts/gm)"
+
+        parts = [f"{label(pid)} would start {starts[pid]} of {weeks} weeks" for pid in added]
+        if benched:
+            out = ", ".join(f"{label(pid)} {n} wks" for pid, n in benched.most_common(3))
+            parts.append(f"out of your lineup: {out}")
+        idle = [label(pid) for pid in removed if pid not in benched]
+        if idle:
+            parts.append(f"{', '.join(idle)} wouldn't start for you anyway")
+        return "; ".join(parts) + "."
 
     # ------------------------------------------------------------ execution
 
@@ -145,6 +175,7 @@ class Optimizer:
                 payload=espn.add_drop_payload(self.league, best.add.id,
                                               best.drop.id if best.drop else None,
                                               waiver=best.waiver, bid=best.bid),
+                why=self.explain(roster, waivers.apply(roster, best)),
             ))
             result.actions.append(action)
             claimed.add(best.add.id)
@@ -229,6 +260,8 @@ class Optimizer:
                 summary=f"Propose to {self.league.team_name(idea.partner)}: {describe_trade(self.league, idea)}",
                 payload=espn.trade_payload(self.league, idea.partner, list(idea.give), list(idea.get),
                                            list(idea.my_drops), tc.message, tc.expiration_hours, self.now),
+                why=self.explain(self.rosters[self.me],
+                                 trades.apply(self.rosters, self.me, idea)[self.me]),
             ))
             result.actions.append(action)
             proposed_to.add(idea.partner)
