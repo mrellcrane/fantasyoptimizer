@@ -215,3 +215,22 @@ def test_high_scoring_position_does_not_crowd_out_other_pickups():
     cfg = fast_config()
     ideas = find_add_drops(league, league.teams[1].roster, Valuer(league, cfg), cfg, State(), NOW)
     assert any(i.add.id == 900 for i in ideas)
+
+
+def test_pitch_names_who_they_actually_start():
+    from fantasyoptimizer.engine import Optimizer
+    league = lopsided_league()
+    # They start their worse RB (RB16) and bench the better one: the pitch should name
+    # the player actually in their lineup, not the one the model would start.
+    theirs = league.teams[2].roster
+    for pid in theirs:
+        league.players[pid].lineup_slot = 20
+    league.players[16].lineup_slot = 2   # their 4-point RB is in the RB slot
+    league.players[15].lineup_slot = 20  # the 5-point RB sits
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    opt = Optimizer(league, cfg, State(), None, NOW)
+    idea = next(i for i in find_trades(league, opt.rosters, opt.valuer, cfg, State(), NOW)
+                if any(league.players[pid].position == "RB" for pid in i.give)
+                and 16 not in i.get)
+    assert "over RB16" in opt.pitch(idea)

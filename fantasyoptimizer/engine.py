@@ -190,9 +190,17 @@ class Optimizer:
             often = ("every week" if k >= n - 1 else "most weeks" if k >= 0.6 * n
                      else f"{k} of the {n} weeks left")
             text = f"{p.name} would start {often} for you"
+            # Name who they're actually starting there now (what the manager sees),
+            # falling back to who the model says he'd replace.
+            starting_now = [q for q in old if q not in idea.get
+                            and league.players[q].position == p.position
+                            and league.players[q].lineup_slot not in (None, BENCH_SLOT, IR_SLOT)]
             same_spot = [q for q, _ in change.displaced[pid].most_common()
                          if league.players[q].position == p.position and q in old and q not in idea.get]
-            if same_spot:
+            if starting_now:
+                over = min(starting_now, key=lambda q: per_game_rate(league.players[q], league, self.cfg))
+                text += f" over {league.players[over].name}"
+            elif same_spot:
                 text += f" over {league.players[same_spot[0]].name}"
             bits.append(text)
         idle = [league.players[pid].name for pid in idea.get if change.old_starts[pid] <= 0.3 * n]
