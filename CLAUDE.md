@@ -12,7 +12,7 @@ Every run saves its output on the `reports` branch:
   weekly projections, the best free agents, trade ideas, and league-wide playoff and
   title odds.
 - `latest.json`: the full data. It covers every rostered player in the league plus the
-  top 60 free agents. Each player has weekly projections (`source: espn` is ESPN's
+  top 10 free agents at each position. Each player has weekly projections (`source: espn` is ESPN's
   number, `bot` is the bot's estimate), rest-of-season points per game, bye week,
   injury, and fantasy team. It also has team records and odds.
 - `history/<date>-<time>.md|json`: every past run.

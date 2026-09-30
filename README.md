@@ -57,7 +57,7 @@ python -m fantasyoptimizer --live                  # actually send moves
 Each run saves its report on the `reports` branch:
 
 - `latest.md` is the report you'd read. It has your roster with this week's and the next two weeks' projections, the best available players, moves with the reasoning behind them, trade ideas, and the league's odds.
-- `latest.json` has the same data for every rostered player in the league plus the top free agents. It's handy for digging into trades or asking Claude about it.
+- `latest.json` has the same data for every rostered player in the league plus the top 10 free agents at each position. It's handy for digging into trades or asking Claude about it.
 - `history/` keeps every past run.
 
 Weekly numbers come from ESPN when ESPN has published them. A `~` marks the bot's own estimate.

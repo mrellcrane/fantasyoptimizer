@@ -62,6 +62,11 @@ def test_dry_run_sends_nothing():
     text = report.render(result)
     assert "Dry run" in text and "League outlook" in text
     assert "## Your roster" in text and "## Best available players" in text
+    fa_rows = [l for l in text.split("## Best available players")[1].split("## League")[0].splitlines()
+               if l.startswith("| ") and not l.startswith("| Pos")]
+    positions = [row.split("|")[1].strip() for row in fa_rows]
+    assert positions[:3] == ["QB"] * 3 and positions.count("RB") == 3 and "K" in positions
+    assert all("of 14" in row for row in fa_rows)
     assert "| Wk 4 | Wk 5 | Wk 6 |" in text and "BYE" in text
     snap = report.snapshot(result)
     json.dumps(snap)  # serializable

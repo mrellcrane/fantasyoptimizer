@@ -101,23 +101,43 @@ def roster_section(result: RunResult) -> list[str]:
     return lines
 
 
-def free_agent_section(result: RunResult, count: int = 12) -> list[str]:
+POSITION_ORDER = ["QB", "RB", "WR", "TE", "DT", "DE", "LB", "CB", "S", "D/ST", "K", "P"]
+
+
+def available_by_position(result: RunResult, per_position: int) -> list[Player]:
+    """Best free agents at each position you can start, instead of one big list."""
+    league, valuer = result.league, result.valuer
+    groups: dict[str, list[Player]] = {}
+    for p in league.players.values():
+        row = valuer.row.get(p.id)
+        if p.available and row is not None and valuer.can_start[row]:
+            groups.setdefault(p.position, []).append(p)
+    order = sorted(groups, key=lambda pos: POSITION_ORDER.index(pos) if pos in POSITION_ORDER else 99)
+    out = []
+    for pos in order:
+        out += sorted(groups[pos], key=lambda p: valuer.ros_points(p.id), reverse=True)[:per_position]
+    return out
+
+
+def free_agent_section(result: RunResult, per_position: int = 3) -> list[str]:
     league, valuer = result.league, result.valuer
     if not league.horizon or not valuer:
         return []
-    pool = sorted((p for p in league.players.values() if p.available),
-                  key=lambda p: valuer.ros_points(p.id), reverse=True)[:count]
     n = len(league.horizon[:WEEKS_SHOWN])
-    lines = ["", "## Best available players", "",
-             f"| Player | NFL | Status | {_week_headers(league)} | ROS/gm | Bye | Rostered |",
-             "|---|---|---|" + "---:|" * (n + 3)]
-    for p in pool:
+    roster = list(league.my_team.roster)
+    lines = ["", f"## Best available players (top {per_position} per position)", "",
+             "_Would start = weeks he'd make your best lineup if you added him._", "",
+             f"| Pos | Player | NFL | Status | {_week_headers(league)} | ROS/gm | Bye | Rostered "
+             "| Would start |",
+             "|---|---|---|---|" + "---:|" * (n + 3) + "---|"]
+    for p in available_by_position(result, per_position):
         status = "Waivers" if p.status == "WAIVERS" else "FA"
         if p.injury_status != "ACTIVE":
             status += ", " + p.injury_status.replace("_", " ").title()
         nfl = league.pro_team_abbrevs.get(p.pro_team_id, "")
-        lines.append(f"| {p.name} ({p.position}) | {nfl} | {status} | "
-                     + " | ".join(_player_cells(result, p)) + f" | {p.percent_owned:.0f}% |")
+        starts = starts_text(valuer.lineup_weeks(roster + [p.id], p.id), len(league.horizon))
+        lines.append(f"| {p.position} | {p.name} | {nfl} | {status} | "
+                     + " | ".join(_player_cells(result, p)) + f" | {p.percent_owned:.0f}% | {starts} |")
     return lines
 
 
@@ -222,7 +242,7 @@ def short_summary(result: RunResult) -> str:
     return "\n".join([head, *moves, *offers])
 
 
-def snapshot(result: RunResult, free_agents: int = 60) -> dict:
+def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
     """Everything from a run as JSON, for looking back or talking it over later."""
     league, base, valuer = result.league, result.baseline, result.valuer
 
@@ -243,9 +263,7 @@ def snapshot(result: RunResult, free_agents: int = 60) -> dict:
         }
 
     rostered = [league.players[pid] for t in league.teams.values() for pid in t.roster]
-    available = sorted((p for p in league.players.values() if p.available),
-                       key=lambda p: valuer.ros_points(p.id) if valuer else p.percent_owned,
-                       reverse=True)[:free_agents]
+    available = available_by_position(result, free_agents_per_position) if valuer else []
     return {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "league": {"id": league.id, "name": league.name, "season": league.year,
