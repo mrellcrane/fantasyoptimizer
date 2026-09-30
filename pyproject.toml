@@ -1,0 +1,12 @@
+[project]
+name = "fantasyoptimizer"
+version = "0.1.0"
+description = "Daily ESPN fantasy football optimizer: pickups, lineups, and trades aimed at winning the title."
+requires-python = ">=3.11"
+dependencies = ["requests>=2.31", "numpy>=1.26", "scipy>=1.11"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

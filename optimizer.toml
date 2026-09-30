@@ -1,0 +1,72 @@
+# Tuning knobs. Secrets (league id, cookies) go in environment variables, not here.
+# Every value below is the default; delete a line to keep the default.
+
+[general]
+# Safety switch. The DRY_RUN env var overrides this (the GitHub workflow sets it).
+dry_run = true
+
+[projection]
+# How a player's expected points per game is blended. Weights are relative.
+weight_week = 0.30           # ESPN's projection for this week
+weight_ros = 0.35            # ESPN's rest-of-season per-game projection
+weight_season = 0.10         # ESPN's preseason projection
+weight_actual = 0.25         # What they've actually scored per game
+actual_full_weight_games = 6 # Trust actual scoring fully after this many games
+season_games = 17
+
+[value]
+bench_weight = 0.10          # Credit for bench depth, as a fraction of starter points
+bench_depth = 2              # How many bench players count as depth
+playoff_weight = 1.5         # Fantasy playoff weeks matter this much more
+
+[sim]
+n_sims = 4000                # Season simulations per scenario
+sd_fraction = 0.20           # Weekly score randomness (std dev as a share of the mean)
+min_sd = 15.0
+seed = 2026
+
+[lineup]
+enabled = true               # Set the best lineup every run (benches byes, OUT players)
+
+[waivers]
+enabled = true
+max_moves_per_run = 1
+min_gain_points = 5.0        # Rest-of-season starting-lineup points a pickup must add
+min_title_gain = 0.0         # ...and it can't lower title odds (percentage points)
+pool_size = 60               # How many free agents to consider
+sim_candidates = 10
+never_drop = []              # e.g. ["Christian McCaffrey"]
+hold_days = 7                # Don't cut someone we picked up within this many days
+readd_cooldown_days = 14     # Don't re-add someone we cut within this many days
+faab_max_fraction = 0.30     # Biggest bid, as a share of remaining FAAB
+faab_gain_for_max_bid = 60.0 # A pickup worth this many points gets the biggest bid
+faab_min_bid = 1
+
+[trades]
+enabled = true
+max_proposals_per_run = 1    # Keep this low. Your league-mates are people.
+team_cooldown_days = 7       # Max one offer per manager per week
+repeat_cooldown_days = 30    # Never re-send the same offer within a month
+min_gain_points = 10.0       # Rest-of-season points the trade must add for you
+min_title_gain = 0.5         # ...and title odds must rise by this much (percentage points)
+min_partner_gain_points = 0.0  # Must not make their lineup worse (by our projections)
+min_fairness = 0.90          # They must get at least 90% of the raw value they give
+max_overpay = 1.6
+min_accept_chance = 0.30     # Don't send offers they'd probably reject
+accept_fairness_weight = 6.0
+accept_gain_scale = 30.0
+pool_size = 10               # Top N players per team considered for 2-player packages
+max_players_per_side = 2
+sim_candidates = 30
+untouchable = []             # e.g. ["Justin Jefferson"]
+do_not_trade_with = []       # Team names, abbreviations, or ids
+message = ""                 # Note attached to each offer
+expiration_hours = 48
+
+[injury]
+# Chance a player plays this week, next week, ... (1.0 after the list ends).
+OUT = [0.0, 0.75]
+DOUBTFUL = [0.3]
+QUESTIONABLE = [0.8]
+INJURY_RESERVE = [0.0, 0.0, 0.0, 0.0, 0.5]
+SUSPENSION = [0.0]

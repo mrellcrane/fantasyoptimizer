@@ -1,0 +1,66 @@
+name: Daily fantasy moves
+
+on:
+  schedule:
+    # Every day at 10:17 ET (14:17 UTC while daylight time is on).
+    - cron: "17 14 * * *"
+    # Sundays at 12:07 ET, after inactives are announced: lineup only.
+    - cron: "7 16 * * 0"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "default follows the DRY_RUN repo variable"
+        type: choice
+        options: [default, dry-run, live]
+        default: default
+
+concurrency:
+  group: fantasy-optimizer
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Restore memory from previous runs
+        uses: actions/cache/restore@v4
+        with:
+          path: .state
+          key: optimizer-state-${{ github.run_id }}
+          restore-keys: optimizer-state-
+
+      - name: Run optimizer
+        env:
+          ESPN_LEAGUE_ID: ${{ secrets.ESPN_LEAGUE_ID }}
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+          ESPN_TEAM_ID: ${{ vars.ESPN_TEAM_ID }}
+          NOTIFY_URL: ${{ secrets.NOTIFY_URL }}
+          DRY_RUN: ${{ inputs.mode == 'live' && 'false' || inputs.mode == 'dry-run' && 'true' || vars.DRY_RUN || 'true' }}
+          EXTRA_ARGS: ${{ github.event.schedule == '7 16 * * 0' && '--no-trades --no-waivers' || '' }}
+        run: python -m fantasyoptimizer $EXTRA_ARGS
+
+      - name: Save memory
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .state
+          key: optimizer-state-${{ github.run_id }}
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report
+          path: report.md
+          if-no-files-found: ignore
