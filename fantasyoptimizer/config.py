@@ -83,6 +83,13 @@ class TradeConfig:
     do_not_trade_with: list[str] = field(default_factory=list)
     message: str = ""
     pitch_as_message: bool = False  # Send the one-line pitch as the offer's note
+    # "Long shots": better for you, less likely to be accepted. Shown in the report;
+    # only sent automatically if propose_long_shots is on.
+    long_shots: bool = True
+    long_shot_min_fairness: float = 0.60
+    long_shot_min_accept_chance: float = 0.05
+    long_shot_min_partner_gain_points: float = -30.0
+    propose_long_shots: bool = False
     expiration_hours: int = 48
 
 

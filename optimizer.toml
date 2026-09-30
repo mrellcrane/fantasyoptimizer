@@ -71,6 +71,13 @@ do_not_trade_with = []       # Team names, abbreviations, or ids
 message = ""                 # Note attached to each offer
 pitch_as_message = false     # true = attach the one-line pitch from the report instead
 expiration_hours = 48
+# "Long shots" section of the report: trades that help you more but are less likely
+# to be accepted. They can even look slightly worse for the other team on paper.
+long_shots = true
+long_shot_min_fairness = 0.60          # They get as little as 60% of the value they give
+long_shot_min_accept_chance = 0.05
+long_shot_min_partner_gain_points = -30.0
+propose_long_shots = false   # true = the bot sends long shots instead of the safe picks
 # Feeling bolder? These send more offers, including ones that favor you more:
 #   max_proposals_per_run = 3    (still max one open offer per manager, and per player)
 #   min_fairness = 0.75          (they can get as little as 75% of what they give)

@@ -109,8 +109,16 @@ def trade_sets(players: list[Player], value: dict[int, float], pool_size: int, m
 
 
 def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, cfg: Config,
-                state: State, now: dt.datetime) -> list[TradeIdea]:
+                state: State, now: dt.datetime, long_shot: bool = False) -> list[TradeIdea]:
+    """Trade ideas, best first. `long_shot` loosens what the other team has to like."""
     tc = cfg.trades
+    if long_shot:
+        min_fairness, min_accept, min_partner_gain = (
+            tc.long_shot_min_fairness, tc.long_shot_min_accept_chance,
+            tc.long_shot_min_partner_gain_points)
+    else:
+        min_fairness, min_accept, min_partner_gain = (
+            tc.min_fairness, tc.min_accept_chance, tc.min_partner_gain_points)
     me = league.my_team_id
     untouchable = {n.lower() for n in tc.untouchable}
     blocked = blocked_partners(league, cfg, state, now)
@@ -142,7 +150,7 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
                 continue
             for give in give_sets:
                 fairness = sum(value[pid] for pid in give) / value_get
-                if not tc.min_fairness <= fairness <= tc.max_overpay:
+                if not min_fairness <= fairness <= tc.max_overpay:
                     continue
                 new_me = [pid for pid in my_roster if pid not in give] + list(get)
                 my_drops = _forced_drops(league, valuer, my_roster, new_me, get, my_can_drop)
@@ -158,16 +166,17 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
                     continue
                 new_them = [pid for pid in new_them if pid not in their_drops]
                 partner_gain = valuer.value(new_them) - base_them
-                if partner_gain < tc.min_partner_gain_points:
+                if partner_gain < min_partner_gain:
                     continue
                 chance = accept_chance(fairness, partner_gain, cfg)
-                if chance < tc.min_accept_chance:
+                if chance < min_accept:
                     continue
                 idea = TradeIdea(partner, give, get, my_drops, their_drops,
                                  my_gain, partner_gain, fairness, chance)
                 if not state.proposed_before(idea.key, tc.repeat_cooldown_days, now):
                     ideas.append(idea)
-    ideas.sort(key=lambda i: i.my_gain * i.accept_chance, reverse=True)
+    ideas.sort(key=(lambda i: i.my_gain) if long_shot else (lambda i: i.my_gain * i.accept_chance),
+               reverse=True)
     return ideas
 
 

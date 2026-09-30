@@ -178,3 +178,16 @@ def test_pitch_sells_the_deal_from_their_side():
     assert any(name in line for name in received)
     for pid in idea.get:  # never claims one of our new players "over" someone they're losing
         assert f"over {league.players[pid].name}" not in line
+
+
+def test_long_shots_loosen_what_the_other_team_must_like():
+    league = lopsided_league()
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    cfg.trades.min_partner_gain_points = 1000  # nothing helps them enough for the normal list
+    rosters = {t: list(team.roster) for t, team in league.teams.items()}
+    valuer = Valuer(league, cfg)
+    assert not find_trades(league, rosters, valuer, cfg, State(), NOW)
+    bold = find_trades(league, rosters, valuer, cfg, State(), NOW, long_shot=True)
+    assert bold and all(i.partner_gain >= cfg.trades.long_shot_min_partner_gain_points for i in bold)
+    assert [i.my_gain for i in bold] == sorted((i.my_gain for i in bold), reverse=True)

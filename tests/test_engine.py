@@ -62,6 +62,9 @@ def test_dry_run_sends_nothing():
     text = report.render(result)
     assert "Dry run" in text and "League outlook" in text
     assert "## Your roster" in text and "## Best available players" in text
+    assert result.long_shots and "## Long shots" in text
+    assert not {i.key for i in result.long_shots} & {i.key for i in result.trade_ideas}
+    assert all(i.my_title_gain > 0 for i in result.long_shots)
     fa_rows = [l for l in text.split("## Best available players")[1].split("## League")[0].splitlines()
                if l.startswith("| ") and not l.startswith("| Pos")]
     positions = [row.split("|")[1].strip() for row in fa_rows]

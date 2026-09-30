@@ -71,6 +71,7 @@ Everything lives in `optimizer.toml`, with comments. The ones you'll most likely
 - `trades.max_proposals_per_run` / `team_cooldown_days`: how pushy it is. The default is one offer a day, max one per manager per week, and never the same offer twice in 30 days.
 - `trades.message` / `trades.pitch_as_message`: a note attached to each offer, or the one-line pitch the report writes for each trade ("Burrow would start every week for you over...").
 - `trades.min_fairness` / `min_accept_chance`: how lopsided offers may be. There's a commented "bolder" setting in the file.
+- `trades.long_shots`: the report's "Long shots" list of trades that help you more but are less likely to be accepted. `propose_long_shots = true` makes the bot send those instead of the safe picks.
 - `waivers.never_drop`: players it must never cut.
 - `lineup.enabled`, `waivers.enabled`, `trades.enabled`: turn pieces off.
 

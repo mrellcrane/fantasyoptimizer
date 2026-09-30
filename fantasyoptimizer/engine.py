@@ -40,6 +40,15 @@ class LineupChange:
     displaced: dict[int, Counter] = field(default_factory=dict)  # added player -> who sat
 
 
+def _spread(ideas: list, per_partner: int = 2) -> list:
+    """Same order, but at most `per_partner` ideas per team before any repeats."""
+    first, rest, seen = [], [], Counter()
+    for idea in ideas:
+        (first if seen[idea.partner] < per_partner else rest).append(idea)
+        seen[idea.partner] += 1
+    return first + rest
+
+
 def _join(items: list[str]) -> str:
     if len(items) <= 2:
         return " and ".join(items)
@@ -63,6 +72,7 @@ class RunResult:
     baseline: SimResult
     add_ideas: list[waivers.AddDrop] = field(default_factory=list)
     trade_ideas: list[trades.TradeIdea] = field(default_factory=list)
+    long_shots: list[trades.TradeIdea] = field(default_factory=list)
     lineup_gain: float = 0.0
     incoming: list[IncomingOffer] = field(default_factory=list)
     actions: list[Action] = field(default_factory=list)
@@ -291,28 +301,50 @@ class Optimizer:
             payload=espn.lineup_payload(league, moves),
         )))
 
-    def do_trades(self, result: RunResult) -> None:
-        tc = self.cfg.trades
-        baseline = self.odds(self.rosters)
-        ideas = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state, self.now)
-        # Keep variety: at most 5 candidates per partner go to the simulator.
+    def _shortlist(self, ideas: list[trades.TradeIdea], baseline: SimResult,
+                   skip: set[str] = frozenset()) -> list[trades.TradeIdea]:
+        """Simulate the most promising ideas (at most 5 per partner) for title odds."""
         per_partner: dict[int, int] = {}
         shortlist = []
         for idea in ideas:
+            if idea.key in skip:
+                continue
             if per_partner.get(idea.partner, 0) < 5:
                 per_partner[idea.partner] = per_partner.get(idea.partner, 0) + 1
                 shortlist.append(idea)
-            if len(shortlist) >= tc.sim_candidates:
+            if len(shortlist) >= self.cfg.trades.sim_candidates:
                 break
         for idea in shortlist:
             after = self.odds(trades.apply(self.rosters, self.me, idea))
             idea.my_title_gain = 100 * (after.title_odds[self.me] - baseline.title_odds[self.me])
             idea.partner_title_gain = 100 * (after.title_odds[idea.partner]
                                              - baseline.title_odds[idea.partner])
+        return shortlist
+
+    def do_trades(self, result: RunResult) -> None:
+        tc = self.cfg.trades
+        baseline = self.odds(self.rosters)
+        ideas = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state, self.now)
+        shortlist = self._shortlist(ideas, baseline)
         shortlist.sort(key=lambda i: (i.expected_title_gain, i.my_gain), reverse=True)
+        shortlist = _spread(shortlist)
         for idea in shortlist[:8]:
             idea.pitch = self.pitch(idea)
         result.trade_ideas = shortlist
+
+        if tc.long_shots:
+            bold = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state,
+                                      self.now, long_shot=True)
+            long_shots = self._shortlist(bold, baseline, skip={i.key for i in shortlist})
+            # Ranked purely by what they'd do for you; acceptance is their problem.
+            long_shots = [i for i in long_shots if i.my_title_gain > 0]
+            long_shots.sort(key=lambda i: (i.my_title_gain, i.my_gain), reverse=True)
+            long_shots = _spread(long_shots)
+            for idea in long_shots[:8]:
+                idea.pitch = self.pitch(idea)
+            result.long_shots = long_shots
+        if tc.propose_long_shots and result.long_shots:
+            shortlist = result.long_shots
 
         proposed_to: set[int] = set()
         for idea in shortlist:
