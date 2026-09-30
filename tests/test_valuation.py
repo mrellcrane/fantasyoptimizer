@@ -82,14 +82,13 @@ def test_playoff_weeks_weighted_up():
     assert Valuer(league, cfg).value([1]) == 10 + 10 + 20 + 20
 
 
-def test_injured_players_next_week_espn_projection_is_discounted():
+def test_espn_weekly_projections_are_used_as_is_and_estimates_get_injury_discount():
     from fantasyoptimizer.projections import expected_points
     cfg = Config()
     p = make_player(1, "TE", 10, injury="DOUBTFUL")
-    p.period_projections = {1: 0.0, 2: 11.0}   # ESPN: out this week, 11 next week
+    p.period_projections = {1: 0.0, 2: 11.0}   # ESPN: out this week, back next week
     league = make_league({1: [p], 2: []})
     pts = expected_points(p, league, cfg)
-    assert pts[0] == 0.0                      # this week: ESPN's number as is
-    assert pts[1] == pytest.approx(11.0 * 0.85)
-    p.injury_status = "ACTIVE"
-    assert expected_points(p, league, cfg)[1] == 11.0
+    assert pts[0] == 0.0 and pts[1] == 11.0   # ESPN's numbers, untouched
+    del p.period_projections[2]                # no ESPN number: the bot estimates and discounts
+    assert expected_points(p, league, cfg)[1] == pytest.approx(10 * 0.85)
