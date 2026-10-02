@@ -108,11 +108,16 @@ class Config:
     lineup: LineupConfig = field(default_factory=LineupConfig)
     waivers: WaiverConfig = field(default_factory=WaiverConfig)
     trades: TradeConfig = field(default_factory=TradeConfig)
+    # Questionable players who do play score less (RB/WR ~8.5-10% less, QBs no drop;
+    # 4for4 injury study). Multiplier on their projection when they play.
+    questionable_performance: dict[str, float] = field(default_factory=lambda: {
+        "RB": 0.91, "WR": 0.91, "TE": 0.91,
+    })
     # injury status -> availability for this week, next week, ... (1.0 after the list ends)
     injury: dict[str, list[float]] = field(default_factory=lambda: {
         "OUT": [0.0, 0.75],
         "DOUBTFUL": [0.3, 0.85],
-        "QUESTIONABLE": [0.8],
+        "QUESTIONABLE": [0.74],
         "INJURY_RESERVE": [0.0, 0.0, 0.0, 0.0, 0.5],
         "SUSPENSION": [0.0],
     })

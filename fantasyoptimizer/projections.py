@@ -38,6 +38,13 @@ def availability(p: Player, weeks_ahead: int, cfg: Config) -> float:
     return float(curve[weeks_ahead])
 
 
+def questionable_factor(p: Player, cfg: Config) -> float:
+    """Expected share of a Questionable player's projection: might sit, plays a bit hurt."""
+    if p.injury_status != "QUESTIONABLE":
+        return 1.0
+    return availability(p, 0, cfg) * cfg.questionable_performance.get(p.position, 1.0)
+
+
 def expected_points(p: Player, league: League, cfg: Config, rate: float | None = None) -> np.ndarray:
     """Expected fantasy points for each scoring period in league.horizon."""
     rate = per_game_rate(p, league, cfg) if rate is None else rate
@@ -49,11 +56,13 @@ def expected_points(p: Player, league: League, cfg: Config, rate: float | None =
             # as they are. The exception: Questionable players are projected as if they'll
             # play, so this week's number gets the chance they actually do.
             out[j] = max(0.0, p.period_projections[sp])
-            if sp == current and p.injury_status == "QUESTIONABLE":
-                out[j] *= availability(p, 0, cfg)
+            if sp == current:
+                out[j] *= questionable_factor(p, cfg)
             continue
         games = league.games(p.pro_team_id, sp)
         out[j] = rate * games * availability(p, sp - current, cfg)
+        if sp == current and p.injury_status == "QUESTIONABLE":
+            out[j] *= cfg.questionable_performance.get(p.position, 1.0)
     return out
 
 

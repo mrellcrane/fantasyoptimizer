@@ -87,8 +87,19 @@ propose_long_shots = false   # true = the bot sends long shots instead of the sa
 
 [injury]
 # Chance a player plays this week, next week, ... (1.0 after the list ends).
+# ESPN zeroes Out/Doubtful players itself but projects Questionable ones as if they
+# play. Questionable players have played ~73-75% of the time since the NFL dropped
+# "Probable" in 2016 (ESPN; Zach Binney's injury-report analysis).
 OUT = [0.0, 0.75]
 DOUBTFUL = [0.3, 0.85]
-QUESTIONABLE = [0.8]
+QUESTIONABLE = [0.74]
 INJURY_RESERVE = [0.0, 0.0, 0.0, 0.0, 0.5]
 SUSPENSION = [0.0]
+
+[questionable_performance]
+# Questionable players who do play score less: RBs and WRs ~8.5-10% on average,
+# QBs no measurable drop (4for4's study of injury designations). Positions not
+# listed are left at 1.0.
+RB = 0.91
+WR = 0.91
+TE = 0.91

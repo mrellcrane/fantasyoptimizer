@@ -101,5 +101,11 @@ def test_questionable_players_this_week_carry_their_risk():
     p.period_projections = {1: 19.3, 2: 19.2}
     league = make_league({1: [p], 2: []})
     pts = expected_points(p, league, cfg)
-    assert pts[0] == pytest.approx(19.3 * 0.8)   # might sit this week
+    assert pts[0] == pytest.approx(19.3 * 0.74)  # ~74% of Questionable players play
     assert pts[1] == 19.2                        # next week: ESPN's number as is
+    wr = make_player(2, "WR", 15, injury="QUESTIONABLE")
+    wr.period_projections = {1: 15.0}
+    assert expected_points(wr, league, cfg)[0] == pytest.approx(15.0 * 0.74 * 0.91)  # and score less
+    qb = make_player(3, "QB", 20, injury="QUESTIONABLE")
+    qb.period_projections = {1: 20.0}
+    assert expected_points(qb, league, cfg)[0] == pytest.approx(20.0 * 0.74)  # QBs don't drop off

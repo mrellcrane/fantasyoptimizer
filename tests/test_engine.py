@@ -172,11 +172,13 @@ def test_payload_shapes():
 def test_config_file_and_env(tmp_path):
     path = tmp_path / "optimizer.toml"
     path.write_text('[general]\ndry_run = false\n[trades]\nmin_gain_points = 3.5\n'
-                    'untouchable = ["Some Guy"]\n[injury]\nquestionable = [0.5]\n')
+                    'untouchable = ["Some Guy"]\n[injury]\nquestionable = [0.5]\n'
+                    '[questionable_performance]\nWR = 0.8\n')
     cfg = load_config(path, env={"ESPN_LEAGUE_ID": "99", "DRY_RUN": "true", "ESPN_YEAR": "2026"})
     assert cfg.league_id == 99 and cfg.year == 2026 and cfg.dry_run is True
     assert cfg.trades.min_gain_points == 3.5 and cfg.trades.untouchable == ["Some Guy"]
     assert cfg.injury["QUESTIONABLE"] == [0.5] and "OUT" in cfg.injury
+    assert cfg.questionable_performance == {"WR": 0.8}
 
 
 def test_team_detected_from_swid_or_error():
