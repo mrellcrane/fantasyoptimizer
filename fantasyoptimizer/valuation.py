@@ -11,6 +11,7 @@ from .models import League
 from .projections import projection_matrix
 
 _INELIGIBLE = -1e6
+STREAMER_ID = -1_000_000   # ESPN ids are positive, or -16xxx for D/ST
 
 
 class Valuer:
@@ -47,6 +48,7 @@ class Valuer:
                 self.replacement[p.position] = (self.points[i].copy() if best is None
                                                 else np.maximum(best, self.points[i]))
         self._no_replacement = np.zeros(n_weeks)
+        self._add_streamers(cfg.streaming.positions)
 
         playoff_sps = {sp for mp in league.playoff_periods for sp in league.scoring_periods_of(mp)}
         self.weights = np.array([
@@ -58,6 +60,39 @@ class Valuer:
             for mp in league.remaining_matchup_periods
         }
         self._cache: dict[frozenset[int], tuple[np.ndarray, np.ndarray]] = {}
+
+    def _add_streamers(self, positions: list[str]) -> None:
+        """A stand-in for the free agent you'll stream at each of these positions.
+
+        In weeks ESPN has projected, a real pickup has to earn the spot, so the
+        stand-in scores nothing. Later weeks have no matchups yet, so it scores what
+        the best free agent averaged in the weeks ESPN has projected.
+        """
+        league = self.league
+        self.streamers: dict[int, str] = {}      # stand-in id -> position
+        self.stream_level: dict[str, float] = {}  # position -> points a week
+        for k, pos in enumerate(positions):
+            free = [p for p in league.players.values() if p.available and p.position == pos]
+            best = self.replacement.get(pos)
+            seen = [j for j, sp in enumerate(league.horizon)
+                    if any(sp in p.period_projections for p in free)]
+            if best is None or not seen:
+                continue
+            level = float(best[seen].mean())
+            row = np.where(np.isin(np.arange(len(league.horizon)), seen), 0.0, level)
+            sid = STREAMER_ID - k
+            self.streamers[sid] = pos
+            self.stream_level[pos] = level
+            self.row[sid] = len(self.player_ids)
+            self.player_ids.append(sid)
+            self.points = np.vstack([self.points, row])
+            self.eligible = np.vstack([self.eligible, self.eligible[self.row[free[0].id]]])
+            self.can_start = np.append(self.can_start, True)
+
+    def streaming(self, roster: Iterable[int]) -> list[int]:
+        """Your roster plus the streamers you'd pick up. Use it for your team only."""
+        roster = list(roster)
+        return roster + [sid for sid in self.streamers if sid not in roster]
 
     # ------------------------------------------------------------ lineups
 
@@ -105,7 +140,8 @@ class Valuer:
             starters[j] = total
             if k and len(rows):
                 bench = [self.points[self.row[pid], j] - self._replacement(pid)[j] for pid in ids
-                         if pid not in assignment and self.can_start[self.row[pid]]]
+                         if pid not in assignment and pid not in self.streamers
+                         and self.can_start[self.row[pid]]]
                 bench = [b for b in bench if b > 0]
                 depth[j] = sum(sorted(bench, reverse=True)[:k])
         self._cache[roster] = (starters, depth)

@@ -6,6 +6,7 @@ import datetime as dt
 from .engine import RunResult, describe_trade
 from .models import IR_SLOT, SLOT_NAMES, League, Player
 from .projections import per_game_rate
+from .waivers import min_gain
 
 WEEKS_SHOWN = 3
 # How ESPN lists lineup slots: offense, flex spots, defensive players, D/ST, K.
@@ -216,7 +217,8 @@ def free_agent_section(result: RunResult, per_position: int = 3) -> list[str]:
         if p.injury_status != "ACTIVE":
             status += ", " + p.injury_status.replace("_", " ").title()
         nfl = league.pro_team_abbrevs.get(p.pro_team_id, "")
-        starts = starts_text(valuer.lineup_weeks(roster + [p.id], p.id), len(league.horizon))
+        starts = starts_text(valuer.lineup_weeks(valuer.streaming(roster + [p.id]), p.id),
+                             len(league.horizon))
         lines.append(f"| {p.position} | {p.name} | {nfl} | {status} | "
                      + " | ".join(_player_cells(result, p)) + f" | {p.percent_owned:.0f}% | {starts} |")
     return lines
@@ -284,7 +286,9 @@ def render(result: RunResult, max_rows: int = 8) -> str:
             title = f"{i.title_gain:+.1f}%" if i.title_gain is not None else ""
             if i.patch:
                 note = f"Only fills wk {', '.join(map(str, i.start_weeks))}: add it that week"
-            elif result.valuer and i.gain < result.valuer.cfg.waivers.min_gain_points:
+            elif i.wait:
+                note = f"Next week's stream: make it after {i.drop.name} plays this week"
+            elif result.valuer and i.gain < min_gain(i, result.valuer.cfg):
                 note = "Small gain: optional (the bot won't make it)"
             else:
                 note = ""
@@ -319,6 +323,11 @@ def render(result: RunResult, max_rows: int = 8) -> str:
               "Season pts = change in projected starting-lineup points over the rest of the "
               "season (playoff weeks weighted up). Title odds = change in simulated championship "
               "probability, in percentage points._"]
+    if result.valuer and result.valuer.stream_level:
+        levels = ", ".join(f"{pos} ~{level:.1f} pts" for pos, level in result.valuer.stream_level.items())
+        lines += ["", f"_Streamed each week: {levels}. For weeks ESPN hasn't projected, the bot "
+                  "assumes you'll pick up a free agent worth what the best one has been projected "
+                  "at lately, so holding one all season is worth little._"]
     return "\n".join(lines) + "\n"
 
 
@@ -398,7 +407,9 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
         "pickup_ideas": [{"add": i.add.name, "drop": i.drop.name if i.drop else None,
                           "season_points": round(i.gain, 1), "title_odds": i.title_gain,
                           "waiver": i.waiver, "start_weeks": i.start_weeks,
-                          "patch": i.patch} for i in result.add_ideas],
+                          "patch": i.patch, "wait": i.wait} for i in result.add_ideas],
+        "streaming": ({pos: round(level, 2) for pos, level in valuer.stream_level.items()}
+                      if valuer else {}),
         "trade_ideas": [trade_json(t) for t in result.trade_ideas],
         "long_shots": [trade_json(t) for t in result.long_shots],
         "players": [player(p) for p in rostered + available],

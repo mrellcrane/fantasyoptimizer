@@ -133,6 +133,15 @@ class League:
         kickoff = self.kickoffs.get(pro_team_id, {}).get(scoring_period)
         return kickoff is not None and self.loaded_at >= kickoff - dt.timedelta(minutes=85)
 
+    def kicking_off(self, roster: list[int], within: dt.timedelta) -> list[int]:
+        """Players on this roster whose game this week starts in the next `within`."""
+        out = []
+        for pid in roster:
+            kickoff = self.kickoffs.get(self.players[pid].pro_team_id, {}).get(self.current_scoring_period)
+            if kickoff is not None and self.loaded_at < kickoff <= self.loaded_at + within:
+                out.append(pid)
+        return out
+
     @property
     def my_team(self) -> Team:
         return self.teams[self.my_team_id]

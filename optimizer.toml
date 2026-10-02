@@ -30,6 +30,8 @@ seed = 2026
 [lineup]
 enabled = true               # Set the best lineup every run (benches byes, OUT players)
 min_gain = 0.5               # Ignore lineup changes worth less than this many points
+pregame_minutes = 90         # Pregame checks only act when one of your players kicks off
+                             # within this many minutes (inactives are out ~90 min before)
 
 [waivers]
 enabled = true
@@ -51,6 +53,15 @@ readd_cooldown_days = 14     # Don't re-add someone we cut within this many days
 faab_max_fraction = 0.30     # Biggest bid, as a share of remaining FAAB
 faab_gain_for_max_bid = 60.0 # A pickup worth this many points gets the biggest bid
 faab_min_bid = 1
+
+[streaming]
+# Positions you pick up fresh each week for the matchup instead of holding one player
+# all season. ESPN only projects a week or two ahead; for later weeks the bot assumes
+# you'll grab a free agent worth what the best one has been projected at lately. So a
+# defense is only worth holding if it beats that, and pickups swap one for another
+# instead of cutting a bench player. [] turns it off.
+positions = ["D/ST"]
+min_gain_points = 2.0        # A stream only has to win its week, not the season
 
 [trades]
 enabled = true

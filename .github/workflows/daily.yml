@@ -4,15 +4,20 @@ on:
   schedule:
     # The full run: every day at 10:17 ET (9:17 once daylight time ends).
     - cron: "17 14 * * *"
-    # Lineup-only runs just after inactives are announced (~90 min before kickoff),
-    # timed to work in both EDT and EST:
-    - cron: "40 16 * * 0"   # Sun 12:40 EDT / 11:40 EST: 1pm games
-    - cron: "50 19 * * 0"   # Sun 3:50 EDT / 2:50 EST: late-afternoon games
-    - cron: "5 0 * * 1"     # Sun 8:05pm EDT / 7:05pm EST: Sunday night
-    - cron: "5 0 * * 2"     # Mon night
-    - cron: "5 0 * * 5"     # Thu night
+    # Pregame checks every 15 minutes through the NFL's game windows (Thu-Mon, incl.
+    # London, Thanksgiving, Christmas and late-season Saturdays). Each one quits in
+    # seconds unless one of your players kicks off within 90 minutes, after inactives
+    # are out. GitHub sometimes runs schedules late or skips them, so several chances
+    # per game matter. Times are UTC.
+    - cron: "7-59/15 12-23 * * 0,1,4,5,6"
+    - cron: "7-59/15 0-1 * * 0,1,2,5,6"   # night games, which end after midnight UTC
   workflow_dispatch:
     inputs:
+      job:
+        description: "full = everything; pregame = lineup only, if one of your games starts soon"
+        type: choice
+        options: [full, pregame]
+        default: full
       mode:
         description: "default follows the DRY_RUN repo variable"
         type: choice
@@ -24,13 +29,16 @@ on:
         default: ""
 
 concurrency:
-  group: fantasy-optimizer
+  # Pregame checks queue among themselves, so they never cancel a full run that's waiting.
+  group: fantasy-optimizer-${{ ((github.event_name == 'schedule' && github.event.schedule != '17 14 * * *') || inputs.job == 'pregame') && 'pregame' || 'full' }}
   cancel-in-progress: false
 
 jobs:
   optimize:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      PREGAME: ${{ ((github.event_name == 'schedule' && github.event.schedule != '17 14 * * *') || inputs.job == 'pregame') && 'true' || '' }}
     permissions:
       contents: write   # to save reports on the `reports` branch
     steps:
@@ -62,11 +70,10 @@ jobs:
           NOTIFY_URL: ${{ secrets.NOTIFY_URL }}
           TRADE: ${{ inputs.trade }}
           DRY_RUN: ${{ inputs.mode == 'live' && 'false' || inputs.mode == 'dry-run' && 'true' || vars.DRY_RUN || 'true' }}
-          EXTRA_ARGS: ${{ github.event_name == 'schedule' && github.event.schedule != '17 14 * * *' && '--no-trades --no-waivers' || '' }}
-        run: python -m fantasyoptimizer $EXTRA_ARGS
+        run: python -m fantasyoptimizer ${PREGAME:+--pregame}
 
       - name: Save memory
-        if: always() && hashFiles('.state/state.json') != ''
+        if: always() && !env.PREGAME && hashFiles('.state/state.json') != ''
         uses: actions/cache/save@v4
         with:
           path: .state
@@ -98,10 +105,18 @@ jobs:
             git -C pub rm -rfq .
           fi
           mkdir -p pub/history
-          cp report.md pub/latest.md
-          cp snapshot.json pub/latest.json
+          if [ -z "$PREGAME" ]; then   # pregame lineup changes go in history only
+            cp report.md pub/latest.md
+            cp snapshot.json pub/latest.json
+          else
+            stamp="$stamp-pregame"
+          fi
           cp report.md "pub/history/$stamp.md"
           cp snapshot.json "pub/history/$stamp.json"
           git -C pub add -A
           git -C pub commit -qm "Report $stamp" || exit 0
-          git -C pub push -q origin reports
+          for attempt in 1 2 3; do   # a full run and a pregame check can finish together
+            git -C pub push -q origin HEAD:reports && exit 0
+            git -C pub fetch -q --depth=20 origin reports && git -C pub rebase -q FETCH_HEAD
+          done
+          exit 1

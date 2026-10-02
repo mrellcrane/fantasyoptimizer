@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import logging
 import os
@@ -45,6 +46,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--no-trades", action="store_true")
     ap.add_argument("--no-waivers", action="store_true")
     ap.add_argument("--no-lineup", action="store_true")
+    ap.add_argument("--pregame", action="store_true",
+                    help="lineup only, and only if one of your players kicks off soon "
+                         "(after inactives are out); writes no report unless it changes something")
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
 
@@ -55,8 +59,8 @@ def main(argv: list[str] | None = None) -> int:
         cfg.dry_run = False
     if args.dry_run:
         cfg.dry_run = True
-    cfg.trades.enabled &= not args.no_trades
-    cfg.waivers.enabled &= not args.no_waivers
+    cfg.trades.enabled &= not (args.no_trades or args.pregame)
+    cfg.waivers.enabled &= not (args.no_waivers or args.pregame)
     cfg.lineup.enabled &= not args.no_lineup
 
     client = None
@@ -82,10 +86,22 @@ def main(argv: list[str] | None = None) -> int:
                 return 0
             raise
 
+    if args.pregame:
+        soon = league.kicking_off(league.my_team.roster, dt.timedelta(minutes=cfg.lineup.pregame_minutes))
+        if not soon:
+            print(f"Pregame check: none of your players kick off in the next "
+                  f"{cfg.lineup.pregame_minutes} minutes. Nothing to do.")
+            return 0
+        print("Pregame check: kicking off soon: "
+              + ", ".join(league.players[pid].name for pid in soon))
+
     state = State.load(args.state)
     result = Optimizer(league, cfg, state, client, score_trade=args.score_trade).run()
     if not result.dry_run:
         state.save()
+    if args.pregame and not result.actions:
+        print("Pregame check: your lineup is already the best one. Nothing to do.")
+        return 0
 
     text = report.render(result)
     print(text)
