@@ -81,6 +81,7 @@ class TradeConfig:
     max_players_per_side: int = 2
     sim_candidates: int = 30
     untouchable: list[str] = field(default_factory=list)
+    not_available: list[str] = field(default_factory=list)  # Their players they won't trade
     do_not_trade_with: list[str] = field(default_factory=list)
     message: str = ""
     pitch_as_message: bool = False  # Send the one-line pitch as the offer's note

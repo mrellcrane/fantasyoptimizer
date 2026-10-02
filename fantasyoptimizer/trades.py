@@ -121,6 +121,7 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
             tc.min_fairness, tc.min_accept_chance, tc.min_partner_gain_points)
     me = league.my_team_id
     untouchable = {n.lower() for n in tc.untouchable}
+    unavailable = {n.lower() for n in tc.not_available}
     blocked = blocked_partners(league, cfg, state, now)
     ros = {pid: valuer.ros_points(pid) for pid in league.players}
     value = trade_value(league, valuer)
@@ -147,7 +148,8 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
             continue
         base_them = valuer.value(their_roster)
         theirs = [league.players[pid] for pid in their_roster
-                  if not league.players[pid].trade_locked and ros[pid] > 0]
+                  if not league.players[pid].trade_locked and ros[pid] > 0
+                  and not _matches(league.players[pid], unavailable)]
         for get in trade_sets(theirs, value, tc.pool_size, tc.max_players_per_side):
             value_get = sum(value[pid] for pid in get)
             if value_get <= 0:

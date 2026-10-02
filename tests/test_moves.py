@@ -297,3 +297,16 @@ def test_pitch_only_says_over_when_someone_loses_their_spot():
     idea = evaluate_trade(league, opt.rosters, opt.valuer, cfg, State(), NOW, 2, (2,), (11,))
     line = opt.pitch(idea)
     assert "RB2 would start" in line and "over RB12" not in line
+
+
+def test_players_they_wont_trade_are_never_asked_for():
+    league = lopsided_league()
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    rosters = {t: list(team.roster) for t, team in league.teams.items()}
+    valuer = Valuer(league, cfg)
+    wanted = find_trades(league, rosters, valuer, cfg, State(), NOW)[0].get[0]
+    cfg.trades.not_available = [league.players[wanted].name]
+    for long_shot in (False, True):
+        ideas = find_trades(league, rosters, valuer, cfg, State(), NOW, long_shot=long_shot)
+        assert all(wanted not in i.get for i in ideas)

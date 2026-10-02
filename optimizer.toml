@@ -70,6 +70,7 @@ pool_size = 10               # Top N players per team considered for 2-player pa
 max_players_per_side = 2
 sim_candidates = 30
 untouchable = []             # e.g. ["Justin Jefferson"]
+not_available = ["Bijan Robinson"]  # Other teams' players they've said they won't trade
 do_not_trade_with = []       # Team names, abbreviations, or ids
 message = ""                 # Note attached to each offer
 pitch_as_message = false     # true = attach the one-line pitch from the report instead
