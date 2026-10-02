@@ -153,7 +153,9 @@ class Optimizer:
     # ------------------------------------------------------------ odds
 
     def odds(self, rosters: dict[int, list[int]]) -> SimResult:
-        return self.sim.run({t: self.valuer.period_means(r) for t, r in rosters.items()})
+        # You stream (say) your D/ST; nobody else is assumed to.
+        return self.sim.run({t: self.valuer.period_means(self.valuer.streaming(r) if t == self.me else r)
+                             for t, r in rosters.items()})
 
     def title_gain(self, rosters: dict[int, list[int]], baseline: SimResult) -> float:
         """Change in our championship odds, in percentage points."""
@@ -178,13 +180,18 @@ class Optimizer:
 
     def explain(self, old: list[int], new: list[int], whose: str = "your") -> str:
         """Plain-English reason a roster change helps: who starts, and who sits instead."""
-        league = self.league
-        change = self.lineup_change(old, new)
+        league, valuer = self.league, self.valuer
         added = [pid for pid in new if pid not in old]
         removed = [pid for pid in old if pid not in new]
+        if whose == "your":
+            old, new = valuer.streaming(old), valuer.streaming(new)
+        change = self.lineup_change(old, new)
         them = "you" if whose == "your" else "them"
 
         def label(pid: int) -> str:
+            if pid in valuer.streamers:
+                pos = valuer.streamers[pid]
+                return f"a streamed {pos} ({valuer.stream_level[pos]:.1f} pts/gm)"
             p = league.players[pid]
             return f"{p.name} ({p.position}, {per_game_rate(p, league, self.cfg):.1f} pts/gm)"
 
@@ -333,19 +340,20 @@ class Optimizer:
             roster = self.rosters[self.me]
             ideas = waivers.find_add_drops(self.league, roster, self.valuer, self.cfg,
                                            self.state, self.now, exclude=claimed)
-            # Bye-week patches are only shown, so they mustn't crowd out real pickups.
-            actionable = [i for i in ideas if not i.patch][:wc.sim_candidates]
-            patches = [i for i in ideas if i.patch][:3]
+            # Bye-week patches and next week's streams are only shown, so they mustn't
+            # crowd out real pickups.
+            actionable = [i for i in ideas if not i.later][:wc.sim_candidates]
+            later = [i for i in ideas if i.later][:3]
             base = self.odds(self.rosters)
-            for idea in actionable + patches:
+            for idea in actionable + later:
                 trial = {**self.rosters, self.me: waivers.apply(roster, idea)}
                 idea.title_gain = 100 * (self.odds(trial).title_odds[self.me] - base.title_odds[self.me])
             if not result.add_ideas:
-                result.add_ideas = actionable + patches
+                result.add_ideas = actionable + later
             if n >= wc.max_moves_per_run:
                 break
-            good = [i for i in actionable
-                    if i.gain >= wc.min_gain_points and i.title_gain >= wc.min_title_gain]
+            good = [i for i in actionable if i.gain >= waivers.min_gain(i, self.cfg)
+                    and i.title_gain >= wc.min_title_gain]
             if not good:
                 break
             best = max(good, key=lambda i: (round(i.title_gain, 2), i.gain))
@@ -581,7 +589,8 @@ class Optimizer:
             rosters = dict(self.rosters)
             rosters[self.me] = [pid for pid in self.rosters[self.me] if pid not in give] + get
             rosters[partner] = [pid for pid in self.rosters[partner] if pid not in get] + give
-            gain = self.valuer.value(rosters[self.me]) - self.valuer.value(self.rosters[self.me])
+            mine = self.valuer.streaming
+            gain = self.valuer.value(mine(rosters[self.me])) - self.valuer.value(mine(self.rosters[self.me]))
             result.incoming.append(IncomingOffer(pending, partner, give, get, gain,
                                                  self.title_gain(rosters, baseline)))
 

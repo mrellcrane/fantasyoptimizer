@@ -41,6 +41,7 @@ class SimConfig:
 class LineupConfig:
     enabled: bool = True
     min_gain: float = 0.5          # Projected points a lineup change must add this week
+    pregame_minutes: int = 90      # --pregame only acts when a game of yours starts this soon
 
 
 @dataclass
@@ -61,6 +62,15 @@ class WaiverConfig:
     faab_max_fraction: float = 0.30
     faab_gain_for_max_bid: float = 60.0
     faab_min_bid: int = 1
+
+
+@dataclass
+class StreamingConfig:
+    # Positions you pick up fresh each week for the matchup instead of holding one
+    # player all season. ESPN only projects a week or two out, so beyond that the
+    # bot assumes the slot scores what the best free agent is projected to.
+    positions: list[str] = field(default_factory=lambda: ["D/ST"])
+    min_gain_points: float = 2.0   # A streaming pickup only has to add this many points
 
 
 @dataclass
@@ -108,6 +118,7 @@ class Config:
     sim: SimConfig = field(default_factory=SimConfig)
     lineup: LineupConfig = field(default_factory=LineupConfig)
     waivers: WaiverConfig = field(default_factory=WaiverConfig)
+    streaming: StreamingConfig = field(default_factory=StreamingConfig)
     trades: TradeConfig = field(default_factory=TradeConfig)
     # Questionable players who do play score less (RB/WR ~8.5-10% less, QBs no drop;
     # 4for4 injury study). Multiplier on their projection when they play.

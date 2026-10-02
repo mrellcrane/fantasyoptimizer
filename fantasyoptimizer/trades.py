@@ -127,7 +127,8 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     value = trade_value(league, valuer)
 
     my_roster = rosters[me]
-    base_me = valuer.value(my_roster)
+    mine_value = lambda roster: valuer.value(valuer.streaming(roster))  # noqa: E731
+    base_me = mine_value(my_roster)
     # Players already offered in one of our pending proposals aren't offered again.
     offered = {item.get("playerId") for pending in league.pending_trades if pending.proposer == me
                for item in pending.items if item.get("fromTeamId") == me}
@@ -163,7 +164,7 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
                 if my_drops is None:
                     continue
                 new_me = [pid for pid in new_me if pid not in my_drops]
-                my_gain = valuer.value(new_me) - base_me
+                my_gain = mine_value(new_me) - base_me
                 if my_gain < tc.min_gain_points:
                     continue
                 new_them = [pid for pid in their_roster if pid not in get] + list(give)
@@ -205,7 +206,8 @@ def evaluate_trade(league: League, rosters: dict[int, list[int]], valuer: Valuer
     fairness = sum(value[pid] for pid in give) / value_get if value_get > 0 else 10.0
     partner_gain = valuer.value(new_them) - valuer.value(their_roster)
     return TradeIdea(partner, tuple(give), tuple(get), tuple(my_drops), tuple(their_drops),
-                     my_gain=valuer.value(new_me) - valuer.value(my_roster),
+                     my_gain=(valuer.value(valuer.streaming(new_me))
+                              - valuer.value(valuer.streaming(my_roster))),
                      partner_gain=partner_gain, fairness=fairness,
                      accept_chance=accept_chance(fairness, partner_gain, cfg))
 

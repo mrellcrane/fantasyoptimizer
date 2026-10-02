@@ -287,3 +287,20 @@ def test_zero_pickups_means_ideas_but_no_adds_sent():
     assert result.add_ideas
     assert not any(a.kind in ("add", "waiver") for a in result.actions)
     assert all(p["type"] not in ("FREEAGENT", "WAIVER") for p in client.sent)
+
+
+@pytest.mark.parametrize("minutes, runs", [(45, True), (180, False), (-10, False)])
+def test_pregame_only_acts_when_one_of_your_games_is_close(tmp_path, monkeypatch, minutes, runs):
+    from fantasyoptimizer import cli, demo
+    league = demo_league()
+    pro = league.players[league.my_team.roster[0]].pro_team_id
+    league.kickoffs = {pro: {league.current_scoring_period: league.loaded_at + dt.timedelta(minutes=minutes)}}
+    monkeypatch.setattr(demo, "demo_league", lambda: league)
+    out = tmp_path / "report.md"
+    code = cli.main(["--demo", "--pregame", "--report", str(out),
+                     "--snapshot", str(tmp_path / "snap.json"), "--state", str(tmp_path / "state.json")])
+    assert code == 0
+    assert out.exists() == runs
+    if runs:
+        text = out.read_text()
+        assert "Lineup (+" in text and "## Best pickups" not in text
