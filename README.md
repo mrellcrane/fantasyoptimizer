@@ -84,7 +84,7 @@ Everything lives in `optimizer.toml`, with comments. The ones you'll most likely
 
 - `trades.untouchable`: players it must never offer.
 - `trades.do_not_trade_with`: managers to leave alone.
-- `trades.swap_only_positions`: positions it only trades straight for the same position (default `["D/ST"]`: your defense for theirs, never a defense packaged with other players). `[]` turns it off.
+- `trades.swap_only_positions`: positions it only trades for the same position (default `["D/ST"]`: a deal can include your defense only if theirs comes back, with or without other players). `[]` turns it off.
 - `trades.max_proposals_per_run` / `team_cooldown_days`: how pushy it is. The default is one offer a day, max one per manager per week, and never the same offer twice in 30 days.
 - `trades.message` / `trades.pitch_as_message`: a note attached to each offer, or the one-line pitch the report writes for each trade ("Burrow would start every week for you over...").
 - `trades.min_fairness` / `min_accept_chance`: how lopsided offers may be. There's a commented "bolder" setting in the file.

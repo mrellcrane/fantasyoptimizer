@@ -94,8 +94,8 @@ class TradeConfig:
     untouchable: list[str] = field(default_factory=list)
     not_available: list[str] = field(default_factory=list)  # Their players they won't trade
     do_not_trade_with: list[str] = field(default_factory=list)
-    # Streamed week to week, so only ever traded straight for the same position
-    # (your D/ST for theirs), never packaged with other players.
+    # Streamed week to week, so only traded for the same position: a deal can include
+    # your D/ST only if it brings back theirs (other players can ride along).
     swap_only_positions: list[str] = field(default_factory=lambda: ["D/ST"])
     message: str = ""
     pitch_as_message: bool = False  # Send the one-line pitch as the offer's note

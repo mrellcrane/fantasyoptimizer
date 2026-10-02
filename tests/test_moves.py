@@ -320,17 +320,19 @@ def test_defenses_only_trade_for_defenses():
     cfg.trades.min_gain_points = 5
     rosters = {t: list(team.roster) for t, team in league.teams.items()}
     valuer = Valuer(league, cfg)
-    has_dst = lambda i: {7, 17} & set(i.give + i.get)  # noqa: E731
+    one_sided = lambda i: (7 in i.give) != (17 in i.get)  # noqa: E731
 
     cfg.trades.swap_only_positions = []
-    assert any(has_dst(i) for i in find_trades(league, rosters, valuer, cfg, State(), NOW,
-                                               long_shot=True))
+    assert any(one_sided(i) for i in find_trades(league, rosters, valuer, cfg, State(), NOW,
+                                                 long_shot=True))
     cfg.trades.swap_only_positions = ["D/ST"]
     for long_shot in (False, True):
         ideas = find_trades(league, rosters, valuer, cfg, State(), NOW, long_shot=long_shot)
-        assert ideas and not any(has_dst(i) for i in ideas)
+        assert ideas and not any(one_sided(i) for i in ideas)
 
-    # A straight defense-for-defense swap is still fair game.
+    # Defense for defense is fine, with or without other players riding along.
     assert swap_only_ok(league, (7,), (17,), {"D/ST"})
-    assert not swap_only_ok(league, (2, 7), (12, 17), {"D/ST"})
+    assert swap_only_ok(league, (2, 7), (12, 17), {"D/ST"})
+    assert swap_only_ok(league, (2,), (12,), {"D/ST"})
     assert not swap_only_ok(league, (2,), (17,), {"D/ST"})
+    assert not swap_only_ok(league, (2, 7), (12,), {"D/ST"})

@@ -88,8 +88,8 @@ sim_candidates = 30
 untouchable = []             # e.g. ["Justin Jefferson"]
 not_available = ["Bijan Robinson"]  # Other teams' players they've said they won't trade
 do_not_trade_with = ["Kat's Top-Notch Team"]  # Team names, abbreviations, or ids
-swap_only_positions = ["D/ST"]  # Streamed week to week: only ever traded straight for
-                                # their D/ST, never packaged with other players. [] = off
+swap_only_positions = ["D/ST"]  # Streamed week to week: a deal includes your D/ST only if
+                                # theirs comes back (other players can ride along). [] = off
 message = ""                 # Note attached to each offer
 pitch_as_message = false     # true = attach the one-line pitch from the report instead
 expiration_hours = 48

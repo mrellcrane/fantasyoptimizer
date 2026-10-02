@@ -50,9 +50,9 @@ def _matches(p: Player, names: set[str]) -> bool:
 
 def swap_only_ok(league: League, give: tuple[int, ...], get: tuple[int, ...],
                  positions: set[str]) -> bool:
-    """Swap-only positions (D/ST) move only for each other, never in a bigger deal."""
-    pos = {league.players[pid].position for pid in give + get}
-    return not pos & positions or len(pos) == 1
+    """Swap-only positions (D/ST) only move when the same number comes back."""
+    count = lambda ids, pos: sum(league.players[pid].position == pos for pid in ids)  # noqa: E731
+    return all(count(give, pos) == count(get, pos) for pos in positions)
 
 
 def _active_after(league: League, original: list[int], new: list[int]) -> int:
