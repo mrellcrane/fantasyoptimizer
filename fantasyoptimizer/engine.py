@@ -123,6 +123,7 @@ class RunResult:
     asked_trade: trades.TradeIdea | None = None   # a trade the user asked us to score
     asked_trade_why: str = ""
     asked_trade_error: str = ""
+    move_error: str = ""                          # a move the user asked for that couldn't be made
     lineup_gain: float = 0.0
     incoming: list[IncomingOffer] = field(default_factory=list)
     actions: list[Action] = field(default_factory=list)
@@ -134,8 +135,9 @@ class RunResult:
 class Optimizer:
     def __init__(self, league: League, cfg: Config, state: State,
                  client: espn.EspnClient | None = None, now: dt.datetime | None = None,
-                 score_trade: str | None = None):
+                 score_trade: str | None = None, move: str | None = None):
         self.asked = (score_trade or "").strip()
+        self.move = (move or "").strip()
         self.league = league
         self.cfg = cfg
         self.state = state
@@ -320,7 +322,12 @@ class Optimizer:
                 self.score_trade(self.asked, result)
             except ValueError as exc:
                 result.asked_trade_error = str(exc)
-        if cfg.waivers.enabled:
+        if self.move:  # the user asked for this exact add/drop; it replaces today's pickup search
+            try:
+                self.requested_move(self.move, result)
+            except ValueError as exc:
+                result.move_error = str(exc)
+        elif cfg.waivers.enabled:
             self.do_waivers(result)
         result.lineup_check = self.lineup_check()
         if cfg.lineup.enabled:
@@ -360,33 +367,64 @@ class Optimizer:
             if not good:
                 break
             best = max(good, key=lambda i: (round(i.title_gain, 2), i.gain))
-            drop = f", drop {best.drop}" if best.drop else ""
-            verb = f"Waiver claim (${best.bid})" if best.waiver and self.league.uses_faab else (
-                "Waiver claim" if best.waiver else "Add")
-            action = self.execute(Action(
-                kind="waiver" if best.waiver else "add",
-                summary=(f"{verb}: {best.add}{drop} "
-                         f"(+{best.gain:.1f} season pts, {best.title_gain:+.1f}% title odds)"),
-                payload=espn.add_drop_payload(self.league, best.add.id,
-                                              best.drop.id if best.drop else None,
-                                              waiver=best.waiver, bid=best.bid),
-                why=self.explain(roster, waivers.apply(roster, best)),
-            ))
-            result.actions.append(action)
+            action = self.make_pickup(result, best)
             claimed.add(best.add.id)
             if best.drop:
                 claimed.add(best.drop.id)
             if action.executed and not action.ok:
                 break
-            if action.ok:
-                self.state.record_add_drop(best.add.id, best.drop.id if best.drop else None, self.now)
-            # Plan the rest of the day as if the move went through. Waiver claims
-            # process later, so the lineup step keeps ignoring them.
-            self.rosters[self.me] = waivers.apply(roster, best)
-            if not best.waiver:
-                self.lineup_roster = waivers.apply(self.lineup_roster, best)
-                p = self.league.players[best.add.id]
-                p.lineup_slot, p.team_id = BENCH_SLOT, self.me
+
+    def make_pickup(self, result: RunResult, move: waivers.AddDrop, note: str = "") -> Action:
+        roster = self.rosters[self.me]
+        drop = f", drop {move.drop}" if move.drop else ""
+        verb = f"Waiver claim (${move.bid})" if move.waiver and self.league.uses_faab else (
+            "Waiver claim" if move.waiver else "Add")
+        action = self.execute(Action(
+            kind="waiver" if move.waiver else "add",
+            summary=(f"{verb}: {move.add}{drop}{note} "
+                     f"(+{move.gain:.1f} season pts, {move.title_gain:+.1f}% title odds)"),
+            payload=espn.add_drop_payload(self.league, move.add.id,
+                                          move.drop.id if move.drop else None,
+                                          waiver=move.waiver, bid=move.bid),
+            why=self.explain(roster, waivers.apply(roster, move)),
+        ))
+        result.actions.append(action)
+        if action.executed and not action.ok:
+            return action
+        if action.ok:
+            self.state.record_add_drop(move.add.id, move.drop.id if move.drop else None, self.now)
+        # Plan the rest of the day as if the move went through. Waiver claims
+        # process later, so the lineup step keeps ignoring them.
+        self.rosters[self.me] = waivers.apply(roster, move)
+        if not move.waiver:
+            self.lineup_roster = waivers.apply(self.lineup_roster, move)
+            p = self.league.players[move.add.id]
+            p.lineup_slot, p.team_id = BENCH_SLOT, self.me
+        return action
+
+    def requested_move(self, text: str, result: RunResult) -> None:
+        """Make one add/drop typed as "add Jets D/ST, drop Bills D/ST" (or "Jets D/ST for Bills D/ST")."""
+        m = (re.match(r"(?is)\s*(?:add\s+)?(.+?)\s*(?:[,;]\s*drop\s+|\s+for\s+)(.+)$", text)
+             or re.match(r"(?is)\s*(?:add\s+)?(.+)$", text))
+        league, roster = self.league, self.rosters[self.me]
+        free = [p.id for p in league.players.values() if p.available]
+        add = league.players[self._find(m.group(1), free, "among free agents or on waivers")]
+        drop = None
+        if m.lastindex == 2:
+            drop = league.players[self._find(m.group(2), roster, "on your roster")]
+        elif league.roster_limit - league.active_count(roster) <= 0:
+            raise ValueError('Your roster is full. Say who to drop: "add Player A, drop Player B".')
+        if add.lineup_locked:
+            raise ValueError(f"{add.name}'s game this week has started, so he can't be added yet.")
+        if drop and (drop.lineup_locked or drop.roster_locked):
+            raise ValueError(f"{drop.name} is locked (his game has started), so he can't be dropped yet.")
+        move = waivers.AddDrop(add=add, drop=drop, gain=0.0, waiver=add.status == "WAIVERS")
+        new = waivers.apply(roster, move)
+        mine = self.valuer.streaming
+        move.gain = self.valuer.value(mine(new)) - self.valuer.value(mine(roster))
+        move.bid = waivers.faab_bid(max(move.gain, 0.0), league, self.cfg) if move.waiver else 0
+        move.title_gain = self.title_gain({**self.rosters, self.me: new}, self.odds(self.rosters))
+        self.make_pickup(result, move, note=" (you asked for it)")
 
     def lineup_plan(self) -> tuple[list[tuple[int, int, int]], float, float] | None:
         """This week's best lineup: (moves, its projected points, current lineup's points)."""
