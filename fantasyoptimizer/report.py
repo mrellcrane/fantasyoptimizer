@@ -273,8 +273,10 @@ def render(result: RunResult, max_rows: int = 8) -> str:
 
     if result.add_ideas:
         lines += ["", "## Best pickups", "",
-                  "_Alternatives, best first (at most two per position). The bot makes at most "
-                  f"{result.max_moves} per run._", "",
+                  "_Alternatives, best first (at most two per position). "
+                  + (f"The bot makes at most {result.max_moves} per run._" if result.max_moves
+                     else "Suggestions only: the bot won't make any (`max_moves_per_run = 0`)._"),
+                  "",
                   "| Add | Drop | Type | Starts | Season pts | Title odds | Note |",
                   "|---|---|---|---|---:|---:|---|"]
         for i in pickup_rows(result.add_ideas, max_rows):
