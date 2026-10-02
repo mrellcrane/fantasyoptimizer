@@ -124,6 +124,14 @@ class League:
     # pro team id -> {scoring period: games that period}
     pro_games: dict[int, dict[int, int]] = field(default_factory=dict)
     pro_team_abbrevs: dict[int, str] = field(default_factory=dict)
+    # pro team id -> {scoring period: kickoff (UTC)}
+    kickoffs: dict[int, dict[int, dt.datetime]] = field(default_factory=dict)
+    loaded_at: dt.datetime = field(default_factory=lambda: dt.datetime.now(dt.timezone.utc))
+
+    def inactives_out(self, pro_team_id: int, scoring_period: int) -> bool:
+        """Have this team's inactives been announced (about 90 minutes before kickoff)?"""
+        kickoff = self.kickoffs.get(pro_team_id, {}).get(scoring_period)
+        return kickoff is not None and self.loaded_at >= kickoff - dt.timedelta(minutes=85)
 
     @property
     def my_team(self) -> Team:
@@ -370,6 +378,7 @@ def parse_league(
                       if deadline else None)
 
     pro_games: dict[int, dict[int, int]] = {}
+    kickoffs: dict[int, dict[int, dt.datetime]] = {}
     abbrevs: dict[int, str] = {}
     for pt in pro_teams or []:
         pid = int(pt["id"])
@@ -377,6 +386,8 @@ def parse_league(
         by_sp = pt.get("proGamesByScoringPeriod")
         if by_sp:
             pro_games[pid] = {int(k): len(v) for k, v in by_sp.items()}
+            kickoffs[pid] = {int(k): dt.datetime.fromtimestamp(v[0]["date"] / 1000, tz=dt.timezone.utc)
+                             for k, v in by_sp.items() if v and v[0].get("date")}
         elif pt.get("byeWeek") is not None:
             pro_games[pid] = {sp: (0 if sp == pt["byeWeek"] else 1)
                               for sp in range(1, final_sp + 1)}
@@ -405,6 +416,7 @@ def parse_league(
         pending_trades=parse_pending_trades(data),
         pro_games=pro_games,
         pro_team_abbrevs=abbrevs,
+        kickoffs=kickoffs,
     )
 
 

@@ -41,7 +41,7 @@ Your league and team ids are already in `optimizer.toml` (`[general]`). The cook
 
 Go to **Actions → Daily fantasy moves → Run workflow**, and pick `dry-run`. Open the run and read the summary. It shows exactly what it *would* have done.
 
-Run a few dry runs. When you like what you see, set the `DRY_RUN` variable to `false`. After that it runs daily at 10:17am ET, plus a lineup-only run on Sundays at 12:07pm ET after inactives are announced.
+Run a few dry runs. When you like what you see, set the `DRY_RUN` variable to `false`. After that it runs daily at 10:17am ET. It also does lineup-only runs right after inactives are announced for each kickoff window (Sunday 1pm and late afternoon, Sunday/Monday/Thursday night), so a Questionable player who's ruled out gets benched in time.
 
 You can also run it locally:
 

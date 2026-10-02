@@ -109,3 +109,18 @@ def test_questionable_players_this_week_carry_their_risk():
     qb = make_player(3, "QB", 20, injury="QUESTIONABLE")
     qb.period_projections = {1: 20.0}
     assert expected_points(qb, league, cfg)[0] == pytest.approx(20.0 * 0.74)  # QBs don't drop off
+
+
+def test_questionable_player_is_active_once_inactives_are_out():
+    import datetime as dt
+    from fantasyoptimizer.projections import expected_points
+    cfg = Config()
+    p = make_player(1, "WR", 15, injury="QUESTIONABLE", pro=1)
+    p.period_projections = {1: 15.0}
+    league = make_league({1: [p], 2: []})
+    kickoff = dt.datetime(2026, 10, 4, 17, tzinfo=dt.timezone.utc)
+    league.kickoffs = {1: {1: kickoff}}
+    league.loaded_at = kickoff - dt.timedelta(days=2)     # midweek: might sit
+    assert expected_points(p, league, cfg)[0] == pytest.approx(15.0 * 0.74 * 0.91)
+    league.loaded_at = kickoff - dt.timedelta(minutes=60)  # inactives out, still listed Q: active
+    assert expected_points(p, league, cfg)[0] == pytest.approx(15.0 * 0.91)

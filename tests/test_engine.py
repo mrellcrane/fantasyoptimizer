@@ -5,7 +5,7 @@ import pytest
 
 from fantasyoptimizer import espn, report
 from fantasyoptimizer.config import Config, load_config
-from fantasyoptimizer.demo import demo_data, demo_league
+from fantasyoptimizer.demo import DEMO_SWID, demo_data, demo_league
 from fantasyoptimizer.engine import Optimizer
 from fantasyoptimizer.models import BENCH_SLOT, IR_SLOT
 from fantasyoptimizer.state import State
@@ -254,3 +254,16 @@ def test_bad_trade_text_is_explained_not_crashed():
         result = Optimizer(demo_league(), config(), State(), None, NOW, score_trade=text).run()
         assert result.asked_trade is None and message in result.asked_trade_error
         assert message in report.render(result)
+
+
+def test_kickoff_times_parsed_from_pro_schedule():
+    from fantasyoptimizer.models import parse_league
+    data, fas, pro = demo_data()
+    pro[0]["proGamesByScoringPeriod"]["4"] = [{"id": 1, "date": 1791133200000}]
+    league = parse_league(data, fas, pro, swid=DEMO_SWID)
+    kick = league.kickoffs[pro[0]["id"]][4]
+    assert kick.tzinfo is not None and kick.year == 2026
+    league.loaded_at = kick - dt.timedelta(minutes=60)
+    assert league.inactives_out(pro[0]["id"], 4)
+    league.loaded_at = kick - dt.timedelta(hours=5)
+    assert not league.inactives_out(pro[0]["id"], 4)

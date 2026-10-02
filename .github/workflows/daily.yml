@@ -2,10 +2,15 @@ name: Daily fantasy moves
 
 on:
   schedule:
-    # Every day at 10:17 ET (14:17 UTC while daylight time is on).
+    # The full run: every day at 10:17 ET (9:17 once daylight time ends).
     - cron: "17 14 * * *"
-    # Sundays at 12:07 ET, after inactives are announced: lineup only.
-    - cron: "7 16 * * 0"
+    # Lineup-only runs just after inactives are announced (~90 min before kickoff),
+    # timed to work in both EDT and EST:
+    - cron: "40 16 * * 0"   # Sun 12:40 EDT / 11:40 EST: 1pm games
+    - cron: "50 19 * * 0"   # Sun 3:50 EDT / 2:50 EST: late-afternoon games
+    - cron: "5 0 * * 1"     # Sun 8:05pm EDT / 7:05pm EST: Sunday night
+    - cron: "5 0 * * 2"     # Mon night
+    - cron: "5 0 * * 5"     # Thu night
   workflow_dispatch:
     inputs:
       mode:
@@ -57,7 +62,7 @@ jobs:
           NOTIFY_URL: ${{ secrets.NOTIFY_URL }}
           TRADE: ${{ inputs.trade }}
           DRY_RUN: ${{ inputs.mode == 'live' && 'false' || inputs.mode == 'dry-run' && 'true' || vars.DRY_RUN || 'true' }}
-          EXTRA_ARGS: ${{ github.event.schedule == '7 16 * * 0' && '--no-trades --no-waivers' || '' }}
+          EXTRA_ARGS: ${{ github.event_name == 'schedule' && github.event.schedule != '17 14 * * *' && '--no-trades --no-waivers' || '' }}
         run: python -m fantasyoptimizer $EXTRA_ARGS
 
       - name: Save memory
