@@ -53,7 +53,8 @@ faab_min_bid = 1
 
 [trades]
 enabled = true
-max_proposals_per_run = 1    # Keep this low. Your league-mates are people.
+max_proposals_per_run = 0    # 0 = suggest trades in the report but never send them
+                             # (you send them yourself). Keep it low if you raise it.
 team_cooldown_days = 7       # Max one offer per manager per week
 repeat_cooldown_days = 30    # Never re-send the same offer within a month
 min_gain_points = 10.0       # Rest-of-season points the trade must add for you

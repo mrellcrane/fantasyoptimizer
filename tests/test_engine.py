@@ -267,3 +267,13 @@ def test_kickoff_times_parsed_from_pro_schedule():
     assert league.inactives_out(pro[0]["id"], 4)
     league.loaded_at = kick - dt.timedelta(hours=5)
     assert not league.inactives_out(pro[0]["id"], 4)
+
+
+def test_zero_proposals_means_ideas_but_no_offers_sent():
+    cfg = config(dry_run=False)
+    cfg.trades.max_proposals_per_run = 0
+    client = FakeClient()
+    result = Optimizer(demo_league(), cfg, State(), client, NOW).run()
+    assert result.trade_ideas
+    assert all(p["type"] != "TRADE_PROPOSAL" for p in client.sent)
+    assert any(p["type"] == "ROSTER" for p in client.sent)
