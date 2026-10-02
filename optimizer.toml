@@ -37,6 +37,7 @@ pregame_minutes = 90         # Pregame checks only act when one of your players 
 enabled = true
 max_moves_per_run = 0        # 0 = suggest pickups in the report but never make them
                              # (you make them yourself). 1 = make the best one each run.
+                             # The code default is 1. See [streaming] auto for D/ST.
 min_gain_points = 12.0       # Rest-of-season starting-lineup points a pickup must add
                              # (less than ~1 point a week isn't worth losing depth over)
 min_title_gain = 0.0         # ...and it can't lower title odds (percentage points)
@@ -62,6 +63,9 @@ faab_min_bid = 1
 # instead of cutting a bench player. [] turns it off.
 positions = ["D/ST"]
 min_gain_points = 2.0        # A stream only has to win its week, not the season
+auto = true                  # Make streaming pickups automatically, even though
+                             # waivers.max_moves_per_run = 0 keeps all others manual.
+                             # The code default is false.
 
 [trades]
 enabled = true

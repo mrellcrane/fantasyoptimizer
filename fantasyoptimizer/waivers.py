@@ -32,6 +32,11 @@ class AddDrop:
         return self.patch or self.wait
 
 
+# A waiver claim takes a day or two to go through. Until it does, the player is still
+# on waivers and the one we're dropping is still ours, so don't claim or drop them again.
+PENDING_CLAIM_DAYS = 3
+
+
 def streamed(p: Player, cfg: Config) -> bool:
     """Positions you turn over weekly (D/ST): hold and re-add cooldowns don't apply."""
     return p.position in cfg.streaming.positions
@@ -48,6 +53,8 @@ def droppable(p: Player, cfg: Config, state: State, now: dt.datetime) -> bool:
         return False
     if p.roster_locked or p.lineup_locked:
         return False
+    if state.dropped_recently(p.id, PENDING_CLAIM_DAYS, now):
+        return False  # still ours, so he's the drop in a claim that hasn't gone through
     return streamed(p, cfg) or not state.added_recently(p.id, cfg.waivers.hold_days, now)
 
 
@@ -71,6 +78,7 @@ def find_add_drops(league: League, roster: list[int], valuer: Valuer, cfg: Confi
     # Players whose game already started this week can't be picked up yet.
     pool = [p for p in league.players.values()
             if p.available and p.id not in exclude and not p.lineup_locked
+            and not state.added_recently(p.id, PENDING_CLAIM_DAYS, now)  # our claim is pending
             and (streamed(p, cfg) or not state.dropped_recently(p.id, wc.readd_cooldown_days, now))]
     # The best few at each position you can start. A single top-N list gets swamped by
     # whichever position scores the most (linebackers, in IDP leagues).

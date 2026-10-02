@@ -230,6 +230,11 @@ def _status(action) -> str:
     return "SENT" if action.ok else "FAILED"
 
 
+def _auto_streams(result: RunResult) -> list[str]:
+    cfg = result.valuer.cfg if result.valuer else None
+    return list(cfg.streaming.positions) if cfg and cfg.streaming.auto else []
+
+
 def render(result: RunResult, max_rows: int = 8) -> str:
     league, base = result.league, result.baseline
     me = league.my_team
@@ -277,7 +282,9 @@ def render(result: RunResult, max_rows: int = 8) -> str:
         lines += ["", "## Best pickups", "",
                   "_Alternatives, best first (at most two per position). "
                   + (f"The bot makes at most {result.max_moves} per run._" if result.max_moves
-                     else "Suggestions only: the bot won't make any (`max_moves_per_run = 0`)._"),
+                     else "Suggestions only: the bot won't make any (`max_moves_per_run = 0`)"
+                     + (f", except {'/'.join(streams)} streams, which it makes itself._"
+                        if (streams := _auto_streams(result)) else "._")),
                   "",
                   "| Add | Drop | Type | Starts | Season pts | Title odds | Note |",
                   "|---|---|---|---|---:|---:|---|"]
