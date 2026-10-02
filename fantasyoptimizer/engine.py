@@ -60,6 +60,32 @@ class LineupChange:
     displaced: dict[int, Counter] = field(default_factory=dict)  # added player -> who sat
 
 
+def _starting(slot: int | None) -> bool:
+    return slot not in (None, BENCH_SLOT, IR_SLOT)
+
+
+def _pair_moves(moves: list[tuple[int, int, int]], points):
+    """Turn slot-by-slot lineup moves into what a person would do.
+
+    Returns (swaps [(start, sit)], shifts [(pid, new starting slot)],
+    unpaired starts [(pid, slot)], unpaired benchings [pid]). Each player coming
+    off the bench is paired with whoever leaves the same slot.
+    """
+    ins = sorted(((pid, b) for pid, a, b in moves if not _starting(a) and _starting(b)),
+                 key=lambda m: -points(m[0]))
+    outs = [(pid, a) for pid, a, b in moves if _starting(a) and not _starting(b)]
+    shifts = [(pid, b) for pid, a, b in moves if _starting(a) and _starting(b)]
+    swaps, extra_in = [], []
+    for pid, slot in ins:
+        match = next((o for o in outs if o[1] == slot), outs[0] if outs else None)
+        if match is None:
+            extra_in.append((pid, slot))
+        else:
+            outs.remove(match)
+            swaps.append((pid, match[0]))
+    return swaps, shifts, extra_in, [pid for pid, _ in outs]
+
+
 def _spread(ideas: list, per_partner: int = 2) -> list:
     """Same order, but at most `per_partner` ideas per team before any repeats."""
     first, rest, seen = [], [], Counter()
@@ -192,11 +218,13 @@ class Optimizer:
             text = f"{p.name} would start {often} for you"
             # Name who they're actually starting there now (what the manager sees),
             # falling back to who the model says he'd replace.
-            starting_now = [q for q in old if q not in idea.get
+            # ...as long as that player would actually lose his spot after the trade.
+            starting_now = [q for q in old if q not in idea.get and change.new_starts[q] <= 0.5 * n
                             and league.players[q].position == p.position
                             and league.players[q].lineup_slot not in (None, BENCH_SLOT, IR_SLOT)]
             same_spot = [q for q, _ in change.displaced[pid].most_common()
-                         if league.players[q].position == p.position and q in old and q not in idea.get]
+                         if league.players[q].position == p.position and q in old and q not in idea.get
+                         and change.new_starts[q] <= 0.5 * n]
             if starting_now:
                 over = min(starting_now, key=lambda q: per_game_rate(league.players[q], league, self.cfg))
                 text += f" over {league.players[over].name}"
@@ -380,16 +408,23 @@ class Optimizer:
             return
         moves, best, now_pts = plan
         result.lineup_gain = best - now_pts
-        if not moves or result.lineup_gain < 0.1:
+        if not moves or result.lineup_gain < self.cfg.lineup.min_gain:
             return
         league = self.league
-        desc = "; ".join(f"{league.players[pid].name} {SLOT_NAMES.get(a, a)}->{SLOT_NAMES.get(b, b)}"
-                         for pid, a, b in moves)
+        name = lambda pid: league.players[pid].name  # noqa: E731
+        swaps, shifts, extra_in, extra_out = _pair_moves(moves, self._week_points)
+        parts = [f"start {name(a)} over {name(b)}" for a, b in swaps]
+        parts += [f"move {name(pid)} to {SLOT_NAMES.get(slot, slot)}" for pid, slot in shifts]
+        parts += [f"start {name(pid)} at {SLOT_NAMES.get(slot, slot)}" for pid, slot in extra_in]
+        parts += [f"bench {name(pid)}" for pid in extra_out]
         result.actions.append(self.execute(Action(
             kind="lineup",
-            summary=f"Set lineup (+{result.lineup_gain:.1f} projected pts this week): {desc}",
+            summary=f"Lineup (+{result.lineup_gain:.1f} projected pts this week): " + "; ".join(parts),
             payload=espn.lineup_payload(league, moves),
         )))
+
+    def _week_points(self, pid: int) -> float:
+        return float(self.valuer.points[self.valuer.row[pid], 0])
 
     def lineup_check(self) -> LineupCheck | None:
         """The quick wins: bench-for-starter swaps this week, and holes coming next week."""
@@ -406,16 +441,8 @@ class Optimizer:
             return slot not in (None, BENCH_SLOT, IR_SLOT)
 
         check = LineupCheck(week=league.horizon[0], best=best, gain=best - now_pts)
-        if check.gain >= 0.1:
-            # Pair each player coming off the bench with whoever leaves the same slot.
-            ins = sorted(((pid, b) for pid, a, b in moves if not starting(a) and starting(b)),
-                         key=lambda m: -pts(m[0], 0))
-            outs = [(pid, a) for pid, a, b in moves if starting(a) and not starting(b)]
-            for pid, slot in ins:
-                match = next((o for o in outs if o[1] == slot), outs[0] if outs else None)
-                if match is not None:
-                    outs.remove(match)
-                    check.swaps.append((pid, match[0]))
+        if check.gain >= self.cfg.lineup.min_gain:
+            check.swaps = _pair_moves(moves, self._week_points)[0]
         if len(league.horizon) < 2:
             return check
 

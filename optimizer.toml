@@ -29,6 +29,7 @@ seed = 2026
 
 [lineup]
 enabled = true               # Set the best lineup every run (benches byes, OUT players)
+min_gain = 0.5               # Ignore lineup changes worth less than this many points
 
 [waivers]
 enabled = true

@@ -40,6 +40,7 @@ class SimConfig:
 @dataclass
 class LineupConfig:
     enabled: bool = True
+    min_gain: float = 0.5          # Projected points a lineup change must add this week
 
 
 @dataclass

@@ -258,3 +258,42 @@ def test_trades_are_planned_as_if_pending_offers_go_through():
     ideas = find_trades(league, rosters, opt.valuer, cfg, State(), NOW)
     assert ideas and all(i.partner == 3 for i in ideas)
     assert all(pid not in (2, 12) for i in ideas for pid in i.give + i.my_drops)
+
+
+def test_lineup_prefers_healthy_starter_and_reads_as_a_swap():
+    from fantasyoptimizer.engine import Optimizer
+    healthy = make_player(1, "QB", 19)
+    shaky = make_player(2, "QB", 19, injury="QUESTIONABLE")
+    healthy.period_projections, shaky.period_projections = {1: 19.2}, {1: 19.3}
+    rest = [make_player(3, "RB", 14), make_player(4, "WR", 14), make_player(5, "RB", 10)]
+    league = make_league({1: [healthy, shaky] + rest, 2: full_roster(2, 100)})
+    for pid, slot in {1: 0, 3: 2, 4: 4, 5: 23}.items():
+        league.players[pid].lineup_slot = slot
+    opt = Optimizer(league, fast_config(), State(), None, NOW)
+    assert opt.lineup_check().swaps == []          # don't start the Questionable guy for +0.1
+    # A real upgrade on the bench reads as one swap, not bench-then-start steps.
+    shaky.injury_status = "ACTIVE"
+    shaky.period_projections = {1: 25.0}
+    result = Optimizer(league, fast_config(), State(), None, NOW).run()
+    lineup = next(a for a in result.actions if a.kind == "lineup")
+    assert "start QB2 over QB1" in lineup.summary and "->" not in lineup.summary
+
+
+def test_pitch_only_says_over_when_someone_loses_their_spot():
+    from fantasyoptimizer.engine import Optimizer
+    from fantasyoptimizer.trades import evaluate_trade
+    mine = [make_player(1, "QB", 15), make_player(2, "RB", 14), make_player(3, "WR", 14),
+            make_player(4, "RB", 12), make_player(5, "WR", 13), make_player(6, "WR", 4)]
+    theirs = [make_player(10, "QB", 15), make_player(11, "RB", 16), make_player(12, "RB", 10),
+              make_player(13, "WR", 9), make_player(14, "WR", 8), make_player(15, "RB", 4)]
+    league = make_league({1: mine, 2: theirs})
+    for pid, slot in {1: 0, 2: 2, 3: 4, 4: 23, 10: 0, 11: 2, 12: 2, 13: 4, 14: 23}.items():
+        league.players[pid].lineup_slot = slot
+    league.slot_counts[2] = 2   # two RB slots: they start both of their good RBs
+    league.slot_counts[20] = 1
+    cfg = fast_config()
+    opt = Optimizer(league, cfg, State(), None, NOW)
+    # They give their star RB and get ours: ours takes the star's spot, RB12 keeps his.
+    idea = evaluate_trade(league, opt.rosters, opt.valuer, cfg, State(), NOW, 2, (2,), (11,))
+    line = opt.pitch(idea)
+    assert "RB2 would start" in line and "over RB12" not in line

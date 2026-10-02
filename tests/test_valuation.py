@@ -92,3 +92,14 @@ def test_espn_weekly_projections_are_used_as_is_and_estimates_get_injury_discoun
     assert pts[0] == 0.0 and pts[1] == 11.0   # ESPN's numbers, untouched
     del p.period_projections[2]                # no ESPN number: the bot estimates and discounts
     assert expected_points(p, league, cfg)[1] == pytest.approx(10 * 0.85)
+
+
+def test_questionable_players_this_week_carry_their_risk():
+    from fantasyoptimizer.projections import expected_points
+    cfg = Config()
+    p = make_player(1, "LB", 19, injury="QUESTIONABLE")
+    p.period_projections = {1: 19.3, 2: 19.2}
+    league = make_league({1: [p], 2: []})
+    pts = expected_points(p, league, cfg)
+    assert pts[0] == pytest.approx(19.3 * 0.8)   # might sit this week
+    assert pts[1] == 19.2                        # next week: ESPN's number as is

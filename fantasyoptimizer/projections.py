@@ -45,9 +45,12 @@ def expected_points(p: Player, league: League, cfg: Config, rate: float | None =
     out = np.zeros(len(league.horizon))
     for j, sp in enumerate(league.horizon):
         if sp in p.period_projections:
-            # ESPN's weekly numbers already price in injuries: players it expects to keep
-            # missing get 0 for next week too, so use them as they are.
+            # ESPN's weekly numbers already price in Out/Doubtful (they get 0), so use them
+            # as they are. The exception: Questionable players are projected as if they'll
+            # play, so this week's number gets the chance they actually do.
             out[j] = max(0.0, p.period_projections[sp])
+            if sp == current and p.injury_status == "QUESTIONABLE":
+                out[j] *= availability(p, 0, cfg)
             continue
         games = league.games(p.pro_team_id, sp)
         out[j] = rate * games * availability(p, sp - current, cfg)
