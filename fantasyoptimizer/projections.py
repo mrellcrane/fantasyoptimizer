@@ -57,7 +57,13 @@ def expected_points(p: Player, league: League, cfg: Config, rate: float | None =
     rate = per_game_rate(p, league, cfg) if rate is None else rate
     current = league.current_scoring_period
     out = np.zeros(len(league.horizon))
+    back = cfg.expected_return.get(p.name)
     for j, sp in enumerate(league.horizon):
+        if back is not None and sp < back:
+            continue  # still out, per the news
+        if back is not None and sp not in p.period_projections:
+            out[j] = rate * league.games(p.pro_team_id, sp)  # back, at full strength
+            continue
         if sp in p.period_projections:
             # ESPN's weekly numbers already price in Out/Doubtful (they get 0), so use them
             # as they are. The exception: Questionable players are projected as if they'll

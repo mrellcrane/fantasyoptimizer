@@ -124,3 +124,13 @@ def test_questionable_player_is_active_once_inactives_are_out():
     assert expected_points(p, league, cfg)[0] == pytest.approx(15.0 * 0.74 * 0.91)
     league.loaded_at = kickoff - dt.timedelta(minutes=60)  # inactives out, still listed Q: active
     assert expected_points(p, league, cfg)[0] == pytest.approx(15.0 * 0.91)
+
+
+def test_expected_return_week_from_the_news_overrides_injury_curve():
+    from fantasyoptimizer.projections import expected_points
+    cfg = Config()
+    p = make_player(1, "WR", 13, injury="INJURY_RESERVE")
+    league = make_league({1: [p], 2: []})
+    assert list(expected_points(p, league, cfg)) == [0, 0, 0, 0]   # generic IR curve: out a while
+    cfg.expected_return = {"WR1": 3}
+    assert list(expected_points(p, league, cfg)) == [0, 0, 13, 13]  # back in week 3

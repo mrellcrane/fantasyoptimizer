@@ -114,6 +114,9 @@ class Config:
     questionable_performance: dict[str, float] = field(default_factory=lambda: {
         "RB": 0.91, "WR": 0.91, "TE": 0.91,
     })
+    # Expected return week for specific injured players, from the news (overrides the
+    # generic injury curve): {"A.J. Brown": 7}
+    expected_return: dict[str, int] = field(default_factory=dict)
     # injury status -> availability for this week, next week, ... (1.0 after the list ends)
     injury: dict[str, list[float]] = field(default_factory=lambda: {
         "OUT": [0.0, 0.75],
