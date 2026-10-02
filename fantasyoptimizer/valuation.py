@@ -36,6 +36,18 @@ class Valuer:
         ).reshape(len(self.player_ids), len(self.slots))
         self.can_start = self.eligible.any(axis=1)
 
+        # Replacement level: the best free agent at each position, week by week. Bench
+        # depth only counts what a player adds over that, since anyone can grab him.
+        n_weeks = len(league.horizon)
+        self.replacement: dict[str, np.ndarray] = {}
+        for i, pid in enumerate(self.player_ids):
+            p = league.players[pid]
+            if p.available:
+                best = self.replacement.get(p.position)
+                self.replacement[p.position] = (self.points[i].copy() if best is None
+                                                else np.maximum(best, self.points[i]))
+        self._no_replacement = np.zeros(n_weeks)
+
         playoff_sps = {sp for mp in league.playoff_periods for sp in league.scoring_periods_of(mp)}
         self.weights = np.array([
             cfg.value.playoff_weight if sp in playoff_sps else 1.0 for sp in league.horizon
@@ -92,11 +104,15 @@ class Valuer:
             total, assignment = self.solve(ids, self.points[rows, j] if len(rows) else None, j)
             starters[j] = total
             if k and len(rows):
-                bench = [self.points[self.row[pid], j] for pid in ids
+                bench = [self.points[self.row[pid], j] - self._replacement(pid)[j] for pid in ids
                          if pid not in assignment and self.can_start[self.row[pid]]]
+                bench = [b for b in bench if b > 0]
                 depth[j] = sum(sorted(bench, reverse=True)[:k])
         self._cache[roster] = (starters, depth)
         return starters, depth
+
+    def _replacement(self, pid: int) -> np.ndarray:
+        return self.replacement.get(self.league.players[pid].position, self._no_replacement)
 
     # ------------------------------------------------------------ public
 

@@ -134,3 +134,21 @@ def test_expected_return_week_from_the_news_overrides_injury_curve():
     assert list(expected_points(p, league, cfg)) == [0, 0, 0, 0]   # generic IR curve: out a while
     cfg.expected_return = {"WR1": 3}
     assert list(expected_points(p, league, cfg)) == [0, 0, 13, 13]  # back in week 3
+
+
+def test_bench_depth_only_counts_points_over_waivers():
+    cfg = fast_config()
+    cfg.value.bench_weight = 0.1
+    starters = [make_player(1, "QB", 15), make_player(2, "RB", 14), make_player(3, "WR", 14),
+                make_player(4, "RB", 12)]
+    backup_lb = make_player(5, "LB", 19)
+    free_lb = make_player(900, "LB", 18.5)
+    league = make_league({1: starters + [backup_lb], 2: []}, [free_lb])
+    league.slot_counts[15] = 1          # a DP slot...
+    league.players[6] = make_player(6, "LB", 20, team=1)  # ...filled by a better LB
+    league.teams[1].roster.append(6)
+    v = Valuer(league, cfg)
+    with_backup = v.value(league.teams[1].roster)
+    without = v.value([pid for pid in league.teams[1].roster if pid != 5])
+    # Raw-points depth would credit 0.1 * 19 a week; over-waivers depth only 0.1 * 0.5.
+    assert with_backup - without == pytest.approx(0.1 * 0.5 * 4)

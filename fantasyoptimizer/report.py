@@ -280,8 +280,12 @@ def render(result: RunResult, max_rows: int = 8) -> str:
         for i in pickup_rows(result.add_ideas, max_rows):
             kind = (f"Waiver ${i.bid}" if league.uses_faab else "Waiver") if i.waiver else "Free agent"
             title = f"{i.title_gain:+.1f}%" if i.title_gain is not None else ""
-            note = (f"Only fills wk {', '.join(map(str, i.start_weeks))}: add it that week"
-                    if i.patch else "")
+            if i.patch:
+                note = f"Only fills wk {', '.join(map(str, i.start_weeks))}: add it that week"
+            elif result.valuer and i.gain < result.valuer.cfg.waivers.min_gain_points:
+                note = "Small gain: optional (the bot won't make it)"
+            else:
+                note = ""
             lines.append(f"| {i.add} | {i.drop or '(open spot)'} | {kind} | "
                          f"{starts_text(i.start_weeks, len(league.horizon))} | {i.gain:+.1f} | {title} "
                          f"| {note} |")
