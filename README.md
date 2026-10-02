@@ -90,6 +90,7 @@ Everything lives in `optimizer.toml`, with comments. The ones you'll most likely
 - `trades.long_shots`: the report's "Long shots" list of trades that help you more but are less likely to be accepted. `propose_long_shots = true` makes the bot send those instead of the safe picks.
 - `waivers.never_drop`: players it must never cut.
 - `streaming.positions`: positions you stream week to week (default `["D/ST"]`; add `"K"` if you stream kickers, or `[]` to hold everyone).
+- `streaming.auto`: make streaming pickups automatically even when `max_moves_per_run = 0`. It only ever swaps a defense for a defense, never cuts another player, and waits until your current one has played if it's better this week.
 - `waivers.max_moves_per_run`: `0` lists pickups in the report but never makes them.
 - `lineup.enabled`, `waivers.enabled`, `trades.enabled`: turn pieces off.
 

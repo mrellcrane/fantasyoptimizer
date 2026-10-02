@@ -350,9 +350,12 @@ class Optimizer:
                 idea.title_gain = 100 * (self.odds(trial).title_odds[self.me] - base.title_odds[self.me])
             if not result.add_ideas:
                 result.add_ideas = actionable + later
-            if n >= wc.max_moves_per_run:
-                break
-            good = [i for i in actionable if i.gain >= waivers.min_gain(i, self.cfg)
+            # Past the move limit, only streams are made (streaming.auto): a defense for
+            # a defense, never cutting anyone else.
+            allowed = (lambda i: n < wc.max_moves_per_run
+                       or (self.cfg.streaming.auto and waivers.streamed(i.add, self.cfg)
+                           and i.drop is not None and i.drop.position == i.add.position))
+            good = [i for i in actionable if allowed(i) and i.gain >= waivers.min_gain(i, self.cfg)
                     and i.title_gain >= wc.min_title_gain]
             if not good:
                 break

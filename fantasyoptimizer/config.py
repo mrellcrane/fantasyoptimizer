@@ -71,6 +71,7 @@ class StreamingConfig:
     # bot assumes the slot scores what the best free agent is projected to.
     positions: list[str] = field(default_factory=lambda: ["D/ST"])
     min_gain_points: float = 2.0   # A streaming pickup only has to add this many points
+    auto: bool = False             # Make streaming pickups even when waivers.max_moves_per_run = 0
 
 
 @dataclass

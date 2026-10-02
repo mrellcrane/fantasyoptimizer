@@ -121,3 +121,56 @@ def test_why_line_names_the_streamer_it_replaces():
     assert result.actions[0].summary.startswith("Add: D/ST61")
     # Streaming level: best free agent was 7.0 in week 1 (this one) and 8.0 in week 2.
     assert "a streamed D/ST (7.5 pts/gm) 2 wks" in result.actions[0].why
+
+
+def auto_config():
+    cfg = fast_config()
+    cfg.waivers.max_moves_per_run = 0   # every other pickup stays manual
+    cfg.streaming.auto = True
+    return cfg
+
+
+def test_auto_streams_a_defense_for_a_defense_with_pickups_otherwise_off():
+    wr = make_player(70, "WR", 30)      # a huge non-D/ST upgrade it must not make
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [dst(60, 5.6, 7.0, 8.0), wr])
+    result, client = run(league, auto_config())
+    assert any(i.add.id == 70 for i in result.add_ideas)              # suggested...
+    assert [a.summary.split(",")[0] for a in result.actions] == ["Add: D/ST60 (D/ST)"]  # not WR70
+    assert len(client.sent) == 1
+    items = client.sent[0]["items"]
+    assert {(i["type"], i["playerId"]) for i in items} == {("ADD", 60), ("DROP", 50)}
+
+
+def test_auto_off_makes_nothing():
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [dst(60, 5.6, 7.0, 8.0)])
+    cfg = auto_config()
+    cfg.streaming.auto = False
+    result, client = run(league, cfg)
+    assert result.add_ideas and client.sent == []
+
+
+def test_auto_never_holds_two_defenses_or_cuts_someone_else():
+    # With an open bench spot the best idea is to keep ours and add theirs: not automatic.
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [dst(60, 5.6, 7.0, 8.0)])
+    league.slot_counts[20] += 1
+    result, client = run(league, auto_config())
+    assert result.add_ideas[0].add.id == 60 and result.add_ideas[0].drop is None
+    assert client.sent == []
+    # No defense on the roster: the only drop would be another position. Also not automatic.
+    league = make_league({1: full_roster(1, 0), 2: full_roster(2, 100)}, [dst(60, 5.6, 7.0, 8.0)])
+    league.slot_counts[16] = 1
+    league.slot_counts[20] -= 1   # roster stays full
+    result, client = run(league, auto_config())
+    assert result.add_ideas and result.add_ideas[0].drop.position != "D/ST"
+    assert client.sent == []
+
+
+def test_pending_claim_is_not_filed_again():
+    jets = dst(60, 5.6, 7.0, 8.0, status="WAIVERS")
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [jets, dst(61, 5.6, 6.9, 7.9)])
+    state = State()
+    state.record_add_drop(60, 50, NOW - dt.timedelta(days=1))   # yesterday's claim
+    ideas = {i.add.id: i for i in find_add_drops(
+        league, league.teams[1].roster, Valuer(league, fast_config()), fast_config(), state, NOW)}
+    assert 60 not in ideas                      # not claimed twice
+    assert 61 not in ideas                      # and the Bills aren't dropped in a second claim
