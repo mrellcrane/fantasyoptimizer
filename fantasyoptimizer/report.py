@@ -253,6 +253,8 @@ def render(result: RunResult, max_rows: int = 8) -> str:
     lines += lineup_section(result)
     lines += asked_trade_section(result)
     lines += ["", "## Moves"]
+    if result.move_error:
+        lines.append(f"- **Couldn't make the move you asked for:** {result.move_error}")
     if result.actions:
         for a in result.actions:
             extra = f" ({a.response})" if a.response else ""
@@ -261,7 +263,7 @@ def render(result: RunResult, max_rows: int = 8) -> str:
                 lines.append(f"  - Why: {a.why}")
             if a.pitch:
                 lines.append(f"  - Pitch to send them: \"{a.pitch}\"")
-    else:
+    elif not result.move_error:
         lines.append("- None today. Nothing cleared the thresholds.")
 
     lines += roster_section(result)

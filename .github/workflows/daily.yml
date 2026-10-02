@@ -27,6 +27,10 @@ on:
         description: 'Score a trade, e.g. "give Breece Hall, Joe Burrow; get Chris Olave"'
         type: string
         default: ""
+      move:
+        description: 'Make one pickup now, e.g. "add Jets D/ST, drop Bills D/ST" (follows mode)'
+        type: string
+        default: ""
 
 concurrency:
   # Pregame checks queue among themselves, so they never cancel a full run that's waiting.
@@ -69,6 +73,7 @@ jobs:
           ESPN_TEAM_ID: ${{ vars.ESPN_TEAM_ID }}
           NOTIFY_URL: ${{ secrets.NOTIFY_URL }}
           TRADE: ${{ inputs.trade }}
+          MOVE: ${{ inputs.move }}
           DRY_RUN: ${{ inputs.mode == 'live' && 'false' || inputs.mode == 'dry-run' && 'true' || vars.DRY_RUN || 'true' }}
         run: python -m fantasyoptimizer ${PREGAME:+--pregame}
 

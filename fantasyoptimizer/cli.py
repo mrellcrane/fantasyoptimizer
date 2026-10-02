@@ -43,6 +43,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--demo", action="store_true", help="run against a made-up league, offline")
     ap.add_argument("--score-trade", default=os.environ.get("TRADE", ""),
                     help='score one trade: "give A, B; get C, D"')
+    ap.add_argument("--move", default=os.environ.get("MOVE", ""),
+                    help='make one add/drop: "add Jets D/ST, drop Bills D/ST"')
     ap.add_argument("--no-trades", action="store_true")
     ap.add_argument("--no-waivers", action="store_true")
     ap.add_argument("--no-lineup", action="store_true")
@@ -96,7 +98,8 @@ def main(argv: list[str] | None = None) -> int:
               + ", ".join(league.players[pid].name for pid in soon))
 
     state = State.load(args.state)
-    result = Optimizer(league, cfg, state, client, score_trade=args.score_trade).run()
+    result = Optimizer(league, cfg, state, client, score_trade=args.score_trade,
+                       move="" if args.pregame else args.move).run()
     if not result.dry_run:
         state.save()
     if args.pregame and not result.actions:

@@ -174,3 +174,41 @@ def test_pending_claim_is_not_filed_again():
         league, league.teams[1].roster, Valuer(league, fast_config()), fast_config(), state, NOW)}
     assert 60 not in ideas                      # not claimed twice
     assert 61 not in ideas                      # and the Bills aren't dropped in a second claim
+
+
+def run_move(league, text, lineup=False):
+    cfg = fast_config()
+    cfg.dry_run = False
+    cfg.trades.enabled = False
+    cfg.lineup.enabled = lineup
+    client = Client()
+    return Optimizer(league, cfg, State(), client, NOW, move=text).run(), client
+
+
+def test_requested_move_adds_and_drops_exactly_that_and_starts_him():
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [dst(60, 5.6, 6.0, 8.0), make_player(70, "WR", 30)])
+    result, client = run_move(league, "add D/ST60, drop D/ST50", lineup=True)
+    add, lineup = client.sent
+    assert add["type"] == "FREEAGENT"
+    assert {(i["type"], i["playerId"]) for i in add["items"]} == {("ADD", 60), ("DROP", 50)}
+    assert "you asked for it" in result.actions[0].summary
+    # It's his week now, so the lineup step puts him in the D/ST slot (and no WR70 pickup).
+    assert lineup["type"] == "ROSTER"
+    assert {"playerId": 60, "type": "LINEUP", "fromLineupSlotId": 20, "toLineupSlotId": 16} in lineup["items"]
+
+
+def test_requested_move_on_waivers_is_a_claim_and_for_works_too():
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [dst(60, 5.6, 6.0, 8.0, status="WAIVERS")])
+    result, client = run_move(league, "D/ST60 for D/ST50")
+    assert [p["type"] for p in client.sent] == ["WAIVER"]
+    assert result.actions[0].summary.startswith("Waiver claim ($") and "D/ST60" in result.actions[0].summary
+
+
+def test_requested_move_that_cant_be_made_says_why_and_does_nothing_else():
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [dst(60, 5.6, 7.0, 8.0)])
+    result, client = run_move(league, "add Nobody, drop D/ST50")
+    assert "Couldn't find" in result.move_error and client.sent == []
+    result, client = run_move(league, "add D/ST60")          # roster is full
+    assert "Say who to drop" in result.move_error and client.sent == []
+    from fantasyoptimizer import report
+    assert "Couldn't make the move you asked for" in report.render(result)
