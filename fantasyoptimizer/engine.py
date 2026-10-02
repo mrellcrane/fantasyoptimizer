@@ -329,7 +329,7 @@ class Optimizer:
     def do_waivers(self, result: RunResult) -> None:
         wc = self.cfg.waivers
         claimed: set[int] = set()
-        for _ in range(wc.max_moves_per_run):
+        for n in range(max(1, wc.max_moves_per_run)):  # 0 = report pickups, make none
             roster = self.rosters[self.me]
             ideas = waivers.find_add_drops(self.league, roster, self.valuer, self.cfg,
                                            self.state, self.now, exclude=claimed)
@@ -342,6 +342,8 @@ class Optimizer:
                 idea.title_gain = 100 * (self.odds(trial).title_odds[self.me] - base.title_odds[self.me])
             if not result.add_ideas:
                 result.add_ideas = actionable + patches
+            if n >= wc.max_moves_per_run:
+                break
             good = [i for i in actionable
                     if i.gain >= wc.min_gain_points and i.title_gain >= wc.min_title_gain]
             if not good:
