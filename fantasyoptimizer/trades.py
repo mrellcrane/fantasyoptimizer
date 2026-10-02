@@ -48,6 +48,13 @@ def _matches(p: Player, names: set[str]) -> bool:
     return p.name.lower() in names or str(p.id) in names
 
 
+def swap_only_ok(league: League, give: tuple[int, ...], get: tuple[int, ...],
+                 positions: set[str]) -> bool:
+    """Swap-only positions (D/ST) move only for each other, never in a bigger deal."""
+    pos = {league.players[pid].position for pid in give + get}
+    return not pos & positions or len(pos) == 1
+
+
 def _active_after(league: League, original: list[int], new: list[int]) -> int:
     """Roster count after a trade; incoming players land on the bench."""
     return sum(1 for pid in new if not (pid in original and league.players[pid].lineup_slot == IR_SLOT))
@@ -122,6 +129,7 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     me = league.my_team_id
     untouchable = {n.lower() for n in tc.untouchable}
     unavailable = {n.lower() for n in tc.not_available}
+    swap_only = set(tc.swap_only_positions)
     blocked = blocked_partners(league, cfg, state, now)
     ros = {pid: valuer.ros_points(pid) for pid in league.players}
     value = trade_value(league, valuer)
@@ -156,6 +164,8 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
             if value_get <= 0:
                 continue
             for give in give_sets:
+                if not swap_only_ok(league, give, get, swap_only):
+                    continue
                 fairness = sum(value[pid] for pid in give) / value_get
                 if not min_fairness <= fairness <= tc.max_overpay:
                     continue
