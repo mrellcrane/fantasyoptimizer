@@ -93,12 +93,12 @@ class Client:
         return {"status": "EXECUTED"}
 
 
-def run(league, cfg):
+def run(league, cfg, client=None, state=None):
     cfg.dry_run = False
     cfg.waivers.min_title_gain = -100
     cfg.trades.enabled = cfg.lineup.enabled = False
-    client = Client()
-    return Optimizer(league, cfg, State(), client, NOW).run(), client
+    client = client or Client()
+    return Optimizer(league, cfg, state or State(), client, NOW).run(), client
 
 
 def test_stream_pickup_uses_its_own_lower_bar():
@@ -174,6 +174,49 @@ def test_pending_claim_is_not_filed_again():
         league, league.teams[1].roster, Valuer(league, fast_config()), fast_config(), state, NOW)}
     assert 60 not in ideas                      # not claimed twice
     assert 61 not in ideas                      # and the Bills aren't dropped in a second claim
+
+
+def test_claim_filed_by_hand_on_espn_is_not_filed_again():
+    from fantasyoptimizer import report
+    from fantasyoptimizer.models import PendingClaim
+    jets = dst(60, 5.6, 7.0, 8.0, status="WAIVERS")
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [jets, dst(61, 5.6, 6.9, 7.9)])
+    league.pending_claims = [PendingClaim(id="espn-1", add=60, drop=50)]   # not in our state
+    ideas = ideas_for(league, fast_config())
+    assert 60 not in ideas and 61 not in ideas
+    result, client = run(league, auto_config())
+    assert client.sent == []
+    assert f"**PENDING** Claim on ESPN: {jets}, drop {league.players[50]}" in report.render(result)
+
+
+def test_duplicate_pending_claim_on_espn_is_not_a_failure():
+    from fantasyoptimizer.espn import EspnError
+    body = {"messages": ["A pending transaction of this type already exists."],
+            "details": [{"type": "TRAN_DUPLICATE_PENDING_TRANSACTION"}]}
+
+    class Duplicate(Client):
+        def submit(self, payload):
+            raise EspnError("ESPN POST failed with 409", 409, body)
+
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [dst(60, 5.6, 7.0, 8.0, status="WAIVERS")])
+    state = State()
+    result, _ = run(league, auto_config(), Duplicate(), state)
+    action, = result.actions
+    assert action.executed and action.ok and "already pending" in action.response
+    assert state.added_recently(60, 1, NOW) and state.dropped_recently(50, 1, NOW)
+
+
+def test_other_espn_errors_still_fail():
+    from fantasyoptimizer.espn import EspnError
+
+    class Broken(Client):
+        def submit(self, payload):
+            raise EspnError("ESPN POST failed with 409", 409, {"details": [{"type": "TRAN_PLAYER_LOCKED"}]})
+
+    league = league_with(dst(50, 4.7, 6.4, 3.3), [dst(60, 5.6, 7.0, 8.0, status="WAIVERS")])
+    result, _ = run(league, auto_config(), Broken())
+    action, = result.actions
+    assert action.executed and not action.ok
 
 
 def run_move(league, text, lineup=False):

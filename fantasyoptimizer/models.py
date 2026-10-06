@@ -101,6 +101,18 @@ class PendingTrade:
 
 
 @dataclass
+class PendingClaim:
+    """One of our waiver claims (or locked add) waiting on ESPN, however it was filed."""
+    id: str
+    add: int | None
+    drop: int | None
+
+    @property
+    def player_ids(self) -> set[int]:
+        return {pid for pid in (self.add, self.drop) if pid is not None}
+
+
+@dataclass
 class League:
     id: int
     year: int
@@ -121,6 +133,7 @@ class League:
     faab_budget: int = 0
     trade_deadline: dt.datetime | None = None
     pending_trades: list[PendingTrade] = field(default_factory=list)
+    pending_claims: list[PendingClaim] = field(default_factory=list)
     # pro team id -> {scoring period: games that period}
     pro_games: dict[int, dict[int, int]] = field(default_factory=dict)
     pro_team_abbrevs: dict[int, str] = field(default_factory=dict)
@@ -423,10 +436,30 @@ def parse_league(
         faab_budget=budget,
         trade_deadline=trade_deadline,
         pending_trades=parse_pending_trades(data),
+        pending_claims=parse_pending_claims(data, my_team_id),
         pro_games=pro_games,
         pro_team_abbrevs=abbrevs,
         kickoffs=kickoffs,
     )
+
+
+def parse_pending_claims(data: dict, team_id: int) -> list[PendingClaim]:
+    """Our add/drops still waiting to process (waiver claims), from mPendingTransactions."""
+    raw = list(data.get("pendingTransactions") or []) + list(data.get("transactions") or [])
+    seen, out = set(), []
+    for tx in raw:
+        if (tx.get("type") not in ("WAIVER", "FREEAGENT") or tx.get("status") != "PENDING"
+                or tx.get("teamId") != team_id):
+            continue
+        tx_id = str(tx.get("id"))
+        if tx_id in seen:
+            continue
+        seen.add(tx_id)
+        items = tx.get("items") or []
+        add = next((i.get("playerId") for i in items if i.get("type") == "ADD"), None)
+        drop = next((i.get("playerId") for i in items if i.get("type") == "DROP"), None)
+        out.append(PendingClaim(id=tx_id, add=add, drop=drop))
+    return out
 
 
 def parse_pending_trades(data: dict) -> list[PendingTrade]:
