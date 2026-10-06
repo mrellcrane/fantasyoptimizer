@@ -96,7 +96,7 @@ Everything lives in `optimizer.toml`, with comments. The ones you'll most likely
 
 ## Things to know
 
-- **ESPN has no official API.** This uses the same private endpoints the ESPN website uses. Others have confirmed that lineup changes and free agent adds work in 2026. Waiver claims and trade proposals use the payload format the website sends, but I haven't seen anyone confirm those two live yet. Watch your first live run; if ESPN rejects something, the run fails and GitHub emails you.
+- **ESPN has no official API.** This uses the same private endpoints the ESPN website uses. Others have confirmed that lineup changes and free agent adds work in 2026, and this league's first live waiver claim (Oct 2, 2026) was accepted by ESPN and showed up in the app as a pending claim. Trade proposals use the payload format the website sends, but haven't been confirmed live yet. Watch your first live run; if ESPN rejects something, the run fails and GitHub emails you.
 - **GitHub's schedule is best-effort.** Scheduled runs can start hours late or not at all. See step 4 of setup for a reliable outside trigger.
 - **Cookies expire.** If runs start failing with a 401, grab fresh `espn_s2` / `SWID` values.
 - **Projections are ESPN's.** The bot is only as smart as those numbers plus its blending. It doesn't read news, so it won't know about a depth-chart change until ESPN's projections do.
