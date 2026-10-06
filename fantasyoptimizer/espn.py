@@ -30,6 +30,13 @@ class EspnError(RuntimeError):
         self.body = body
 
 
+def duplicate_pending(exc: EspnError) -> bool:
+    """ESPN's 409 for a transaction that's already pending (say, a claim filed by hand)."""
+    details = (exc.body.get("details") if isinstance(exc.body, dict) else None) or []
+    return exc.status == 409 and any(isinstance(d, dict) and d.get("type") == "TRAN_DUPLICATE_PENDING_TRANSACTION"
+                                     for d in details)
+
+
 class EspnClient:
     def __init__(self, league_id: int, year: int, espn_s2: str | None = None,
                  swid: str | None = None, game: str = "ffl", timeout: float = 30,

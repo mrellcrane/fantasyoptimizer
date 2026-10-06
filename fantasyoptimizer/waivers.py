@@ -73,6 +73,8 @@ def find_add_drops(league: League, roster: list[int], valuer: Valuer, cfg: Confi
     wc = cfg.waivers
     mine = valuer.streaming
     base = valuer.value(mine(roster))
+    # Claims already waiting on ESPN (yours by hand, or ours) aren't filed again.
+    exclude = set(exclude).union(*(c.player_ids for c in league.pending_claims))
     open_spots = league.roster_limit - league.active_count(roster)
 
     # Players whose game already started this week can't be picked up yet.

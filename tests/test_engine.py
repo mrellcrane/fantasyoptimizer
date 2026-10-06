@@ -54,6 +54,21 @@ def test_demo_parses():
     assert 5 <= bye <= 14
 
 
+def test_our_pending_claims_are_parsed():
+    from fantasyoptimizer.models import parse_pending_claims
+    claim = {"id": "c1", "type": "WAIVER", "status": "PENDING", "teamId": 4,
+             "items": [{"playerId": 60, "type": "ADD", "toTeamId": 4},
+                       {"playerId": 50, "type": "DROP", "fromTeamId": 4}]}
+    data = {"pendingTransactions": [
+        claim,
+        {**claim, "id": "c2", "teamId": 7},                     # someone else's
+        {**claim, "id": "c3", "status": "CANCELED"},            # not pending anymore
+        {**claim, "id": "c4", "type": "TRADE_PROPOSAL"},        # a trade, not a claim
+    ], "transactions": [claim]}                                  # same one twice
+    claims = parse_pending_claims(data, 4)
+    assert [(c.id, c.add, c.drop) for c in claims] == [("c1", 60, 50)]
+
+
 def test_dry_run_sends_nothing():
     client = FakeClient()
     result = Optimizer(demo_league(), config(), State(), client, NOW).run()

@@ -301,6 +301,12 @@ class Optimizer:
             action.response = str(resp.get("status", "OK")) if isinstance(resp, dict) else "OK"
             log.info("Done: %s (%s)", action.summary, action.response)
         except espn.EspnError as exc:
+            if espn.duplicate_pending(exc):
+                # The same claim (or offer) is already waiting on ESPN, so it's done.
+                action.ok = True
+                action.response = "already pending on ESPN"
+                log.info("Already pending: %s", action.summary)
+                return action
             action.ok = False
             action.response = str(exc)
             log.error("Failed: %s: %s", action.summary, exc)

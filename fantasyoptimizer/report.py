@@ -263,7 +263,12 @@ def render(result: RunResult, max_rows: int = 8) -> str:
                 lines.append(f"  - Why: {a.why}")
             if a.pitch:
                 lines.append(f"  - Pitch to send them: \"{a.pitch}\"")
-    elif not result.move_error:
+    for claim in league.pending_claims:
+        add = league.players.get(claim.add)
+        drop = league.players.get(claim.drop)
+        lines.append(f"- **PENDING** Claim on ESPN: {add or claim.add}"
+                     + (f", drop {drop or claim.drop}" if claim.drop is not None else ""))
+    if not (result.actions or result.move_error or league.pending_claims):
         lines.append("- None today. Nothing cleared the thresholds.")
 
     lines += roster_section(result)
