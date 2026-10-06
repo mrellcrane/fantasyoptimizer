@@ -5,6 +5,7 @@ import datetime as dt
 import logging
 import re
 from collections import Counter
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -207,6 +208,79 @@ class Optimizer:
             parts.append(f"{', '.join(idle)} wouldn't start for {them} anyway")
         return "; ".join(parts) + "."
 
+    def lineup_shift(self, old: list[int], new: list[int], gain: float, mine: bool = True,
+                     dropped: Iterable[int] = ()) -> str:
+        """Who starts in whose spot after a trade, by position, in season points.
+
+        The positions plus bench depth add up to `gain`, the trade's headline number.
+        """
+        league, valuer = self.league, self.valuer
+        if mine:
+            old, new = valuer.streaming(old), valuer.streaming(new)
+        delta: Counter = Counter()
+        for j, w in enumerate(valuer.weights):
+            before, after = valuer.solve(old, column=j)[1], valuer.solve(new, column=j)[1]
+            for pid in set(before) | set(after):
+                pts = w * max(float(valuer.points[valuer.row[pid], j]), 0.0)
+                delta[pid] += pts * ((pid in after) - (pid in before))
+        incoming, outgoing = set(new) - set(old), set(old) - set(new)
+
+        def position(pid: int) -> str:
+            return valuer.streamers.get(pid) or league.players[pid].position
+
+        def label(pid: int) -> str:
+            return f"a streamed {valuer.streamers[pid]}" if pid in valuer.streamers else league.players[pid].name
+
+        def main(pids: list[int]) -> list[int]:
+            # Whoever moves the most, plus a second if he's a real part of it.
+            pids = sorted(pids, key=lambda pid: -abs(delta[pid]))
+            return [pid for pid in pids[:2] if abs(delta[pid]) >= 0.3 * abs(delta[pids[0]])]
+
+        groups: dict[str, list[int]] = {}
+        for pid, d in delta.items():
+            if abs(d) > 1e-6:
+                groups.setdefault(position(pid), []).append(pid)
+        totals = {pos: sum(delta[pid] for pid in pids) for pos, pids in groups.items()}
+        parts = []
+        for pos in sorted(totals, key=lambda pos: -abs(totals[pos])):
+            if abs(totals[pos]) < 0.5 or len(parts) == 4:
+                continue
+            ups = main([pid for pid in groups[pos] if delta[pid] > 0])
+            downs = main([pid for pid in groups[pos] if delta[pid] < 0])
+            up, down = _join([label(pid) for pid in ups]), _join([label(pid) for pid in downs])
+            s = "" if len(ups) > 1 else "s"
+            if ups and downs:
+                if all(pid in incoming for pid in ups) and all(pid in outgoing for pid in downs):
+                    text = f"{up} replace{s} {down}"
+                elif any(pid in outgoing for pid in downs) and not any(pid in incoming for pid in ups):
+                    text = f"{up} fill{s} in for {down}"
+                else:
+                    text = f"{up} start{s} over {down}"
+            elif ups:
+                text = f"{up} join{s} the lineup" if ups[0] in incoming else f"{up} move{s} into the lineup"
+            elif all(pid in dropped for pid in downs):
+                text = f"{down} {'gets' if len(downs) == 1 else 'get'} cut to make room"
+            elif downs[0] in outgoing:
+                text = f"losing {down}"
+            else:
+                text = f"{down} drop{'s' if len(downs) == 1 else ''} out of the lineup"
+            parts.append(f"{pos}: {text} ({totals[pos]:+.1f})")
+        depth = gain - sum(delta.values())
+        if abs(depth) >= 0.5:
+            parts.append(f"bench depth {depth:+.1f}")
+        if not parts:
+            return f"No change to who starts. Net {gain:+.1f}."
+        return "; ".join(parts) + f". Net {gain:+.1f}."
+
+    def annotate(self, idea: trades.TradeIdea) -> None:
+        """The pitch, and who'd start where on each side."""
+        after = trades.apply(self.rosters, self.me, idea)
+        idea.pitch = self.pitch(idea)
+        idea.my_lineup = self.lineup_shift(self.rosters[self.me], after[self.me], idea.my_gain,
+                                           dropped=idea.my_drops)
+        idea.their_lineup = self.lineup_shift(self.rosters[idea.partner], after[idea.partner],
+                                              idea.partner_gain, mine=False, dropped=idea.partner_drops)
+
     def pitch(self, idea: trades.TradeIdea) -> str:
         """One line to send the other manager: what the deal does for their lineup."""
         league = self.league
@@ -282,7 +356,7 @@ class Optimizer:
         odds = self.odds(after)
         idea.my_title_gain = 100 * (odds.title_odds[self.me] - baseline.title_odds[self.me])
         idea.partner_title_gain = 100 * (odds.title_odds[partner] - baseline.title_odds[partner])
-        idea.pitch = self.pitch(idea)
+        self.annotate(idea)
         result.asked_trade = idea
         result.asked_trade_why = (
             f"For you: {self.explain(self.rosters[self.me], after[self.me])} "
@@ -582,7 +656,7 @@ class Optimizer:
         shortlist.sort(key=lambda i: (i.expected_title_gain, i.my_gain), reverse=True)
         shortlist = _spread(shortlist)
         for idea in shortlist[:8]:
-            idea.pitch = self.pitch(idea)
+            self.annotate(idea)
         result.trade_ideas = shortlist
 
         if tc.long_shots:
@@ -594,7 +668,7 @@ class Optimizer:
             long_shots.sort(key=lambda i: (i.my_title_gain, i.my_gain), reverse=True)
             long_shots = _spread(long_shots)
             for idea in long_shots[:8]:
-                idea.pitch = self.pitch(idea)
+                self.annotate(idea)
             result.long_shots = long_shots
         if tc.propose_long_shots and result.long_shots:
             shortlist = result.long_shots

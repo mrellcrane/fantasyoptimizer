@@ -125,6 +125,10 @@ def asked_trade_section(result: RunResult) -> list[str]:
     if t.partner_drops:
         drops = ", ".join(league.players[pid].name for pid in t.partner_drops)
         lines.append(f"They'd have to drop {drops} to fit everyone.")
+    if t.my_lineup:
+        lines.append(f"\nYour lineup: {t.my_lineup}")
+    if t.their_lineup:
+        lines.append(f"\nTheir lineup: {t.their_lineup}")
     if t.pitch:
         lines.append(f"\nPitch: \"{t.pitch}\"")
     if result.asked_trade_why:
@@ -138,6 +142,10 @@ def trade_list(league: League, ideas) -> list[str]:
         lines.append(f"{n}. **{league.team_name(t.partner)}**: {describe_trade(league, t)}")
         lines.append(f"   - You: {t.my_gain:+.1f} season pts, {t.my_title_gain:+.1f}% title odds. "
                      f"Them: {t.partner_gain:+.1f} season pts. Accept chance ~{100 * t.accept_chance:.0f}%.")
+        if t.my_lineup:
+            lines.append(f"   - Your lineup: {t.my_lineup}")
+        if t.their_lineup:
+            lines.append(f"   - Their lineup: {t.their_lineup}")
         if t.pitch:
             lines.append(f"   - Pitch: \"{t.pitch}\"")
     return lines
@@ -384,7 +392,8 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
 
     def trade_json(t) -> dict:
         return {"partner": league.team_name(t.partner), "deal": describe_trade(league, t),
-                "pitch": t.pitch, "my_points": round(t.my_gain, 1),
+                "pitch": t.pitch, "my_lineup": t.my_lineup, "their_lineup": t.their_lineup,
+                "my_points": round(t.my_gain, 1),
                 "their_points": round(t.partner_gain, 1), "my_title_odds": t.my_title_gain,
                 "their_title_odds": t.partner_title_gain, "accept_chance": round(t.accept_chance, 2)}
 

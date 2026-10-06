@@ -27,6 +27,8 @@ class TradeIdea:
     my_title_gain: float | None = None
     partner_title_gain: float | None = None
     pitch: str = ""           # one line to send them: why it helps their team
+    my_lineup: str = ""       # who starts where for you after the trade, position by position
+    their_lineup: str = ""    # ...and for them
 
     @property
     def key(self) -> str:

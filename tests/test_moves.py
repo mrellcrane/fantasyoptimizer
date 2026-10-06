@@ -1,4 +1,5 @@
 import datetime as dt
+import re
 
 from fantasyoptimizer.state import State
 from fantasyoptimizer.trades import find_trades
@@ -310,3 +311,31 @@ def test_players_they_wont_trade_are_never_asked_for():
     for long_shot in (False, True):
         ideas = find_trades(league, rosters, valuer, cfg, State(), NOW, long_shot=long_shot)
         assert all(wanted not in i.get for i in ideas)
+
+
+def test_trade_lineup_lines_say_who_starts_in_whose_spot():
+    from fantasyoptimizer.engine import Optimizer
+    from fantasyoptimizer.trades import evaluate_trade
+    # We have WR depth and a weak TE; they have two TEs and a weak WR.
+    mine = [make_player(1, "QB", 15), make_player(2, "RB", 14), make_player(3, "WR", 14),
+            make_player(4, "WR", 12), make_player(5, "TE", 6), make_player(6, "WR", 11)]
+    theirs = [make_player(11, "QB", 15), make_player(12, "RB", 14), make_player(13, "WR", 6),
+              make_player(14, "TE", 16), make_player(15, "TE", 9), make_player(16, "RB", 5)]
+    league = make_league({1: mine, 2: theirs})
+    league.slot_counts[6] = 1   # a TE slot
+    cfg = fast_config()
+    cfg.value.bench_weight = 0.1   # so bench depth shows up too
+    opt = Optimizer(league, cfg, State(), None, NOW)
+    idea = evaluate_trade(league, opt.rosters, opt.valuer, cfg, State(), NOW, 2, (3,), (14,))
+    opt.annotate(idea)
+    # WR6 takes the WR spot we give away; their TE takes ours.
+    assert "WR: WR6 fills in for WR3 (-" in idea.my_lineup
+    assert "TE: TE14 starts over TE5 (+" in idea.my_lineup
+    assert idea.my_lineup.endswith(f"Net {idea.my_gain:+.1f}.")
+    assert "WR: WR3 joins the lineup (+" in idea.their_lineup
+    assert "TE: losing TE14 (-" in idea.their_lineup
+    assert idea.their_lineup.endswith(f"Net {idea.partner_gain:+.1f}.")
+    # The pieces add up to the headline number.
+    parts = idea.my_lineup.split(". Net")[0]
+    nums = [float(x) for x in re.findall(r"[+-]\d+\.\d", parts)]
+    assert abs(sum(nums) - idea.my_gain) < 0.2
