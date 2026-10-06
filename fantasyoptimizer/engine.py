@@ -12,7 +12,7 @@ import numpy as np
 
 from . import espn, trades, waivers
 from .config import Config
-from .models import BENCH_SLOT, IR_SLOT, SLOT_NAMES, League, PendingTrade
+from .models import BENCH_SLOT, IR_SLOT, SLOT_NAMES, League, PendingTrade, Player
 from .projections import per_game_rate
 from .simulate import SeasonSimulator, SimResult
 from .state import State
@@ -208,6 +208,17 @@ class Optimizer:
             parts.append(f"{', '.join(idle)} wouldn't start for {them} anyway")
         return "; ".join(parts) + "."
 
+    def free_agent(self, pos: str) -> Player | None:
+        """Best healthy free agent at a position: who to grab when a starter leaves."""
+        claimed = {pid for c in self.league.pending_claims for pid in c.player_ids}
+        pool = [p for p in self.league.players.values()
+                if p.available and p.position == pos and p.id not in claimed
+                and p.injury_status not in ("OUT", "INJURY_RESERVE", "SUSPENSION")]
+        return max(pool, key=lambda p: self.valuer.ros_points(p.id), default=None)
+
+    def _rate(self, pid: int) -> float:
+        return per_game_rate(self.league.players[pid], self.league, self.cfg)
+
     def lineup_shift(self, old: list[int], new: list[int], gain: float, mine: bool = True,
                      dropped: Iterable[int] = ()) -> str:
         """Who starts in whose spot after a trade, by position, in season points.
@@ -249,11 +260,16 @@ class Optimizer:
             downs = main([pid for pid in groups[pos] if delta[pid] < 0])
             up, down = _join([label(pid) for pid in ups]), _join([label(pid) for pid in downs])
             s = "" if len(ups) > 1 else "s"
+            fa = None if mine and pos in valuer.streamers.values() else self.free_agent(pos)
+            fa_text = f"{fa.name} ({self._rate(fa.id):.1f} pts/gm)" if fa else ""
+            tip = ""
             if ups and downs:
                 if all(pid in incoming for pid in ups) and all(pid in outgoing for pid in downs):
                     text = f"{up} replace{s} {down}"
                 elif any(pid in outgoing for pid in downs) and not any(pid in incoming for pid in ups):
                     text = f"{up} fill{s} in for {down}"
+                    if fa and ups[0] not in valuer.streamers and self._rate(fa.id) > self._rate(ups[0]):
+                        tip = f", or pick up {fa_text}"
                 else:
                     text = f"{up} start{s} over {down}"
             elif ups:
@@ -262,9 +278,11 @@ class Optimizer:
                 text = f"{down} {'gets' if len(downs) == 1 else 'get'} cut to make room"
             elif downs[0] in outgoing:
                 text = f"losing {down}"
+                if fa:
+                    tip = f", best free agent to cover it: {fa_text}"
             else:
                 text = f"{down} drop{'s' if len(downs) == 1 else ''} out of the lineup"
-            parts.append(f"{pos}: {text} ({totals[pos]:+.1f})")
+            parts.append(f"{pos}: {text} ({totals[pos]:+.1f}){tip}")
         depth = gain - sum(delta.values())
         if abs(depth) >= 0.5:
             parts.append(f"bench depth {depth:+.1f}")
@@ -314,6 +332,24 @@ class Optimizer:
             elif same_spot:
                 text += f" over {league.players[same_spot[0]].name}"
             bits.append(text)
+        new_them = trades.apply(self.rosters, self.me, idea)[idea.partner]
+        for pid in idea.get:
+            pos = league.players[pid].position
+            if change.old_starts[pid] < 0.4 * n or any(
+                    league.players[q].position == pos and change.new_starts[q] for q in idea.give):
+                continue  # not a regular for them, or someone we send plays his position
+            # Whoever at his position starts for them after the deal, most new starts first.
+            backups = [q for q in new_them if q not in idea.give and league.players[q].position == pos
+                       and change.new_starts[q]]
+            fa = self.free_agent(pos)
+            if backups:
+                best = max(backups, key=lambda q: (change.new_starts[q] - change.old_starts[q], self._rate(q)))
+                text = f"{league.players[best].name} can take over at {pos}"
+                if fa and self._rate(fa.id) > self._rate(best):
+                    text += f" (or {fa.name} is a free agent)"
+                bits.append(text)
+            elif fa:
+                bits.append(f"you could pick up {fa.name} to cover {pos}")
         idle = [league.players[pid].name for pid in idea.get if change.old_starts[pid] <= 0.3 * n]
         if idle and bits:
             verb = "mostly sits" if len(idle) == 1 else "mostly sit"

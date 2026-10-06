@@ -321,7 +321,8 @@ def test_trade_lineup_lines_say_who_starts_in_whose_spot():
             make_player(4, "WR", 12), make_player(5, "TE", 6), make_player(6, "WR", 11)]
     theirs = [make_player(11, "QB", 15), make_player(12, "RB", 14), make_player(13, "WR", 6),
               make_player(14, "TE", 16), make_player(15, "TE", 9), make_player(16, "RB", 5)]
-    league = make_league({1: mine, 2: theirs})
+    hurt = make_player(31, "TE", 20, injury="OUT")
+    league = make_league({1: mine, 2: theirs}, [make_player(30, "TE", 12), hurt])
     league.slot_counts[6] = 1   # a TE slot
     cfg = fast_config()
     cfg.value.bench_weight = 0.1   # so bench depth shows up too
@@ -334,6 +335,9 @@ def test_trade_lineup_lines_say_who_starts_in_whose_spot():
     assert idea.my_lineup.endswith(f"Net {idea.my_gain:+.1f}.")
     assert "WR: WR3 joins the lineup (+" in idea.their_lineup
     assert "TE: losing TE14 (-" in idea.their_lineup
+    assert "best free agent to cover it: TE30 (12.0 pts/gm)" in idea.their_lineup   # not the hurt one
+    # The pitch tells them who covers the TE they give up.
+    assert "TE15 can take over at TE (or TE30 is a free agent)" in idea.pitch
     assert idea.their_lineup.endswith(f"Net {idea.partner_gain:+.1f}.")
     # The pieces add up to the headline number.
     parts = idea.my_lineup.split(". Net")[0]
