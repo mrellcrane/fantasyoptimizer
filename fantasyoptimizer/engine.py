@@ -151,6 +151,9 @@ class Optimizer:
         self.rosters = {t.id: list(t.roster) for t in league.teams.values()}
         # Our roster as it is on ESPN right now: free agent adds count, pending waiver claims don't.
         self.lineup_roster = list(league.my_team.roster)
+        # Players who'd change hands if our pending trade offers go through. Trade ideas
+        # are planned as if they do, so their write-ups mark these players.
+        self.pending_moved: set[int] = set()
         self.dry_run = cfg.dry_run or client is None
 
     # ------------------------------------------------------------ odds
@@ -196,7 +199,8 @@ class Optimizer:
                 pos = valuer.streamers[pid]
                 return f"a streamed {pos} ({valuer.stream_level[pos]:.1f} pts/gm)"
             p = league.players[pid]
-            return f"{p.name} ({p.position}, {per_game_rate(p, league, self.cfg):.1f} pts/gm)"
+            pending = ", pending offer" if pid in self.pending_moved else ""
+            return f"{p.name} ({p.position}, {per_game_rate(p, league, self.cfg):.1f} pts/gm{pending})"
 
         parts = [f"{label(pid)} would start {change.new_starts[pid]} of {change.weeks} weeks"
                  for pid in added]
@@ -240,7 +244,10 @@ class Optimizer:
             return valuer.streamers.get(pid) or league.players[pid].position
 
         def label(pid: int) -> str:
-            return f"a streamed {valuer.streamers[pid]}" if pid in valuer.streamers else league.players[pid].name
+            if pid in valuer.streamers:
+                return f"a streamed {valuer.streamers[pid]}"
+            name = league.players[pid].name
+            return f"{name} (pending offer)" if pid in self.pending_moved else name
 
         def main(pids: list[int]) -> list[int]:
             # Whoever moves the most, plus a second if he's a real part of it.
@@ -679,10 +686,12 @@ class Optimizer:
         # backup for a player we've already offered (e.g. Goff after offering Burrow).
         planned = self.rosters
         self.rosters = self._with_pending_accepted()
+        self.pending_moved = set(planned[self.me]) ^ set(self.rosters[self.me])
         try:
             self._do_trades(result)
         finally:
             self.rosters = planned
+            self.pending_moved = set()
 
     def _do_trades(self, result: RunResult) -> None:
         tc = self.cfg.trades
@@ -750,6 +759,20 @@ class Optimizer:
             gain = self.valuer.value(mine(rosters[self.me])) - self.valuer.value(mine(self.rosters[self.me]))
             result.incoming.append(IncomingOffer(pending, partner, give, get, gain,
                                                  self.title_gain(rosters, baseline)))
+
+
+def our_pending_offers(league: League) -> list[tuple[int, list[int], list[int]]]:
+    """Trade offers we've sent that are still waiting: (partner, we give, we get)."""
+    me, out = league.my_team_id, []
+    for pending in league.pending_trades:
+        if pending.proposer != me:
+            continue
+        give = [i["playerId"] for i in pending.items if i.get("fromTeamId") == me]
+        get = [i["playerId"] for i in pending.items if i.get("toTeamId") == me]
+        partner = next((t for t in pending.team_ids if t != me), None)
+        if partner is not None and (give or get):
+            out.append((partner, give, get))
+    return out
 
 
 def describe_trade(league: League, idea: trades.TradeIdea) -> str:

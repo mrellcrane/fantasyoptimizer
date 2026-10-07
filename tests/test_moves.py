@@ -261,6 +261,44 @@ def test_trades_are_planned_as_if_pending_offers_go_through():
     assert all(pid not in (2, 12) for i in ideas for pid in i.give + i.my_drops)
 
 
+def test_players_from_pending_offers_are_marked_in_trade_ideas():
+    from fantasyoptimizer import report
+    from fantasyoptimizer.engine import Optimizer, RunResult
+    from fantasyoptimizer.models import PendingTrade
+    from fantasyoptimizer.trades import evaluate_trade
+
+    # We've offered RB2 for WR12. A new trade for WR22 would bench WR12, who isn't ours yet.
+    mine = [make_player(1, "QB", 15), make_player(2, "RB", 16), make_player(3, "RB", 18),
+            make_player(4, "RB", 17), make_player(5, "WR", 5), make_player(6, "WR", 4)]
+    theirs = [make_player(11, "QB", 15), make_player(12, "WR", 16), make_player(13, "RB", 5)]
+    others = [make_player(21, "QB", 15), make_player(22, "WR", 22), make_player(23, "RB", 5)]
+    league = make_league({1: mine, 2: theirs, 3: others})
+    league.pending_trades = [PendingTrade(id="p", proposer=1, items=[
+        {"playerId": 2, "type": "TRADE", "fromTeamId": 1, "toTeamId": 2},
+        {"playerId": 12, "type": "TRADE", "fromTeamId": 2, "toTeamId": 1}])]
+    cfg = fast_config()
+    opt = Optimizer(league, cfg, State(), None, NOW)
+    result = RunResult(league=league, dry_run=True, baseline=opt.odds(opt.rosters), valuer=opt.valuer)
+
+    def plan(result):
+        idea = evaluate_trade(league, opt.rosters, opt.valuer, cfg, State(), NOW, 3, (5,), (22,))
+        opt.annotate(idea)
+        idea.my_title_gain = idea.partner_title_gain = 0.0
+        result.trade_ideas = [idea]
+
+    opt._do_trades = plan
+    opt.do_trades(result)
+    assert "WR: WR22 starts over WR12 (pending offer) (+" in result.trade_ideas[0].my_lineup
+    assert not opt.pending_moved   # only while planning trades
+
+    md = report.render(result)
+    assert "- **PENDING** Trade offer to Team 2: give RB2 (RB) for WR12 (WR)" in md
+    assert "_Planned as if your pending offer to Team 2 goes through" in md
+    assert "None today" not in md
+    offers = report.snapshot(result)["pending_offers"]
+    assert offers == [{"partner": "Team 2", "give": ["RB2 (RB)"], "get": ["WR12 (WR)"]}]
+
+
 def test_lineup_prefers_healthy_starter_and_reads_as_a_swap():
     from fantasyoptimizer.engine import Optimizer
     healthy = make_player(1, "QB", 19)

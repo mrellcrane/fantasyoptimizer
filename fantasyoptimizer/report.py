@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import datetime as dt
 
-from .engine import RunResult, describe_trade
+from .engine import RunResult, describe_trade, our_pending_offers
 from .models import IR_SLOT, SLOT_NAMES, League, Player
 from .projections import per_game_rate
 from .waivers import min_gain
@@ -134,6 +134,22 @@ def asked_trade_section(result: RunResult) -> list[str]:
     if result.asked_trade_why:
         lines.append(f"\nWhy: {result.asked_trade_why}")
     return lines
+
+
+def _player_list(league: League, pids: list[int]) -> str:
+    return ", ".join(str(league.players.get(pid, pid)) for pid in pids)
+
+
+def pending_offer_note(league: League) -> list[str]:
+    """Trade ideas are planned as if our pending offers go through; say so."""
+    partners = [league.team_name(partner) for partner, _, _ in our_pending_offers(league)]
+    if not partners:
+        return []
+    offers = "offer" if len(partners) == 1 else "offers"
+    note = (f"_Planned as if your pending {offers} to {' and '.join(partners)} "
+            f"{'goes' if len(partners) == 1 else 'go'} through (see Moves). "
+            "Players marked (pending offer) aren't yours yet._")
+    return [note, ""]
 
 
 def trade_list(league: League, ideas) -> list[str]:
@@ -276,7 +292,11 @@ def render(result: RunResult, max_rows: int = 8) -> str:
         drop = league.players.get(claim.drop)
         lines.append(f"- **PENDING** Claim on ESPN: {add or claim.add}"
                      + (f", drop {drop or claim.drop}" if claim.drop is not None else ""))
-    if not (result.actions or result.move_error or league.pending_claims):
+    offers = our_pending_offers(league)
+    for partner, give, get in offers:
+        lines.append(f"- **PENDING** Trade offer to {league.team_name(partner)}: "
+                     f"give {_player_list(league, give)} for {_player_list(league, get)}")
+    if not (result.actions or result.move_error or league.pending_claims or offers):
         lines.append("- None today. Nothing cleared the thresholds.")
 
     lines += roster_section(result)
@@ -321,12 +341,14 @@ def render(result: RunResult, max_rows: int = 8) -> str:
     if result.trade_ideas:
         lines += ["", "## Best trade ideas", "",
                   "_Good for you and good for them: the ones most likely to happen._", ""]
+        lines += pending_offer_note(league)
         lines += trade_list(league, result.trade_ideas[:5])
 
     if result.long_shots:
         lines += ["", "## Long shots", "",
                   "_Better for you, less likely to be accepted. Some even look slightly worse for "
                   "them on paper, so the pitch matters. Worst case, they say no._", ""]
+        lines += pending_offer_note(league)
         lines += trade_list(league, result.long_shots[:5])
 
     lines += free_agent_section(result)
@@ -433,6 +455,10 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
                           "patch": i.patch, "wait": i.wait} for i in result.add_ideas],
         "streaming": ({pos: round(level, 2) for pos, level in valuer.stream_level.items()}
                       if valuer else {}),
+        "pending_offers": [{"partner": league.team_name(partner),
+                            "give": [str(league.players.get(pid, pid)) for pid in give],
+                            "get": [str(league.players.get(pid, pid)) for pid in get]}
+                           for partner, give, get in our_pending_offers(league)],
         "trade_ideas": [trade_json(t) for t in result.trade_ideas],
         "long_shots": [trade_json(t) for t in result.long_shots],
         "players": [player(p) for p in rostered + available],

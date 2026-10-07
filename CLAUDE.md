@@ -10,7 +10,8 @@ Every run saves its output on the `reports` branch:
 
 - `latest.md`: the readable report. It has moves with a "Why" line, the roster with
   weekly projections, the best free agents, trade ideas, and league-wide playoff and
-  title odds.
+  title odds. Trade ideas are planned as if your pending trade offers (listed under Moves)
+  go through, so players marked "(pending offer)" aren't on the roster yet.
 - `latest.json`: the full data. It covers every rostered player in the league plus the
   top 10 free agents at each position. Each player has weekly projections (`source: espn` is ESPN's
   number, `bot` is the bot's estimate), rest-of-season points per game, bye week,
