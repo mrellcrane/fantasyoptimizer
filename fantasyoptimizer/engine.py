@@ -675,19 +675,14 @@ class Optimizer:
         return rosters
 
     def do_trades(self, result: RunResult) -> None:
-        # Plan as if our pending offers go through, so we don't also trade away the
-        # backup for a player we've already offered (e.g. Goff after offering Burrow).
-        planned = self.rosters
-        self.rosters = self._with_pending_accepted()
-        try:
-            self._do_trades(result)
-        finally:
-            self.rosters = planned
-
-    def _do_trades(self, result: RunResult) -> None:
         tc = self.cfg.trades
         baseline = self.odds(self.rosters)
-        ideas = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state, self.now)
+        # Ideas are scored against the roster you have, but must also hold up if our
+        # pending offers go through, so we don't also trade away the backup for a
+        # player we've already offered (e.g. Goff after offering Burrow).
+        planned = self._with_pending_accepted()
+        ideas = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state, self.now,
+                                   planned=planned)
         shortlist = self._shortlist(ideas, baseline)
         shortlist.sort(key=lambda i: (i.expected_title_gain, i.my_gain), reverse=True)
         shortlist = _spread(shortlist)
@@ -697,7 +692,7 @@ class Optimizer:
 
         if tc.long_shots:
             bold = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state,
-                                      self.now, long_shot=True)
+                                      self.now, long_shot=True, planned=planned)
             long_shots = self._shortlist(bold, baseline, skip={i.key for i in shortlist})
             # Ranked purely by what they'd do for you; acceptance is their problem.
             long_shots = [i for i in long_shots if i.my_title_gain > 0]
