@@ -111,8 +111,14 @@ def trade_sets(players: list[Player], value: dict[int, float], pool_size: int, m
 
 
 def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, cfg: Config,
-                state: State, now: dt.datetime, long_shot: bool = False) -> list[TradeIdea]:
-    """Trade ideas, best first. `long_shot` loosens what the other team has to like."""
+                state: State, now: dt.datetime, long_shot: bool = False,
+                planned: dict[int, list[int]] | None = None) -> list[TradeIdea]:
+    """Trade ideas, best first. `long_shot` loosens what the other team has to like.
+
+    Gains are measured against `rosters`, the teams as they are. `planned` is the
+    same league if our pending offers are accepted: an idea can't hurt us there
+    (with Burrow already offered, trading Goff as well would leave no QB).
+    """
     tc = cfg.trades
     if long_shot:
         min_fairness, min_accept, min_partner_gain = (
@@ -144,6 +150,15 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     my_can_drop = lambda p: (droppable(p, cfg, state, now) and not _matches(p, untouchable)  # noqa: E731
                              and p.id not in arriving)
     their_can_drop = lambda p: not (p.roster_locked or p.lineup_locked)  # noqa: E731
+    planned_me = (planned or rosters)[me]
+    base_planned = mine_value(planned_me)
+
+    def gain_if_offers_accepted(give: tuple[int, ...], get: tuple[int, ...]) -> float | None:
+        new = [pid for pid in planned_me if pid not in give] + list(get)
+        drops = _forced_drops(league, valuer, planned_me, new, get, my_can_drop)
+        if drops is None:
+            return None
+        return mine_value([pid for pid in new if pid not in drops]) - base_planned
 
     ideas: list[TradeIdea] = []
     for partner, their_roster in rosters.items():
@@ -169,6 +184,10 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
                 my_gain = mine_value(new_me) - base_me
                 if my_gain < tc.min_gain_points:
                     continue
+                if set(planned_me) != set(my_roster):
+                    planned_gain = gain_if_offers_accepted(give, get)
+                    if planned_gain is None or planned_gain < 0:
+                        continue
                 new_them = [pid for pid in their_roster if pid not in get] + list(give)
                 their_drops = _forced_drops(league, valuer, their_roster, new_them, give, their_can_drop)
                 if their_drops is None:

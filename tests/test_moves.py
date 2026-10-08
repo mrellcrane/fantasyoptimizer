@@ -237,7 +237,7 @@ def test_pitch_names_who_they_actually_start():
     assert "over RB16" in opt.pitch(idea)
 
 
-def test_trades_are_planned_as_if_pending_offers_go_through():
+def test_trades_still_hold_up_if_pending_offers_go_through():
     from fantasyoptimizer.engine import Optimizer
     from fantasyoptimizer.models import PendingTrade
 
@@ -254,11 +254,50 @@ def test_trades_are_planned_as_if_pending_offers_go_through():
     cfg = fast_config()
     cfg.trades.min_gain_points = 5
     opt = Optimizer(league, cfg, State(), None, NOW)
-    rosters = opt._with_pending_accepted()
-    assert 12 in rosters[1] and 2 not in rosters[1] and 2 in rosters[2]
-    ideas = find_trades(league, rosters, opt.valuer, cfg, State(), NOW)
+    planned = opt._with_pending_accepted()
+    assert 12 in planned[1] and 2 not in planned[1] and 2 in planned[2]
+    ideas = find_trades(league, opt.rosters, opt.valuer, cfg, State(), NOW, planned=planned)
     assert ideas and all(i.partner == 3 for i in ideas)
     assert all(pid not in (2, 12) for i in ideas for pid in i.give + i.my_drops)
+    # Both RBs we'd have left if the offer goes through can't go too: no RB at all.
+    assert all(set(i.give) != {3, 4} for i in ideas)
+    assert any(set(i.give) == {3, 4} for i in find_trades(league, opt.rosters, opt.valuer, cfg,
+                                                          State(), NOW))
+
+
+def test_trade_ideas_are_scored_against_the_roster_you_have():
+    # Our pending offer sends both good RBs away. If it's turned down we still have
+    # them, so another RB is no upgrade, however good he'd look if it went through.
+    from fantasyoptimizer.engine import Optimizer
+    from fantasyoptimizer.models import PendingTrade
+    mine = [make_player(1, "QB", 15), make_player(2, "RB", 16), make_player(3, "RB", 15),
+            make_player(4, "WR", 16), make_player(5, "WR", 6), make_player(6, "WR", 5)]
+    wr_rich = [make_player(11, "QB", 15), make_player(12, "WR", 17), make_player(13, "WR", 16),
+               make_player(14, "WR", 4), make_player(15, "RB", 3), make_player(16, "RB", 2)]
+    rb_rich = [make_player(21, "QB", 15), make_player(22, "RB", 17), make_player(23, "RB", 16),
+               make_player(24, "RB", 15), make_player(25, "WR", 3), make_player(26, "WR", 2)]
+    league = make_league({1: mine, 2: wr_rich, 3: rb_rich})
+    league.pending_trades = [PendingTrade(id="p", proposer=1, items=[
+        {"playerId": 2, "type": "TRADE", "fromTeamId": 1, "toTeamId": 2},
+        {"playerId": 3, "type": "TRADE", "fromTeamId": 1, "toTeamId": 2},
+        {"playerId": 12, "type": "TRADE", "fromTeamId": 2, "toTeamId": 1},
+        {"playerId": 13, "type": "TRADE", "fromTeamId": 2, "toTeamId": 1}])]
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    cfg.trades.min_title_gain = -100
+    opt = Optimizer(league, cfg, State(), None, NOW)
+    result = opt.run()
+    ideas = result.trade_ideas + result.long_shots
+    assert ideas
+    mine_value = lambda roster: opt.valuer.value(opt.valuer.streaming(roster))  # noqa: E731
+    for idea in ideas:
+        after = [pid for pid in opt.rosters[1] if pid not in idea.give + idea.my_drops] + list(idea.get)
+        assert idea.my_gain == mine_value(after) - mine_value(opt.rosters[1])
+        # Nobody who's only ours if the offer goes through shows up in our lineup.
+        assert "WR12" not in idea.my_lineup and "WR13" not in idea.my_lineup
+    # The report says which offers it's assuming might go through.
+    from fantasyoptimizer.report import render
+    assert "Your trade offer to Team 2: give RB2 (RB), RB3 (RB) for WR12 (WR), WR13 (WR)" in render(result)
 
 
 def test_lineup_prefers_healthy_starter_and_reads_as_a_swap():

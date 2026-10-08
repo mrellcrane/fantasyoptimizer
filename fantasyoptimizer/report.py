@@ -276,7 +276,17 @@ def render(result: RunResult, max_rows: int = 8) -> str:
         drop = league.players.get(claim.drop)
         lines.append(f"- **PENDING** Claim on ESPN: {add or claim.add}"
                      + (f", drop {drop or claim.drop}" if claim.drop is not None else ""))
-    if not (result.actions or result.move_error or league.pending_claims):
+    # Trade ideas below must still help if these go through.
+    offers = [t for t in league.pending_trades if t.proposer == me.id]
+    for offer in offers:
+        partner = next(iter(offer.team_ids - {me.id}), None)
+        give = ", ".join(str(league.players.get(i["playerId"], i["playerId"]))
+                         for i in offer.items if i.get("fromTeamId") == me.id)
+        get = ", ".join(str(league.players.get(i["playerId"], i["playerId"]))
+                        for i in offer.items if i.get("toTeamId") == me.id)
+        lines.append(f"- **PENDING** Your trade offer to {league.team_name(partner)}: "
+                     f"give {give} for {get}")
+    if not (result.actions or result.move_error or league.pending_claims or offers):
         lines.append("- None today. Nothing cleared the thresholds.")
 
     lines += roster_section(result)
