@@ -113,6 +113,15 @@ class IncomingOffer:
 
 
 @dataclass
+class OutgoingOffer:
+    """One of our pending offers, scored like a fresh idea, with what to do about it."""
+    trade: PendingTrade
+    idea: trades.TradeIdea
+    verdict: str                                  # keep | pull | swap
+    replacement: trades.TradeIdea | None = None   # what to send instead
+
+
+@dataclass
 class RunResult:
     league: League
     dry_run: bool
@@ -127,6 +136,7 @@ class RunResult:
     move_error: str = ""                          # a move the user asked for that couldn't be made
     lineup_gain: float = 0.0
     incoming: list[IncomingOffer] = field(default_factory=list)
+    outgoing: list[OutgoingOffer] = field(default_factory=list)
     actions: list[Action] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)
     valuer: Valuer | None = None
@@ -453,6 +463,7 @@ class Optimizer:
                 result.notes.append("Trade deadline has passed; skipping trades.")
             else:
                 self.do_trades(result)
+                self.review_outgoing(result)
         self.review_incoming(result)
         return result
 
@@ -642,7 +653,7 @@ class Optimizer:
         return check
 
     def _shortlist(self, ideas: list[trades.TradeIdea], baseline: SimResult,
-                   skip: set[str] = frozenset()) -> list[trades.TradeIdea]:
+                   skip: set[str] = frozenset(), limit: int | None = None) -> list[trades.TradeIdea]:
         """Simulate the most promising ideas (at most 5 per partner) for title odds."""
         per_partner: dict[int, int] = {}
         shortlist = []
@@ -652,7 +663,7 @@ class Optimizer:
             if per_partner.get(idea.partner, 0) < 5:
                 per_partner[idea.partner] = per_partner.get(idea.partner, 0) + 1
                 shortlist.append(idea)
-            if len(shortlist) >= self.cfg.trades.sim_candidates:
+            if len(shortlist) >= (limit or self.cfg.trades.sim_candidates):
                 break
         for idea in shortlist:
             after = self.odds(trades.apply(self.rosters, self.me, idea))
@@ -661,12 +672,10 @@ class Optimizer:
                                              - baseline.title_odds[idea.partner])
         return shortlist
 
-    def _with_pending_accepted(self) -> dict[int, list[int]]:
-        """Rosters as if every trade we've offered gets accepted."""
+    def _with_pending_accepted(self, offers: list[PendingTrade] | None = None) -> dict[int, list[int]]:
+        """Rosters as if every trade we've offered (or just `offers`) gets accepted."""
         rosters = {t: list(r) for t, r in self.rosters.items()}
-        for pending in self.league.pending_trades:
-            if pending.proposer != self.me:
-                continue
+        for pending in trades.my_offers(self.league) if offers is None else offers:
             for item in pending.items:
                 pid, src, dst = item.get("playerId"), item.get("fromTeamId"), item.get("toTeamId")
                 if item.get("type") == "TRADE" and src in rosters and dst in rosters and pid in rosters[src]:
@@ -725,6 +734,48 @@ class Optimizer:
             proposed_to.add(idea.partner)
             if action.ok:
                 self.state.record_proposal(idea.partner, idea.give, idea.get, self.now)
+
+    def review_outgoing(self, result: RunResult) -> None:
+        """Our pending offers: still worth it, or pull one and send something better?
+
+        Each offer is scored against today's rosters like a fresh idea. Then we look
+        for new deals it's blocking (same team, or the same players) and compare them
+        by title odds times accept chance. We only suggest; we never cancel an offer.
+        """
+        tc = self.cfg.trades
+        offers = trades.my_offers(self.league)
+        if not offers:
+            return
+        baseline = self.odds(self.rosters)
+        for offer in offers:
+            partner, give, get = trades.offer_sides(offer, self.me)
+            if (partner not in self.rosters or not give or not get
+                    or not all(pid in self.rosters[self.me] for pid in give)
+                    or not all(pid in self.rosters[partner] for pid in get)):
+                continue  # someone moved since it was sent; ESPN will void it
+            idea = trades.evaluate_trade(self.league, self.rosters, self.valuer, self.cfg,
+                                         self.state, self.now, partner, give, get)
+            self._shortlist([idea], baseline)  # fills in title odds
+            # New deals this offer is blocking. The other offers stay where they are.
+            others = [o for o in offers if o is not offer]
+            touched = set(give) | set(get)
+            rivals = [i for i in trades.find_trades(self.league, self.rosters, self.valuer, self.cfg,
+                                                    self.state, self.now, offers=others,
+                                                    planned=self._with_pending_accepted(others))
+                      if (i.partner == partner or touched & set(i.give + i.get))
+                      and i.key != idea.key]
+            rivals = [i for i in self._shortlist(rivals, baseline, limit=5)
+                      if i.my_title_gain >= tc.min_title_gain]
+            best = max(rivals, key=lambda i: i.expected_title_gain, default=None)
+            if idea.my_gain < 0 or idea.my_title_gain < 0:
+                verdict = "pull"  # it hurts us now; send the best rival if there is one
+            elif best and best.expected_title_gain - idea.expected_title_gain >= tc.swap_min_title_gain:
+                verdict = "swap"
+            else:
+                verdict, best = "keep", None
+            if best:
+                self.annotate(best)
+            result.outgoing.append(OutgoingOffer(offer, idea, verdict, best))
 
     def review_incoming(self, result: RunResult) -> None:
         """Score trade offers other managers sent us. We never auto-accept."""
