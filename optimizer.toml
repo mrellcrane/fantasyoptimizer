@@ -98,6 +98,10 @@ long_shot_min_fairness = 0.60          # They get as little as 60% of the value 
 long_shot_min_accept_chance = 0.05
 long_shot_min_partner_gain_points = -30.0
 propose_long_shots = false   # true = the bot sends long shots instead of the safe picks
+# Your pending offers get a verdict each run: keep, pull, or pull and send a better
+# one instead. A replacement has to beat the offer by this much title odds, after
+# accept chance (percentage points). Suggestions only: the bot never cancels offers.
+swap_min_title_gain = 0.5
 # Feeling bolder? These send more offers, including ones that favor you more:
 #   max_proposals_per_run = 3    (still max one open offer per manager, and per player)
 #   min_fairness = 0.75          (they can get as little as 75% of what they give)

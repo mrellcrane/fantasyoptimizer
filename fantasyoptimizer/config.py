@@ -104,6 +104,9 @@ class TradeConfig:
     long_shot_min_partner_gain_points: float = -30.0
     propose_long_shots: bool = False
     expiration_hours: int = 48
+    # Pull one of our pending offers for a new one when the new one is worth this much
+    # more title odds after accept chance (percentage points). Report only.
+    swap_min_title_gain: float = 0.5
 
 
 @dataclass

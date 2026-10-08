@@ -91,6 +91,8 @@ class PendingTrade:
     proposer: int
     items: list[dict]
     status: str = "PENDING"
+    proposed_at: dt.datetime | None = None
+    expires_at: dt.datetime | None = None
 
     @property
     def team_ids(self) -> set[int]:
@@ -477,5 +479,19 @@ def parse_pending_trades(data: dict) -> list[PendingTrade]:
             id=tx_id, proposer=int(tx.get("teamId") or 0),
             items=[i for i in tx.get("items", []) if i.get("type") in ("TRADE", None)],
             status=tx.get("status", "PENDING"),
+            proposed_at=_espn_time(tx.get("proposedDate")),
+            expires_at=_espn_time(tx.get("expirationDate")),
         ))
     return out
+
+
+def _espn_time(value) -> dt.datetime | None:
+    """ESPN dates are epoch milliseconds (the ones we send are ISO strings)."""
+    try:
+        if isinstance(value, (int, float)):
+            return dt.datetime.fromtimestamp(value / 1000, dt.timezone.utc)
+        if isinstance(value, str) and value:
+            return dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except (ValueError, OverflowError, OSError):
+        pass
+    return None

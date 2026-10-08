@@ -6,6 +6,7 @@ import datetime as dt
 from .engine import RunResult, describe_trade
 from .models import IR_SLOT, SLOT_NAMES, League, Player
 from .projections import per_game_rate
+from .trades import my_offers, offer_sides
 from .waivers import min_gain
 
 WEEKS_SHOWN = 3
@@ -133,6 +134,65 @@ def asked_trade_section(result: RunResult) -> list[str]:
         lines.append(f"\nPitch: \"{t.pitch}\"")
     if result.asked_trade_why:
         lines.append(f"\nWhy: {result.asked_trade_why}")
+    return lines
+
+
+def _span(delta: dt.timedelta) -> str:
+    hours = delta.total_seconds() / 3600
+    return f"{hours:.0f} h" if hours < 48 else f"{hours / 24:.0f} days"
+
+
+def _offer_age(offer, now: dt.datetime) -> str:
+    bits = []
+    if offer.proposed_at:
+        bits.append(f"sent {_span(now - offer.proposed_at)} ago")
+    if offer.expires_at:
+        bits.append(f"expires in {_span(offer.expires_at - now)}" if offer.expires_at > now
+                    else "expired")
+    return f" ({', '.join(bits)})" if bits else ""
+
+
+def pending_offers_section(result: RunResult) -> list[str]:
+    """Offers we've sent that are still waiting, and whether to keep each one."""
+    league = result.league
+    offers = my_offers(league)
+    if not offers:
+        return []
+    reviewed = {id(o.trade): o for o in result.outgoing}
+    names = lambda pids: ", ".join(str(league.players.get(pid, pid)) for pid in pids)  # noqa: E731
+    lines = ["", "## Your pending offers", "",
+             "_Offers you sent that are still waiting. Trade ideas further down have to help "
+             "whether or not these go through. Pulling one is up to you: the bot never cancels "
+             "offers._", ""]
+    for n, offer in enumerate(offers, 1):
+        partner, give, get = offer_sides(offer, league.my_team_id)
+        lines.append(f"{n}. **{league.team_name(partner)}**: give {names(give)} for {names(get)}"
+                     + _offer_age(offer, league.loaded_at))
+        o = reviewed.get(id(offer))
+        if o is None:
+            continue
+        t, r = o.idea, o.replacement
+        lines.append(f"   - You: {t.my_gain:+.1f} season pts, {t.my_title_gain:+.1f}% title odds. "
+                     f"Them: {t.partner_gain:+.1f} season pts. Accept chance ~{100 * t.accept_chance:.0f}%.")
+        if o.verdict == "keep":
+            lines.append("   - **Keep it.** Nothing better is waiting behind it.")
+            continue
+        if o.verdict == "pull":
+            lines.append("   - **Pull it.** It doesn't help you anymore."
+                         + (" Send this instead:" if r else ""))
+        else:
+            lines.append("   - **Pull it and send this instead.** After accept chance it's worth "
+                         f"{r.expected_title_gain:+.1f}% title odds, vs {t.expected_title_gain:+.1f}% "
+                         "for this one:")
+        if r:
+            lines.append(f"     - **{league.team_name(r.partner)}**: {describe_trade(league, r)}")
+            lines.append(f"     - You: {r.my_gain:+.1f} season pts, {r.my_title_gain:+.1f}% title odds. "
+                         f"Them: {r.partner_gain:+.1f} season pts. "
+                         f"Accept chance ~{100 * r.accept_chance:.0f}%.")
+            if r.my_lineup:
+                lines.append(f"     - Your lineup: {r.my_lineup}")
+            if r.pitch:
+                lines.append(f"     - Pitch: \"{r.pitch}\"")
     return lines
 
 
@@ -276,19 +336,10 @@ def render(result: RunResult, max_rows: int = 8) -> str:
         drop = league.players.get(claim.drop)
         lines.append(f"- **PENDING** Claim on ESPN: {add or claim.add}"
                      + (f", drop {drop or claim.drop}" if claim.drop is not None else ""))
-    # Trade ideas below must still help if these go through.
-    offers = [t for t in league.pending_trades if t.proposer == me.id]
-    for offer in offers:
-        partner = next(iter(offer.team_ids - {me.id}), None)
-        give = ", ".join(str(league.players.get(i["playerId"], i["playerId"]))
-                         for i in offer.items if i.get("fromTeamId") == me.id)
-        get = ", ".join(str(league.players.get(i["playerId"], i["playerId"]))
-                        for i in offer.items if i.get("toTeamId") == me.id)
-        lines.append(f"- **PENDING** Your trade offer to {league.team_name(partner)}: "
-                     f"give {give} for {get}")
-    if not (result.actions or result.move_error or league.pending_claims or offers):
+    if not (result.actions or result.move_error or league.pending_claims):
         lines.append("- None today. Nothing cleared the thresholds.")
 
+    lines += pending_offers_section(result)
     lines += roster_section(result)
 
     if result.incoming:
@@ -377,6 +428,9 @@ def short_summary(result: RunResult) -> str:
         moves.insert(0, f"Week {check.next_week} heads-up: {names} can't play")
     offers = [f"Offer from {league.team_name(o.partner)}: {o.title_gain:+.1f}% title odds"
               for o in result.incoming]
+    offers += [f"Pull your offer to {league.team_name(o.idea.partner)}"
+               + (" and send a better one" if o.replacement else "")
+               for o in result.outgoing if o.verdict != "keep"]
     return "\n".join([head, *moves, *offers])
 
 
@@ -443,6 +497,11 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
                           "patch": i.patch, "wait": i.wait} for i in result.add_ideas],
         "streaming": ({pos: round(level, 2) for pos, level in valuer.stream_level.items()}
                       if valuer else {}),
+        "pending_offers": [{**trade_json(o.idea), "verdict": o.verdict,
+                            "sent": o.trade.proposed_at.isoformat() if o.trade.proposed_at else None,
+                            "expires": o.trade.expires_at.isoformat() if o.trade.expires_at else None,
+                            "replacement": trade_json(o.replacement) if o.replacement else None}
+                           for o in result.outgoing],
         "trade_ideas": [trade_json(t) for t in result.trade_ideas],
         "long_shots": [trade_json(t) for t in result.long_shots],
         "players": [player(p) for p in rostered + available],

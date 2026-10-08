@@ -7,7 +7,7 @@ import math
 from dataclasses import dataclass
 
 from .config import Config
-from .models import IR_SLOT, League, Player
+from .models import IR_SLOT, League, PendingTrade, Player
 from .state import State, trade_key
 from .valuation import Valuer
 from .waivers import droppable
@@ -68,13 +68,25 @@ def _forced_drops(league: League, valuer: Valuer, original: list[int], new: list
     return tuple(candidates[:over])
 
 
-def blocked_partners(league: League, cfg: Config, state: State, now: dt.datetime) -> set[int]:
+def my_offers(league: League) -> list[PendingTrade]:
+    """Trade offers we've sent that are still waiting on the other manager."""
+    return [t for t in league.pending_trades if t.proposer == league.my_team_id]
+
+
+def offer_sides(offer: PendingTrade, me: int) -> tuple[int | None, tuple[int, ...], tuple[int, ...]]:
+    """(partner, players we'd give, players we'd get) for one of our offers."""
+    give = tuple(i["playerId"] for i in offer.items if i.get("fromTeamId") == me)
+    get = tuple(i["playerId"] for i in offer.items if i.get("toTeamId") == me)
+    return next(iter(offer.team_ids - {me}), None), give, get
+
+
+def blocked_partners(league: League, cfg: Config, state: State, now: dt.datetime,
+                     offers: list[PendingTrade] | None = None) -> set[int]:
     names = {n.lower() for n in cfg.trades.do_not_trade_with}
     blocked = {t.id for t in league.teams.values()
                if str(t.id) in names or t.name.lower() in names or t.abbrev.lower() in names}
-    for pending in league.pending_trades:
-        if pending.proposer == league.my_team_id:
-            blocked |= pending.team_ids
+    for offer in my_offers(league) if offers is None else offers:
+        blocked |= offer.team_ids
     blocked |= {t for t in league.teams
                 if state.proposed_recently(t, cfg.trades.team_cooldown_days, now)}
     blocked.discard(league.my_team_id)
@@ -112,12 +124,14 @@ def trade_sets(players: list[Player], value: dict[int, float], pool_size: int, m
 
 def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, cfg: Config,
                 state: State, now: dt.datetime, long_shot: bool = False,
-                planned: dict[int, list[int]] | None = None) -> list[TradeIdea]:
+                planned: dict[int, list[int]] | None = None,
+                offers: list[PendingTrade] | None = None) -> list[TradeIdea]:
     """Trade ideas, best first. `long_shot` loosens what the other team has to like.
 
     Gains are measured against `rosters`, the teams as they are. `planned` is the
     same league if our pending offers are accepted: an idea can't hurt us there
     (with Burrow already offered, trading Goff as well would leave no QB).
+    `offers` are the pending offers to work around (default: all of ours).
     """
     tc = cfg.trades
     if long_shot:
@@ -130,7 +144,8 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     me = league.my_team_id
     untouchable = {n.lower() for n in tc.untouchable}
     unavailable = {n.lower() for n in tc.not_available}
-    blocked = blocked_partners(league, cfg, state, now)
+    offers = my_offers(league) if offers is None else offers
+    blocked = blocked_partners(league, cfg, state, now, offers)
     ros = {pid: valuer.ros_points(pid) for pid in league.players}
     value = trade_value(league, valuer)
 
@@ -138,11 +153,9 @@ def find_trades(league: League, rosters: dict[int, list[int]], valuer: Valuer, c
     mine_value = lambda roster: valuer.value(valuer.streaming(roster))  # noqa: E731
     base_me = mine_value(my_roster)
     # Players already offered in one of our pending proposals aren't offered again.
-    offered = {item.get("playerId") for pending in league.pending_trades if pending.proposer == me
-               for item in pending.items if item.get("fromTeamId") == me}
+    offered = {pid for offer in offers for pid in offer_sides(offer, me)[1]}
     # ...and players those offers would bring in aren't ours to offer (or drop) yet.
-    arriving = {item.get("playerId") for pending in league.pending_trades if pending.proposer == me
-                for item in pending.items if item.get("toTeamId") == me}
+    arriving = {pid for offer in offers for pid in offer_sides(offer, me)[2]}
     mine = [league.players[pid] for pid in my_roster
             if not league.players[pid].trade_locked and not _matches(league.players[pid], untouchable)
             and ros[pid] > 0 and pid not in offered and pid not in arriving]

@@ -297,7 +297,7 @@ def test_trade_ideas_are_scored_against_the_roster_you_have():
         assert "WR12" not in idea.my_lineup and "WR13" not in idea.my_lineup
     # The report says which offers it's assuming might go through.
     from fantasyoptimizer.report import render
-    assert "Your trade offer to Team 2: give RB2 (RB), RB3 (RB) for WR12 (WR), WR13 (WR)" in render(result)
+    assert "**Team 2**: give RB2 (RB), RB3 (RB) for WR12 (WR), WR13 (WR)" in render(result)
 
 
 def test_lineup_prefers_healthy_starter_and_reads_as_a_swap():
@@ -382,3 +382,52 @@ def test_trade_lineup_lines_say_who_starts_in_whose_spot():
     parts = idea.my_lineup.split(". Net")[0]
     nums = [float(x) for x in re.findall(r"[+-]\d+\.\d", parts)]
     assert abs(sum(nums) - idea.my_gain) < 0.2
+
+
+def _our_offer(give, get, partner=2):
+    from fantasyoptimizer.models import PendingTrade
+    return PendingTrade(id="p", proposer=1, items=(
+        [{"playerId": pid, "type": "TRADE", "fromTeamId": 1, "toTeamId": partner} for pid in give]
+        + [{"playerId": pid, "type": "TRADE", "fromTeamId": partner, "toTeamId": 1} for pid in get]))
+
+
+def test_pending_offers_get_keep_pull_or_swap():
+    from fantasyoptimizer.engine import Optimizer
+    from fantasyoptimizer.report import render, short_summary
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+
+    def review(give, get):
+        league = lopsided_league()
+        league.pending_trades = [_our_offer(give, get)]
+        result = Optimizer(league, cfg, State(), None, NOW).run()
+        assert len(result.outgoing) == 1
+        return result, result.outgoing[0]
+
+    best = Optimizer(lopsided_league(), cfg, State(), None, NOW).run().trade_ideas[0]
+    _, kept = review(best.give, best.get)
+    assert kept.verdict == "keep" and kept.replacement is None
+
+    # Our best RB for their worst one: it hurts us, so pull it (and here's a real deal).
+    result, pulled = review([2], [15])
+    assert pulled.verdict == "pull" and pulled.idea.my_gain < 0
+    assert pulled.replacement and pulled.replacement.accept_chance > 0.5
+    assert "**Pull it.** It doesn't help you anymore. Send this instead:" in render(result)
+    assert "Pull your offer to Team 2 and send a better one" in short_summary(result)
+
+    # A lowball they'll never take blocks a win-win deal with the same team.
+    result, swapped = review([6], [14])
+    assert swapped.verdict == "swap" and swapped.idea.my_gain > 0 and swapped.idea.accept_chance < 0.1
+    r = swapped.replacement
+    assert r.partner == 2 and r.expected_title_gain > swapped.idea.expected_title_gain + 0.5
+    assert "**Pull it and send this instead.**" in render(result)
+
+
+def test_offer_dates_are_parsed():
+    from fantasyoptimizer.models import parse_pending_trades
+    sent = dt.datetime(2026, 10, 7, 20, 19, tzinfo=dt.timezone.utc)
+    tx = {"id": "t", "type": "TRADE_PROPOSAL", "status": "PENDING", "teamId": 4, "items": [],
+          "proposedDate": int(sent.timestamp() * 1000), "expirationDate": "2026-10-09T20:19:00.000Z"}
+    offer = parse_pending_trades({"pendingTransactions": [tx]})[0]
+    assert offer.proposed_at == sent and offer.expires_at == sent + dt.timedelta(days=2)
+    assert parse_pending_trades({"pendingTransactions": [{**tx, "proposedDate": None}]})[0].proposed_at is None

@@ -8,7 +8,8 @@ Every run, it:
 2. **Sets your lineup.** It benches players who are on bye, OUT, or projected low, and starts the best available players. Players whose games have started stay put. On game days it checks again every 15 minutes, acting only once inactives are out for one of your games.
 3. **Proposes trades.** It looks for deals that make you better *and* fill a real need on the other manager's team, since a lopsided offer just gets rejected. Players are valued by how much better they are than the best free agent at their position. Each idea comes with a one-line pitch to send them.
 4. **Grades trade offers sent to you.** It tells you whether to accept. It never accepts on its own.
-5. **Writes a report** covering your playoff and title odds, your roster's projections for the next few weeks, what it did and why, the best pickups and trade ideas it found, and a table of the whole league's odds.
+5. **Reviews the offers you've sent.** Each one gets a verdict: keep it, pull it, or pull it and send a better deal it's blocking (same team or same players). It compares them by title odds times the chance they're accepted. It never cancels an offer itself.
+6. **Writes a report** covering your playoff and title odds, your roster's projections for the next few weeks, what it did and why, the best pickups and trade ideas it found, and a table of the whole league's odds.
 
 ## How it decides
 
@@ -87,6 +88,7 @@ Everything lives in `optimizer.toml`, with comments. The ones you'll most likely
 - `trades.max_proposals_per_run` / `team_cooldown_days`: how pushy it is. The default is one offer a day, max one per manager per week, and never the same offer twice in 30 days.
 - `trades.message` / `trades.pitch_as_message`: a note attached to each offer, or the one-line pitch the report writes for each trade ("Burrow would start every week for you over...").
 - `trades.min_fairness` / `min_accept_chance`: how lopsided offers may be. There's a commented "bolder" setting in the file.
+- `trades.swap_min_title_gain`: how much more title odds (after accept chance) a new deal must add before the report says to pull a pending offer for it.
 - `trades.long_shots`: the report's "Long shots" list of trades that help you more but are less likely to be accepted. `propose_long_shots = true` makes the bot send those instead of the safe picks.
 - `waivers.never_drop`: players it must never cut.
 - `streaming.positions`: positions you stream week to week (default `["D/ST"]`; add `"K"` if you stream kickers, or `[]` to hold everyone).
