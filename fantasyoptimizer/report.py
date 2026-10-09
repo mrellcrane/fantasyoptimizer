@@ -201,7 +201,8 @@ def trade_list(league: League, ideas) -> list[str]:
     for n, t in enumerate(ideas, 1):
         lines.append(f"{n}. **{league.team_name(t.partner)}**: {describe_trade(league, t)}")
         lines.append(f"   - You: {t.my_gain:+.1f} season pts, {t.my_title_gain:+.1f}% title odds. "
-                     f"Them: {t.partner_gain:+.1f} season pts. Accept chance ~{100 * t.accept_chance:.0f}%.")
+                     f"Them: {t.partner_gain:+.1f} season pts. Accept chance ~{100 * t.accept_chance:.0f}%, "
+                     f"so it's worth **{t.expected_title_gain:+.1f}%** title odds.")
         if t.my_lineup:
             lines.append(f"   - Your lineup: {t.my_lineup}")
         if t.their_lineup:
@@ -381,13 +382,15 @@ def render(result: RunResult, max_rows: int = 8) -> str:
 
     if result.trade_ideas:
         lines += ["", "## Best trade ideas", "",
-                  "_Good for you and good for them: the ones most likely to happen._", ""]
+                  "_Good for you and good for them: the ones most likely to happen. Best first by "
+                  "what each is worth: your title odds gain times the chance they accept._", ""]
         lines += trade_list(league, result.trade_ideas[:5])
 
     if result.long_shots:
         lines += ["", "## Long shots", "",
                   "_Better for you, less likely to be accepted. Some even look slightly worse for "
-                  "them on paper, so the pitch matters. Worst case, they say no._", ""]
+                  "them on paper, so the pitch matters. Worst case, they say no. Ranked the same "
+                  "way._", ""]
         lines += trade_list(league, result.long_shots[:5])
 
     lines += free_agent_section(result)

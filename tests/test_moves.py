@@ -71,6 +71,19 @@ def test_finds_win_win_trade():
     assert best.accept_chance >= cfg.trades.min_accept_chance
 
 
+def test_trade_ideas_rank_by_title_odds_times_accept_chance():
+    from fantasyoptimizer.engine import Optimizer
+    from fantasyoptimizer.report import render
+    cfg = fast_config()
+    cfg.trades.min_gain_points = 5
+    result = Optimizer(lopsided_league(), cfg, State(), None, NOW).run()
+    for ideas in (result.trade_ideas, result.long_shots):
+        worth = [i.my_title_gain * i.accept_chance for i in ideas]
+        assert worth == sorted(worth, reverse=True)
+    best = result.trade_ideas[0]
+    assert f"so it's worth **{best.expected_title_gain:+.1f}%** title odds." in render(result)
+
+
 def test_trade_respects_untouchable_cooldown_and_pending():
     league = lopsided_league()
     cfg = fast_config()

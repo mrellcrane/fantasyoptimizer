@@ -693,6 +693,9 @@ class Optimizer:
         ideas = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state, self.now,
                                    planned=planned)
         shortlist = self._shortlist(ideas, baseline)
+        # Best first by what sending it is worth: title odds gained times the chance
+        # they accept. A slightly bigger gain they'll probably turn down loses to one
+        # they'll probably take.
         shortlist.sort(key=lambda i: (i.expected_title_gain, i.my_gain), reverse=True)
         shortlist = _spread(shortlist)
         for idea in shortlist[:8]:
@@ -703,9 +706,8 @@ class Optimizer:
             bold = trades.find_trades(self.league, self.rosters, self.valuer, self.cfg, self.state,
                                       self.now, long_shot=True, planned=planned)
             long_shots = self._shortlist(bold, baseline, skip={i.key for i in shortlist})
-            # Ranked purely by what they'd do for you; acceptance is their problem.
             long_shots = [i for i in long_shots if i.my_title_gain > 0]
-            long_shots.sort(key=lambda i: (i.my_title_gain, i.my_gain), reverse=True)
+            long_shots.sort(key=lambda i: (i.expected_title_gain, i.my_gain), reverse=True)
             long_shots = _spread(long_shots)
             for idea in long_shots[:8]:
                 self.annotate(idea)
