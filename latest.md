@@ -1,164 +1,179 @@
-# ScreamStream 2024 League: week 5
+# ScreamStream 2024 League: week 6
 
 **Live run.** Moves below were sent to ESPN.
 
-**Elliott Eats Everyone** is 2-2. Playoff odds **81.0%**, title odds **27.9%**, projected 8.5 wins.
+**Elliott Eats Everyone** is 3-2. Playoff odds **91.0%**, title odds **30.8%**, projected 9.0 wins.
 
 ## Lineup check
 
-**Week 5:** your lineup is already your best one (15.5 projected points).
+**Week 6: swaps worth +58.2 projected points** (the bot already made them)
+- Start **Ernest Jones IV** (19.4) over **Jacob Rodriguez** (0.0)
+- Start **Mike Evans** (17.2) over **Garrett Wilson** (14.6)
+- Start **Tyler Shough** (16.8) over **Jared Goff** (0.0)
+- Start **Travis Kelce** (10.8) over **Dallas Goedert** (10.4)
+- Start **RJ Harvey** (9.6) over **Jahmyr Gibbs** (0.0)
+- Start **Harrison Butker** (9.5) over **Will Reichard** (0.0)
 
-**Week 6 heads-up:**
-- **Jahmyr Gibbs** (RB) is on bye: start **RJ Harvey** (9.6) instead.
-- **Jared Goff** (QB) is on bye: start **Tyler Shough** (16.8) instead.
-- **Will Reichard** (K) is on bye: start **Harrison Butker** (9.6) instead.
-- **Jacob Rodriguez** (LB) is on bye: start **Ernest Jones IV** (19.4) instead.
+**Week 7:** no byes or injuries among your starters.
 
 ## Moves
-- None today. Nothing cleared the thresholds.
+- **SENT** Lineup (+58.2 projected pts this week): start Ernest Jones IV over Jacob Rodriguez; start Mike Evans over Garrett Wilson; start Tyler Shough over Jared Goff; start Travis Kelce over Dallas Goedert; start RJ Harvey over Jahmyr Gibbs; start Harrison Butker over Will Reichard (EXECUTED)
 
 ## Your roster
 
-| Slot | Player | NFL | Status | Wk 5 | Wk 6 | Wk 7 | ROS/gm | Bye |
+| Slot | Player | NFL | Status | Wk 6 | Wk 7 | Wk 8 | ROS/gm | Bye |
 |---|---|---|---|---:|---:|---:|---:|---:|
-| QB | Jared Goff (QB) | DET | (locked) | 19.4 | BYE | ~18.5 | 18.5 | 6 |
-| RB | Ashton Jeanty (RB) | LV | (locked) | 17.8 | 18.8 | ~16.8 | 16.8 | 13 |
-| RB | Jahmyr Gibbs (RB) | DET | (locked) | 27.0 | BYE | ~25.9 | 25.9 | 6 |
-| WR | Davante Adams (WR) | LAR |  | 15.5 | 15.4 | ~14.8 | 14.8 | 11 |
-| WR | Garrett Wilson (WR) | NYJ | (locked) | 14.6 | 14.6 | ~15.1 | 15.1 | 13 |
-| TE | Dallas Goedert (TE) | PHI | (locked) | 10.9 | 10.4 | ~10.6 | 10.6 | 10 |
-| FLEX | Christian Watson (WR) | GB | (locked) | 13.8 | 16.7 | ~14.9 | 14.9 | 11 |
-| DP | Jacob Rodriguez (LB) | MIA | (locked) | 20.1 | BYE | ~19.8 | 19.8 | 6 |
-| D/ST | Jets D/ST (D/ST) | NYJ | (locked) | 7.5 | 5.3 | ~6.3 | 6.3 | 13 |
-| K | Will Reichard (K) | MIN | (locked) | 9.5 | BYE | ~10.0 | 10.0 | 6 |
-| P | Mitch Wishnowsky (P) | NE | (locked) | 3.1 | 2.8 | ~2.7 | 2.7 | 11 |
-| BE | David Montgomery (RB) | HOU | Doubtful (locked) | 11.9 | 0.0 | ~11.3 | 11.3 | 8 |
-| BE | Ernest Jones IV (LB) | SEA | (locked) | 19.5 | 19.4 | ~19.3 | 19.3 | 11 |
-| BE | Harrison Butker (K) | KC |  | BYE | 9.6 | ~8.6 | 8.6 | 5 |
-| BE | Mike Evans (WR) | SF | (locked) | 12.8 | 17.2 | ~13.0 | 13.0 | 8 |
-| BE | RJ Harvey (RB) | DEN | (locked) | 11.3 | 9.6 | ~10.0 | 10.0 | 10 |
-| BE | Travis Kelce (TE) | KC |  | BYE | 10.8 | ~10.8 | 10.8 | 5 |
-| BE | Tyler Shough (QB) | NO | (locked) | 16.5 | 16.8 | ~16.5 | 16.5 | 8 |
-| IR | A.J. Brown (WR) | NE | Injury Reserve (locked) | 0.0 | 0.0 | ~13.4 | 13.4 | 11 |
+| QB | Jared Goff (QB) | DET |  | BYE | 19.3 | ~18.1 | 18.1 | 6 |
+| RB | Ashton Jeanty (RB) | LV |  | 18.9 | 17.5 | ~17.2 | 17.2 | 13 |
+| RB | Jahmyr Gibbs (RB) | DET |  | BYE | 26.9 | ~25.4 | 25.4 | 6 |
+| WR | Davante Adams (WR) | LAR |  | 16.0 | 15.7 | ~15.3 | 15.3 | 11 |
+| WR | Garrett Wilson (WR) | NYJ |  | 14.6 | 15.3 | ~15.1 | 15.1 | 13 |
+| TE | Dallas Goedert (TE) | PHI |  | 10.4 | 11.5 | ~10.4 | 10.4 | 10 |
+| FLEX | Christian Watson (WR) | GB |  | 16.7 | 16.3 | ~15.8 | 15.8 | 11 |
+| DP | Jacob Rodriguez (LB) | MIA |  | BYE | 19.6 | ~19.7 | 19.7 | 6 |
+| D/ST | Jets D/ST (D/ST) | NYJ |  | 5.3 | 7.0 | ~5.6 | 5.6 | 13 |
+| K | Will Reichard (K) | MIN |  | BYE | 11.6 | ~10.2 | 10.2 | 6 |
+| P | Mitch Wishnowsky (P) | NE |  | 2.8 | 3.0 | ~2.7 | 2.7 | 11 |
+| BE | David Montgomery (RB) | HOU | Doubtful | 0.0 | 12.5 | BYE | 11.0 | 8 |
+| BE | Ernest Jones IV (LB) | SEA |  | 19.4 | 19.9 | ~19.3 | 19.3 | 11 |
+| BE | Harrison Butker (K) | KC |  | 9.5 | 8.6 | ~8.9 | 8.9 | 5 |
+| BE | Mike Evans (WR) | SF |  | 17.2 | 16.6 | BYE | 14.4 | 8 |
+| BE | RJ Harvey (RB) | DEN |  | 9.6 | 10.7 | ~9.5 | 9.5 | 10 |
+| BE | Travis Kelce (TE) | KC |  | 10.8 | 10.6 | ~10.8 | 10.8 | 5 |
+| BE | Tyler Shough (QB) | NO |  | 16.8 | 16.3 | BYE | 16.6 | 8 |
+| IR | A.J. Brown (WR) | NE | Injury Reserve | 0.0 | 16.2 | ~13.4 | 13.4 | 11 |
+
+## Best pickups
+
+_Alternatives, best first (at most two per position). Suggestions only: the bot won't make any (`max_moves_per_run = 0`), except D/ST streams, which it makes itself._
+
+| Add | Drop | Type | Starts | Season pts | Title odds | Note |
+|---|---|---|---|---:|---:|---|
+| Sam Martin (P) | Mitch Wishnowsky (P) | Waiver | 13 of 13 | +5.1 | +0.4% | Small gain: optional (the bot won't make it) |
+| Blake Gillikin (P) | Dallas Goedert (TE) | Waiver | 12 of 13 | +3.4 | +0.1% | Small gain: optional (the bot won't make it) |
+| Woody Marks (RB) | RJ Harvey (RB) | Waiver | 1 of 13 (wk 6) | +1.3 | +0.0% | Small gain: optional (the bot won't make it) |
+| Matt Gay (K) | Harrison Butker (K) | Waiver | 1 of 13 (wk 6) | +1.2 | +0.0% | Small gain: optional (the bot won't make it) |
+| Chiefs D/ST (D/ST) | Jets D/ST (D/ST) | Waiver | 2 of 13 (wk 6, 7) | +0.5 | +0.0% | Small gain: optional (the bot won't make it) |
+| Travis Etienne Jr. (RB) | David Montgomery (RB) | Waiver | 2 of 13 (wk 11, 13) | +2.3 | +0.2% | Only fills wk 11, 13: add it that week |
 
 ## Best trade ideas
 
 _Good for you and good for them: the ones most likely to happen._
 
-1. **The (Jordan) Love Train**: give Mike Evans (WR), Travis Kelce (TE) for George Kittle (TE), Carnell Tate (WR)
-   - You: +24.4 season pts, +2.4% title odds. Them: +15.5 season pts. Accept chance ~56%.
-   - Your lineup: TE: George Kittle replaces Travis Kelce (+30.1); WR: Garrett Wilson and Carnell Tate start over Mike Evans (-4.1); bench depth -1.7. Net +24.4.
-   - Their lineup: WR: Mike Evans replaces Carnell Tate (+184.0); TE: Isaiah Likely and Travis Kelce start over George Kittle (-169.0); bench depth +0.5. Net +15.5.
+1. **The (Jordan) Love Train**: give Mike Evans (WR), Travis Kelce (TE) for Isaiah Likely (TE), Emeka Egbuka (WR)
+   - You: +28.1 season pts, +3.3% title odds. Them: +23.7 season pts. Accept chance ~93%.
+   - Your lineup: TE: Isaiah Likely replaces Travis Kelce (+38.4); WR: Davante Adams and Garrett Wilson fill in for Mike Evans (-7.2); bench depth -3.1. Net +28.1.
+   - Their lineup: WR: Mike Evans replaces Emeka Egbuka (+203.8); TE: Travis Kelce replaces Isaiah Likely (-180.2). Net +23.7.
+   - Pitch: "Mike Evans would start every week for you over Carnell Tate and Emeka Egbuka mostly sits on your bench anyway."
+2. **The (Jordan) Love Train**: give Mike Evans (WR), Travis Kelce (TE) for Isaiah Likely (TE), Carnell Tate (WR)
+   - You: +27.2 season pts, +3.2% title odds. Them: +25.3 season pts. Accept chance ~95%.
+   - Your lineup: TE: Isaiah Likely replaces Travis Kelce (+38.4); WR: Davante Adams and Garrett Wilson fill in for Mike Evans (-7.9); bench depth -3.2. Net +27.2.
+   - Their lineup: WR: Mike Evans replaces Carnell Tate (+205.3); TE: Travis Kelce replaces Isaiah Likely (-180.2). Net +25.3.
    - Pitch: "Mike Evans would start every week for you and Carnell Tate mostly sits on your bench anyway."
-2. **The (Jordan) Love Train**: give Ashton Jeanty (RB), Christian Watson (WR) for Jonathan Taylor (RB), George Kittle (TE)
-   - You: +30.2 season pts, +2.8% title odds. Them: +6.3 season pts. Accept chance ~46%.
-   - Your lineup: TE: George Kittle starts over Travis Kelce (+30.4); RB: Jonathan Taylor replaces Ashton Jeanty (+24.6); WR: A.J. Brown fills in for Christian Watson (-22.9); bench depth -1.9. Net +30.2.
-   - Their lineup: WR: Christian Watson starts over Emeka Egbuka (+210.8); TE: Isaiah Likely fills in for George Kittle (-179.8); RB: Ashton Jeanty replaces Jonathan Taylor (-24.6). Net +6.3.
-   - Pitch: "Ashton Jeanty would start every week for you over Alvin Kamara, Christian Watson would start every week for you over Carnell Tate, and Isaiah Likely can take over at TE."
-3. **Team Leigh**: give Davante Adams (WR), A.J. Brown (WR) for James Cook III (RB)
-   - You: +22.2 season pts, +1.6% title odds. Them: +7.6 season pts. Accept chance ~64%.
-   - Your lineup: RB: James Cook III starts over David Montgomery and RJ Harvey (+221.0); WR: Mike Evans and Garrett Wilson fill in for Davante Adams (-196.3); bench depth -2.6. Net +22.2.
-   - Their lineup: WR: Davante Adams and A.J. Brown start over DJ Moore (+239.8); RB: Jacory Croskey-Merritt fills in for James Cook III (-223.5), or pick up Josh Jacobs (12.8 pts/gm); TE: T.J. Hockenson drops out of the lineup (-9.7); bench depth +1.0. Net +7.6.
-   - Pitch: "Davante Adams would start every week for you over Malik Washington, A.J. Brown would start most weeks for you over Malik Washington, and Jacory Croskey-Merritt can take over at RB (or Josh Jacobs is a free agent)."
-4. **Team Leigh**: give Christian Watson (WR), A.J. Brown (WR) for James Cook III (RB)
-   - You: +21.6 season pts, +1.5% title odds. Them: +8.2 season pts. Accept chance ~65%.
-   - Your lineup: RB: James Cook III starts over David Montgomery and RJ Harvey (+221.0); WR: Mike Evans and Garrett Wilson fill in for Christian Watson (-196.8); bench depth -2.6. Net +21.6.
-   - Their lineup: WR: Christian Watson and A.J. Brown start over DJ Moore (+240.4); RB: Jacory Croskey-Merritt fills in for James Cook III (-223.5), or pick up Josh Jacobs (12.8 pts/gm); TE: T.J. Hockenson drops out of the lineup (-9.7); bench depth +1.0. Net +8.2.
-   - Pitch: "Christian Watson would start every week for you over Malik Washington, A.J. Brown would start most weeks for you over Malik Washington, and Jacory Croskey-Merritt can take over at RB (or Josh Jacobs is a free agent)."
-5. **Cheeseball Champ**: give Ashton Jeanty (RB), Jared Goff (QB) for Kyren Williams (RB), Lamar Jackson (QB)
-   - You: +10.3 season pts, +1.1% title odds. Them: +14.0 season pts. Accept chance ~72%.
-   - Your lineup: RB: Kyren Williams replaces Ashton Jeanty (-13.3); QB: Lamar Jackson replaces Jared Goff (+13.1); TE: Dallas Goedert moves into the lineup (+10.6). Net +10.3.
-   - Their lineup: RB: Ashton Jeanty replaces Kyren Williams (+7.4); QB: Jared Goff replaces Lamar Jackson (+6.8). Net +14.0.
-   - Pitch: "Ashton Jeanty would start every week for you and Jared Goff would start every week for you over Kirk Cousins."
+3. **Team Leigh**: give Christian Watson (WR), Mike Evans (WR) for CeeDee Lamb (WR), Juwan Johnson (TE)
+   - You: +20.1 season pts, +2.9% title odds. Them: +6.7 season pts. Accept chance ~85%.
+   - Your lineup: WR: CeeDee Lamb replaces Christian Watson (+23.4); bench depth -3.4. Net +20.1.
+   - Their lineup: WR: Christian Watson and Mike Evans start over CeeDee Lamb and DJ Moore (+28.0); TE: T.J. Hockenson fills in for Juwan Johnson (-22.7), or pick up Pat Freiermuth (9.7 pts/gm); bench depth +1.4. Net +6.7.
+   - Pitch: "Christian Watson would start every week for you over Malik Washington, Mike Evans would start every week for you over Malik Washington, and T.J. Hockenson can take over at TE (or Pat Freiermuth is a free agent)."
+4. **Team Leigh**: give Davante Adams (WR), Mike Evans (WR) for James Cook III (RB), DJ Moore (WR)
+   - You: +28.4 season pts, +3.1% title odds. Them: +5.4 season pts. Accept chance ~75%.
+   - Your lineup: RB: James Cook III starts over David Montgomery and RJ Harvey (+213.8); WR: DJ Moore and Garrett Wilson start over Davante Adams and Mike Evans (-181.9); bench depth -3.5. Net +28.4.
+   - Their lineup: WR: Davante Adams and Mike Evans replace DJ Moore (+244.0); RB: Jacory Croskey-Merritt fills in for James Cook III (-228.2), or pick up Josh Jacobs (12.8 pts/gm); TE: Juwan Johnson drops out of the lineup (-10.4). Net +5.4.
+   - Pitch: "Davante Adams would start every week for you over Malik Washington, Mike Evans would start every week for you over Malik Washington, and Jacory Croskey-Merritt can take over at RB (or Josh Jacobs is a free agent)."
+5. **Dabob Dungies**: give Garrett Wilson (WR), Mike Evans (WR) for Chris Olave (WR), Luther Burden III (WR)
+   - You: +14.0 season pts, +2.2% title odds. Them: +18.0 season pts. Accept chance ~87%.
+   - Your lineup: WR: Chris Olave replaces Garrett Wilson and Mike Evans (+17.1); bench depth -3.1. Net +14.0.
+   - Their lineup: WR: Garrett Wilson and Mike Evans replace Chris Olave and Luther Burden III (+18.3). Net +18.0.
+   - Pitch: "Garrett Wilson would start every week for you and Mike Evans would start every week for you."
 
 ## Long shots
 
 _Better for you, less likely to be accepted. Some even look slightly worse for them on paper, so the pitch matters. Worst case, they say no._
 
-1. **Cheeseball Champ**: give Davante Adams (WR), Dallas Goedert (TE) for Brock Bowers (TE), Stefon Diggs (WR)
-   - You: +54.5 season pts, +5.4% title odds. Them: -29.4 season pts. Accept chance ~7%.
-   - Your lineup: TE: Brock Bowers starts over Travis Kelce (+79.1); WR: A.J. Brown fills in for Davante Adams (-22.3); bench depth -2.2. Net +54.5.
-   - Their lineup: TE: Dallas Goedert replaces Brock Bowers (-73.5); WR: Davante Adams starts over Denzel Boston (+43.2); bench depth +1.0. Net -29.4.
-   - Pitch: "Davante Adams would start every week for you over Denzel Boston, Dallas Goedert would start every week for you over Brenton Strange, and Stefon Diggs mostly sits on your bench anyway."
-2. **Alexandra's Halftime Show **: give Ashton Jeanty (RB), Jared Goff (QB) for Kenneth Walker III (RB), Caleb Williams (QB)
-   - You: +43.3 season pts, +5.3% title odds. Them: -28.6 season pts. Accept chance ~8%.
-   - Your lineup: RB: Kenneth Walker III replaces Ashton Jeanty (+46.8); QB: Caleb Williams replaces Jared Goff (-3.5). Net +43.3.
-   - Their lineup: RB: Ashton Jeanty replaces Kenneth Walker III (-60.2); QB: Jared Goff replaces Caleb Williams (+20.4); WR: Jaylen Waddle moves into the lineup (+10.8). Net -28.6.
-   - Pitch: "Ashton Jeanty would start every week for you and Jared Goff would start every week for you over Jalen Hurts."
-3. **Cheeseball Champ**: give Davante Adams (WR), Dallas Goedert (TE) for Brock Bowers (TE), Marvin Harrison Jr. (WR)
-   - You: +54.5 season pts, +5.3% title odds. Them: -27.8 season pts. Accept chance ~7%.
-   - Your lineup: TE: Brock Bowers starts over Travis Kelce (+79.1); WR: A.J. Brown fills in for Davante Adams (-22.3); bench depth -2.2. Net +54.5.
-   - Their lineup: TE: Dallas Goedert replaces Brock Bowers (-82.6); WR: Davante Adams starts over Denzel Boston (+53.8); bench depth +1.0. Net -27.8.
-   - Pitch: "Davante Adams would start every week for you over Denzel Boston, Dallas Goedert would start every week for you over Brenton Strange, and Marvin Harrison Jr. mostly sits on your bench anyway."
-4. **The (Jordan) Love Train**: give Ashton Jeanty (RB), Mike Evans (WR) for Jonathan Taylor (RB), Isaiah Likely (TE)
-   - You: +41.7 season pts, +5.2% title odds. Them: -21.6 season pts. Accept chance ~7%.
-   - Your lineup: TE: Isaiah Likely starts over Travis Kelce (+34.0); RB: Jonathan Taylor replaces Ashton Jeanty (+24.6); WR: Garrett Wilson fills in for Mike Evans (-15.6); bench depth -1.3. Net +41.7.
-   - Their lineup: WR: Mike Evans joins the lineup (+186.6); TE: losing Isaiah Likely (-183.5), best free agent to cover it: Mark Andrews (9.3 pts/gm); RB: Ashton Jeanty replaces Jonathan Taylor (-24.6). Net -21.6.
-   - Pitch: "Ashton Jeanty would start every week for you over Alvin Kamara, Mike Evans would start most weeks for you over Carnell Tate, and George Kittle can take over at TE."
-5. **Team Leigh**: give Christian Watson (WR), Mike Evans (WR) for CeeDee Lamb (WR), T.J. Hockenson (TE)
-   - You: +49.1 season pts, +5.2% title odds. Them: -24.3 season pts. Accept chance ~10%.
-   - Your lineup: WR: CeeDee Lamb replaces Christian Watson (+51.2); bench depth -2.0. Net +49.1.
-   - Their lineup: WR: Christian Watson and Mike Evans start over CeeDee Lamb and DJ Moore (-14.4); TE: Colston Loveland fills in for T.J. Hockenson (-10.5), or pick up Mark Andrews (9.3 pts/gm); bench depth +0.6. Net -24.3.
-   - Pitch: "Christian Watson would start every week for you over Malik Washington, Mike Evans would start every week for you over Malik Washington, and T.J. Hockenson mostly sits on your bench anyway."
+1. **Dabob Dungies**: give Davante Adams (WR), Mike Evans (WR) for Jaxon Smith-Njigba (WR), Luther Burden III (WR)
+   - You: +53.4 season pts, +6.9% title odds. Them: -23.0 season pts. Accept chance ~12%.
+   - Your lineup: WR: Jaxon Smith-Njigba replaces Davante Adams and Mike Evans (+56.5); bench depth -3.1. Net +53.4.
+   - Their lineup: WR: Davante Adams and Mike Evans replace Jaxon Smith-Njigba and Luther Burden III (-12.2); RB: Omarion Hampton drops out of the lineup (-10.9). Net -23.0.
+   - Pitch: "Davante Adams would start every week for you and Mike Evans would start every week for you."
+2. **Dabob Dungies**: give Christian Watson (WR), Davante Adams (WR) for Jaxon Smith-Njigba (WR), Drake Maye (QB)
+   - You: +56.4 season pts, +6.5% title odds. Them: -19.5 season pts. Accept chance ~9%.
+   - Your lineup: WR: Jaxon Smith-Njigba and Mike Evans start over Christian Watson and Davante Adams (+42.4); QB: Drake Maye starts over Jared Goff (+15.5); bench depth -1.5. Net +56.4.
+   - Their lineup: RB: Omarion Hampton drops out of the lineup (-21.7); WR: Christian Watson and Davante Adams start over Jaxon Smith-Njigba and Luther Burden III (+18.5); QB: Joe Burrow fills in for Drake Maye (-13.4); bench depth -2.9. Net -19.5.
+   - Pitch: "Christian Watson would start every week for you over Luther Burden III, Davante Adams would start every week for you over Luther Burden III, and Joe Burrow can take over at QB."
+3. **Cheeseball Champ**: give Christian Watson (WR), Travis Kelce (TE) for Brock Bowers (TE), Terry McLaurin (WR)
+   - You: +64.2 season pts, +6.4% title odds. Them: -29.7 season pts. Accept chance ~8%.
+   - Your lineup: TE: Brock Bowers replaces Travis Kelce (+88.3); RB: David Montgomery drops out of the lineup (-11.0); WR: Mike Evans fills in for Christian Watson (-9.8); bench depth -3.3. Net +64.2.
+   - Their lineup: TE: Travis Kelce replaces Brock Bowers (-87.8); WR: Christian Watson replaces Terry McLaurin (+58.1). Net -29.7.
+   - Pitch: "Travis Kelce would start every week for you over Brenton Strange and Christian Watson would start every week for you over Courtland Sutton."
+4. **Cheeseball Champ**: give Christian Watson (WR), Travis Kelce (TE) for Brock Bowers (TE), Denzel Boston (WR)
+   - You: +63.5 season pts, +6.4% title odds. Them: -26.4 season pts. Accept chance ~10%.
+   - Your lineup: TE: Brock Bowers replaces Travis Kelce (+88.3); WR: Mike Evans fills in for Christian Watson (-21.4); bench depth -3.3. Net +63.5.
+   - Their lineup: TE: Travis Kelce replaces Brock Bowers (-87.8); WR: Christian Watson replaces Denzel Boston (+61.4). Net -26.4.
+   - Pitch: "Travis Kelce would start every week for you over Brenton Strange and Christian Watson would start every week for you."
+5. **Alexandra's Halftime Show **: give Ashton Jeanty (RB), Mike Evans (WR) for Kenneth Walker III (RB), Jaylen Waddle (WR)
+   - You: +47.6 season pts, +5.1% title odds. Them: -11.8 season pts. Accept chance ~27%.
+   - Your lineup: RB: Kenneth Walker III replaces Ashton Jeanty (+59.3); WR: Davante Adams and Garrett Wilson fill in for Mike Evans (-8.5); bench depth -3.2. Net +47.6.
+   - Their lineup: RB: Ashton Jeanty starts over Kenneth Walker III and Jeremiyah Love (-186.7); WR: Mike Evans replaces Jaylen Waddle (+174.9). Net -11.8.
+   - Pitch: "Ashton Jeanty would start every week for you over Jeremiyah Love, Mike Evans would start every week for you, and Jaylen Waddle mostly sits on your bench anyway."
 
 ## Best available players (top 3 per position)
 
 _Would start = weeks he'd make your best lineup if you added him._
 
-| Pos | Player | NFL | Status | Wk 5 | Wk 6 | Wk 7 | ROS/gm | Bye | Rostered | Would start |
+| Pos | Player | NFL | Status | Wk 6 | Wk 7 | Wk 8 | ROS/gm | Bye | Rostered | Would start |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---|
-| QB | Kyler Murray | MIN | Waivers | 17.9 | BYE | ~16.0 | 16.0 | 6 | 59% | 0 of 14 |
-| QB | Bo Nix | DEN | Waivers | 16.2 | 13.1 | ~15.7 | 15.7 | 10 | 74% | 0 of 14 |
-| QB | C.J. Stroud | HOU | Waivers | 15.4 | 14.2 | ~15.5 | 15.5 | 8 | 42% | 0 of 14 |
-| RB | Josh Jacobs | GB | Waivers, Day To Day | 0.0 | 0.0 | ~12.8 | 12.8 | 11 | 79% | 1 of 14 (wk 13) |
-| RB | Travis Etienne Jr. | NO | Waivers, Injury Reserve | 0.0 | 0.0 | ~0.0 | 12.2 | 8 | 86% | 2 of 14 (wk 11, 13) |
-| RB | TreVeyon Henderson | NE | Waivers, Questionable | 10.5 | 9.7 | ~9.2 | 9.2 | 11 | 87% | 1 of 14 (wk 6) |
-| WR | Rome Odunze | CHI | Waivers | 10.9 | 10.5 | ~10.7 | 10.7 | 10 | 89% | 0 of 14 |
-| WR | Jakobi Meyers | JAX | Waivers | 10.7 | 9.2 | BYE | 10.0 | 7 | 74% | 0 of 14 |
-| WR | Khalil Shakir | BUF | FA | 10.0 | 10.3 | BYE | 9.3 | 7 | 62% | 0 of 14 |
-| TE | Mark Andrews | BAL | Waivers | 9.5 | 9.6 | ~9.3 | 9.3 | 13 | 78% | 0 of 14 |
-| TE | Pat Freiermuth | PIT | Waivers | 8.3 | 10.3 | ~9.1 | 9.1 | 9 | 20% | 0 of 14 |
-| TE | Kyle Pitts Sr. | ATL | Waivers | 7.1 | 8.4 | ~8.1 | 8.1 | 11 | 69% | 0 of 14 |
-| DT | Jeffery Simmons | TEN | Waivers | 11.2 | 11.4 | ~10.7 | 10.7 | 9 | 63% | 0 of 14 |
-| DT | Tommy Togiai | HOU | Waivers | 10.3 | 9.5 | ~10.2 | 10.2 | 8 | 17% | 0 of 14 |
-| DT | DeForest Buckner | IND | Waivers | 9.7 | 9.6 | ~9.6 | 9.6 | 13 | 33% | 0 of 14 |
-| DE | Will Anderson Jr. | HOU | Waivers | 9.6 | 10.0 | ~10.1 | 10.1 | 8 | 68% | 0 of 14 |
-| DE | Andrew Van Ginkel | MIN | Waivers | 10.3 | BYE | ~9.7 | 9.7 | 6 | 54% | 0 of 14 |
-| DE | Greg Rousseau | BUF | FA | 9.8 | 9.8 | BYE | 9.4 | 7 | 52% | 0 of 14 |
-| LB | Zack Baun | PHI | Waivers | 19.3 | 19.5 | ~18.9 | 18.9 | 10 | 40% | 1 of 14 (wk 6) |
-| LB | Azeez Al-Shaair | HOU | Waivers | 17.7 | 18.4 | ~17.6 | 17.6 | 8 | 15% | 0 of 14 |
-| LB | Josiah Trotter | TB | Waivers | 17.1 | 16.5 | ~17.6 | 17.6 | 10 | 33% | 0 of 14 |
-| CB | Quentin Lake | LAR | FA, Questionable | 14.4 | 14.7 | ~14.4 | 14.4 | 11 | 50% | 0 of 14 |
-| CB | D.J. Reed | DET | Waivers | 12.2 | BYE | ~12.5 | 12.5 | 6 | 8% | 0 of 14 |
-| CB | Amik Robertson | WSH | Waivers | 12.8 | 12.8 | BYE | 12.4 | 7 | 20% | 0 of 14 |
-| S | Budda Baker | ARI | Waivers | 16.9 | 17.3 | ~16.0 | 16.0 | 14 | 49% | 0 of 14 |
-| S | Dane Belton | NYJ | Waivers | 16.1 | 16.6 | ~15.6 | 15.6 | 13 | 29% | 0 of 14 |
-| S | Evan Williams | GB | Waivers | 15.3 | 15.4 | ~15.3 | 15.3 | 11 | 34% | 0 of 14 |
-| D/ST | Chiefs D/ST | KC | FA | BYE | 7.0 | ~5.9 | 5.9 | 5 | 33% | 1 of 14 (wk 6) |
-| D/ST | 49ers D/ST | SF | Waivers | 4.9 | 4.8 | ~6.0 | 6.0 | 8 | 36% | 0 of 14 |
-| D/ST | Browns D/ST | CLE | Waivers | 5.7 | 3.5 | ~5.2 | 5.2 | 11 | 41% | 0 of 14 |
-| K | Cam Little | JAX | Waivers | 9.7 | 9.5 | BYE | 9.0 | 7 | 86% | 1 of 14 (wk 5) |
-| K | Tyler Loop | BAL | Waivers | 7.9 | 9.8 | ~8.9 | 8.9 | 13 | 56% | 1 of 14 (wk 6) |
-| K | Jake Bates | DET | Waivers | 9.1 | BYE | ~8.8 | 8.8 | 6 | 69% | 0 of 14 |
-| P | Sam Martin | CAR | FA | BYE | 2.7 | ~3.0 | 3.0 | 5 | 35% | 12 of 14 |
-| P | Tommy Townsend | TEN | Waivers | 3.1 | 2.8 | ~2.9 | 2.9 | 9 | 91% | 13 of 14 |
-| P | Braden Mann | PHI | Waivers | 2.5 | 2.5 | ~2.6 | 2.6 | 10 | 27% | 1 of 14 (wk 11) |
+| QB | Kyler Murray | MIN | Waivers | BYE | 18.5 | ~15.1 | 15.1 | 6 | 59% | 0 of 13 |
+| QB | C.J. Stroud | HOU | Waivers | 14.1 | 16.3 | BYE | 15.1 | 8 | 42% | 0 of 13 |
+| QB | Bo Nix | DEN | Waivers | 13.1 | 17.1 | ~14.7 | 14.7 | 10 | 74% | 0 of 13 |
+| RB | Josh Jacobs | GB | Waivers, Day To Day | 0.0 | 0.0 | ~12.8 | 12.8 | 11 | 79% | 1 of 13 (wk 13) |
+| RB | Travis Etienne Jr. | NO | Waivers, Injury Reserve | 0.0 | 0.0 | BYE | 12.2 | 8 | 86% | 2 of 13 (wk 11, 13) |
+| RB | TreVeyon Henderson | NE | Waivers, Doubtful | 9.7 | 9.3 | ~8.9 | 8.9 | 11 | 87% | 1 of 13 (wk 6) |
+| WR | Rome Odunze | CHI | Waivers | 10.5 | 10.7 | ~10.5 | 10.5 | 10 | 88% | 0 of 13 |
+| WR | Travis Hunter | JAX | Waivers | 11.8 | BYE | ~10.2 | 10.2 | 7 | 32% | 0 of 13 |
+| WR | Jakobi Meyers | JAX | Waivers | 9.2 | BYE | ~9.6 | 9.6 | 7 | 74% | 0 of 13 |
+| TE | Pat Freiermuth | PIT | Waivers | 10.2 | 11.6 | ~9.7 | 9.7 | 9 | 20% | 1 of 13 (wk 7) |
+| TE | Mark Andrews | BAL | Waivers | 9.6 | 10.1 | ~9.4 | 9.4 | 13 | 78% | 0 of 13 |
+| TE | Kyle Pitts Sr. | ATL | Waivers | 8.4 | 8.1 | ~8.5 | 8.5 | 11 | 69% | 0 of 13 |
+| DT | Jeffery Simmons | TEN | Waivers | 11.4 | 11.1 | ~10.8 | 10.8 | 9 | 63% | 0 of 13 |
+| DT | Tommy Togiai | HOU | Waivers | 9.5 | 9.7 | BYE | 9.9 | 8 | 17% | 0 of 13 |
+| DT | DeForest Buckner | IND | Waivers | 9.6 | 9.9 | ~9.6 | 9.6 | 13 | 33% | 0 of 13 |
+| DE | Will Anderson Jr. | HOU | Waivers | 10.0 | 10.2 | BYE | 10.3 | 8 | 68% | 0 of 13 |
+| DE | Andrew Van Ginkel | MIN | Waivers | BYE | 10.7 | ~9.5 | 9.5 | 6 | 54% | 0 of 13 |
+| DE | Greg Rousseau | BUF | Waivers | 9.4 | BYE | ~9.0 | 9.0 | 7 | 52% | 0 of 13 |
+| LB | Zack Baun | PHI | Waivers | 19.5 | 19.5 | ~19.0 | 19.0 | 10 | 41% | 1 of 13 (wk 6) |
+| LB | Azeez Al-Shaair | HOU | Waivers | 18.4 | 18.9 | BYE | 17.8 | 8 | 16% | 0 of 13 |
+| LB | Payton Wilson | PIT | Waivers | 17.3 | 17.6 | ~17.6 | 17.6 | 9 | 9% | 0 of 13 |
+| CB | Quentin Lake | LAR | Waivers | 14.5 | 14.4 | ~14.3 | 14.3 | 11 | 50% | 0 of 13 |
+| CB | D.J. Reed | DET | Waivers | BYE | 12.2 | ~12.7 | 12.7 | 6 | 8% | 0 of 13 |
+| CB | Cooper DeJean | PHI | Waivers | 12.6 | 12.6 | ~12.4 | 12.4 | 10 | 22% | 0 of 13 |
+| S | Budda Baker | ARI | Waivers | 17.5 | 16.5 | ~16.2 | 16.2 | 14 | 49% | 0 of 13 |
+| S | Dane Belton | NYJ | Waivers | 16.6 | 15.5 | ~15.8 | 15.8 | 13 | 29% | 0 of 13 |
+| S | Evan Williams | GB | Waivers | 15.4 | 15.6 | ~15.4 | 15.4 | 11 | 34% | 0 of 13 |
+| D/ST | Chiefs D/ST | KC | Waivers | 7.0 | 5.8 | ~6.3 | 6.3 | 5 | 34% | 1 of 13 (wk 6) |
+| D/ST | 49ers D/ST | SF | Waivers | 4.8 | 3.6 | BYE | 6.0 | 8 | 36% | 0 of 13 |
+| D/ST | Buccaneers D/ST | TB | Waivers | 5.8 | 5.0 | ~5.6 | 5.6 | 10 | 15% | 1 of 13 (wk 6) |
+| K | Tyler Loop | BAL | Waivers | 9.7 | 10.1 | ~9.5 | 9.5 | 13 | 56% | 1 of 13 (wk 6) |
+| K | Matt Gay | LV | Waivers | 10.7 | 10.0 | ~9.1 | 9.1 | 13 | 8% | 1 of 13 (wk 6) |
+| K | Cam Little | JAX | Waivers | 9.5 | BYE | ~8.9 | 8.9 | 7 | 86% | 0 of 13 |
+| P | Sam Martin | CAR | Waivers | 2.7 | 2.8 | ~2.9 | 2.9 | 5 | 35% | 11 of 13 |
+| P | Blake Gillikin | ARI | Waivers | 3.3 | 3.1 | ~2.8 | 2.8 | 14 | 61% | 12 of 13 |
+| P | Tommy Townsend | TEN | Waivers | 2.8 | 3.0 | ~2.8 | 2.8 | 9 | 91% | 12 of 13 |
 
 ## League outlook
 
 | Team | Record | Proj. wins | Playoffs | Title |
 |---|---|---:|---:|---:|
-| **Elliott Eats Everyone** | 2-2 | 8.5 | 81.0% | 27.9% |
-| Kat's Top-Notch Team | 4-0 | 9.2 | 87.9% | 24.7% |
-| Cheeseball Champ | 3-1 | 8.2 | 70.4% | 17.2% |
-| Marcus's Magnificent Team | 2-2 | 7.0 | 39.2% | 7.5% |
-| The (Jordan) Love Train | 2-2 | 6.9 | 36.1% | 7.1% |
-| C-Hawks | 2-2 | 6.2 | 24.0% | 4.6% |
-| Alexandra's Halftime Show  | 1-3 | 6.1 | 18.3% | 4.2% |
-| Dabob Dungies | 2-2 | 6.5 | 24.1% | 3.5% |
-| Sacks as a Service | 1-3 | 5.6 | 9.7% | 1.8% |
-| Team Leigh | 1-3 | 5.6 | 9.2% | 1.6% |
+| **Elliott Eats Everyone** | 3-2 | 9.0 | 91.0% | 30.8% |
+| Kat's Top-Notch Team | 4-1 | 8.8 | 84.9% | 22.5% |
+| Cheeseball Champ | 4-1 | 8.8 | 84.1% | 20.8% |
+| Alexandra's Halftime Show  | 2-3 | 6.6 | 28.1% | 6.2% |
+| Marcus's Magnificent Team | 2-3 | 6.5 | 29.7% | 5.0% |
+| The (Jordan) Love Train | 2-3 | 6.4 | 23.2% | 4.9% |
+| C-Hawks | 2-3 | 5.9 | 19.5% | 3.9% |
+| Team Leigh | 2-3 | 6.2 | 15.4% | 2.9% |
+| Dabob Dungies | 2-3 | 6.0 | 13.8% | 1.8% |
+| Sacks as a Service | 2-3 | 5.8 | 10.3% | 1.4% |
 
 _Weekly numbers are ESPN projections; ~ marks the bot's own estimate (ESPN hasn't published that week yet). ROS/gm = the bot's rest-of-season points per game. Season pts = change in projected starting-lineup points over the rest of the season (playoff weeks weighted up). Title odds = change in simulated championship probability, in percentage points._
 
-_Streamed each week: D/ST ~7.2 pts. For weeks ESPN hasn't projected, the bot assumes you'll pick up a free agent worth what the best one has been projected at lately, so holding one all season is worth little._
+_Streamed each week: D/ST ~6.6 pts. For weeks ESPN hasn't projected, the bot assumes you'll pick up a free agent worth what the best one has been projected at lately, so holding one all season is worth little._
