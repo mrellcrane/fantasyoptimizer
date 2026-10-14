@@ -12,17 +12,17 @@
 
 ## The trade you asked about
 
-**The (Jordan) Love Train**: give Travis Kelce (TE), Christian Watson (WR), Garrett Wilson (WR) for Isaiah Likely (TE), Emeka Egbuka (WR), Zay Flowers (WR)
+**The (Jordan) Love Train**: give Travis Kelce (TE), Garrett Wilson (WR) for Isaiah Likely (TE), Emeka Egbuka (WR)
 
-**Worth sending.** You: +19.5 season pts, +2.2% title odds. Them: +25.4 season pts, +1.1% title odds. Accept chance ~88%.
+**Worth sending.** You: +13.0 season pts, +1.7% title odds. Them: +29.6 season pts, +1.3% title odds. Accept chance ~95%.
 
-Your lineup: TE: Isaiah Likely replaces Travis Kelce (+28.8); RB: David Montgomery drops out of the lineup (-11.0); WR: Zay Flowers and Mike Evans start over Christian Watson and Garrett Wilson (+5.0); bench depth -3.3. Net +19.5.
+Your lineup: TE: Isaiah Likely replaces Travis Kelce (+28.8); WR: Mike Evans fills in for Garrett Wilson (-12.7); bench depth -3.2. Net +13.0.
 
-Their lineup: WR: Christian Watson and Garrett Wilson replace Zay Flowers (+206.4); TE: Travis Kelce replaces Isaiah Likely (-180.2); bench depth -0.7. Net +25.4.
+Their lineup: WR: Garrett Wilson replaces Emeka Egbuka (+199.7); TE: Travis Kelce replaces Isaiah Likely (-169.4); bench depth -0.8. Net +29.6.
 
-Pitch: "Christian Watson would start every week for you over Carnell Tate, Garrett Wilson would start every week for you over Carnell Tate, and Emeka Egbuka mostly sits on your bench anyway."
+Pitch: "Garrett Wilson would start every week for you over Carnell Tate and Emeka Egbuka mostly sits on your bench anyway."
 
-Why: For you: Isaiah Likely (TE, 13.6 pts/gm) would start 13 of 13 weeks; Emeka Egbuka (WR, 11.7 pts/gm) would start 1 of 13 weeks; Zay Flowers (WR, 16.1 pts/gm) would start 12 of 13 weeks; out of your lineup: Travis Kelce (TE, 10.8 pts/gm) 13 wks, Christian Watson (WR, 15.8 pts/gm) 12 wks, Garrett Wilson (WR, 15.2 pts/gm) 10 wks. For them: Travis Kelce (TE, 10.8 pts/gm) would start 1 of 13 weeks; Christian Watson (WR, 15.8 pts/gm) would start 12 of 13 weeks; Garrett Wilson (WR, 15.2 pts/gm) would start 12 of 13 weeks; out of their lineup: Isaiah Likely (TE, 13.6 pts/gm) 12 wks, Zay Flowers (WR, 16.1 pts/gm) 12 wks, Emeka Egbuka (WR, 11.7 pts/gm) 2 wks.
+Why: For you: Isaiah Likely (TE, 13.6 pts/gm) would start 13 of 13 weeks; Emeka Egbuka (WR, 11.7 pts/gm) would start 1 of 13 weeks; out of your lineup: Travis Kelce (TE, 10.8 pts/gm) 13 wks, Garrett Wilson (WR, 15.2 pts/gm) 10 wks. For them: Travis Kelce (TE, 10.8 pts/gm) would start 2 of 13 weeks; Garrett Wilson (WR, 15.2 pts/gm) would start 12 of 13 weeks; out of their lineup: Isaiah Likely (TE, 13.6 pts/gm) 12 wks, Emeka Egbuka (WR, 11.7 pts/gm) 2 wks, George Kittle (TE, 13.0 pts/gm) 1 wks.
 
 ## Moves
 - None today. Nothing cleared the thresholds.
