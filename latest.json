@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T19:37:18+00:00",
+ "generated_at": "2026-10-14T19:40:53+00:00",
  "league": {
   "id": 473811221,
   "name": "ScreamStream 2024 League",
@@ -7,7 +7,7 @@
   "week": 6,
   "my_team_id": 4
  },
- "dry_run": false,
+ "dry_run": true,
  "teams": [
   {
    "id": 1,
@@ -120,7 +120,18 @@
    "projected_wins": 6.14
   }
  ],
- "asked_trade": null,
+ "asked_trade": {
+  "partner": "The (Jordan) Love Train",
+  "deal": "give Mike Evans (WR), Travis Kelce (TE), Christian Watson (WR) for Isaiah Likely (TE), Emeka Egbuka (WR)",
+  "pitch": "Christian Watson would start most weeks for you over Carnell Tate and Emeka Egbuka mostly sits on your bench anyway.",
+  "my_lineup": "WR: A.J. Brown fills in for Christian Watson (-44.5); TE: Isaiah Likely replaces Travis Kelce (+28.8); bench depth -5.5. Net -21.1.",
+  "their_lineup": "WR: Christian Watson and Mike Evans start over Emeka Egbuka and Nico Collins (+229.7); TE: Travis Kelce replaces Isaiah Likely (-180.2); P: Austin McNamara gets cut to make room (-46.6); bench depth +3.5. Net +6.5.",
+  "my_points": -21.1,
+  "their_points": 6.5,
+  "my_title_odds": -0.5749999999999977,
+  "their_title_odds": 0.30000000000000027,
+  "accept_chance": 0.95
+ },
  "lineup_check": {
   "week": 6,
   "best_points": 148.8,

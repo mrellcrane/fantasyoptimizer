@@ -1,6 +1,6 @@
 # ScreamStream 2024 League: week 6
 
-**Live run.** Moves below were sent to ESPN.
+**Dry run.** Nothing was sent to ESPN. Set `DRY_RUN=false` to go live.
 
 **Elliott Eats Everyone** is 3-2. Playoff odds **90.2%**, title odds **31.8%**, projected 9.0 wins.
 
@@ -9,6 +9,21 @@
 **Week 6:** your lineup is already your best one (148.8 projected points).
 
 **Week 7:** no byes or injuries among your starters.
+
+## The trade you asked about
+
+**The (Jordan) Love Train**: give Mike Evans (WR), Travis Kelce (TE), Christian Watson (WR) for Isaiah Likely (TE), Emeka Egbuka (WR)
+
+**Not worth it for you.** You: -21.1 season pts, -0.6% title odds. Them: +6.5 season pts, +0.3% title odds. Accept chance ~95%.
+They'd have to drop Austin McNamara to fit everyone.
+
+Your lineup: WR: A.J. Brown fills in for Christian Watson (-44.5); TE: Isaiah Likely replaces Travis Kelce (+28.8); bench depth -5.5. Net -21.1.
+
+Their lineup: WR: Christian Watson and Mike Evans start over Emeka Egbuka and Nico Collins (+229.7); TE: Travis Kelce replaces Isaiah Likely (-180.2); P: Austin McNamara gets cut to make room (-46.6); bench depth +3.5. Net +6.5.
+
+Pitch: "Christian Watson would start most weeks for you over Carnell Tate and Emeka Egbuka mostly sits on your bench anyway."
+
+Why: For you: Isaiah Likely (TE, 13.6 pts/gm) would start 13 of 13 weeks; Emeka Egbuka (WR, 11.7 pts/gm) would start 3 of 13 weeks; out of your lineup: Travis Kelce (TE, 10.8 pts/gm) 13 wks, Christian Watson (WR, 15.8 pts/gm) 12 wks, Mike Evans (WR, 14.4 pts/gm) 4 wks. For them: Mike Evans (WR, 14.4 pts/gm) would start 4 of 13 weeks; Travis Kelce (TE, 10.8 pts/gm) would start 1 of 13 weeks; Christian Watson (WR, 15.8 pts/gm) would start 11 of 13 weeks; out of their lineup: Austin McNamara (P, 3.3 pts/gm) 13 wks, Isaiah Likely (TE, 13.6 pts/gm) 12 wks, Emeka Egbuka (WR, 11.7 pts/gm) 2 wks.
 
 ## Moves
 - None today. Nothing cleared the thresholds.
