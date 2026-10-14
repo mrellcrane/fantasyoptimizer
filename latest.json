@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T19:41:25+00:00",
+ "generated_at": "2026-10-14T19:41:57+00:00",
  "league": {
   "id": 473811221,
   "name": "ScreamStream 2024 League",
@@ -122,15 +122,15 @@
  ],
  "asked_trade": {
   "partner": "The (Jordan) Love Train",
-  "deal": "give Travis Kelce (TE), Christian Watson (WR), Garrett Wilson (WR) for Isaiah Likely (TE), Emeka Egbuka (WR)",
-  "pitch": "Christian Watson would start every week for you over Carnell Tate and Emeka Egbuka mostly sits on your bench anyway.",
-  "my_lineup": "WR: A.J. Brown and Mike Evans fill in for Christian Watson and Garrett Wilson (-49.7); TE: Isaiah Likely replaces Travis Kelce (+28.8); bench depth -5.5. Net -26.4.",
-  "their_lineup": "WR: Christian Watson replaces Emeka Egbuka (+229.6); TE: Travis Kelce replaces Isaiah Likely (-180.2); P: Austin McNamara gets cut to make room (-46.6); bench depth +4.1. Net +7.0.",
-  "my_points": -26.4,
-  "their_points": 7.0,
-  "my_title_odds": -1.3249999999999984,
-  "their_title_odds": 0.5750000000000005,
-  "accept_chance": 0.95
+  "deal": "give Travis Kelce (TE), Christian Watson (WR), Garrett Wilson (WR) for Isaiah Likely (TE), Emeka Egbuka (WR), Zay Flowers (WR)",
+  "pitch": "Christian Watson would start every week for you over Carnell Tate, Garrett Wilson would start every week for you over Carnell Tate, and Emeka Egbuka mostly sits on your bench anyway.",
+  "my_lineup": "TE: Isaiah Likely replaces Travis Kelce (+28.8); RB: David Montgomery drops out of the lineup (-11.0); WR: Zay Flowers and Mike Evans start over Christian Watson and Garrett Wilson (+5.0); bench depth -3.3. Net +19.5.",
+  "their_lineup": "WR: Christian Watson and Garrett Wilson replace Zay Flowers (+206.4); TE: Travis Kelce replaces Isaiah Likely (-180.2); bench depth -0.7. Net +25.4.",
+  "my_points": 19.5,
+  "their_points": 25.4,
+  "my_title_odds": 2.150000000000002,
+  "their_title_odds": 1.1000000000000003,
+  "accept_chance": 0.88
  },
  "lineup_check": {
   "week": 6,
