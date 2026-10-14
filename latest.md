@@ -119,13 +119,13 @@ _Would start = weeks he'd make your best lineup if you added him._
 | QB | C.J. Stroud | HOU | FA | 14.1 | 16.3 | BYE | 15.1 | 8 | 42% | 0 of 13 |
 | QB | Bo Nix | DEN | FA | 13.1 | 17.1 | ~14.7 | 14.7 | 10 | 68% | 0 of 13 |
 | RB | Josh Jacobs | GB | FA, Day To Day | 0.0 | 0.0 | ~12.8 | 12.8 | 11 | 78% | 1 of 13 (wk 13) |
-| RB | RJ Harvey | DEN | Waivers | 9.6 | 10.7 | ~9.5 | 9.5 | 10 | 74% | 0 of 13 |
+| RB | RJ Harvey | DEN | Waivers | 9.6 | 10.7 | ~9.5 | 9.5 | 10 | 73% | 0 of 13 |
 | RB | Travis Etienne Jr. | NO | FA, Injury Reserve | 0.0 | 0.0 | BYE | 12.2 | 8 | 85% | 2 of 13 (wk 11, 13) |
 | WR | Rome Odunze | CHI | FA | 10.5 | 10.7 | ~10.5 | 10.5 | 10 | 88% | 0 of 13 |
 | WR | Travis Hunter | JAX | FA | 11.8 | BYE | ~10.2 | 10.2 | 7 | 31% | 0 of 13 |
 | WR | Jakobi Meyers | JAX | FA | 9.2 | BYE | ~9.6 | 9.6 | 7 | 72% | 0 of 13 |
 | TE | Dallas Goedert | PHI | Waivers | 10.4 | 11.5 | ~10.4 | 10.4 | 10 | 81% | 1 of 13 (wk 7) |
-| TE | Pat Freiermuth | PIT | FA | 10.2 | 11.6 | ~9.7 | 9.7 | 9 | 42% | 1 of 13 (wk 7) |
+| TE | Pat Freiermuth | PIT | FA | 10.2 | 11.6 | ~9.7 | 9.7 | 9 | 43% | 1 of 13 (wk 7) |
 | TE | Mark Andrews | BAL | FA | 9.7 | 10.1 | ~9.4 | 9.4 | 13 | 75% | 0 of 13 |
 | DT | Jeffery Simmons | TEN | FA | 11.4 | 11.1 | ~10.8 | 10.8 | 9 | 63% | 0 of 13 |
 | DT | Tommy Togiai | HOU | FA | 9.5 | 9.7 | BYE | 9.9 | 8 | 17% | 0 of 13 |
@@ -141,13 +141,13 @@ _Would start = weeks he'd make your best lineup if you added him._
 | CB | Cooper DeJean | PHI | FA | 12.6 | 12.6 | ~12.4 | 12.4 | 10 | 24% | 0 of 13 |
 | S | Budda Baker | ARI | FA | 17.5 | 16.5 | ~16.2 | 16.2 | 14 | 51% | 0 of 13 |
 | S | Dane Belton | NYJ | FA | 16.6 | 15.5 | ~15.8 | 15.8 | 13 | 31% | 0 of 13 |
-| S | Evan Williams | GB | FA | 15.4 | 15.6 | ~15.4 | 15.4 | 11 | 41% | 0 of 13 |
-| D/ST | 49ers D/ST | SF | FA | 4.9 | 3.7 | BYE | 6.0 | 8 | 51% | 0 of 13 |
+| S | Evan Williams | GB | FA | 15.4 | 15.6 | ~15.4 | 15.4 | 11 | 42% | 0 of 13 |
+| D/ST | 49ers D/ST | SF | FA | 4.9 | 3.7 | BYE | 6.0 | 8 | 52% | 0 of 13 |
 | D/ST | Buccaneers D/ST | TB | FA | 5.8 | 5.0 | ~5.6 | 5.6 | 10 | 20% | 0 of 13 |
 | D/ST | Giants D/ST | NYG | FA | 5.4 | 4.3 | BYE | 5.3 | 8 | 11% | 0 of 13 |
 | K | Will Reichard | MIN | Waivers | BYE | 11.6 | ~10.2 | 10.2 | 6 | 62% | 12 of 13 |
 | K | Tyler Loop | BAL | FA | 9.7 | 10.1 | ~9.5 | 9.5 | 13 | 65% | 11 of 13 |
-| K | Harrison Butker | KC | Waivers | 9.5 | 8.6 | ~8.9 | 8.9 | 5 | 54% | 1 of 13 (wk 8) |
+| K | Harrison Butker | KC | Waivers | 9.5 | 8.6 | ~8.9 | 8.9 | 5 | 55% | 1 of 13 (wk 8) |
 | P | Sam Martin | CAR | FA | 2.7 | 2.8 | ~2.9 | 2.9 | 5 | 34% | 11 of 13 |
 | P | Tommy Townsend | TEN | FA | 2.8 | 3.0 | ~2.8 | 2.8 | 9 | 89% | 10 of 13 |
 | P | Tress Way | WSH | FA | 3.2 | BYE | ~2.7 | 2.7 | 7 | 26% | 1 of 13 (wk 14) |
