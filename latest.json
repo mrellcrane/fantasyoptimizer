@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T19:49:05+00:00",
+ "generated_at": "2026-10-15T18:21:14+00:00",
  "league": {
   "id": 473811221,
   "name": "ScreamStream 2024 League",
@@ -7,7 +7,7 @@
   "week": 6,
   "my_team_id": 4
  },
- "dry_run": true,
+ "dry_run": false,
  "teams": [
   {
    "id": 1,
@@ -16,9 +16,9 @@
    "losses": 3.0,
    "ties": 0.0,
    "points_for": 637.38,
-   "playoff_odds": 0.1693,
-   "title_odds": 0.0345,
-   "projected_wins": 6.3
+   "playoff_odds": 0.1407,
+   "title_odds": 0.024,
+   "projected_wins": 6.12
   },
   {
    "id": 2,
@@ -27,9 +27,9 @@
    "losses": 3.0,
    "ties": 0.0,
    "points_for": 711.6800000000001,
-   "playoff_odds": 0.3118,
-   "title_odds": 0.0607,
-   "projected_wins": 6.56
+   "playoff_odds": 0.2975,
+   "title_odds": 0.0563,
+   "projected_wins": 6.51
   },
   {
    "id": 3,
@@ -38,9 +38,9 @@
    "losses": 3.0,
    "ties": 0.0,
    "points_for": 657.6800000000001,
-   "playoff_odds": 0.295,
-   "title_odds": 0.0725,
-   "projected_wins": 6.62
+   "playoff_odds": 0.3015,
+   "title_odds": 0.0717,
+   "projected_wins": 6.67
   },
   {
    "id": 4,
@@ -49,9 +49,9 @@
    "losses": 2.0,
    "ties": 0.0,
    "points_for": 807.1200000000001,
-   "playoff_odds": 0.9022,
-   "title_odds": 0.3175,
-   "projected_wins": 8.96
+   "playoff_odds": 0.9048,
+   "title_odds": 0.321,
+   "projected_wins": 8.99
   },
   {
    "id": 5,
@@ -60,9 +60,9 @@
    "losses": 3.0,
    "ties": 0.0,
    "points_for": 679.62,
-   "playoff_odds": 0.2365,
-   "title_odds": 0.0525,
-   "projected_wins": 6.4
+   "playoff_odds": 0.2385,
+   "title_odds": 0.053,
+   "projected_wins": 6.41
   },
   {
    "id": 6,
@@ -70,10 +70,10 @@
    "wins": 2.0,
    "losses": 3.0,
    "ties": 0.0,
-   "points_for": 757.24,
-   "playoff_odds": 0.2372,
-   "title_odds": 0.0462,
-   "projected_wins": 6.09
+   "points_for": 759.24,
+   "playoff_odds": 0.2687,
+   "title_odds": 0.0565,
+   "projected_wins": 6.22
   },
   {
    "id": 7,
@@ -82,9 +82,9 @@
    "losses": 1.0,
    "ties": 0.0,
    "points_for": 764.8999999999999,
-   "playoff_odds": 0.7442,
-   "title_odds": 0.1492,
-   "projected_wins": 8.28
+   "playoff_odds": 0.7648,
+   "title_odds": 0.1562,
+   "projected_wins": 8.38
   },
   {
    "id": 8,
@@ -93,9 +93,9 @@
    "losses": 1.0,
    "ties": 0.0,
    "points_for": 769.9,
-   "playoff_odds": 0.843,
-   "title_odds": 0.232,
-   "projected_wins": 8.84
+   "playoff_odds": 0.837,
+   "title_odds": 0.23,
+   "projected_wins": 8.82
   },
   {
    "id": 9,
@@ -104,9 +104,9 @@
    "losses": 3.0,
    "ties": 0.0,
    "points_for": 644.6999999999999,
-   "playoff_odds": 0.1022,
-   "title_odds": 0.014,
-   "projected_wins": 5.81
+   "playoff_odds": 0.103,
+   "title_odds": 0.013,
+   "projected_wins": 5.83
   },
   {
    "id": 10,
@@ -115,23 +115,12 @@
    "losses": 3.0,
    "ties": 0.0,
    "points_for": 670.08,
-   "playoff_odds": 0.1585,
-   "title_odds": 0.0208,
-   "projected_wins": 6.14
+   "playoff_odds": 0.1435,
+   "title_odds": 0.0182,
+   "projected_wins": 6.06
   }
  ],
- "asked_trade": {
-  "partner": "The (Jordan) Love Train",
-  "deal": "give Travis Kelce (TE), Garrett Wilson (WR) for Isaiah Likely (TE), Emeka Egbuka (WR)",
-  "pitch": "Garrett Wilson would start every week for you over Carnell Tate and Emeka Egbuka mostly sits on your bench anyway.",
-  "my_lineup": "TE: Isaiah Likely replaces Travis Kelce (+28.8); WR: Mike Evans fills in for Garrett Wilson (-12.7); bench depth -3.2. Net +13.0.",
-  "their_lineup": "WR: Garrett Wilson replaces Emeka Egbuka (+199.7); TE: Travis Kelce replaces Isaiah Likely (-169.4); bench depth -0.8. Net +29.6.",
-  "my_points": 13.0,
-  "their_points": 29.6,
-  "my_title_odds": 1.7249999999999988,
-  "their_title_odds": 1.2500000000000004,
-  "accept_chance": 0.95
- },
+ "asked_trade": null,
  "lineup_check": {
   "week": 6,
   "best_points": 148.8,
@@ -145,8 +134,8 @@
   {
    "add": "Will Reichard",
    "drop": "Tyler Shough",
-   "season_points": 22.7,
-   "title_odds": 1.5500000000000014,
+   "season_points": 22.8,
+   "title_odds": 1.3500000000000012,
    "waiver": true,
    "start_weeks": [
     7,
@@ -168,8 +157,8 @@
   {
    "add": "Tyler Loop",
    "drop": "Tyler Shough",
-   "season_points": 11.6,
-   "title_odds": 0.5749999999999977,
+   "season_points": 11.7,
+   "title_odds": 0.37499999999999756,
    "waiver": false,
    "start_weeks": [
     7,
@@ -188,10 +177,32 @@
    "wait": false
   },
   {
+   "add": "Bradley Pinion",
+   "drop": "Tyler Shough",
+   "season_points": 4.1,
+   "title_odds": 0.30000000000000027,
+   "waiver": true,
+   "start_weeks": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "patch": false,
+   "wait": false
+  },
+  {
    "add": "Sam Martin",
    "drop": "Tyler Shough",
-   "season_points": 3.9,
-   "title_odds": 0.22499999999999742,
+   "season_points": 4.1,
+   "title_odds": 0.30000000000000027,
    "waiver": false,
    "start_weeks": [
     8,
@@ -212,8 +223,8 @@
   {
    "add": "Tommy Townsend",
    "drop": "Tyler Shough",
-   "season_points": 2.6,
-   "title_odds": 0.07499999999999729,
+   "season_points": 2.8,
+   "title_odds": 0.17499999999999738,
    "waiver": false,
    "start_weeks": [
     8,
@@ -233,7 +244,7 @@
   {
    "add": "Pat Freiermuth",
    "drop": "Tyler Shough",
-   "season_points": 0.7,
+   "season_points": 0.9,
    "title_odds": 0.07499999999999729,
    "waiver": false,
    "start_weeks": [
@@ -245,8 +256,8 @@
   {
    "add": "Matt Gay",
    "drop": "Tyler Shough",
-   "season_points": 9.2,
-   "title_odds": 0.30000000000000027,
+   "season_points": 9.3,
+   "title_odds": 0.10000000000000009,
    "waiver": false,
    "start_weeks": [
     7,
@@ -256,11 +267,11 @@
    "wait": false
   },
   {
-   "add": "Harrison Butker",
+   "add": "Blake Grupe",
    "drop": "Tyler Shough",
-   "season_points": 8.6,
-   "title_odds": 0.3249999999999975,
-   "waiver": true,
+   "season_points": 8.8,
+   "title_odds": 0.10000000000000009,
+   "waiver": false,
    "start_weeks": [
     8
    ],
@@ -268,10 +279,10 @@
    "wait": false
   },
   {
-   "add": "Jake Bates",
+   "add": "Harrison Butker",
    "drop": "Tyler Shough",
-   "season_points": 8.3,
-   "title_odds": 0.3249999999999975,
+   "season_points": 8.7,
+   "title_odds": 0.10000000000000009,
    "waiver": false,
    "start_weeks": [
     8
@@ -281,213 +292,141 @@
   }
  ],
  "streaming": {
-  "D/ST": 6.02
+  "D/ST": 6.21
  },
  "pending_offers": [],
  "trade_ideas": [
   {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Mike Evans (WR), Tyler Shough (QB) for Isaiah Likely (TE), Emeka Egbuka (WR)",
-   "pitch": "Mike Evans would start every week for you over Carnell Tate, George Kittle can take over at TE, and Emeka Egbuka mostly sits on your bench anyway.",
-   "my_lineup": "TE: Isaiah Likely starts over Travis Kelce (+39.7); WR: Davante Adams and Garrett Wilson fill in for Mike Evans (-7.0); bench depth -3.5. Net +29.1.",
-   "their_lineup": "WR: Mike Evans replaces Emeka Egbuka (+203.8); TE: losing Isaiah Likely (-191.0), best free agent to cover it: Dallas Goedert (10.4 pts/gm). Net +13.2.",
-   "my_points": 29.1,
-   "their_points": 13.2,
-   "my_title_odds": 3.1499999999999972,
-   "their_title_odds": 0.3250000000000003,
-   "accept_chance": 0.92
-  },
-  {
    "partner": "Team Leigh",
    "deal": "give Davante Adams (WR), Mike Evans (WR) for CeeDee Lamb (WR), Colston Loveland (TE)",
-   "pitch": "Davante Adams would start every week for you over Malik Washington, Mike Evans would start every week for you over Malik Washington, and Colston Loveland mostly sits on your bench anyway.",
-   "my_lineup": "WR: CeeDee Lamb replaces Davante Adams and Mike Evans (+30.8); bench depth -3.5. Net +27.2.",
-   "their_lineup": "WR: Davante Adams and Mike Evans start over CeeDee Lamb and DJ Moore (+14.5); bench depth +1.2. Net +15.7.",
-   "my_points": 27.2,
-   "their_points": 15.7,
-   "my_title_odds": 3.175,
-   "their_title_odds": 0.24999999999999953,
-   "accept_chance": 0.89
-  },
-  {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for Nico Collins (WR), George Kittle (TE)",
-   "pitch": "Davante Adams would start every week for you over Carnell Tate, Mike Evans would start every week for you over Carnell Tate, and Isaiah Likely can take over at TE.",
-   "my_lineup": "TE: George Kittle starts over Travis Kelce (+33.4); WR: Nico Collins replaces Davante Adams and Mike Evans (+2.7); bench depth -3.5. Net +32.7.",
-   "their_lineup": "WR: Davante Adams and Mike Evans replace Nico Collins (+199.5); TE: losing George Kittle (-184.8), best free agent to cover it: Dallas Goedert (10.4 pts/gm). Net +14.7.",
-   "my_points": 32.7,
-   "their_points": 14.7,
-   "my_title_odds": 3.1999999999999975,
-   "their_title_odds": 0.4500000000000004,
+   "pitch": "Davante Adams would start every week for you over Xavier Worthy, Mike Evans would start every week for you over Xavier Worthy, and Colston Loveland mostly sits on your bench anyway.",
+   "my_lineup": "WR: CeeDee Lamb replaces Davante Adams and Mike Evans (+36.7); bench depth -3.3. Net +33.4.",
+   "their_lineup": "WR: Davante Adams and Mike Evans start over CeeDee Lamb and DJ Moore (+8.5); bench depth +1.2. Net +9.7.",
+   "my_points": 33.4,
+   "their_points": 9.7,
+   "my_title_odds": 3.875000000000001,
+   "their_title_odds": 0.0,
    "accept_chance": 0.81
   },
   {
    "partner": "Team Leigh",
    "deal": "give Christian Watson (WR), Mike Evans (WR) for CeeDee Lamb (WR), Colston Loveland (TE)",
-   "pitch": "Christian Watson would start every week for you over Malik Washington, Mike Evans would start every week for you over Malik Washington, and Colston Loveland mostly sits on your bench anyway.",
-   "my_lineup": "WR: CeeDee Lamb replaces Christian Watson (+23.6); bench depth -3.5. Net +20.1.",
-   "their_lineup": "WR: Christian Watson and Mike Evans start over CeeDee Lamb and DJ Moore (+21.6); bench depth +1.2. Net +22.9.",
-   "my_points": 20.1,
-   "their_points": 22.9,
-   "my_title_odds": 2.500000000000002,
-   "their_title_odds": 0.5249999999999998,
-   "accept_chance": 0.95
+   "pitch": "Christian Watson would start every week for you over Xavier Worthy, Mike Evans would start every week for you over Xavier Worthy, and Colston Loveland mostly sits on your bench anyway.",
+   "my_lineup": "WR: CeeDee Lamb replaces Christian Watson (+29.5); bench depth -3.3. Net +26.2.",
+   "their_lineup": "WR: Christian Watson and Mike Evans start over CeeDee Lamb and DJ Moore (+15.7); bench depth +1.2. Net +16.9.",
+   "my_points": 26.2,
+   "their_points": 16.9,
+   "my_title_odds": 3.075,
+   "their_title_odds": 0.1499999999999998,
+   "accept_chance": 0.9
+  },
+  {
+   "partner": "The (Jordan) Love Train",
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Zay Flowers (WR), George Kittle (TE)",
+   "pitch": "Davante Adams would start every week for you over Carnell Tate, Mike Evans would start every week for you over Carnell Tate, and Isaiah Likely can take over at TE.",
+   "my_lineup": "TE: George Kittle starts over Travis Kelce (+44.2); WR: Zay Flowers replaces Davante Adams and Mike Evans (-7.2); bench depth -3.0. Net +33.9.",
+   "their_lineup": "WR: Davante Adams and Mike Evans replace Zay Flowers (+195.3); TE: losing George Kittle (-184.7), best free agent to cover it: Dallas Goedert (10.3 pts/gm). Net +10.5.",
+   "my_points": 33.9,
+   "their_points": 10.5,
+   "my_title_odds": 3.4999999999999973,
+   "their_title_odds": 0.15000000000000013,
+   "accept_chance": 0.71
+  },
+  {
+   "partner": "The (Jordan) Love Train",
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Nico Collins (WR), George Kittle (TE)",
+   "pitch": "Davante Adams would start every week for you over Carnell Tate, Mike Evans would start every week for you over Carnell Tate, and Isaiah Likely can take over at TE.",
+   "my_lineup": "TE: George Kittle starts over Travis Kelce (+33.4); WR: Nico Collins replaces Davante Adams and Mike Evans (+2.7); bench depth -3.3. Net +32.8.",
+   "their_lineup": "WR: Davante Adams and Mike Evans replace Nico Collins (+199.5); TE: losing George Kittle (-184.7), best free agent to cover it: Dallas Goedert (10.3 pts/gm). Net +14.7.",
+   "my_points": 32.8,
+   "their_points": 14.7,
+   "my_title_odds": 2.925,
+   "their_title_odds": 0.5000000000000004,
+   "accept_chance": 0.79
   },
   {
    "partner": "Dabob Dungies",
-   "deal": "give Garrett Wilson (WR), Mike Evans (WR) for Chris Olave (WR), Luther Burden III (WR)",
-   "pitch": "Garrett Wilson would start every week for you and Mike Evans would start every week for you.",
-   "my_lineup": "WR: Chris Olave replaces Garrett Wilson and Mike Evans (+16.4); bench depth -3.2. Net +13.3.",
-   "their_lineup": "WR: Garrett Wilson and Mike Evans replace Chris Olave and Luther Burden III (+19.1). Net +18.8.",
-   "my_points": 13.3,
-   "their_points": 18.8,
-   "my_title_odds": 1.5500000000000014,
-   "their_title_odds": 0.375,
-   "accept_chance": 0.88
-  },
-  {
-   "partner": "Sacks as a Service",
-   "deal": "give Ashton Jeanty (RB), Christian Watson (WR) for Christian McCaffrey (RB), Tony Pollard (RB)",
-   "pitch": "Ashton Jeanty would start every week for you over Emanuel Wilson, Christian Watson would start every week for you over Tee Higgins, and Tony Pollard mostly sits on your bench anyway.",
-   "my_lineup": "RB: Christian McCaffrey replaces Ashton Jeanty (+35.3); WR: Mike Evans fills in for Christian Watson (-21.3); bench depth -3.5. Net +10.6.",
-   "their_lineup": "WR: Christian Watson starts over Tee Higgins (+53.3); RB: Ashton Jeanty replaces Christian McCaffrey (-50.1); bench depth +2.4. Net +5.6.",
-   "my_points": 10.6,
-   "their_points": 5.6,
-   "my_title_odds": 1.5000000000000013,
-   "their_title_odds": 0.14999999999999997,
-   "accept_chance": 0.85
-  },
-  {
-   "partner": "Sacks as a Service",
-   "deal": "give Mike Evans (WR), Tyler Shough (QB) for Jayden Daniels (QB), Jameson Williams (WR)",
-   "pitch": "Mike Evans would start every week for you over Tee Higgins, Patrick Mahomes can take over at QB, and Jameson Williams mostly sits on your bench anyway.",
-   "my_lineup": "QB: Jayden Daniels starts over Jared Goff (+22.1); WR: Davante Adams and Garrett Wilson fill in for Mike Evans (-7.6); bench depth -1.1. Net +13.4.",
-   "their_lineup": "WR: Mike Evans starts over Tee Higgins (+37.4); QB: Patrick Mahomes fills in for Jayden Daniels (-19.6); RB: Tony Pollard drops out of the lineup (-11.6). Net +6.2.",
-   "my_points": 13.4,
-   "their_points": 6.2,
-   "my_title_odds": 1.6749999999999987,
-   "their_title_odds": 0.2,
-   "accept_chance": 0.75
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Chris Olave (WR), Drake Maye (QB)",
+   "pitch": "Davante Adams would start every week for you over Luther Burden III, Mike Evans would start every week for you over Luther Burden III, and Joe Burrow can take over at QB.",
+   "my_lineup": "QB: Drake Maye starts over Jared Goff (+14.3); WR: Chris Olave replaces Davante Adams and Mike Evans (+9.3); bench depth -1.4. Net +22.2.",
+   "their_lineup": "WR: Davante Adams and Mike Evans start over Chris Olave and Luther Burden III (+51.6); RB: Omarion Hampton drops out of the lineup (-21.7); QB: Joe Burrow fills in for Drake Maye (-13.1); bench depth -2.9. Net +13.9.",
+   "my_points": 22.2,
+   "their_points": 13.9,
+   "my_title_odds": 2.3249999999999993,
+   "their_title_odds": 0.5500000000000002,
+   "accept_chance": 0.58
   },
   {
    "partner": "Dabob Dungies",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for Chris Olave (WR), Omarion Hampton (RB)",
-   "pitch": "Davante Adams would start every week for you over Luther Burden III and Mike Evans would start every week for you over Luther Burden III.",
-   "my_lineup": "WR: Chris Olave replaces Davante Adams and Mike Evans (+15.0); bench depth -3.6. Net +11.5.",
-   "their_lineup": "WR: Davante Adams and Mike Evans start over Chris Olave and Luther Burden III (+54.6); RB: Kyle Monangai fills in for Omarion Hampton (-35.1), or pick up Josh Jacobs (12.8 pts/gm); bench depth +1.2. Net +20.7.",
-   "my_points": 11.5,
-   "their_points": 20.7,
-   "my_title_odds": 1.2749999999999984,
-   "their_title_odds": 0.32499999999999996,
-   "accept_chance": 0.95
-  },
-  {
-   "partner": "C-Hawks",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for Justin Jefferson (WR), Michael Wilson (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 12.9,
-   "their_points": 5.7,
-   "my_title_odds": 1.5500000000000014,
-   "their_title_odds": 0.4500000000000004,
-   "accept_chance": 0.72
-  },
-  {
-   "partner": "C-Hawks",
-   "deal": "give Christian Watson (WR), Tyler Shough (QB) for Justin Jefferson (WR), Ladd McConkey (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 15.2,
-   "their_points": 8.2,
-   "my_title_odds": 1.2749999999999984,
-   "their_title_odds": 0.6749999999999999,
-   "accept_chance": 0.64
+   "deal": "give Christian Watson (WR), Mike Evans (WR) for Chris Olave (WR), Drake Maye (QB)",
+   "pitch": "Christian Watson would start every week for you over Luther Burden III, Mike Evans would start every week for you over Luther Burden III, and Joe Burrow can take over at QB.",
+   "my_lineup": "QB: Drake Maye starts over Jared Goff (+14.3); WR: Chris Olave replaces Christian Watson (+2.2); bench depth -1.4. Net +15.0.",
+   "their_lineup": "WR: Christian Watson and Mike Evans start over Chris Olave and Luther Burden III (+58.8); RB: Omarion Hampton drops out of the lineup (-21.7); QB: Joe Burrow fills in for Drake Maye (-13.1); bench depth -2.9. Net +21.0.",
+   "my_points": 15.0,
+   "their_points": 21.0,
+   "my_title_odds": 1.5249999999999986,
+   "their_title_odds": 0.6250000000000002,
+   "accept_chance": 0.73
   },
   {
    "partner": "Cheeseball Champ",
    "deal": "give Mike Evans (WR), Tyler Shough (QB) for Lamar Jackson (QB), Terry McLaurin (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
+   "pitch": "Mike Evans would start every week for you over Courtland Sutton and Tyler Shough would start most weeks for you over Kirk Cousins.",
+   "my_lineup": "QB: Lamar Jackson starts over Jared Goff (+18.7); WR: Davante Adams and Garrett Wilson fill in for Mike Evans (-7.1); bench depth -1.4. Net +10.2.",
+   "their_lineup": "WR: Mike Evans replaces Terry McLaurin (+43.9); QB: Tyler Shough replaces Lamar Jackson (-24.5). Net +19.5.",
    "my_points": 10.2,
    "their_points": 19.5,
-   "my_title_odds": 0.4249999999999976,
-   "their_title_odds": 0.4499999999999976,
+   "my_title_odds": 0.8000000000000007,
+   "their_title_odds": 0.07500000000000007,
    "accept_chance": 0.82
   },
   {
    "partner": "Cheeseball Champ",
-   "deal": "give Ashton Jeanty (RB), Tyler Shough (QB) for Kyren Williams (RB), Stefon Diggs (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 11.2,
-   "their_points": 10.0,
-   "my_title_odds": 0.47499999999999765,
-   "their_title_odds": 0.27499999999999747,
-   "accept_chance": 0.7
+   "deal": "give Jared Goff (QB), Jacob Rodriguez (LB) for Lamar Jackson (QB), Roquan Smith (LB)",
+   "pitch": "Jared Goff would start every week for you over Kirk Cousins, Jacob Rodriguez would start most weeks for you over Fred Warner, and Roquan Smith mostly sits on your bench anyway.",
+   "my_lineup": "QB: Lamar Jackson replaces Jared Goff (+17.3); LB: Ernest Jones IV fills in for Jacob Rodriguez (-6.6). Net +10.4.",
+   "their_lineup": "LB: Jacob Rodriguez starts over Fred Warner (+5.3); QB: Jared Goff replaces Lamar Jackson (-0.7); bench depth +1.3. Net +5.9.",
+   "my_points": 10.4,
+   "their_points": 5.9,
+   "my_title_odds": 1.0249999999999981,
+   "their_title_odds": -0.8000000000000007,
+   "accept_chance": 0.63
   },
   {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for Nico Collins (WR), Isaiah Likely (TE)",
+   "partner": "Sacks as a Service",
+   "deal": "give Davante Adams (WR), Tyler Shough (QB) for Jayden Daniels (QB), Tony Pollard (RB)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 38.9,
-   "their_points": 8.4,
-   "my_title_odds": 3.6999999999999975,
-   "their_title_odds": 0.17500000000000016,
-   "accept_chance": 0.69
-  },
-  {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Jonathan Taylor (RB), Isaiah Likely (TE)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 36.5,
-   "their_points": 10.8,
-   "my_title_odds": 3.375,
-   "their_title_odds": 0.6000000000000005,
-   "accept_chance": 0.72
-  },
-  {
-   "partner": "Team Leigh",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for CeeDee Lamb (WR), DJ Moore (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 28.5,
+   "my_points": 11.5,
    "their_points": 5.8,
-   "my_title_odds": 3.6250000000000004,
-   "their_title_odds": -0.050000000000000044,
-   "accept_chance": 0.65
+   "my_title_odds": 0.5000000000000004,
+   "their_title_odds": 0.175,
+   "accept_chance": 0.79
   },
   {
    "partner": "Team Leigh",
-   "deal": "give Davante Adams (WR), Garrett Wilson (WR) for CeeDee Lamb (WR), Colston Loveland (TE)",
+   "deal": "give Christian Watson (WR), Mike Evans (WR) for CeeDee Lamb (WR)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 21.2,
-   "their_points": 21.0,
-   "my_title_odds": 2.400000000000002,
-   "their_title_odds": 0.5999999999999999,
-   "accept_chance": 0.94
+   "my_points": 26.2,
+   "their_points": 12.1,
+   "my_title_odds": 2.949999999999997,
+   "their_title_odds": 0.07500000000000007,
+   "accept_chance": 0.87
   },
   {
    "partner": "The (Jordan) Love Train",
-   "deal": "give Davante Adams (WR), Garrett Wilson (WR) for Zay Flowers (WR), Isaiah Likely (TE)",
+   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Jonathan Taylor (RB), George Kittle (TE)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 36.3,
-   "their_points": 10.3,
-   "my_title_odds": 3.099999999999997,
-   "their_title_odds": 0.37500000000000033,
-   "accept_chance": 0.72
+   "my_points": 30.4,
+   "their_points": 17.1,
+   "my_title_odds": 2.8249999999999997,
+   "their_title_odds": 0.8250000000000001,
+   "accept_chance": 0.8
   },
   {
    "partner": "Team Leigh",
@@ -497,311 +436,179 @@
    "their_lineup": "",
    "my_points": 24.7,
    "their_points": 9.1,
-   "my_title_odds": 2.6000000000000023,
-   "their_title_odds": -0.4250000000000004,
+   "my_title_odds": 2.7249999999999996,
+   "their_title_odds": -0.10000000000000009,
    "accept_chance": 0.82
   },
   {
-   "partner": "Sacks as a Service",
-   "deal": "give Davante Adams (WR), Travis Kelce (TE) for Jayden Daniels (QB), Sam LaPorta (TE)",
+   "partner": "The (Jordan) Love Train",
+   "deal": "give Christian Watson (WR), Mike Evans (WR) for Zay Flowers (WR), George Kittle (TE)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 12.9,
-   "their_points": 8.0,
-   "my_title_odds": 1.974999999999999,
-   "their_title_odds": 0.4749999999999999,
-   "accept_chance": 0.64
+   "my_points": 26.8,
+   "their_points": 17.7,
+   "my_title_odds": 2.675,
+   "their_title_odds": 0.775,
+   "accept_chance": 0.84
   },
   {
-   "partner": "Dabob Dungies",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for Chris Olave (WR), Kyle Monangai (RB)",
+   "partner": "Team Leigh",
+   "deal": "give Christian Watson (WR), Davante Adams (WR) for CeeDee Lamb (WR), Colston Loveland (TE)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 11.5,
-   "their_points": 23.5,
-   "my_title_odds": 1.2749999999999984,
-   "their_title_odds": 0.4,
+   "my_points": 19.6,
+   "their_points": 23.6,
+   "my_title_odds": 1.974999999999999,
+   "their_title_odds": 0.5999999999999999,
    "accept_chance": 0.95
   },
   {
-   "partner": "Dabob Dungies",
-   "deal": "give Christian Watson (WR), Mike Evans (WR) for Chris Olave (WR), Drake Maye (QB)",
+   "partner": "The (Jordan) Love Train",
+   "deal": "give Christian Watson (WR), Mike Evans (WR) for Nico Collins (WR), George Kittle (TE)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 20.8,
-   "their_points": 15.3,
-   "my_title_odds": 1.9000000000000017,
-   "their_title_odds": 0.375,
-   "accept_chance": 0.61
+   "my_points": 25.6,
+   "their_points": 21.8,
+   "my_title_odds": 2.100000000000002,
+   "their_title_odds": 0.8250000000000001,
+   "accept_chance": 0.88
   },
   {
    "partner": "Dabob Dungies",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for Chris Olave (WR), Luther Burden III (WR)",
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Chris Olave (WR), Joe Burrow (QB)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 12.4,
-   "their_points": 20.4,
-   "my_title_odds": 1.1249999999999982,
-   "their_title_odds": 0.375,
-   "accept_chance": 0.91
+   "my_points": 14.1,
+   "their_points": 8.5,
+   "my_title_odds": 1.5500000000000014,
+   "their_title_odds": 0.2500000000000002,
+   "accept_chance": 0.6
   }
  ],
  "long_shots": [
   {
-   "partner": "Cheeseball Champ",
-   "deal": "give Davante Adams (WR), Travis Kelce (TE) for Brock Bowers (TE), Marvin Harrison Jr. (WR)",
-   "pitch": "Travis Kelce would start every week for you over Brenton Strange, Davante Adams would start every week for you over Denzel Boston, and Marvin Harrison Jr. mostly sits on your bench anyway.",
-   "my_lineup": "TE: Brock Bowers replaces Travis Kelce (+78.7); WR: Mike Evans fills in for Davante Adams (-14.1); bench depth -3.6. Net +61.0.",
-   "their_lineup": "TE: Travis Kelce replaces Brock Bowers (-87.8); WR: Davante Adams starts over Denzel Boston (+57.1); bench depth +1.1. Net -29.6.",
-   "my_points": 61.0,
-   "their_points": -29.6,
-   "my_title_odds": 6.724999999999998,
-   "their_title_odds": -3.875000000000001,
-   "accept_chance": 0.1
+   "partner": "Alexandra's Halftime Show ",
+   "deal": "give Christian Watson (WR), Davante Adams (WR) for Puka Nacua (WR), Blake Cashman (LB)",
+   "pitch": "Christian Watson would start every week for you over KC Concepcion, Davante Adams would start every week for you over KC Concepcion, and Blake Cashman mostly sits on your bench anyway.",
+   "my_lineup": "WR: Puka Nacua and Mike Evans start over Christian Watson and Davante Adams (+69.5); bench depth -3.3. Net +66.3.",
+   "their_lineup": "RB: Jeremiyah Love drops out of the lineup (-141.6); WR: Christian Watson and Davante Adams replace Puka Nacua (+112.0); LB: Zack Baun fills in for Blake Cashman (-0.5). Net -29.9.",
+   "my_points": 66.3,
+   "their_points": -29.9,
+   "my_title_odds": 6.25,
+   "their_title_odds": -1.8249999999999995,
+   "accept_chance": 0.07
+  },
+  {
+   "partner": "Alexandra's Halftime Show ",
+   "deal": "give Christian Watson (WR), Davante Adams (WR) for Puka Nacua (WR), Carson Schwesinger (LB)",
+   "pitch": "Christian Watson would start every week for you over KC Concepcion, Davante Adams would start every week for you over KC Concepcion, and Carson Schwesinger mostly sits on your bench anyway.",
+   "my_lineup": "WR: Puka Nacua and Mike Evans start over Christian Watson and Davante Adams (+69.5); bench depth -3.3. Net +66.1.",
+   "their_lineup": "RB: Jeremiyah Love drops out of the lineup (-141.6); WR: Christian Watson and Davante Adams replace Puka Nacua (+112.0). Net -29.7.",
+   "my_points": 66.1,
+   "their_points": -29.7,
+   "my_title_odds": 6.174999999999997,
+   "their_title_odds": -1.7999999999999996,
+   "accept_chance": 0.08
   },
   {
    "partner": "Dabob Dungies",
    "deal": "give Davante Adams (WR), Mike Evans (WR) for Jaxon Smith-Njigba (WR), Luther Burden III (WR)",
    "pitch": "Davante Adams would start every week for you and Mike Evans would start every week for you.",
-   "my_lineup": "WR: Jaxon Smith-Njigba replaces Davante Adams and Mike Evans (+56.7); bench depth -3.1. Net +53.6.",
-   "their_lineup": "WR: Davante Adams and Mike Evans replace Jaxon Smith-Njigba and Luther Burden III (-12.2); RB: Omarion Hampton drops out of the lineup (-10.9). Net -23.0.",
-   "my_points": 53.6,
-   "their_points": -23.0,
-   "my_title_odds": 6.25,
-   "their_title_odds": -0.5750000000000002,
-   "accept_chance": 0.12
-  },
-  {
-   "partner": "Cheeseball Champ",
-   "deal": "give Christian Watson (WR), Travis Kelce (TE) for Brock Bowers (TE), Terry McLaurin (WR)",
-   "pitch": "Travis Kelce would start every week for you over Brenton Strange and Christian Watson would start every week for you over Courtland Sutton.",
-   "my_lineup": "TE: Brock Bowers replaces Travis Kelce (+78.7); RB: David Montgomery drops out of the lineup (-11.0); WR: Mike Evans fills in for Christian Watson (-9.6); bench depth -3.3. Net +54.8.",
-   "their_lineup": "TE: Travis Kelce replaces Brock Bowers (-87.8); WR: Christian Watson replaces Terry McLaurin (+58.1). Net -29.7.",
-   "my_points": 54.8,
-   "their_points": -29.7,
-   "my_title_odds": 6.024999999999997,
-   "their_title_odds": -3.4250000000000003,
-   "accept_chance": 0.07
-  },
-  {
-   "partner": "Dabob Dungies",
-   "deal": "give Christian Watson (WR), Mike Evans (WR) for Jaxon Smith-Njigba (WR), Luther Burden III (WR)",
-   "pitch": "Christian Watson would start every week for you and Mike Evans would start every week for you.",
-   "my_lineup": "WR: Jaxon Smith-Njigba replaces Christian Watson (+49.6); bench depth -3.1. Net +46.5.",
-   "their_lineup": "RB: Omarion Hampton drops out of the lineup (-10.9); WR: Christian Watson and Mike Evans replace Jaxon Smith-Njigba and Luther Burden III (-5.0). Net -15.9.",
-   "my_points": 46.5,
-   "their_points": -15.9,
-   "my_title_odds": 5.75,
-   "their_title_odds": -0.5000000000000001,
-   "accept_chance": 0.21
-  },
-  {
-   "partner": "Marcus's Magnificent Team",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for Amon-Ra St. Brown (WR), DK Metcalf (WR)",
-   "pitch": "Mike Evans would start every week for you over Matthew Golden, Davante Adams would start most weeks for you over Matthew Golden, and DK Metcalf mostly sits on your bench anyway.",
-   "my_lineup": "WR: Amon-Ra St. Brown replaces Davante Adams and Mike Evans (+45.5); bench depth -3.2. Net +42.3.",
-   "their_lineup": "WR: Mike Evans and Davante Adams start over Amon-Ra St. Brown and Matthew Golden (-19.0); RB: Cam Skattebo drops out of the lineup (-12.3); bench depth +2.9. Net -28.4.",
-   "my_points": 42.3,
-   "their_points": -28.4,
-   "my_title_odds": 4.999999999999999,
-   "their_title_odds": -1.45,
-   "accept_chance": 0.19
-  },
-  {
-   "partner": "Marcus's Magnificent Team",
-   "deal": "give Davante Adams (WR), Garrett Wilson (WR) for Amon-Ra St. Brown (WR), DK Metcalf (WR)",
-   "pitch": "Davante Adams would start every week for you over Matthew Golden, Garrett Wilson would start most weeks for you over Matthew Golden, and DK Metcalf mostly sits on your bench anyway.",
-   "my_lineup": "WR: Amon-Ra St. Brown and Mike Evans start over Davante Adams and Garrett Wilson (+39.4); bench depth -3.1. Net +36.3.",
-   "their_lineup": "WR: Davante Adams and Garrett Wilson start over Amon-Ra St. Brown and Matthew Golden (-13.4); RB: Cam Skattebo drops out of the lineup (-12.3); bench depth +2.8. Net -22.9.",
-   "my_points": 36.3,
-   "their_points": -22.9,
-   "my_title_odds": 4.249999999999998,
-   "their_title_odds": -1.2249999999999996,
-   "accept_chance": 0.28
+   "my_lineup": "WR: Jaxon Smith-Njigba replaces Davante Adams and Mike Evans (+62.8); bench depth -3.2. Net +59.6.",
+   "their_lineup": "WR: Davante Adams and Mike Evans replace Jaxon Smith-Njigba and Luther Burden III (-18.4); RB: Omarion Hampton drops out of the lineup (-10.9). Net -29.3.",
+   "my_points": 59.6,
+   "their_points": -29.3,
+   "my_title_odds": 6.174999999999997,
+   "their_title_odds": -0.6249999999999999,
+   "accept_chance": 0.08
   },
   {
    "partner": "Team Leigh",
-   "deal": "give Garrett Wilson (WR), Tyler Shough (QB) for CeeDee Lamb (WR), Colston Loveland (TE)",
-   "pitch": "Garrett Wilson would start every week for you over Malik Washington and Colston Loveland mostly sits on your bench anyway.",
-   "my_lineup": "WR: CeeDee Lamb replaces Garrett Wilson (+41.1). Net +40.6.",
-   "their_lineup": "WR: Garrett Wilson replaces CeeDee Lamb (-39.6); QB: Tyler Shough joins the lineup (+16.6); bench depth +1.6. Net -21.4.",
-   "my_points": 40.6,
-   "their_points": -21.4,
-   "my_title_odds": 4.099999999999998,
-   "their_title_odds": -1.0750000000000002,
-   "accept_chance": 0.09
-  },
-  {
-   "partner": "Alexandra's Halftime Show ",
-   "deal": "give Ashton Jeanty (RB), Mike Evans (WR) for Kenneth Walker III (RB), Bhayshul Tuten (RB)",
-   "pitch": "Ashton Jeanty would start every week for you and Mike Evans would start every week for you over KC Concepcion.",
-   "my_lineup": "RB: Kenneth Walker III replaces Ashton Jeanty (+62.7); WR: Davante Adams and Garrett Wilson fill in for Mike Evans (-18.8); bench depth -3.2. Net +40.8.",
-   "their_lineup": "RB: Ashton Jeanty replaces Kenneth Walker III and Bhayshul Tuten (-223.1); WR: Mike Evans starts over KC Concepcion (+197.2). Net -25.9.",
-   "my_points": 40.8,
-   "their_points": -25.9,
-   "my_title_odds": 4.025,
-   "their_title_odds": -1.8499999999999996,
-   "accept_chance": 0.1
-  },
-  {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Davante Adams (WR), Mike Evans (WR) for Zay Flowers (WR), Isaiah Likely (TE)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 40.0,
-   "their_points": 4.4,
-   "my_title_odds": 4.025,
-   "their_title_odds": -0.1250000000000001,
-   "accept_chance": 0.6
-  },
-  {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Christian Watson (WR), Tyler Shough (QB) for Nico Collins (WR), Isaiah Likely (TE)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 42.5,
-   "their_points": -29.0,
-   "my_title_odds": 3.9999999999999982,
-   "their_title_odds": -1.45,
-   "accept_chance": 0.06
-  },
-  {
-   "partner": "Team Leigh",
-   "deal": "give Garrett Wilson (WR), Jared Goff (QB) for CeeDee Lamb (WR), Jordan Love (QB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 41.6,
-   "their_points": -22.2,
-   "my_title_odds": 3.9750000000000005,
-   "their_title_odds": -1.0750000000000002,
-   "accept_chance": 0.06
-  },
-  {
-   "partner": "Alexandra's Halftime Show ",
-   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Kenneth Walker III (RB), Bhayshul Tuten (RB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 45.2,
-   "their_points": -17.6,
-   "my_title_odds": 3.6750000000000007,
-   "their_title_odds": -1.4249999999999992,
-   "accept_chance": 0.18
-  },
-  {
-   "partner": "Cheeseball Champ",
-   "deal": "give Christian Watson (WR), Travis Kelce (TE) for Brock Bowers (TE), Denzel Boston (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 54.1,
-   "their_points": -25.9,
-   "my_title_odds": 5.824999999999997,
-   "their_title_odds": -3.15,
-   "accept_chance": 0.1
-  },
-  {
-   "partner": "Cheeseball Champ",
-   "deal": "give Christian Watson (WR), Travis Kelce (TE) for Brock Bowers (TE), Marvin Harrison Jr. (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 53.9,
-   "their_points": -22.4,
-   "my_title_odds": 5.824999999999997,
-   "their_title_odds": -3.125,
-   "accept_chance": 0.21
-  },
-  {
-   "partner": "Cheeseball Champ",
-   "deal": "give Christian Watson (WR), Travis Kelce (TE) for Brock Bowers (TE), Stefon Diggs (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 53.9,
-   "their_points": -24.2,
-   "my_title_odds": 5.8,
-   "their_title_odds": -3.125,
-   "accept_chance": 0.19
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for CeeDee Lamb (WR), Vikings D/ST (D/ST)",
+   "pitch": "Davante Adams would start every week for you over Xavier Worthy, Mike Evans would start every week for you over Xavier Worthy, and 49ers D/ST can take over at D/ST.",
+   "my_lineup": "WR: CeeDee Lamb replaces Davante Adams and Mike Evans (+36.7); D/ST: Vikings D/ST starts over Chiefs D/ST (+22.3); bench depth -3.3. Net +55.7.",
+   "their_lineup": "D/ST: 49ers D/ST fills in for Vikings D/ST (-35.1); WR: Davante Adams and Mike Evans start over CeeDee Lamb and DJ Moore (+8.5); bench depth +1.2. Net -25.4.",
+   "my_points": 55.7,
+   "their_points": -25.4,
+   "my_title_odds": 6.0749999999999975,
+   "their_title_odds": -0.9250000000000002,
+   "accept_chance": 0.15
   },
   {
    "partner": "Dabob Dungies",
    "deal": "give Christian Watson (WR), Davante Adams (WR) for Jaxon Smith-Njigba (WR), Drake Maye (QB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 55.4,
-   "their_points": -19.3,
-   "my_title_odds": 5.6499999999999995,
-   "their_title_odds": -0.4750000000000001,
-   "accept_chance": 0.09
-  },
-  {
-   "partner": "Dabob Dungies",
-   "deal": "give Davante Adams (WR), Garrett Wilson (WR) for Jaxon Smith-Njigba (WR), Luther Burden III (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 47.5,
-   "their_points": -15.8,
-   "my_title_odds": 4.949999999999999,
-   "their_title_odds": -0.5250000000000001,
-   "accept_chance": 0.19
-  },
-  {
-   "partner": "Dabob Dungies",
-   "deal": "give Christian Watson (WR), Davante Adams (WR) for Jaxon Smith-Njigba (WR), Joe Burrow (QB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 47.3,
-   "their_points": -24.7,
-   "my_title_odds": 4.475000000000001,
-   "their_title_odds": -0.5750000000000002,
-   "accept_chance": 0.09
-  },
-  {
-   "partner": "Marcus's Magnificent Team",
-   "deal": "give Christian Watson (WR), Mike Evans (WR) for Amon-Ra St. Brown (WR), DK Metcalf (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 35.2,
-   "their_points": -21.3,
-   "my_title_odds": 4.225000000000001,
-   "their_title_odds": -1.0999999999999996,
-   "accept_chance": 0.31
-  },
-  {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Ashton Jeanty (RB), Travis Kelce (TE) for Jonathan Taylor (RB), George Kittle (TE)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 37.0,
-   "their_points": -26.6,
-   "my_title_odds": 3.9750000000000005,
-   "their_title_odds": -1.1499999999999997,
-   "accept_chance": 0.05
+   "pitch": "Christian Watson would start every week for you over Luther Burden III, Davante Adams would start every week for you over Luther Burden III, and Joe Burrow can take over at QB.",
+   "my_lineup": "WR: Jaxon Smith-Njigba and Mike Evans start over Christian Watson and Davante Adams (+48.6); QB: Drake Maye starts over Jared Goff (+14.3); bench depth -1.4. Net +61.5.",
+   "their_lineup": "RB: Omarion Hampton drops out of the lineup (-21.7); QB: Joe Burrow fills in for Drake Maye (-13.1); WR: Christian Watson and Davante Adams start over Jaxon Smith-Njigba and Luther Burden III (+12.3); bench depth -2.9. Net -25.4.",
+   "my_points": 61.5,
+   "their_points": -25.4,
+   "my_title_odds": 5.85,
+   "their_title_odds": -0.5749999999999998,
+   "accept_chance": 0.06
   },
   {
    "partner": "Team Leigh",
-   "deal": "give Davante Adams (WR), Jared Goff (QB) for CeeDee Lamb (WR), Jordan Love (QB)",
+   "deal": "give Christian Watson (WR), Mike Evans (WR) for CeeDee Lamb (WR), Vikings D/ST (D/ST)",
+   "pitch": "Christian Watson would start every week for you over Xavier Worthy, Mike Evans would start every week for you over Xavier Worthy, and 49ers D/ST can take over at D/ST.",
+   "my_lineup": "WR: CeeDee Lamb replaces Christian Watson (+29.5); D/ST: Vikings D/ST starts over Chiefs D/ST (+22.3); bench depth -3.3. Net +48.6.",
+   "their_lineup": "D/ST: 49ers D/ST fills in for Vikings D/ST (-35.1); WR: Christian Watson and Mike Evans start over CeeDee Lamb and DJ Moore (+15.7); bench depth +1.2. Net -18.2.",
+   "my_points": 48.6,
+   "their_points": -18.2,
+   "my_title_odds": 5.474999999999996,
+   "their_title_odds": -0.8,
+   "accept_chance": 0.26
+  },
+  {
+   "partner": "Cheeseball Champ",
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Brock Bowers (TE), Terry McLaurin (WR)",
+   "pitch": "Davante Adams would start every week for you over Denzel Boston, Mike Evans would start every week for you over Denzel Boston, and Brenton Strange can take over at TE (or Dallas Goedert is a free agent).",
+   "my_lineup": "TE: Brock Bowers starts over Travis Kelce (+83.2); WR: A.J. Brown fills in for Davante Adams and Mike Evans (-35.9); bench depth -5.0. Net +42.2.",
+   "their_lineup": "TE: Brenton Strange fills in for Brock Bowers (-134.6), or pick up Dallas Goedert (10.3 pts/gm); WR: Davante Adams and Mike Evans start over Terry McLaurin and Denzel Boston (+120.5); bench depth +1.0. Net -13.1.",
+   "my_points": 42.2,
+   "their_points": -13.1,
+   "my_title_odds": 4.875000000000002,
+   "their_title_odds": -2.875,
+   "accept_chance": 0.63
+  },
+  {
+   "partner": "Cheeseball Champ",
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Brock Bowers (TE), Marvin Harrison Jr. (WR)",
+   "pitch": "Davante Adams would start every week for you over Denzel Boston, Mike Evans would start every week for you over Denzel Boston, Brenton Strange can take over at TE (or Dallas Goedert is a free agent), and Marvin Harrison Jr. mostly sits on your bench anyway.",
+   "my_lineup": "TE: Brock Bowers starts over Travis Kelce (+94.0); WR: A.J. Brown fills in for Davante Adams and Mike Evans (-67.8); RB: Woody Marks moves into the lineup (+8.4); bench depth -5.1. Net +29.5.",
+   "their_lineup": "TE: Brenton Strange fills in for Brock Bowers (-134.6), or pick up Dallas Goedert (10.3 pts/gm); WR: Davante Adams and Mike Evans start over Denzel Boston and Terry McLaurin (+123.6); bench depth +1.8. Net -9.2.",
+   "my_points": 29.5,
+   "their_points": -9.2,
+   "my_title_odds": 4.425000000000001,
+   "their_title_odds": -2.4750000000000023,
+   "accept_chance": 0.88
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give Christian Watson (WR), Ernest Jones IV (LB) for Christian McCaffrey (RB), Jameson Williams (WR)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 41.6,
-   "their_points": -18.7,
-   "my_title_odds": 3.8250000000000006,
-   "their_title_odds": -0.6500000000000002,
-   "accept_chance": 0.08
+   "my_points": 42.6,
+   "their_points": -28.2,
+   "my_title_odds": 4.149999999999999,
+   "their_title_odds": -0.175,
+   "accept_chance": 0.05
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give Ashton Jeanty (RB), Ernest Jones IV (LB) for Christian McCaffrey (RB), Jayden Daniels (QB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 26.3,
+   "their_points": -11.3,
+   "my_title_odds": 3.599999999999998,
+   "their_title_odds": 0.050000000000000044,
+   "accept_chance": 0.05
   },
   {
    "partner": "The (Jordan) Love Train",
@@ -809,71 +616,11 @@
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 39.6,
+   "my_points": 39.9,
    "their_points": -26.2,
-   "my_title_odds": 3.599999999999998,
-   "their_title_odds": -1.3249999999999997,
-   "accept_chance": 0.07
-  },
-  {
-   "partner": "Marcus's Magnificent Team",
-   "deal": "give Christian Watson (WR), Garrett Wilson (WR) for Amon-Ra St. Brown (WR), Matthew Golden (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 36.4,
-   "their_points": -25.9,
-   "my_title_odds": 3.599999999999998,
-   "their_title_odds": -1.1249999999999996,
-   "accept_chance": 0.09
-  },
-  {
-   "partner": "Alexandra's Halftime Show ",
-   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Kenneth Walker III (RB), Jalen Hurts (QB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 44.0,
-   "their_points": -15.2,
-   "my_title_odds": 3.5250000000000004,
-   "their_title_odds": -1.3749999999999998,
-   "accept_chance": 0.13
-  },
-  {
-   "partner": "Alexandra's Halftime Show ",
-   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Kenneth Walker III (RB), Jeremiyah Love (RB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 43.0,
-   "their_points": -15.2,
-   "my_title_odds": 3.5250000000000004,
-   "their_title_odds": -1.4749999999999992,
-   "accept_chance": 0.23
-  },
-  {
-   "partner": "Alexandra's Halftime Show ",
-   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Kenneth Walker III (RB), Caleb Williams (QB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 43.7,
-   "their_points": -12.2,
-   "my_title_odds": 3.4499999999999975,
-   "their_title_odds": -1.0999999999999996,
-   "accept_chance": 0.16
-  },
-  {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Christian Watson (WR), Tyler Shough (QB) for Nico Collins (WR), George Kittle (TE)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 36.2,
-   "their_points": -22.7,
-   "my_title_odds": 3.375,
-   "their_title_odds": -1.3749999999999998,
-   "accept_chance": 0.1
+   "my_title_odds": 3.575,
+   "their_title_odds": -1.5,
+   "accept_chance": 0.06
   },
   {
    "partner": "Marcus's Magnificent Team",
@@ -882,34 +629,226 @@
    "my_lineup": "",
    "their_lineup": "",
    "my_points": 35.7,
-   "their_points": -23.9,
-   "my_title_odds": 3.299999999999997,
-   "their_title_odds": -0.9500000000000002,
+   "their_points": -23.6,
+   "my_title_odds": 3.1999999999999975,
+   "their_title_odds": -0.6499999999999999,
    "accept_chance": 0.11
   },
   {
-   "partner": "Team Leigh",
-   "deal": "give Davante Adams (WR), Tyler Shough (QB) for James Cook III (RB), Matthew Stafford (QB)",
+   "partner": "The (Jordan) Love Train",
+   "deal": "give Christian Watson (WR), Tyler Shough (QB) for Nico Collins (WR), George Kittle (TE)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 42.4,
-   "their_points": -17.7,
-   "my_title_odds": 2.849999999999997,
-   "their_title_odds": -0.7000000000000003,
-   "accept_chance": 0.05
+   "my_points": 36.3,
+   "their_points": -22.8,
+   "my_title_odds": 3.075,
+   "their_title_odds": -1.4,
+   "accept_chance": 0.09
+  },
+  {
+   "partner": "Marcus's Magnificent Team",
+   "deal": "give Ashton Jeanty (RB), Christian Watson (WR) for Amon-Ra St. Brown (WR), Javonte Williams (RB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 33.9,
+   "their_points": -29.1,
+   "my_title_odds": 2.749999999999997,
+   "their_title_odds": -1.1000000000000003,
+   "accept_chance": 0.08
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Jaxon Smith-Njigba (WR), Kyle Monangai (RB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 48.0,
+   "their_points": -23.8,
+   "my_title_odds": 5.824999999999997,
+   "their_title_odds": -0.5499999999999999,
+   "accept_chance": 0.16
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Jaxon Smith-Njigba (WR), Omarion Hampton (RB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 48.0,
+   "their_points": -26.9,
+   "my_title_odds": 5.8,
+   "their_title_odds": -0.6499999999999999,
+   "accept_chance": 0.14
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give Christian Watson (WR), Mike Evans (WR) for Jaxon Smith-Njigba (WR), Luther Burden III (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 52.5,
+   "their_points": -22.1,
+   "my_title_odds": 5.6,
+   "their_title_odds": -0.4499999999999999,
+   "accept_chance": 0.13
   },
   {
    "partner": "Team Leigh",
-   "deal": "give Davante Adams (WR), Jared Goff (QB) for James Cook III (RB), Jordan Love (QB)",
+   "deal": "give Davante Adams (WR), Tyler Shough (QB) for CeeDee Lamb (WR), Colston Loveland (TE)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 40.9,
-   "their_points": -15.1,
-   "my_title_odds": 2.6999999999999966,
-   "their_title_odds": -0.6500000000000002,
+   "my_points": 44.6,
+   "their_points": -23.9,
+   "my_title_odds": 4.199999999999998,
+   "their_title_odds": -0.75,
+   "accept_chance": 0.07
+  },
+  {
+   "partner": "Cheeseball Champ",
+   "deal": "give Davante Adams (WR), Mike Evans (WR) for Brock Bowers (TE), Denzel Boston (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 28.7,
+   "their_points": -9.7,
+   "my_title_odds": 4.175000000000001,
+   "their_title_odds": -2.425000000000002,
+   "accept_chance": 0.77
+  },
+  {
+   "partner": "Team Leigh",
+   "deal": "give Davante Adams (WR), Tyler Shough (QB) for CeeDee Lamb (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 44.6,
+   "their_points": -28.7,
+   "my_title_odds": 4.099999999999998,
+   "their_title_odds": -0.8250000000000001,
+   "accept_chance": 0.06
+  },
+  {
+   "partner": "Cheeseball Champ",
+   "deal": "give Christian Watson (WR), Mike Evans (WR) for Brock Bowers (TE), Terry McLaurin (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 35.1,
+   "their_points": -6.0,
+   "my_title_odds": 3.8999999999999977,
+   "their_title_odds": -2.150000000000002,
+   "accept_chance": 0.78
+  },
+  {
+   "partner": "Team Leigh",
+   "deal": "give Davante Adams (WR), Ernest Jones IV (LB) for CeeDee Lamb (WR), Arvell Reese (LB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 44.1,
+   "their_points": -26.0,
+   "my_title_odds": 3.6499999999999977,
+   "their_title_odds": -0.8750000000000001,
+   "accept_chance": 0.07
+  },
+  {
+   "partner": "Alexandra's Halftime Show ",
+   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Kenneth Walker III (RB), Caleb Williams (QB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 43.6,
+   "their_points": -28.3,
+   "my_title_odds": 3.6250000000000004,
+   "their_title_odds": -1.324999999999999,
+   "accept_chance": 0.08
+  },
+  {
+   "partner": "Alexandra's Halftime Show ",
+   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Kenneth Walker III (RB), Bhayshul Tuten (RB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 45.3,
+   "their_points": -25.1,
+   "my_title_odds": 3.3499999999999974,
+   "their_title_odds": -1.7749999999999995,
    "accept_chance": 0.13
+  },
+  {
+   "partner": "Alexandra's Halftime Show ",
+   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Kenneth Walker III (RB), Jalen Hurts (QB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 42.6,
+   "their_points": -7.4,
+   "my_title_odds": 3.299999999999997,
+   "their_title_odds": -0.7499999999999993,
+   "accept_chance": 0.32
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give Christian Watson (WR), Jacob Rodriguez (LB) for Christian McCaffrey (RB), Jameson Williams (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 37.1,
+   "their_points": -22.1,
+   "my_title_odds": 3.2750000000000004,
+   "their_title_odds": -0.04999999999999987,
+   "accept_chance": 0.09
+  },
+  {
+   "partner": "Cheeseball Champ",
+   "deal": "give Christian Watson (WR), Davante Adams (WR) for Brock Bowers (TE), Terry McLaurin (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 26.9,
+   "their_points": -4.7,
+   "my_title_odds": 3.1999999999999975,
+   "their_title_odds": -1.2750000000000012,
+   "accept_chance": 0.86
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Christian McCaffrey (RB), Jayden Daniels (QB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 30.0,
+   "their_points": -21.5,
+   "my_title_odds": 3.049999999999997,
+   "their_title_odds": -0.14999999999999997,
+   "accept_chance": 0.13
+  },
+  {
+   "partner": "The (Jordan) Love Train",
+   "deal": "give Ashton Jeanty (RB), Davante Adams (WR) for Jonathan Taylor (RB), Zay Flowers (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 27.8,
+   "their_points": -26.0,
+   "my_title_odds": 2.8249999999999997,
+   "their_title_odds": -1.0249999999999995,
+   "accept_chance": 0.1
+  },
+  {
+   "partner": "The (Jordan) Love Train",
+   "deal": "give Jacob Rodriguez (LB), Tyler Shough (QB) for George Kittle (TE), Nakobe Dean (LB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 28.4,
+   "their_points": -16.3,
+   "my_title_odds": 2.200000000000002,
+   "their_title_odds": -1.0249999999999995,
+   "accept_chance": 0.08
   }
  ],
  "players": [
@@ -942,7 +881,7 @@
    "season_points": 89.3,
    "season_avg": 17.86,
    "bye": 7,
-   "percent_rostered": 99.89
+   "percent_rostered": 99.9
   },
   {
    "id": 4241389,
@@ -952,7 +891,7 @@
    "fantasy_team": "Team Leigh",
    "slot": "WR",
    "status": "ONTEAM",
-   "injury": "QUESTIONABLE",
+   "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
@@ -960,7 +899,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 18.38,
+     "points": 18.29,
      "source": "espn"
     },
     "8": {
@@ -969,11 +908,11 @@
     }
    },
    "ros_per_game": 18.4,
-   "ros_points": 251.7,
+   "ros_points": 257.7,
    "season_points": 115.1,
    "season_avg": 23.02,
    "bye": 14,
-   "percent_rostered": 99.9
+   "percent_rostered": 99.91
   },
   {
    "id": 4723086,
@@ -1004,7 +943,7 @@
    "season_points": 24.0,
    "season_avg": 4.8,
    "bye": 10,
-   "percent_rostered": 88.45
+   "percent_rostered": 87.66
   },
   {
    "id": 4596448,
@@ -1035,7 +974,7 @@
    "season_points": 78.7,
    "season_avg": 15.739999999999998,
    "bye": 10,
-   "percent_rostered": 96.99
+   "percent_rostered": 97.09
   },
   {
    "id": 12483,
@@ -1066,7 +1005,7 @@
    "season_points": 88.98,
    "season_avg": 17.796,
    "bye": 11,
-   "percent_rostered": 91.49
+   "percent_rostered": 92.04
   },
   {
    "id": 3915416,
@@ -1097,7 +1036,7 @@
    "season_points": 38.3,
    "season_avg": 9.575,
    "bye": 7,
-   "percent_rostered": 92.47
+   "percent_rostered": 92.53
   },
   {
    "id": 3122132,
@@ -1128,7 +1067,7 @@
    "season_points": 0.0,
    "season_avg": 0.0,
    "bye": 11,
-   "percent_rostered": 63.71
+   "percent_rostered": 63.33
   },
   {
    "id": 3953687,
@@ -1159,7 +1098,7 @@
    "season_points": 44.0,
    "season_avg": 8.8,
    "bye": 14,
-   "percent_rostered": 98.68
+   "percent_rostered": 98.57
   },
   {
    "id": 4569987,
@@ -1190,7 +1129,7 @@
    "season_points": 93.0,
    "season_avg": 18.6,
    "bye": 9,
-   "percent_rostered": 93.99
+   "percent_rostered": 94.31
   },
   {
    "id": 4683062,
@@ -1198,7 +1137,7 @@
    "position": "WR",
    "nfl_team": "KC",
    "fantasy_team": "Team Leigh",
-   "slot": "BE",
+   "slot": "WR",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -1221,38 +1160,7 @@
    "season_points": 35.3,
    "season_avg": 8.825,
    "bye": 5,
-   "percent_rostered": 68.53
-  },
-  {
-   "id": 2977680,
-   "name": "Bradley Pinion",
-   "position": "P",
-   "nfl_team": "MIA",
-   "fantasy_team": "Team Leigh",
-   "slot": "P",
-   "status": "ONTEAM",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 0.0,
-     "source": "espn"
-    },
-    "7": {
-     "points": 2.46,
-     "source": "espn"
-    },
-    "8": {
-     "points": 2.88,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 2.88,
-   "ros_points": 39.9,
-   "season_points": 14.0,
-   "season_avg": 2.8,
-   "bye": 6,
-   "percent_rostered": 66.74
+   "percent_rostered": 69.14
   },
   {
    "id": 4036378,
@@ -1283,7 +1191,7 @@
    "season_points": 92.12,
    "season_avg": 18.424,
    "bye": 11,
-   "percent_rostered": 70.35
+   "percent_rostered": 76.12
   },
   {
    "id": 4575131,
@@ -1314,7 +1222,7 @@
    "season_points": 44.9,
    "season_avg": 8.98,
    "bye": 7,
-   "percent_rostered": 65.73
+   "percent_rostered": 65.58
   },
   {
    "id": -16016,
@@ -1322,7 +1230,7 @@
    "position": "D/ST",
    "nfl_team": "MIN",
    "fantasy_team": "Team Leigh",
-   "slot": "D/ST",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -1341,11 +1249,11 @@
     }
    },
    "ros_per_game": 7.93,
-   "ros_points": 110.9,
+   "ros_points": 110.8,
    "season_points": 63.0,
    "season_avg": 12.6,
    "bye": 6,
-   "percent_rostered": 79.06
+   "percent_rostered": 76.92
   },
   {
    "id": 4688813,
@@ -1355,7 +1263,7 @@
    "fantasy_team": "Team Leigh",
    "slot": "BE",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
@@ -1367,16 +1275,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 9.26,
+     "points": 9.27,
      "source": "bot"
     }
    },
-   "ros_per_game": 9.26,
-   "ros_points": 129.5,
+   "ros_per_game": 9.27,
+   "ros_points": 126.4,
    "season_points": 46.9,
    "season_avg": 9.38,
    "bye": 13,
-   "percent_rostered": 78.7
+   "percent_rostered": 77.48
   },
   {
    "id": 3929645,
@@ -1384,7 +1292,7 @@
    "position": "TE",
    "nfl_team": "NO",
    "fantasy_team": "Team Leigh",
-   "slot": "BE",
+   "slot": "TE",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -1407,7 +1315,7 @@
    "season_points": 68.8,
    "season_avg": 13.76,
    "bye": 8,
-   "percent_rostered": 77.61
+   "percent_rostered": 77.89
   },
   {
    "id": 4036133,
@@ -1415,7 +1323,7 @@
    "position": "TE",
    "nfl_team": "MIN",
    "fantasy_team": "Team Leigh",
-   "slot": "TE",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "QUESTIONABLE",
    "locked": false,
@@ -1438,7 +1346,7 @@
    "season_points": 51.2,
    "season_avg": 10.24,
    "bye": 6,
-   "percent_rostered": 62.91
+   "percent_rostered": 60.77
   },
   {
    "id": 4569603,
@@ -1446,7 +1354,7 @@
    "position": "WR",
    "nfl_team": "MIA",
    "fantasy_team": "Team Leigh",
-   "slot": "WR",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -1469,7 +1377,7 @@
    "season_points": 50.2,
    "season_avg": 10.040000000000001,
    "bye": 6,
-   "percent_rostered": 36.75
+   "percent_rostered": 35.69
   },
   {
    "id": 4950400,
@@ -1495,12 +1403,43 @@
      "source": "bot"
     }
    },
-   "ros_per_game": 18.06,
+   "ros_per_game": 18.05,
    "ros_points": 254.3,
    "season_points": 95.0,
    "season_avg": 19.0,
    "bye": 8,
-   "percent_rostered": 61.41
+   "percent_rostered": 66.85
+  },
+  {
+   "id": -16025,
+   "name": "49ers D/ST",
+   "position": "D/ST",
+   "nfl_team": "SF",
+   "fantasy_team": "Team Leigh",
+   "slot": "D/ST",
+   "status": "ONTEAM",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 4.8,
+     "source": "espn"
+    },
+    "7": {
+     "points": 3.62,
+     "source": "espn"
+    },
+    "8": {
+     "points": 0.0,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 6.01,
+   "ros_points": 80.5,
+   "season_points": 43.0,
+   "season_avg": 8.6,
+   "bye": 8,
+   "percent_rostered": 56.5
   },
   {
    "id": 4374302,
@@ -1562,7 +1501,7 @@
    "season_points": 67.0,
    "season_avg": 13.4,
    "bye": 6,
-   "percent_rostered": 99.16
+   "percent_rostered": 99.02
   },
   {
    "id": 4361579,
@@ -1580,7 +1519,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 16.79,
+     "points": 16.86,
      "source": "espn"
     },
     "8": {
@@ -1593,7 +1532,7 @@
    "season_points": 96.0,
    "season_avg": 19.2,
    "bye": 14,
-   "percent_rostered": 99.24
+   "percent_rostered": 99.27
   },
   {
    "id": 4241478,
@@ -1607,24 +1546,24 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 14.62,
+     "points": 14.15,
      "source": "espn"
     },
     "7": {
-     "points": 16.06,
+     "points": 15.29,
      "source": "espn"
     },
     "8": {
-     "points": 14.23,
+     "points": 14.01,
      "source": "bot"
     }
    },
-   "ros_per_game": 14.23,
-   "ros_points": 196.7,
+   "ros_per_game": 14.01,
+   "ros_points": 192.9,
    "season_points": 50.5,
    "season_avg": 16.833333333333332,
    "bye": 10,
-   "percent_rostered": 97.97
+   "percent_rostered": 97.95
   },
   {
    "id": 4696981,
@@ -1638,11 +1577,11 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 13.23,
+     "points": 13.02,
      "source": "espn"
     },
     "7": {
-     "points": 10.1,
+     "points": 9.96,
      "source": "espn"
     },
     "8": {
@@ -1650,12 +1589,12 @@
      "source": "bot"
     }
    },
-   "ros_per_game": 12.3,
-   "ros_points": 170.9,
+   "ros_per_game": 12.22,
+   "ros_points": 169.6,
    "season_points": 51.3,
    "season_avg": 10.260000000000002,
    "bye": 8,
-   "percent_rostered": 96.93
+   "percent_rostered": 96.87
   },
   {
    "id": 4431459,
@@ -1686,7 +1625,7 @@
    "season_points": 69.9,
    "season_avg": 13.98,
    "bye": 13,
-   "percent_rostered": 98.6
+   "percent_rostered": 98.61
   },
   {
    "id": 4569465,
@@ -1717,7 +1656,7 @@
    "season_points": 89.5,
    "season_avg": 17.9,
    "bye": 6,
-   "percent_rostered": 71.19
+   "percent_rostered": 67.85
   },
   {
    "id": 4047650,
@@ -1739,16 +1678,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 10.85,
+     "points": 10.84,
      "source": "bot"
     }
    },
-   "ros_per_game": 10.85,
+   "ros_per_game": 10.84,
    "ros_points": 155.5,
    "season_points": 48.6,
    "season_avg": 9.72,
    "bye": 9,
-   "percent_rostered": 89.26
+   "percent_rostered": 89.17
   },
   {
    "id": 4701936,
@@ -1779,7 +1718,7 @@
    "season_points": 78.3,
    "season_avg": 15.660000000000002,
    "bye": 11,
-   "percent_rostered": 89.85
+   "percent_rostered": 90.57
   },
   {
    "id": -16033,
@@ -1797,7 +1736,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 5.42,
+     "points": 5.36,
      "source": "espn"
     },
     "8": {
@@ -1810,7 +1749,7 @@
    "season_points": 26.0,
    "season_avg": 5.2,
    "bye": 13,
-   "percent_rostered": 84.09
+   "percent_rostered": 88.05
   },
   {
    "id": 3931395,
@@ -1841,7 +1780,7 @@
    "season_points": 14.0,
    "season_avg": 2.8,
    "bye": 11,
-   "percent_rostered": 24.14
+   "percent_rostered": 23.67
   },
   {
    "id": 4685720,
@@ -1855,7 +1794,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 18.27,
+     "points": 18.23,
      "source": "espn"
     },
     "7": {
@@ -1863,16 +1802,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 17.52,
+     "points": 17.5,
      "source": "bot"
     }
    },
-   "ros_per_game": 17.52,
-   "ros_points": 263.9,
+   "ros_per_game": 17.5,
+   "ros_points": 263.6,
    "season_points": 90.62,
    "season_avg": 22.655,
    "bye": 5,
-   "percent_rostered": 83.22
+   "percent_rostered": 83.98
   },
   {
    "id": 4243256,
@@ -1886,7 +1825,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 17.8,
+     "points": 17.79,
      "source": "espn"
     },
     "7": {
@@ -1899,11 +1838,11 @@
     }
    },
    "ros_per_game": 18.31,
-   "ros_points": 274.0,
+   "ros_points": 273.9,
    "season_points": 77.0,
    "season_avg": 25.666666666666668,
    "bye": 5,
-   "percent_rostered": 47.2
+   "percent_rostered": 50.46
   },
   {
    "id": -16017,
@@ -1934,7 +1873,7 @@
    "season_points": 38.0,
    "season_avg": 7.6,
    "bye": 11,
-   "percent_rostered": 69.26
+   "percent_rostered": 74.81
   },
   {
    "id": 3150744,
@@ -1965,7 +1904,7 @@
    "season_points": 48.0,
    "season_avg": 9.6,
    "bye": 10,
-   "percent_rostered": 19.91
+   "percent_rostered": 19.78
   },
   {
    "id": 3917142,
@@ -1996,7 +1935,7 @@
    "season_points": 92.5,
    "season_avg": 18.5,
    "bye": 13,
-   "percent_rostered": 11.05
+   "percent_rostered": 11.2
   },
   {
    "id": 4711533,
@@ -2027,7 +1966,7 @@
    "season_points": 48.0,
    "season_avg": 9.6,
    "bye": 6,
-   "percent_rostered": 73.36
+   "percent_rostered": 73.18
   },
   {
    "id": 2578570,
@@ -2045,7 +1984,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 16.33,
+     "points": 16.37,
      "source": "espn"
     },
     "8": {
@@ -2058,7 +1997,7 @@
    "season_points": 84.3,
    "season_avg": 16.86,
    "bye": 14,
-   "percent_rostered": 37.01
+   "percent_rostered": 33.9
   },
   {
    "id": 4426515,
@@ -2097,9 +2036,9 @@
    "position": "RB",
    "nfl_team": "ARI",
    "fantasy_team": "Alexandra's Halftime Show ",
-   "slot": "RB",
+   "slot": "FLEX",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
@@ -2111,16 +2050,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 11.67,
+     "points": 11.68,
      "source": "bot"
     }
    },
-   "ros_per_game": 11.67,
-   "ros_points": 163.6,
+   "ros_per_game": 11.68,
+   "ros_points": 159.9,
    "season_points": 51.1,
    "season_avg": 10.22,
    "bye": 14,
-   "percent_rostered": 97.95
+   "percent_rostered": 97.67
   },
   {
    "id": 4567048,
@@ -2128,7 +2067,7 @@
    "position": "RB",
    "nfl_team": "KC",
    "fantasy_team": "Alexandra's Halftime Show ",
-   "slot": "FLEX",
+   "slot": "RB",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -2151,7 +2090,7 @@
    "season_points": 110.1,
    "season_avg": 27.525000000000002,
    "bye": 5,
-   "percent_rostered": 99.79
+   "percent_rostered": 99.82
   },
   {
    "id": 4372016,
@@ -2182,7 +2121,7 @@
    "season_points": 48.7,
    "season_avg": 9.74,
    "bye": 10,
-   "percent_rostered": 92.64
+   "percent_rostered": 92.16
   },
   {
    "id": 4882093,
@@ -2244,7 +2183,7 @@
    "season_points": 93.5,
    "season_avg": 18.7,
    "bye": 6,
-   "percent_rostered": 87.21
+   "percent_rostered": 83.71
   },
   {
    "id": 4040715,
@@ -2254,28 +2193,28 @@
    "fantasy_team": "Alexandra's Halftime Show ",
    "slot": "QB",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "OUT",
    "locked": false,
    "projections": {
     "6": {
-     "points": 17.81,
+     "points": 0.0,
      "source": "espn"
     },
     "7": {
-     "points": 19.86,
+     "points": 18.68,
      "source": "espn"
     },
     "8": {
-     "points": 17.5,
+     "points": 17.09,
      "source": "bot"
     }
    },
-   "ros_per_game": 17.5,
-   "ros_points": 247.7,
+   "ros_per_game": 17.09,
+   "ros_points": 223.8,
    "season_points": 80.02,
    "season_avg": 16.004,
    "bye": 10,
-   "percent_rostered": 95.03
+   "percent_rostered": 94.43
   },
   {
    "id": 4432620,
@@ -2306,7 +2245,7 @@
    "season_points": 83.5,
    "season_avg": 16.7,
    "bye": 7,
-   "percent_rostered": 94.99
+   "percent_rostered": 95.13
   },
   {
    "id": 4572680,
@@ -2337,38 +2276,7 @@
    "season_points": 49.7,
    "season_avg": 9.940000000000001,
    "bye": 11,
-   "percent_rostered": 88.23
-  },
-  {
-   "id": 4371733,
-   "name": "Kenny Gainwell",
-   "position": "RB",
-   "nfl_team": "TB",
-   "fantasy_team": "Alexandra's Halftime Show ",
-   "slot": "BE",
-   "status": "ONTEAM",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 7.06,
-     "source": "espn"
-    },
-    "7": {
-     "points": 7.27,
-     "source": "espn"
-    },
-    "8": {
-     "points": 7.43,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 7.43,
-   "ros_points": 103.5,
-   "season_points": 28.8,
-   "season_avg": 5.76,
-   "bye": 10,
-   "percent_rostered": 59.59
+   "percent_rostered": 88.84
   },
   {
    "id": 4431611,
@@ -2399,7 +2307,7 @@
    "season_points": 44.98,
    "season_avg": 22.490000000000002,
    "bye": 10,
-   "percent_rostered": 86.93
+   "percent_rostered": 87.15
   },
   {
    "id": 4876017,
@@ -2407,7 +2315,7 @@
    "position": "LB",
    "nfl_team": "CLE",
    "fantasy_team": "Alexandra's Halftime Show ",
-   "slot": "DP",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "QUESTIONABLE",
    "locked": false,
@@ -2430,7 +2338,7 @@
    "season_points": 90.5,
    "season_avg": 18.1,
    "bye": 11,
-   "percent_rostered": 72.96
+   "percent_rostered": 72.17
   },
   {
    "id": 4385690,
@@ -2461,7 +2369,7 @@
    "season_points": 49.7,
    "season_avg": 9.940000000000001,
    "bye": 7,
-   "percent_rostered": 84.1
+   "percent_rostered": 83.29
   },
   {
    "id": 4870653,
@@ -2492,7 +2400,7 @@
    "season_points": 31.8,
    "season_avg": 6.359999999999999,
    "bye": 11,
-   "percent_rostered": 49.18
+   "percent_rostered": 47.78
   },
   {
    "id": -16034,
@@ -2519,11 +2427,11 @@
     }
    },
    "ros_per_game": 6.29,
-   "ros_points": 88.4,
+   "ros_points": 88.3,
    "season_points": 31.0,
    "season_avg": 6.2,
    "bye": 8,
-   "percent_rostered": 88.13
+   "percent_rostered": 87.33
   },
   {
    "id": 4248789,
@@ -2554,7 +2462,7 @@
    "season_points": 22.0,
    "season_avg": 4.4,
    "bye": 11,
-   "percent_rostered": 50.09
+   "percent_rostered": 49.92
   },
   {
    "id": 4571557,
@@ -2585,7 +2493,7 @@
    "season_points": 77.0,
    "season_avg": 15.4,
    "bye": 13,
-   "percent_rostered": 78.64
+   "percent_rostered": 84.15
   },
   {
    "id": 4685247,
@@ -2599,7 +2507,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 14.47,
+     "points": 14.43,
      "source": "espn"
     },
     "7": {
@@ -2607,16 +2515,47 @@
      "source": "espn"
     },
     "8": {
-     "points": 9.91,
+     "points": 9.9,
      "source": "bot"
     }
    },
-   "ros_per_game": 9.91,
-   "ros_points": 140.9,
+   "ros_per_game": 9.9,
+   "ros_points": 140.7,
    "season_points": 46.5,
    "season_avg": 9.3,
    "bye": 13,
-   "percent_rostered": 73.72
+   "percent_rostered": 77.26
+  },
+  {
+   "id": 3917657,
+   "name": "Zack Baun",
+   "position": "LB",
+   "nfl_team": "PHI",
+   "fantasy_team": "Alexandra's Halftime Show ",
+   "slot": "DP",
+   "status": "ONTEAM",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 19.53,
+     "source": "espn"
+    },
+    "7": {
+     "points": 19.51,
+     "source": "espn"
+    },
+    "8": {
+     "points": 18.99,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 18.99,
+   "ros_points": 266.9,
+   "season_points": 81.5,
+   "season_avg": 20.375,
+   "bye": 10,
+   "percent_rostered": 65.92
   },
   {
    "id": 4429795,
@@ -2678,7 +2617,7 @@
    "season_points": 86.6,
    "season_avg": 17.32,
    "bye": 13,
-   "percent_rostered": 99.68
+   "percent_rostered": 99.7
   },
   {
    "id": 16737,
@@ -2709,7 +2648,7 @@
    "season_points": 76.6,
    "season_avg": 15.319999999999999,
    "bye": 8,
-   "percent_rostered": 93.68
+   "percent_rostered": 94.45
   },
   {
    "id": 4248528,
@@ -2740,7 +2679,7 @@
    "season_points": 109.4,
    "season_avg": 21.880000000000003,
    "bye": 11,
-   "percent_rostered": 95.44
+   "percent_rostered": 95.78
   },
   {
    "id": 3046779,
@@ -2771,7 +2710,7 @@
    "season_points": 115.0,
    "season_avg": 23.0,
    "bye": 6,
-   "percent_rostered": 90.54
+   "percent_rostered": 90.04
   },
   {
    "id": 4047646,
@@ -2802,7 +2741,7 @@
    "season_points": 5.6,
    "season_avg": 5.6,
    "bye": 11,
-   "percent_rostered": 94.49
+   "percent_rostered": 94.5
   },
   {
    "id": 15847,
@@ -2833,7 +2772,7 @@
    "season_points": 52.6,
    "season_avg": 13.15,
    "bye": 5,
-   "percent_rostered": 93.75
+   "percent_rostered": 93.85
   },
   {
    "id": 4360689,
@@ -2864,7 +2803,7 @@
    "season_points": 87.16,
    "season_avg": 17.432,
    "bye": 8,
-   "percent_rostered": 77.91
+   "percent_rostered": 76.47
   },
   {
    "id": 4569618,
@@ -2878,7 +2817,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 14.81,
+     "points": 14.78,
      "source": "espn"
     },
     "7": {
@@ -2886,16 +2825,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 15.17,
+     "points": 15.15,
      "source": "bot"
     }
    },
-   "ros_per_game": 15.17,
-   "ros_points": 212.1,
+   "ros_per_game": 15.15,
+   "ros_points": 212.0,
    "season_points": 86.4,
    "season_avg": 17.28,
    "bye": 13,
-   "percent_rostered": 98.98
+   "percent_rostered": 98.97
   },
   {
    "id": -16020,
@@ -2909,7 +2848,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 5.29,
+     "points": 5.42,
      "source": "espn"
     },
     "7": {
@@ -2917,16 +2856,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 5.58,
+     "points": 5.63,
      "source": "bot"
     }
    },
-   "ros_per_game": 5.58,
-   "ros_points": 79.3,
+   "ros_per_game": 5.63,
+   "ros_points": 79.9,
    "season_points": 37.0,
    "season_avg": 7.4,
    "bye": 13,
-   "percent_rostered": 28.94
+   "percent_rostered": 26.54
   },
   {
    "id": 4566094,
@@ -2957,7 +2896,7 @@
    "season_points": 122.0,
    "season_avg": 24.4,
    "bye": 6,
-   "percent_rostered": 56.88
+   "percent_rostered": 53.63
   },
   {
    "id": 16800,
@@ -2988,7 +2927,7 @@
    "season_points": 97.1,
    "season_avg": 19.419999999999998,
    "bye": 11,
-   "percent_rostered": 99.05
+   "percent_rostered": 99.07
   },
   {
    "id": 4362851,
@@ -3019,7 +2958,7 @@
    "season_points": 108.0,
    "season_avg": 21.6,
    "bye": 11,
-   "percent_rostered": 79.79
+   "percent_rostered": 81.96
   },
   {
    "id": 4035538,
@@ -3050,7 +2989,7 @@
    "season_points": 45.5,
    "season_avg": 9.1,
    "bye": 8,
-   "percent_rostered": 88.17
+   "percent_rostered": 86.62
   },
   {
    "id": 4429059,
@@ -3081,7 +3020,7 @@
    "season_points": 43.3,
    "season_avg": 8.66,
    "bye": 8,
-   "percent_rostered": 65.35
+   "percent_rostered": 68.66
   },
   {
    "id": -16012,
@@ -3112,7 +3051,7 @@
    "season_points": 23.0,
    "season_avg": 5.75,
    "bye": 5,
-   "percent_rostered": 69.24
+   "percent_rostered": 76.8
   },
   {
    "id": 5082424,
@@ -3143,7 +3082,7 @@
    "season_points": 48.0,
    "season_avg": 9.6,
    "bye": 8,
-   "percent_rostered": 33.59
+   "percent_rostered": 45.56
   },
   {
    "id": 2969939,
@@ -3161,7 +3100,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 12.82,
+     "points": 12.81,
      "source": "espn"
     },
     "8": {
@@ -3169,12 +3108,12 @@
      "source": "bot"
     }
    },
-   "ros_per_game": 14.17,
+   "ros_per_game": 14.16,
    "ros_points": 200.5,
    "season_points": 54.4,
    "season_avg": 13.600000000000001,
    "bye": 8,
-   "percent_rostered": 14.43
+   "percent_rostered": 19.49
   },
   {
    "id": 4045180,
@@ -3205,7 +3144,7 @@
    "season_points": 13.0,
    "season_avg": 2.6,
    "bye": 14,
-   "percent_rostered": 63.39
+   "percent_rostered": 65.07
   },
   {
    "id": 4242335,
@@ -3236,7 +3175,7 @@
    "season_points": 97.4,
    "season_avg": 19.48,
    "bye": 13,
-   "percent_rostered": 99.89
+   "percent_rostered": 99.9
   },
   {
    "id": 3929630,
@@ -3244,26 +3183,26 @@
    "position": "RB",
    "nfl_team": "PHI",
    "fantasy_team": "The (Jordan) Love Train",
-   "slot": "BE",
+   "slot": "RB",
    "status": "ONTEAM",
    "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 13.82,
+     "points": 14.81,
      "source": "espn"
     },
     "7": {
-     "points": 14.88,
+     "points": 14.96,
      "source": "espn"
     },
     "8": {
-     "points": 13.08,
+     "points": 13.41,
      "source": "bot"
     }
    },
-   "ros_per_game": 13.08,
-   "ros_points": 181.1,
+   "ros_per_game": 13.41,
+   "ros_points": 185.9,
    "season_points": 23.0,
    "season_avg": 5.75,
    "bye": 10,
@@ -3312,7 +3251,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 16.34,
+     "points": 16.36,
      "source": "espn"
     },
     "7": {
@@ -3325,11 +3264,11 @@
     }
    },
    "ros_per_game": 16.14,
-   "ros_points": 227.0,
+   "ros_points": 227.1,
    "season_points": 81.8,
    "season_avg": 20.45,
    "bye": 13,
-   "percent_rostered": 98.88
+   "percent_rostered": 98.93
   },
   {
    "id": 4567750,
@@ -3360,7 +3299,7 @@
    "season_points": 53.3,
    "season_avg": 10.66,
    "bye": 10,
-   "percent_rostered": 94.97
+   "percent_rostered": 94.98
   },
   {
    "id": 4685512,
@@ -3391,7 +3330,7 @@
    "season_points": 14.0,
    "season_avg": 3.5,
    "bye": 11,
-   "percent_rostered": 70.84
+   "percent_rostered": 69.99
   },
   {
    "id": 3040151,
@@ -3418,11 +3357,11 @@
     }
    },
    "ros_per_game": 12.97,
-   "ros_points": 184.8,
+   "ros_points": 184.7,
    "season_points": 73.8,
    "season_avg": 14.76,
    "bye": 8,
-   "percent_rostered": 97.76
+   "percent_rostered": 97.82
   },
   {
    "id": 4871023,
@@ -3440,7 +3379,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 11.04,
+     "points": 11.05,
      "source": "espn"
     },
     "8": {
@@ -3453,7 +3392,7 @@
    "season_points": 48.4,
    "season_avg": 9.680000000000001,
    "bye": 9,
-   "percent_rostered": 87.55
+   "percent_rostered": 87.28
   },
   {
    "id": 2577417,
@@ -3471,7 +3410,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 17.07,
+     "points": 17.03,
      "source": "espn"
     },
     "8": {
@@ -3480,11 +3419,11 @@
     }
    },
    "ros_per_game": 17.21,
-   "ros_points": 240.7,
+   "ros_points": 240.6,
    "season_points": 93.84,
    "season_avg": 18.768,
    "bye": 14,
-   "percent_rostered": 93.09
+   "percent_rostered": 92.83
   },
   {
    "id": 4429023,
@@ -3515,7 +3454,7 @@
    "season_points": 42.7,
    "season_avg": 8.540000000000001,
    "bye": 11,
-   "percent_rostered": 68.73
+   "percent_rostered": 72.94
   },
   {
    "id": 4362759,
@@ -3546,7 +3485,7 @@
    "season_points": 79.5,
    "season_avg": 19.875,
    "bye": 5,
-   "percent_rostered": 70.19
+   "percent_rostered": 72.36
   },
   {
    "id": 4360310,
@@ -3577,7 +3516,7 @@
    "season_points": 86.86,
    "season_avg": 17.372,
    "bye": 7,
-   "percent_rostered": 89.6
+   "percent_rostered": 89.37
   },
   {
    "id": -16023,
@@ -3591,7 +3530,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 7.03,
+     "points": 6.95,
      "source": "espn"
     },
     "7": {
@@ -3599,16 +3538,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 7.0,
+     "points": 6.98,
      "source": "bot"
     }
    },
-   "ros_per_game": 7.0,
-   "ros_points": 97.6,
+   "ros_per_game": 6.98,
+   "ros_points": 97.2,
    "season_points": 37.0,
    "season_avg": 7.4,
    "bye": 9,
-   "percent_rostered": 93.67
+   "percent_rostered": 94.42
   },
   {
    "id": 4361050,
@@ -3639,7 +3578,7 @@
    "season_points": 85.4,
    "season_avg": 17.080000000000002,
    "bye": 8,
-   "percent_rostered": 92.64
+   "percent_rostered": 93.39
   },
   {
    "id": 4426340,
@@ -3670,7 +3609,7 @@
    "season_points": 98.0,
    "season_avg": 19.6,
    "bye": 13,
-   "percent_rostered": 92.39
+   "percent_rostered": 93.23
   },
   {
    "id": 4361432,
@@ -3684,7 +3623,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 11.15,
+     "points": 11.13,
      "source": "espn"
     },
     "7": {
@@ -3697,11 +3636,11 @@
     }
    },
    "ros_per_game": 9.43,
-   "ros_points": 133.9,
+   "ros_points": 133.8,
    "season_points": 46.9,
    "season_avg": 9.38,
    "bye": 11,
-   "percent_rostered": 71.33
+   "percent_rostered": 71.25
   },
   {
    "id": 4869461,
@@ -3732,7 +3671,7 @@
    "season_points": 32.0,
    "season_avg": 6.4,
    "bye": 11,
-   "percent_rostered": 13.31
+   "percent_rostered": 12.82
   },
   {
    "id": 4427982,
@@ -3763,7 +3702,7 @@
    "season_points": 17.0,
    "season_avg": 3.4,
    "bye": 13,
-   "percent_rostered": 62.73
+   "percent_rostered": 67.99
   },
   {
    "id": 3054850,
@@ -3771,9 +3710,9 @@
    "position": "RB",
    "nfl_team": "NO",
    "fantasy_team": "The (Jordan) Love Train",
-   "slot": "RB",
+   "slot": "BE",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
@@ -3790,11 +3729,11 @@
     }
    },
    "ros_per_game": 8.39,
-   "ros_points": 120.3,
+   "ros_points": 117.0,
    "season_points": 37.7,
    "season_avg": 9.425,
    "bye": 8,
-   "percent_rostered": 66.29
+   "percent_rostered": 65.23
   },
   {
    "id": 4262921,
@@ -3856,7 +3795,7 @@
    "season_points": 142.96,
    "season_avg": 28.592000000000002,
    "bye": 7,
-   "percent_rostered": 99.92
+   "percent_rostered": 99.93
   },
   {
    "id": 4612826,
@@ -3887,7 +3826,7 @@
    "season_points": 36.3,
    "season_avg": 9.075,
    "bye": 7,
-   "percent_rostered": 91.99
+   "percent_rostered": 91.58
   },
   {
    "id": -16026,
@@ -3901,11 +3840,11 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 6.06,
+     "points": 6.05,
      "source": "espn"
     },
     "7": {
-     "points": 5.21,
+     "points": 5.15,
      "source": "espn"
     },
     "8": {
@@ -3914,11 +3853,11 @@
     }
    },
    "ros_per_game": 7.25,
-   "ros_points": 98.3,
+   "ros_points": 98.2,
    "season_points": 51.0,
    "season_avg": 10.2,
    "bye": 11,
-   "percent_rostered": 95.66
+   "percent_rostered": 96.18
   },
   {
    "id": 4426385,
@@ -3936,20 +3875,20 @@
      "source": "espn"
     },
     "7": {
-     "points": 11.97,
+     "points": 9.7,
      "source": "espn"
     },
     "8": {
-     "points": 11.34,
+     "points": 11.31,
      "source": "bot"
     }
    },
-   "ros_per_game": 11.34,
-   "ros_points": 148.0,
+   "ros_per_game": 11.31,
+   "ros_points": 145.4,
    "season_points": 0.0,
    "season_avg": 0.0,
    "bye": 11,
-   "percent_rostered": 57.58
+   "percent_rostered": 57.63
   },
   {
    "id": 4241416,
@@ -3963,7 +3902,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 14.64,
+     "points": 14.72,
      "source": "espn"
     },
     "7": {
@@ -3971,16 +3910,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 14.72,
+     "points": 14.75,
      "source": "bot"
     }
    },
-   "ros_per_game": 14.72,
-   "ros_points": 220.6,
+   "ros_per_game": 14.75,
+   "ros_points": 221.1,
    "season_points": 79.0,
    "season_avg": 19.75,
    "bye": 5,
-   "percent_rostered": 93.87
+   "percent_rostered": 94.09
   },
   {
    "id": 4695883,
@@ -3990,11 +3929,11 @@
    "fantasy_team": "C-Hawks",
    "slot": "WR",
    "status": "ONTEAM",
-   "injury": "QUESTIONABLE",
+   "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 13.91,
+     "points": 13.85,
      "source": "espn"
     },
     "7": {
@@ -4002,16 +3941,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 13.1,
+     "points": 13.08,
      "source": "bot"
     }
    },
-   "ros_per_game": 13.1,
-   "ros_points": 193.4,
+   "ros_per_game": 13.08,
+   "ros_points": 197.6,
    "season_points": 52.2,
    "season_avg": 17.400000000000002,
    "bye": 5,
-   "percent_rostered": 85.0
+   "percent_rostered": 86.23
   },
   {
    "id": 4832955,
@@ -4042,7 +3981,7 @@
    "season_points": 22.0,
    "season_avg": 5.5,
    "bye": 5,
-   "percent_rostered": 14.84
+   "percent_rostered": 14.7
   },
   {
    "id": 4360234,
@@ -4073,7 +4012,7 @@
    "season_points": 60.0,
    "season_avg": 12.0,
    "bye": 6,
-   "percent_rostered": 32.49
+   "percent_rostered": 28.18
   },
   {
    "id": 5083076,
@@ -4104,7 +4043,7 @@
    "season_points": 51.7,
    "season_avg": 10.34,
    "bye": 11,
-   "percent_rostered": 91.87
+   "percent_rostered": 91.63
   },
   {
    "id": 4241474,
@@ -4131,11 +4070,11 @@
     }
    },
    "ros_per_game": 7.17,
-   "ros_points": 100.4,
+   "ros_points": 100.5,
    "season_points": 50.1,
    "season_avg": 10.02,
    "bye": 11,
-   "percent_rostered": 46.87
+   "percent_rostered": 46.2
   },
   {
    "id": 4373626,
@@ -4166,7 +4105,7 @@
    "season_points": 34.3,
    "season_avg": 6.859999999999999,
    "bye": 14,
-   "percent_rostered": 33.59
+   "percent_rostered": 32.59
   },
   {
    "id": 4241985,
@@ -4197,7 +4136,7 @@
    "season_points": 36.1,
    "season_avg": 7.2200000000000015,
    "bye": 10,
-   "percent_rostered": 77.43
+   "percent_rostered": 77.95
   },
   {
    "id": 4360761,
@@ -4228,7 +4167,7 @@
    "season_points": 66.08,
    "season_avg": 13.216,
    "bye": 14,
-   "percent_rostered": 92.04
+   "percent_rostered": 91.86
   },
   {
    "id": 4595348,
@@ -4255,11 +4194,11 @@
     }
    },
    "ros_per_game": 15.34,
-   "ros_points": 216.9,
+   "ros_points": 216.8,
    "season_points": 73.9,
    "season_avg": 14.780000000000001,
    "bye": 8,
-   "percent_rostered": 98.74
+   "percent_rostered": 98.88
   },
   {
    "id": 2612151,
@@ -4281,16 +4220,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 19.45,
+     "points": 19.54,
      "source": "bot"
     }
    },
-   "ros_per_game": 19.45,
-   "ros_points": 272.8,
-   "season_points": 111.0,
-   "season_avg": 22.2,
+   "ros_per_game": 19.54,
+   "ros_points": 273.8,
+   "season_points": 113.0,
+   "season_avg": 22.6,
    "bye": 10,
-   "percent_rostered": 73.54
+   "percent_rostered": 74.2
   },
   {
    "id": 4589212,
@@ -4321,7 +4260,7 @@
    "season_points": 22.0,
    "season_avg": 4.4,
    "bye": 10,
-   "percent_rostered": 73.79
+   "percent_rostered": 76.12
   },
   {
    "id": 2576925,
@@ -4331,11 +4270,11 @@
    "fantasy_team": "C-Hawks",
    "slot": "BE",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 7.07,
+     "points": 7.04,
      "source": "espn"
     },
     "7": {
@@ -4343,16 +4282,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 6.97,
+     "points": 6.96,
      "source": "bot"
     }
    },
-   "ros_per_game": 6.97,
-   "ros_points": 104.7,
+   "ros_per_game": 6.96,
+   "ros_points": 102.2,
    "season_points": 39.8,
    "season_avg": 9.95,
    "bye": 5,
-   "percent_rostered": 18.56
+   "percent_rostered": 17.5
   },
   {
    "id": 4686361,
@@ -4383,7 +4322,7 @@
    "season_points": 46.0,
    "season_avg": 9.2,
    "bye": 7,
-   "percent_rostered": 86.09
+   "percent_rostered": 86.21
   },
   {
    "id": 4362628,
@@ -4391,7 +4330,7 @@
    "position": "WR",
    "nfl_team": "CIN",
    "fantasy_team": "Kat's Top-Notch Team",
-   "slot": "WR",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -4428,7 +4367,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 20.58,
+     "points": 20.59,
      "source": "espn"
     },
     "7": {
@@ -4445,7 +4384,7 @@
    "season_points": 111.8,
    "season_avg": 22.36,
    "bye": 13,
-   "percent_rostered": 99.86
+   "percent_rostered": 99.87
   },
   {
    "id": 4361307,
@@ -4484,13 +4423,13 @@
    "position": "WR",
    "nfl_team": "CAR",
    "fantasy_team": "Kat's Top-Notch Team",
-   "slot": "BE",
+   "slot": "WR",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 16.04,
+     "points": 15.96,
      "source": "espn"
     },
     "7": {
@@ -4498,16 +4437,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 15.01,
+     "points": 14.98,
      "source": "bot"
     }
    },
-   "ros_per_game": 15.01,
-   "ros_points": 226.9,
+   "ros_per_game": 14.98,
+   "ros_points": 226.5,
    "season_points": 74.5,
    "season_avg": 18.625,
    "bye": 5,
-   "percent_rostered": 98.23
+   "percent_rostered": 98.32
   },
   {
    "id": 4259545,
@@ -4538,7 +4477,7 @@
    "season_points": 80.8,
    "season_avg": 16.160000000000004,
    "bye": 10,
-   "percent_rostered": 96.47
+   "percent_rostered": 96.44
   },
   {
    "id": 4043130,
@@ -4546,7 +4485,7 @@
    "position": "LB",
    "nfl_team": "MIA",
    "fantasy_team": "Kat's Top-Notch Team",
-   "slot": "DP",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -4569,7 +4508,7 @@
    "season_points": 89.0,
    "season_avg": 17.8,
    "bye": 6,
-   "percent_rostered": 82.77
+   "percent_rostered": 78.01
   },
   {
    "id": 4038941,
@@ -4600,7 +4539,7 @@
    "season_points": 57.68,
    "season_avg": 11.536000000000001,
    "bye": 7,
-   "percent_rostered": 54.31
+   "percent_rostered": 51.96
   },
   {
    "id": 4569173,
@@ -4608,13 +4547,13 @@
    "position": "RB",
    "nfl_team": "NE",
    "fantasy_team": "Kat's Top-Notch Team",
-   "slot": "BE",
+   "slot": "FLEX",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 16.34,
+     "points": 16.33,
      "source": "espn"
     },
     "7": {
@@ -4622,16 +4561,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 13.79,
+     "points": 13.78,
      "source": "bot"
     }
    },
-   "ros_per_game": 13.79,
+   "ros_per_game": 13.78,
    "ros_points": 197.7,
    "season_points": 60.8,
    "season_avg": 12.16,
    "bye": 11,
-   "percent_rostered": 91.46
+   "percent_rostered": 92.38
   },
   {
    "id": -16014,
@@ -4649,7 +4588,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 5.63,
+     "points": 5.57,
      "source": "espn"
     },
     "8": {
@@ -4658,11 +4597,11 @@
     }
    },
    "ros_per_game": 5.93,
-   "ros_points": 83.9,
+   "ros_points": 83.8,
    "season_points": 23.0,
    "season_avg": 4.6,
    "bye": 11,
-   "percent_rostered": 84.9
+   "percent_rostered": 87.91
   },
   {
    "id": 4361741,
@@ -4688,12 +4627,12 @@
      "source": "bot"
     }
    },
-   "ros_per_game": 19.93,
+   "ros_per_game": 19.92,
    "ros_points": 280.1,
    "season_points": 116.64,
    "season_avg": 23.328,
    "bye": 8,
-   "percent_rostered": 97.24
+   "percent_rostered": 97.52
   },
   {
    "id": 4038815,
@@ -4724,7 +4663,7 @@
    "season_points": 10.5,
    "season_avg": 5.25,
    "bye": 9,
-   "percent_rostered": 61.14
+   "percent_rostered": 59.84
   },
   {
    "id": 4360078,
@@ -4750,12 +4689,12 @@
      "source": "bot"
     }
    },
-   "ros_per_game": 9.52,
-   "ros_points": 90.5,
+   "ros_per_game": 9.28,
+   "ros_points": 88.1,
    "season_points": 12.2,
    "season_avg": 6.1,
    "bye": 13,
-   "percent_rostered": 57.67
+   "percent_rostered": 57.13
   },
   {
    "id": 3050073,
@@ -4763,7 +4702,7 @@
    "position": "LB",
    "nfl_team": "JAX",
    "fantasy_team": "Kat's Top-Notch Team",
-   "slot": "BE",
+   "slot": "DP",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -4786,7 +4725,7 @@
    "season_points": 75.0,
    "season_avg": 15.0,
    "bye": 7,
-   "percent_rostered": 64.44
+   "percent_rostered": 64.94
   },
   {
    "id": 4574716,
@@ -4817,7 +4756,7 @@
    "season_points": 30.0,
    "season_avg": 6.0,
    "bye": null,
-   "percent_rostered": 52.47
+   "percent_rostered": 43.56
   },
   {
    "id": 3046439,
@@ -4844,11 +4783,11 @@
     }
    },
    "ros_per_game": 8.39,
-   "ros_points": 117.6,
+   "ros_points": 117.5,
    "season_points": 40.7,
    "season_avg": 8.14,
    "bye": 11,
-   "percent_rostered": 41.22
+   "percent_rostered": 41.69
   },
   {
    "id": 3126486,
@@ -4856,7 +4795,7 @@
    "position": "WR",
    "nfl_team": "SF",
    "fantasy_team": "Kat's Top-Notch Team",
-   "slot": "FLEX",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "OUT",
    "locked": false,
@@ -4879,7 +4818,7 @@
    "season_points": 60.4,
    "season_avg": 12.08,
    "bye": 8,
-   "percent_rostered": 81.12
+   "percent_rostered": 79.82
   },
   {
    "id": 4039396,
@@ -4910,7 +4849,7 @@
    "season_points": 10.0,
    "season_avg": 2.0,
    "bye": 11,
-   "percent_rostered": 79.47
+   "percent_rostered": 80.12
   },
   {
    "id": 4870795,
@@ -4924,24 +4863,24 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 6.93,
+     "points": 6.72,
      "source": "espn"
     },
     "7": {
-     "points": 7.62,
+     "points": 7.28,
      "source": "espn"
     },
     "8": {
-     "points": 7.26,
+     "points": 7.17,
      "source": "bot"
     }
    },
-   "ros_per_game": 7.26,
-   "ros_points": 101.7,
+   "ros_per_game": 7.17,
+   "ros_points": 100.0,
    "season_points": 29.3,
    "season_avg": 5.86,
    "bye": 10,
-   "percent_rostered": 46.99
+   "percent_rostered": 45.77
   },
   {
    "id": 4430807,
@@ -4955,7 +4894,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 23.08,
+     "points": 23.09,
      "source": "espn"
     },
     "7": {
@@ -4986,7 +4925,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 16.0,
+     "points": 16.02,
      "source": "espn"
     },
     "7": {
@@ -4999,7 +4938,7 @@
     }
    },
    "ros_per_game": 15.25,
-   "ros_points": 214.5,
+   "ros_points": 214.6,
    "season_points": 84.2,
    "season_avg": 16.84,
    "bye": 11,
@@ -5013,11 +4952,11 @@
    "fantasy_team": "Cheeseball Champ",
    "slot": "TE",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 19.58,
+     "points": 19.59,
      "source": "espn"
     },
     "7": {
@@ -5030,11 +4969,11 @@
     }
    },
    "ros_per_game": 16.97,
-   "ros_points": 240.9,
+   "ros_points": 234.5,
    "season_points": 71.2,
    "season_avg": 23.733333333333334,
    "bye": 13,
-   "percent_rostered": 99.86
+   "percent_rostered": 99.87
   },
   {
    "id": 4430737,
@@ -5065,7 +5004,7 @@
    "season_points": 111.3,
    "season_avg": 22.26,
    "bye": 11,
-   "percent_rostered": 99.32
+   "percent_rostered": 99.4
   },
   {
    "id": 3916387,
@@ -5079,7 +5018,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 19.29,
+     "points": 19.3,
      "source": "espn"
     },
     "7": {
@@ -5096,7 +5035,7 @@
    "season_points": 79.08,
    "season_avg": 19.77,
    "bye": 13,
-   "percent_rostered": 99.11
+   "percent_rostered": 99.12
   },
   {
    "id": 3121422,
@@ -5127,7 +5066,7 @@
    "season_points": 42.3,
    "season_avg": 10.575,
    "bye": 7,
-   "percent_rostered": 91.92
+   "percent_rostered": 92.01
   },
   {
    "id": 3138826,
@@ -5158,7 +5097,7 @@
    "season_points": 108.5,
    "season_avg": 21.7,
    "bye": 8,
-   "percent_rostered": 98.56
+   "percent_rostered": 98.67
   },
   {
    "id": 4432708,
@@ -5189,7 +5128,7 @@
    "season_points": 21.5,
    "season_avg": 5.375,
    "bye": 8,
-   "percent_rostered": 75.47
+   "percent_rostered": 75.79
   },
   {
    "id": 2976212,
@@ -5211,16 +5150,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 10.57,
+     "points": 10.56,
      "source": "bot"
     }
    },
-   "ros_per_game": 10.57,
+   "ros_per_game": 10.56,
    "ros_points": 144.4,
    "season_points": 53.0,
    "season_avg": 13.25,
    "bye": 7,
-   "percent_rostered": 81.88
+   "percent_rostered": 81.57
   },
   {
    "id": 4034949,
@@ -5251,7 +5190,7 @@
    "season_points": 34.0,
    "season_avg": 6.8,
    "bye": 8,
-   "percent_rostered": 70.04
+   "percent_rostered": 69.33
   },
   {
    "id": 4696044,
@@ -5282,7 +5221,7 @@
    "season_points": 15.1,
    "season_avg": 3.0200000000000005,
    "bye": 8,
-   "percent_rostered": 24.5
+   "percent_rostered": 23.82
   },
   {
    "id": 3686689,
@@ -5313,7 +5252,7 @@
    "season_points": 11.0,
    "season_avg": 2.2,
    "bye": 13,
-   "percent_rostered": 85.53
+   "percent_rostered": 84.42
   },
   {
    "id": 4710714,
@@ -5344,7 +5283,7 @@
    "season_points": 0.0,
    "season_avg": 0.0,
    "bye": 8,
-   "percent_rostered": 24.27
+   "percent_rostered": 23.88
   },
   {
    "id": 3915189,
@@ -5375,7 +5314,7 @@
    "season_points": 91.0,
    "season_avg": 18.2,
    "bye": 13,
-   "percent_rostered": 77.4
+   "percent_rostered": 77.59
   },
   {
    "id": 4430539,
@@ -5406,7 +5345,7 @@
    "season_points": 50.5,
    "season_avg": 10.1,
    "bye": 7,
-   "percent_rostered": 37.1
+   "percent_rostered": 40.08
   },
   {
    "id": 3128429,
@@ -5437,7 +5376,7 @@
    "season_points": 29.4,
    "season_avg": 5.88,
    "bye": 10,
-   "percent_rostered": 72.99
+   "percent_rostered": 71.71
   },
   {
    "id": 4832800,
@@ -5447,7 +5386,7 @@
    "fantasy_team": "Cheeseball Champ",
    "slot": "FLEX",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
@@ -5464,11 +5403,11 @@
     }
    },
    "ros_per_game": 11.41,
-   "ros_points": 160.8,
+   "ros_points": 156.9,
    "season_points": 71.0,
    "season_avg": 14.2,
    "bye": 11,
-   "percent_rostered": 79.22
+   "percent_rostered": 79.77
   },
   {
    "id": -16007,
@@ -5486,7 +5425,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 6.35,
+     "points": 6.22,
      "source": "espn"
     },
     "8": {
@@ -5495,11 +5434,11 @@
     }
    },
    "ros_per_game": 6.4,
-   "ros_points": 88.6,
+   "ros_points": 88.5,
    "season_points": 35.0,
    "season_avg": 7.0,
    "bye": 10,
-   "percent_rostered": 82.27
+   "percent_rostered": 82.07
   },
   {
    "id": 14880,
@@ -5530,7 +5469,7 @@
    "season_points": 92.56,
    "season_avg": 18.512,
    "bye": 13,
-   "percent_rostered": 42.01
+   "percent_rostered": 46.91
   },
   {
    "id": 3117251,
@@ -5561,7 +5500,7 @@
    "season_points": 91.3,
    "season_avg": 18.259999999999998,
    "bye": 8,
-   "percent_rostered": 99.91
+   "percent_rostered": 99.92
   },
   {
    "id": 4429160,
@@ -5592,7 +5531,7 @@
    "season_points": 24.6,
    "season_avg": 8.200000000000001,
    "bye": 6,
-   "percent_rostered": 39.81
+   "percent_rostered": 38.95
   },
   {
    "id": 4428331,
@@ -5623,7 +5562,7 @@
    "season_points": 38.0,
    "season_avg": 9.5,
    "bye": 5,
-   "percent_rostered": 96.94
+   "percent_rostered": 96.98
   },
   {
    "id": 4426354,
@@ -5641,7 +5580,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 13.51,
+     "points": 13.45,
      "source": "espn"
     },
     "8": {
@@ -5650,11 +5589,11 @@
     }
    },
    "ros_per_game": 13.36,
-   "ros_points": 187.5,
+   "ros_points": 187.4,
    "season_points": 68.5,
    "season_avg": 13.7,
    "bye": 14,
-   "percent_rostered": 99.11
+   "percent_rostered": 99.1
   },
   {
    "id": 4239993,
@@ -5662,7 +5601,7 @@
    "position": "WR",
    "nfl_team": "CIN",
    "fantasy_team": "Sacks as a Service",
-   "slot": "WR",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -5685,7 +5624,7 @@
    "season_points": 75.3,
    "season_avg": 15.060000000000002,
    "bye": 6,
-   "percent_rostered": 96.59
+   "percent_rostered": 96.51
   },
   {
    "id": 4426348,
@@ -5716,7 +5655,7 @@
    "season_points": 64.66,
    "season_avg": 21.55333333333333,
    "bye": 7,
-   "percent_rostered": 92.99
+   "percent_rostered": 93.33
   },
   {
    "id": 4426388,
@@ -5747,7 +5686,7 @@
    "season_points": 57.6,
    "season_avg": 11.52,
    "bye": 6,
-   "percent_rostered": 90.6
+   "percent_rostered": 90.45
   },
   {
    "id": 4430027,
@@ -5778,7 +5717,7 @@
    "season_points": 76.6,
    "season_avg": 15.319999999999999,
    "bye": 6,
-   "percent_rostered": 96.5
+   "percent_rostered": 96.36
   },
   {
    "id": 3916148,
@@ -5786,9 +5725,9 @@
    "position": "RB",
    "nfl_team": "TEN",
    "fantasy_team": "Sacks as a Service",
-   "slot": "BE",
+   "slot": "FLEX",
    "status": "ONTEAM",
-   "injury": "QUESTIONABLE",
+   "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
@@ -5805,11 +5744,11 @@
     }
    },
    "ros_per_game": 11.64,
-   "ros_points": 162.8,
+   "ros_points": 167.4,
    "season_points": 43.7,
    "season_avg": 8.739999999999998,
    "bye": 9,
-   "percent_rostered": 86.64
+   "percent_rostered": 87.0
   },
   {
    "id": 4569587,
@@ -5827,7 +5766,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 8.25,
+     "points": 8.26,
      "source": "espn"
     },
     "8": {
@@ -5840,7 +5779,7 @@
    "season_points": 51.7,
    "season_avg": 10.34,
    "bye": 9,
-   "percent_rostered": 62.81
+   "percent_rostered": 62.94
   },
   {
    "id": 3139477,
@@ -5871,7 +5810,7 @@
    "season_points": 83.58,
    "season_avg": 20.895000000000003,
    "bye": 5,
-   "percent_rostered": 94.59
+   "percent_rostered": 94.73
   },
   {
    "id": 2473037,
@@ -5902,7 +5841,7 @@
    "season_points": 52.0,
    "season_avg": 10.4,
    "bye": 11,
-   "percent_rostered": 88.96
+   "percent_rostered": 89.23
   },
   {
    "id": 3051397,
@@ -5933,7 +5872,7 @@
    "season_points": 18.0,
    "season_avg": 3.6,
    "bye": 9,
-   "percent_rostered": 74.85
+   "percent_rostered": 74.9
   },
   {
    "id": 3042519,
@@ -5941,7 +5880,7 @@
    "position": "RB",
    "nfl_team": "MIN",
    "fantasy_team": "Sacks as a Service",
-   "slot": "FLEX",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -5964,7 +5903,7 @@
    "season_points": 70.2,
    "season_avg": 14.040000000000001,
    "bye": 6,
-   "percent_rostered": 94.35
+   "percent_rostered": 94.07
   },
   {
    "id": 4249739,
@@ -5995,7 +5934,7 @@
    "season_points": 73.0,
    "season_avg": 14.6,
    "bye": 14,
-   "percent_rostered": 20.9
+   "percent_rostered": 20.16
   },
   {
    "id": 8439,
@@ -6026,7 +5965,7 @@
    "season_points": 85.16,
    "season_avg": 17.032,
    "bye": 9,
-   "percent_rostered": 21.63
+   "percent_rostered": 22.9
   },
   {
    "id": 4569559,
@@ -6034,7 +5973,7 @@
    "position": "WR",
    "nfl_team": "NO",
    "fantasy_team": "Sacks as a Service",
-   "slot": "BE",
+   "slot": "WR",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -6057,7 +5996,7 @@
    "season_points": 62.2,
    "season_avg": 12.440000000000001,
    "bye": 8,
-   "percent_rostered": 67.3
+   "percent_rostered": 68.3
   },
   {
    "id": 4887558,
@@ -6075,26 +6014,26 @@
      "source": "espn"
     },
     "7": {
-     "points": 6.49,
+     "points": 8.79,
      "source": "espn"
     },
     "8": {
-     "points": 7.76,
+     "points": 7.77,
      "source": "bot"
     }
    },
-   "ros_per_game": 7.76,
-   "ros_points": 114.4,
+   "ros_per_game": 7.77,
+   "ros_points": 116.9,
    "season_points": 53.1,
    "season_avg": 10.620000000000001,
    "bye": 11,
-   "percent_rostered": 84.47
+   "percent_rostered": 85.8
   },
   {
-   "id": -16030,
-   "name": "Jaguars D/ST",
+   "id": -16019,
+   "name": "Giants D/ST",
    "position": "D/ST",
-   "nfl_team": "JAX",
+   "nfl_team": "NYG",
    "fantasy_team": "Sacks as a Service",
    "slot": "D/ST",
    "status": "ONTEAM",
@@ -6102,24 +6041,24 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 6.21,
+     "points": 5.38,
      "source": "espn"
     },
     "7": {
-     "points": 0.0,
+     "points": 4.32,
      "source": "espn"
     },
     "8": {
-     "points": 5.94,
+     "points": 0.0,
      "source": "bot"
     }
    },
-   "ros_per_game": 5.94,
-   "ros_points": 83.5,
-   "season_points": 36.0,
-   "season_avg": 7.2,
-   "bye": 7,
-   "percent_rostered": 59.76
+   "ros_per_game": 5.33,
+   "ros_points": 73.6,
+   "season_points": 32.0,
+   "season_avg": 6.4,
+   "bye": 8,
+   "percent_rostered": 14.26
   },
   {
    "id": 4430878,
@@ -6129,7 +6068,7 @@
    "fantasy_team": "Dabob Dungies",
    "slot": "WR",
    "status": "ONTEAM",
-   "injury": "QUESTIONABLE",
+   "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
@@ -6137,7 +6076,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 19.83,
+     "points": 19.8,
      "source": "espn"
     },
     "8": {
@@ -6146,11 +6085,11 @@
     }
    },
    "ros_per_game": 20.57,
-   "ros_points": 279.4,
+   "ros_points": 285.5,
    "season_points": 141.46,
    "season_avg": 28.292,
    "bye": 11,
-   "percent_rostered": 99.92
+   "percent_rostered": 99.93
   },
   {
    "id": 4685382,
@@ -6181,7 +6120,7 @@
    "season_points": 49.6,
    "season_avg": 9.92,
    "bye": 7,
-   "percent_rostered": 96.45
+   "percent_rostered": 95.97
   },
   {
    "id": 4361370,
@@ -6191,7 +6130,7 @@
    "fantasy_team": "Dabob Dungies",
    "slot": "WR",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
@@ -6208,11 +6147,11 @@
     }
    },
    "ros_per_game": 16.79,
-   "ros_points": 236.0,
+   "ros_points": 230.3,
    "season_points": 100.7,
    "season_avg": 20.14,
    "bye": 8,
-   "percent_rostered": 99.65
+   "percent_rostered": 99.61
   },
   {
    "id": 4685702,
@@ -6243,7 +6182,7 @@
    "season_points": 56.3,
    "season_avg": 11.260000000000002,
    "bye": 11,
-   "percent_rostered": 95.17
+   "percent_rostered": 94.92
   },
   {
    "id": 4431452,
@@ -6257,7 +6196,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 20.24,
+     "points": 20.23,
      "source": "espn"
     },
     "7": {
@@ -6270,11 +6209,11 @@
     }
    },
    "ros_per_game": 18.96,
-   "ros_points": 268.0,
+   "ros_points": 267.9,
    "season_points": 89.22,
    "season_avg": 17.844,
    "bye": 11,
-   "percent_rostered": 95.42
+   "percent_rostered": 95.98
   },
   {
    "id": 4685278,
@@ -6288,7 +6227,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 11.71,
+     "points": 11.72,
      "source": "espn"
     },
     "7": {
@@ -6301,11 +6240,11 @@
     }
    },
    "ros_per_game": 11.68,
-   "ros_points": 163.8,
+   "ros_points": 163.9,
    "season_points": 57.8,
    "season_avg": 11.559999999999999,
    "bye": 10,
-   "percent_rostered": 90.06
+   "percent_rostered": 90.01
   },
   {
    "id": 4608686,
@@ -6336,7 +6275,7 @@
    "season_points": 59.3,
    "season_avg": 14.825,
    "bye": 10,
-   "percent_rostered": 79.86
+   "percent_rostered": 80.09
   },
   {
    "id": 2971573,
@@ -6367,7 +6306,7 @@
    "season_points": 57.0,
    "season_avg": 11.4,
    "bye": 8,
-   "percent_rostered": 90.7
+   "percent_rostered": 91.48
   },
   {
    "id": 4361331,
@@ -6398,7 +6337,7 @@
    "season_points": 75.5,
    "season_avg": 15.1,
    "bye": 13,
-   "percent_rostered": 39.39
+   "percent_rostered": 38.99
   },
   {
    "id": 4429086,
@@ -6429,7 +6368,7 @@
    "season_points": 44.1,
    "season_avg": 8.82,
    "bye": 13,
-   "percent_rostered": 15.46
+   "percent_rostered": 14.87
   },
   {
    "id": 4576297,
@@ -6447,7 +6386,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 8.62,
+     "points": 8.61,
      "source": "espn"
     },
     "8": {
@@ -6460,7 +6399,7 @@
    "season_points": 30.3,
    "season_avg": 6.0600000000000005,
    "bye": 11,
-   "percent_rostered": 6.8
+   "percent_rostered": 7.1
   },
   {
    "id": 4428850,
@@ -6470,28 +6409,28 @@
    "fantasy_team": "Dabob Dungies",
    "slot": "BE",
    "status": "ONTEAM",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 8.67,
+     "points": 8.37,
      "source": "espn"
     },
     "7": {
-     "points": 9.56,
+     "points": 9.11,
      "source": "espn"
     },
     "8": {
-     "points": 8.65,
+     "points": 8.53,
      "source": "bot"
     }
    },
-   "ros_per_game": 8.65,
-   "ros_points": 122.0,
+   "ros_per_game": 8.53,
+   "ros_points": 117.1,
    "season_points": 49.0,
    "season_avg": 9.8,
    "bye": 10,
-   "percent_rostered": 42.85
+   "percent_rostered": 41.71
   },
   {
    "id": 3929851,
@@ -6522,7 +6461,7 @@
    "season_points": 18.0,
    "season_avg": 3.6,
    "bye": 11,
-   "percent_rostered": 31.66
+   "percent_rostered": 31.55
   },
   {
    "id": 3912547,
@@ -6540,7 +6479,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 14.12,
+     "points": 14.13,
      "source": "espn"
     },
     "8": {
@@ -6553,7 +6492,7 @@
    "season_points": 49.8,
    "season_avg": 12.45,
    "bye": 11,
-   "percent_rostered": 42.71
+   "percent_rostered": 40.91
   },
   {
    "id": 4427729,
@@ -6584,7 +6523,7 @@
    "season_points": 95.5,
    "season_avg": 19.1,
    "bye": 6,
-   "percent_rostered": 12.59
+   "percent_rostered": 11.44
   },
   {
    "id": 4427366,
@@ -6615,7 +6554,7 @@
    "season_points": 42.5,
    "season_avg": 14.166666666666666,
    "bye": 13,
-   "percent_rostered": 96.82
+   "percent_rostered": 96.56
   },
   {
    "id": 3915511,
@@ -6646,7 +6585,7 @@
    "season_points": 101.24,
    "season_avg": 20.247999999999998,
    "bye": 6,
-   "percent_rostered": 98.21
+   "percent_rostered": 98.07
   },
   {
    "id": -16004,
@@ -6677,7 +6616,7 @@
    "season_points": 40.0,
    "season_avg": 8.0,
    "bye": 6,
-   "percent_rostered": 30.82
+   "percent_rostered": 25.06
   },
   {
    "id": 3917315,
@@ -6708,7 +6647,7 @@
    "season_points": 39.78,
    "season_avg": 9.945,
    "bye": 6,
-   "percent_rostered": 54.96
+   "percent_rostered": 53.33
   },
   {
    "id": 4432577,
@@ -6739,7 +6678,7 @@
    "season_points": 89.18,
    "season_avg": 17.836000000000002,
    "bye": 8,
-   "percent_rostered": 42.31
+   "percent_rostered": 42.68
   },
   {
    "id": 4426338,
@@ -6753,7 +6692,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 13.13,
+     "points": 13.14,
      "source": "espn"
     },
     "7": {
@@ -6770,7 +6709,7 @@
    "season_points": 65.18,
    "season_avg": 13.036000000000001,
    "bye": 10,
-   "percent_rostered": 67.61
+   "percent_rostered": 65.29
   },
   {
    "id": 3122840,
@@ -6801,7 +6740,7 @@
    "season_points": 79.1,
    "season_avg": 15.819999999999999,
    "bye": 11,
-   "percent_rostered": 17.35
+   "percent_rostered": 16.96
   },
   {
    "id": 4360423,
@@ -6811,11 +6750,11 @@
    "fantasy_team": null,
    "slot": null,
    "status": "FREEAGENT",
-   "injury": "QUESTIONABLE",
+   "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 15.16,
+     "points": 15.2,
      "source": "espn"
     },
     "7": {
@@ -6823,16 +6762,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 14.05,
+     "points": 14.06,
      "source": "bot"
     }
    },
-   "ros_per_game": 14.05,
-   "ros_points": 193.7,
+   "ros_per_game": 14.06,
+   "ros_points": 197.9,
    "season_points": 41.16,
    "season_avg": 13.72,
    "bye": 11,
-   "percent_rostered": 8.04
+   "percent_rostered": 8.55
   },
   {
    "id": 15864,
@@ -6863,7 +6802,7 @@
    "season_points": 69.66,
    "season_avg": 13.931999999999999,
    "bye": 13,
-   "percent_rostered": 6.36
+   "percent_rostered": 6.11
   },
   {
    "id": 3052587,
@@ -6894,7 +6833,7 @@
    "season_points": 35.1,
    "season_avg": 11.700000000000001,
    "bye": 10,
-   "percent_rostered": 28.09
+   "percent_rostered": 27.1
   },
   {
    "id": 4242512,
@@ -6925,7 +6864,7 @@
    "season_points": 60.56,
    "season_avg": 12.112,
    "bye": 6,
-   "percent_rostered": 8.07
+   "percent_rostered": 7.75
   },
   {
    "id": 3917792,
@@ -6939,7 +6878,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 13.7,
+     "points": 13.64,
      "source": "espn"
     },
     "7": {
@@ -6947,16 +6886,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 12.76,
+     "points": 12.74,
      "source": "bot"
     }
    },
-   "ros_per_game": 12.76,
-   "ros_points": 176.9,
+   "ros_per_game": 12.74,
+   "ros_points": 176.6,
    "season_points": 47.34,
    "season_avg": 9.468,
    "bye": 13,
-   "percent_rostered": 18.13
+   "percent_rostered": 17.78
   },
   {
    "id": 4689114,
@@ -6987,7 +6926,7 @@
    "season_points": 27.4,
    "season_avg": 13.7,
    "bye": 8,
-   "percent_rostered": 28.67
+   "percent_rostered": 28.05
   },
   {
    "id": 4047365,
@@ -7018,7 +6957,7 @@
    "season_points": 0.0,
    "season_avg": 0.0,
    "bye": 11,
-   "percent_rostered": 77.67
+   "percent_rostered": 77.14
   },
   {
    "id": 4568490,
@@ -7027,7 +6966,7 @@
    "nfl_team": "DEN",
    "fantasy_team": null,
    "slot": null,
-   "status": "WAIVERS",
+   "status": "FREEAGENT",
    "injury": "ACTIVE",
    "locked": false,
    "projections": {
@@ -7049,7 +6988,7 @@
    "season_points": 38.8,
    "season_avg": 9.700000000000001,
    "bye": 10,
-   "percent_rostered": 73.49
+   "percent_rostered": 72.6
   },
   {
    "id": 4239996,
@@ -7080,7 +7019,7 @@
    "season_points": 30.9,
    "season_avg": 10.3,
    "bye": 8,
-   "percent_rostered": 84.64
+   "percent_rostered": 84.14
   },
   {
    "id": 4429096,
@@ -7111,38 +7050,7 @@
    "season_points": 38.4,
    "season_avg": 7.6800000000000015,
    "bye": 11,
-   "percent_rostered": 66.62
-  },
-  {
-   "id": 4428557,
-   "name": "Tyjae Spears",
-   "position": "RB",
-   "nfl_team": "TEN",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 8.81,
-     "source": "espn"
-    },
-    "7": {
-     "points": 8.37,
-     "source": "espn"
-    },
-    "8": {
-     "points": 7.8,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 7.8,
-   "ros_points": 110.8,
-   "season_points": 25.3,
-   "season_avg": 5.0600000000000005,
-   "bye": 9,
-   "percent_rostered": 34.92
+   "percent_rostered": 67.33
   },
   {
    "id": 4360569,
@@ -7173,7 +7081,38 @@
    "season_points": 11.9,
    "season_avg": 11.9,
    "bye": 6,
-   "percent_rostered": 51.34
+   "percent_rostered": 51.39
+  },
+  {
+   "id": 4428557,
+   "name": "Tyjae Spears",
+   "position": "RB",
+   "nfl_team": "TEN",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "QUESTIONABLE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 8.81,
+     "source": "espn"
+    },
+    "7": {
+     "points": 8.38,
+     "source": "espn"
+    },
+    "8": {
+     "points": 7.8,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 7.8,
+   "ros_points": 108.0,
+   "season_points": 25.3,
+   "season_avg": 5.0600000000000005,
+   "bye": 9,
+   "percent_rostered": 34.86
   },
   {
    "id": 4697815,
@@ -7204,7 +7143,38 @@
    "season_points": 33.1,
    "season_avg": 8.275,
    "bye": 7,
-   "percent_rostered": 56.34
+   "percent_rostered": 55.18
+  },
+  {
+   "id": 4371733,
+   "name": "Kenny Gainwell",
+   "position": "RB",
+   "nfl_team": "TB",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "WAIVERS",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 7.06,
+     "source": "espn"
+    },
+    "7": {
+     "points": 7.27,
+     "source": "espn"
+    },
+    "8": {
+     "points": 7.43,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 7.43,
+   "ros_points": 103.5,
+   "season_points": 28.8,
+   "season_avg": 5.76,
+   "bye": 10,
+   "percent_rostered": 58.46
   },
   {
    "id": 4596334,
@@ -7235,7 +7205,7 @@
    "season_points": 36.7,
    "season_avg": 7.340000000000001,
    "bye": 7,
-   "percent_rostered": 23.55
+   "percent_rostered": 23.0
   },
   {
    "id": 4432710,
@@ -7245,7 +7215,7 @@
    "fantasy_team": null,
    "slot": null,
    "status": "FREEAGENT",
-   "injury": "DOUBTFUL",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
@@ -7266,38 +7236,7 @@
    "season_points": 26.5,
    "season_avg": 6.625,
    "bye": 11,
-   "percent_rostered": 82.88
-  },
-  {
-   "id": 4599739,
-   "name": "Kendre Miller",
-   "position": "RB",
-   "nfl_team": "NO",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 9.07,
-     "source": "espn"
-    },
-    "7": {
-     "points": 8.3,
-     "source": "espn"
-    },
-    "8": {
-     "points": 0.0,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 6.86,
-   "ros_points": 99.7,
-   "season_points": 23.8,
-   "season_avg": 5.95,
-   "bye": 8,
-   "percent_rostered": 22.2
+   "percent_rostered": 81.43
   },
   {
    "id": 4431299,
@@ -7328,7 +7267,7 @@
    "season_points": 44.3,
    "season_avg": 8.86,
    "bye": 10,
-   "percent_rostered": 87.77
+   "percent_rostered": 87.67
   },
   {
    "id": 4685415,
@@ -7359,7 +7298,7 @@
    "season_points": 50.0,
    "season_avg": 10.0,
    "bye": 7,
-   "percent_rostered": 31.32
+   "percent_rostered": 30.54
   },
   {
    "id": 3916433,
@@ -7390,7 +7329,7 @@
    "season_points": 49.4,
    "season_avg": 9.88,
    "bye": 7,
-   "percent_rostered": 72.15
+   "percent_rostered": 71.57
   },
   {
    "id": 4429205,
@@ -7421,7 +7360,7 @@
    "season_points": 33.2,
    "season_avg": 8.3,
    "bye": 6,
-   "percent_rostered": 75.25
+   "percent_rostered": 73.96
   },
   {
    "id": 4428718,
@@ -7452,7 +7391,7 @@
    "season_points": 51.8,
    "season_avg": 10.36,
    "bye": 13,
-   "percent_rostered": 35.71
+   "percent_rostered": 38.13
   },
   {
    "id": 4373678,
@@ -7483,38 +7422,38 @@
    "season_points": 41.6,
    "season_avg": 8.32,
    "bye": 7,
-   "percent_rostered": 62.37
+   "percent_rostered": 62.3
   },
   {
-   "id": 4597500,
-   "name": "Adonai Mitchell",
+   "id": 15818,
+   "name": "Keenan Allen",
    "position": "WR",
-   "nfl_team": "NYJ",
+   "nfl_team": "IND",
    "fantasy_team": null,
    "slot": null,
    "status": "FREEAGENT",
-   "injury": "DOUBTFUL",
+   "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 9.41,
+     "points": 9.42,
      "source": "espn"
     },
     "7": {
-     "points": 9.87,
+     "points": 8.25,
      "source": "espn"
     },
     "8": {
-     "points": 8.8,
+     "points": 8.88,
      "source": "bot"
     }
    },
-   "ros_per_game": 8.8,
-   "ros_points": 124.9,
-   "season_points": 21.3,
-   "season_avg": 10.65,
+   "ros_per_game": 8.88,
+   "ros_points": 124.3,
+   "season_points": 38.5,
+   "season_avg": 9.625,
    "bye": 13,
-   "percent_rostered": 21.2
+   "percent_rostered": 38.54
   },
   {
    "id": 4869645,
@@ -7545,38 +7484,7 @@
    "season_points": 20.3,
    "season_avg": 10.15,
    "bye": 6,
-   "percent_rostered": 12.58
-  },
-  {
-   "id": 15818,
-   "name": "Keenan Allen",
-   "position": "WR",
-   "nfl_team": "IND",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "QUESTIONABLE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 9.43,
-     "source": "espn"
-    },
-    "7": {
-     "points": 8.25,
-     "source": "espn"
-    },
-    "8": {
-     "points": 8.87,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 8.87,
-   "ros_points": 121.0,
-   "season_points": 38.5,
-   "season_avg": 9.625,
-   "bye": 13,
-   "percent_rostered": 37.82
+   "percent_rostered": 12.11
   },
   {
    "id": 3116165,
@@ -7607,7 +7515,38 @@
    "season_points": 38.7,
    "season_avg": 7.74,
    "bye": 10,
-   "percent_rostered": 51.62
+   "percent_rostered": 50.51
+  },
+  {
+   "id": 4597500,
+   "name": "Adonai Mitchell",
+   "position": "WR",
+   "nfl_team": "NYJ",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "DOUBTFUL",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 0.0,
+     "source": "espn"
+    },
+    "7": {
+     "points": 9.87,
+     "source": "espn"
+    },
+    "8": {
+     "points": 8.36,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 8.36,
+   "ros_points": 110.2,
+   "season_points": 21.3,
+   "season_avg": 10.65,
+   "bye": 13,
+   "percent_rostered": 20.24
   },
   {
    "id": 3121023,
@@ -7621,24 +7560,24 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 10.43,
+     "points": 10.13,
      "source": "espn"
     },
     "7": {
-     "points": 11.47,
+     "points": 10.96,
      "source": "espn"
     },
     "8": {
-     "points": 10.43,
+     "points": 10.29,
      "source": "bot"
     }
    },
-   "ros_per_game": 10.43,
-   "ros_points": 147.1,
+   "ros_per_game": 10.29,
+   "ros_points": 144.6,
    "season_points": 34.9,
    "season_avg": 11.633333333333333,
    "bye": 10,
-   "percent_rostered": 81.23
+   "percent_rostered": 82.16
   },
   {
    "id": 4361411,
@@ -7669,7 +7608,7 @@
    "season_points": 60.3,
    "season_avg": 12.059999999999999,
    "bye": 9,
-   "percent_rostered": 42.74
+   "percent_rostered": 49.24
   },
   {
    "id": 3116365,
@@ -7691,16 +7630,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 9.37,
+     "points": 9.38,
      "source": "bot"
     }
    },
-   "ros_per_game": 9.37,
-   "ros_points": 132.2,
+   "ros_per_game": 9.38,
+   "ros_points": 132.3,
    "season_points": 43.7,
    "season_avg": 8.74,
    "bye": 13,
-   "percent_rostered": 75.26
+   "percent_rostered": 74.65
   },
   {
    "id": 4360248,
@@ -7714,7 +7653,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 8.39,
+     "points": 8.4,
      "source": "espn"
     },
     "7": {
@@ -7727,11 +7666,11 @@
     }
    },
    "ros_per_game": 8.46,
-   "ros_points": 117.9,
+   "ros_points": 118.0,
    "season_points": 28.9,
    "season_avg": 5.779999999999999,
    "bye": 11,
-   "percent_rostered": 69.67
+   "percent_rostered": 69.77
   },
   {
    "id": 3117256,
@@ -7762,7 +7701,7 @@
    "season_points": 48.4,
    "season_avg": 9.680000000000001,
    "bye": 8,
-   "percent_rostered": 36.69
+   "percent_rostered": 34.86
   },
   {
    "id": 4242355,
@@ -7780,7 +7719,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 6.81,
+     "points": 6.78,
      "source": "espn"
     },
     "8": {
@@ -7793,7 +7732,7 @@
    "season_points": 41.2,
    "season_avg": 8.24,
    "bye": 14,
-   "percent_rostered": 68.17
+   "percent_rostered": 66.12
   },
   {
    "id": 3116164,
@@ -7824,7 +7763,7 @@
    "season_points": 51.9,
    "season_avg": 10.379999999999999,
    "bye": 6,
-   "percent_rostered": 19.09
+   "percent_rostered": 17.74
   },
   {
    "id": 5083315,
@@ -7838,7 +7777,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 6.44,
+     "points": 6.42,
      "source": "espn"
     },
     "7": {
@@ -7846,16 +7785,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 7.09,
+     "points": 7.08,
      "source": "bot"
     }
    },
-   "ros_per_game": 7.09,
-   "ros_points": 96.0,
+   "ros_per_game": 7.08,
+   "ros_points": 95.9,
    "season_points": 38.9,
    "season_avg": 7.780000000000001,
    "bye": 13,
-   "percent_rostered": 40.83
+   "percent_rostered": 38.36
   },
   {
    "id": 2573401,
@@ -7886,7 +7825,7 @@
    "season_points": 48.4,
    "season_avg": 9.680000000000001,
    "bye": 11,
-   "percent_rostered": 11.17
+   "percent_rostered": 13.94
   },
   {
    "id": 4570037,
@@ -7917,7 +7856,7 @@
    "season_points": 19.3,
    "season_avg": 6.433333333333334,
    "bye": 11,
-   "percent_rostered": 13.86
+   "percent_rostered": 13.44
   },
   {
    "id": 4035369,
@@ -7948,7 +7887,7 @@
    "season_points": 66.0,
    "season_avg": 13.2,
    "bye": 9,
-   "percent_rostered": 63.03
+   "percent_rostered": 62.89
   },
   {
    "id": 4361366,
@@ -7979,7 +7918,7 @@
    "season_points": 59.0,
    "season_avg": 11.8,
    "bye": 8,
-   "percent_rostered": 17.23
+   "percent_rostered": 17.54
   },
   {
    "id": 2971282,
@@ -8010,7 +7949,7 @@
    "season_points": 57.0,
    "season_avg": 11.4,
    "bye": 13,
-   "percent_rostered": 35.21
+   "percent_rostered": 35.82
   },
   {
    "id": 4035495,
@@ -8024,7 +7963,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 7.64,
+     "points": 7.63,
      "source": "espn"
     },
     "7": {
@@ -8037,11 +7976,11 @@
     }
    },
    "ros_per_game": 7.31,
-   "ros_points": 110.5,
+   "ros_points": 110.4,
    "season_points": 26.0,
    "season_avg": 6.5,
    "bye": 5,
-   "percent_rostered": 9.04
+   "percent_rostered": 9.21
   },
   {
    "id": 13977,
@@ -8072,7 +8011,7 @@
    "season_points": 42.5,
    "season_avg": 8.5,
    "bye": 9,
-   "percent_rostered": 13.29
+   "percent_rostered": 13.48
   },
   {
    "id": 4360277,
@@ -8103,7 +8042,7 @@
    "season_points": 36.0,
    "season_avg": 7.2,
    "bye": 6,
-   "percent_rostered": 11.64
+   "percent_rostered": 10.82
   },
   {
    "id": 4570040,
@@ -8134,7 +8073,38 @@
    "season_points": 43.0,
    "season_avg": 8.6,
    "bye": 11,
-   "percent_rostered": 7.42
+   "percent_rostered": 8.02
+  },
+  {
+   "id": 2971622,
+   "name": "Leonard Williams",
+   "position": "DT",
+   "nfl_team": "SEA",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 7.12,
+     "source": "espn"
+    },
+    "7": {
+     "points": 7.29,
+     "source": "espn"
+    },
+    "8": {
+     "points": 7.09,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 7.09,
+   "ros_points": 99.5,
+   "season_points": 32.5,
+   "season_avg": 6.5,
+   "bye": 11,
+   "percent_rostered": 14.04
   },
   {
    "id": 4040982,
@@ -8152,7 +8122,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 7.27,
+     "points": 7.26,
      "source": "espn"
     },
     "8": {
@@ -8165,38 +8135,7 @@
    "season_points": 35.5,
    "season_avg": 7.1,
    "bye": 14,
-   "percent_rostered": 16.67
-  },
-  {
-   "id": 2971622,
-   "name": "Leonard Williams",
-   "position": "DT",
-   "nfl_team": "SEA",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "QUESTIONABLE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 7.12,
-     "source": "espn"
-    },
-    "7": {
-     "points": 7.29,
-     "source": "espn"
-    },
-    "8": {
-     "points": 7.09,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 7.09,
-   "ros_points": 97.7,
-   "season_points": 32.5,
-   "season_avg": 6.5,
-   "bye": 11,
-   "percent_rostered": 14.55
+   "percent_rostered": 16.44
   },
   {
    "id": 4381558,
@@ -8227,7 +8166,7 @@
    "season_points": 40.0,
    "season_avg": 8.0,
    "bye": 10,
-   "percent_rostered": 6.39
+   "percent_rostered": 6.26
   },
   {
    "id": 4685724,
@@ -8258,7 +8197,7 @@
    "season_points": 72.0,
    "season_avg": 14.4,
    "bye": 8,
-   "percent_rostered": 69.96
+   "percent_rostered": 70.65
   },
   {
    "id": 3133487,
@@ -8289,7 +8228,7 @@
    "season_points": 41.0,
    "season_avg": 8.2,
    "bye": 6,
-   "percent_rostered": 48.9
+   "percent_rostered": 46.29
   },
   {
    "id": 4362506,
@@ -8320,7 +8259,38 @@
    "season_points": 58.5,
    "season_avg": 11.7,
    "bye": 7,
-   "percent_rostered": 50.03
+   "percent_rostered": 49.75
+  },
+  {
+   "id": 4685248,
+   "name": "David Bailey",
+   "position": "DE",
+   "nfl_team": "NYJ",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 9.95,
+     "source": "espn"
+    },
+    "7": {
+     "points": 8.53,
+     "source": "espn"
+    },
+    "8": {
+     "points": 9.0,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 9.0,
+   "ros_points": 126.5,
+   "season_points": 59.5,
+   "season_avg": 11.9,
+   "bye": 13,
+   "percent_rostered": 35.21
   },
   {
    "id": 4875196,
@@ -8351,38 +8321,7 @@
    "season_points": 44.0,
    "season_avg": 8.8,
    "bye": 11,
-   "percent_rostered": 30.31
-  },
-  {
-   "id": 4685248,
-   "name": "David Bailey",
-   "position": "DE",
-   "nfl_team": "NYJ",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 9.08,
-     "source": "espn"
-    },
-    "7": {
-     "points": 8.53,
-     "source": "espn"
-    },
-    "8": {
-     "points": 8.72,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 8.72,
-   "ros_points": 122.2,
-   "season_points": 59.5,
-   "season_avg": 11.9,
-   "bye": 13,
-   "percent_rostered": 31.71
+   "percent_rostered": 32.58
   },
   {
    "id": 4431442,
@@ -8413,7 +8352,7 @@
    "season_points": 59.0,
    "season_avg": 11.8,
    "bye": 7,
-   "percent_rostered": 36.39
+   "percent_rostered": 37.28
   },
   {
    "id": 4565190,
@@ -8444,7 +8383,7 @@
    "season_points": 35.5,
    "season_avg": 7.1,
    "bye": 6,
-   "percent_rostered": 40.22
+   "percent_rostered": 37.16
   },
   {
    "id": 4683848,
@@ -8462,7 +8401,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 8.11,
+     "points": 8.09,
      "source": "espn"
     },
     "8": {
@@ -8475,7 +8414,7 @@
    "season_points": 54.5,
    "season_avg": 10.9,
    "bye": 14,
-   "percent_rostered": 7.55
+   "percent_rostered": 7.75
   },
   {
    "id": 3916655,
@@ -8506,7 +8445,7 @@
    "season_points": 24.5,
    "season_avg": 4.9,
    "bye": 13,
-   "percent_rostered": 72.44
+   "percent_rostered": 71.52
   },
   {
    "id": 3915239,
@@ -8537,69 +8476,7 @@
    "season_points": 47.0,
    "season_avg": 9.4,
    "bye": 7,
-   "percent_rostered": 18.8
-  },
-  {
-   "id": 3917657,
-   "name": "Zack Baun",
-   "position": "LB",
-   "nfl_team": "PHI",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 19.53,
-     "source": "espn"
-    },
-    "7": {
-     "points": 19.51,
-     "source": "espn"
-    },
-    "8": {
-     "points": 18.99,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 18.99,
-   "ros_points": 266.9,
-   "season_points": 81.5,
-   "season_avg": 20.375,
-   "bye": 10,
-   "percent_rostered": 58.42
-  },
-  {
-   "id": 3919117,
-   "name": "Azeez Al-Shaair",
-   "position": "LB",
-   "nfl_team": "HOU",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 18.41,
-     "source": "espn"
-    },
-    "7": {
-     "points": 18.89,
-     "source": "espn"
-    },
-    "8": {
-     "points": 0.0,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 17.83,
-   "ros_points": 251.2,
-   "season_points": 86.5,
-   "season_avg": 21.625,
-   "bye": 8,
-   "percent_rostered": 21.81
+   "percent_rostered": 19.47
   },
   {
    "id": 4361652,
@@ -8621,47 +8498,47 @@
      "source": "espn"
     },
     "8": {
-     "points": 17.65,
+     "points": 17.64,
      "source": "bot"
     }
    },
-   "ros_per_game": 17.65,
+   "ros_per_game": 17.64,
    "ros_points": 246.6,
    "season_points": 97.5,
    "season_avg": 19.5,
    "bye": 9,
-   "percent_rostered": 15.37
+   "percent_rostered": 17.83
   },
   {
-   "id": 4243181,
-   "name": "Nate Landman",
+   "id": 3919117,
+   "name": "Azeez Al-Shaair",
    "position": "LB",
-   "nfl_team": "LAR",
+   "nfl_team": "HOU",
    "fantasy_team": null,
    "slot": null,
    "status": "FREEAGENT",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 17.96,
+     "points": 18.41,
      "source": "espn"
     },
     "7": {
-     "points": 17.81,
+     "points": 18.89,
      "source": "espn"
     },
     "8": {
-     "points": 17.41,
+     "points": 0.0,
      "source": "bot"
     }
    },
-   "ros_per_game": 17.41,
-   "ros_points": 244.7,
-   "season_points": 91.5,
-   "season_avg": 18.3,
-   "bye": 11,
-   "percent_rostered": 49.35
+   "ros_per_game": 17.83,
+   "ros_points": 246.4,
+   "season_points": 86.5,
+   "season_avg": 21.625,
+   "bye": 8,
+   "percent_rostered": 23.08
   },
   {
    "id": 4870998,
@@ -8692,7 +8569,38 @@
    "season_points": 93.5,
    "season_avg": 23.375,
    "bye": 10,
-   "percent_rostered": 32.54
+   "percent_rostered": 32.59
+  },
+  {
+   "id": 4243181,
+   "name": "Nate Landman",
+   "position": "LB",
+   "nfl_team": "LAR",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "QUESTIONABLE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 17.96,
+     "source": "espn"
+    },
+    "7": {
+     "points": 17.81,
+     "source": "espn"
+    },
+    "8": {
+     "points": 17.41,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 17.41,
+   "ros_points": 240.1,
+   "season_points": 91.5,
+   "season_avg": 18.3,
+   "bye": 11,
+   "percent_rostered": 51.69
   },
   {
    "id": 4431519,
@@ -8723,7 +8631,38 @@
    "season_points": 88.0,
    "season_avg": 17.6,
    "bye": 6,
-   "percent_rostered": 14.72
+   "percent_rostered": 14.27
+  },
+  {
+   "id": 4036261,
+   "name": "Devin Bush",
+   "position": "LB",
+   "nfl_team": "CHI",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 18.5,
+     "source": "espn"
+    },
+    "7": {
+     "points": 18.43,
+     "source": "espn"
+    },
+    "8": {
+     "points": 16.81,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 16.81,
+   "ros_points": 238.6,
+   "season_points": 60.5,
+   "season_avg": 12.1,
+   "bye": 10,
+   "percent_rostered": 30.51
   },
   {
    "id": 3124005,
@@ -8754,38 +8693,7 @@
    "season_points": 81.5,
    "season_avg": 16.3,
    "bye": 11,
-   "percent_rostered": 11.44
-  },
-  {
-   "id": 4036261,
-   "name": "Devin Bush",
-   "position": "LB",
-   "nfl_team": "CHI",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 18.12,
-     "source": "espn"
-    },
-    "7": {
-     "points": 18.43,
-     "source": "espn"
-    },
-    "8": {
-     "points": 16.69,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 16.69,
-   "ros_points": 236.8,
-   "season_points": 60.5,
-   "season_avg": 12.1,
-   "bye": 10,
-   "percent_rostered": 29.62
+   "percent_rostered": 13.02
   },
   {
    "id": 3929950,
@@ -8816,7 +8724,7 @@
    "season_points": 89.0,
    "season_avg": 17.8,
    "bye": 8,
-   "percent_rostered": 29.43
+   "percent_rostered": 30.59
   },
   {
    "id": 4379416,
@@ -8847,7 +8755,38 @@
    "season_points": 73.0,
    "season_avg": 14.6,
    "bye": 13,
-   "percent_rostered": 37.18
+   "percent_rostered": 36.34
+  },
+  {
+   "id": 3129446,
+   "name": "Robert Spillane",
+   "position": "LB",
+   "nfl_team": "NE",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 17.05,
+     "source": "espn"
+    },
+    "7": {
+     "points": 18.12,
+     "source": "espn"
+    },
+    "8": {
+     "points": 16.39,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 16.39,
+   "ros_points": 231.8,
+   "season_points": 69.0,
+   "season_avg": 13.8,
+   "bye": 11,
+   "percent_rostered": 23.17
   },
   {
    "id": 4249128,
@@ -8878,7 +8817,7 @@
    "season_points": 81.0,
    "season_avg": 16.2,
    "bye": 11,
-   "percent_rostered": 50.24
+   "percent_rostered": 50.66
   },
   {
    "id": 3139387,
@@ -8909,7 +8848,7 @@
    "season_points": 80.0,
    "season_avg": 16.0,
    "bye": 6,
-   "percent_rostered": 7.44
+   "percent_rostered": 7.29
   },
   {
    "id": 4682618,
@@ -8940,7 +8879,7 @@
    "season_points": 74.0,
    "season_avg": 14.8,
    "bye": 10,
-   "percent_rostered": 23.98
+   "percent_rostered": 24.99
   },
   {
    "id": 4239694,
@@ -8971,7 +8910,7 @@
    "season_points": 75.0,
    "season_avg": 15.0,
    "bye": 7,
-   "percent_rostered": 22.12
+   "percent_rostered": 23.52
   },
   {
    "id": 4575431,
@@ -9002,38 +8941,7 @@
    "season_points": 68.5,
    "season_avg": 13.7,
    "bye": 11,
-   "percent_rostered": 31.16
-  },
-  {
-   "id": 4259493,
-   "name": "Keisean Nixon",
-   "position": "CB",
-   "nfl_team": "GB",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 12.43,
-     "source": "espn"
-    },
-    "7": {
-     "points": 12.64,
-     "source": "espn"
-    },
-    "8": {
-     "points": 12.14,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 12.14,
-   "ros_points": 170.8,
-   "season_points": 71.5,
-   "season_avg": 14.3,
-   "bye": 11,
-   "percent_rostered": 10.1
+   "percent_rostered": 31.15
   },
   {
    "id": 4602699,
@@ -9064,7 +8972,7 @@
    "season_points": 63.0,
    "season_avg": 12.6,
    "bye": 8,
-   "percent_rostered": 40.6
+   "percent_rostered": 40.47
   },
   {
    "id": 4379397,
@@ -9095,7 +9003,38 @@
    "season_points": 51.5,
    "season_avg": 12.875,
    "bye": 11,
-   "percent_rostered": 12.78
+   "percent_rostered": 12.82
+  },
+  {
+   "id": 4259493,
+   "name": "Keisean Nixon",
+   "position": "CB",
+   "nfl_team": "GB",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "QUESTIONABLE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 12.43,
+     "source": "espn"
+    },
+    "7": {
+     "points": 12.64,
+     "source": "espn"
+    },
+    "8": {
+     "points": 12.14,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 12.14,
+   "ros_points": 167.6,
+   "season_points": 71.5,
+   "season_avg": 14.3,
+   "bye": 11,
+   "percent_rostered": 10.34
   },
   {
    "id": 4426422,
@@ -9126,7 +9065,7 @@
    "season_points": 61.0,
    "season_avg": 12.2,
    "bye": 6,
-   "percent_rostered": 13.01
+   "percent_rostered": 11.56
   },
   {
    "id": 4248911,
@@ -9144,7 +9083,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 11.55,
+     "points": 11.52,
      "source": "espn"
     },
     "8": {
@@ -9157,7 +9096,7 @@
    "season_points": 49.0,
    "season_avg": 9.8,
    "bye": 14,
-   "percent_rostered": 15.2
+   "percent_rostered": 15.03
   },
   {
    "id": 3127287,
@@ -9188,7 +9127,7 @@
    "season_points": 80.5,
    "season_avg": 16.1,
    "bye": 14,
-   "percent_rostered": 51.26
+   "percent_rostered": 52.64
   },
   {
    "id": 4426686,
@@ -9198,7 +9137,7 @@
    "fantasy_team": null,
    "slot": null,
    "status": "FREEAGENT",
-   "injury": "ACTIVE",
+   "injury": "QUESTIONABLE",
    "locked": false,
    "projections": {
     "6": {
@@ -9215,42 +9154,11 @@
     }
    },
    "ros_per_game": 15.77,
-   "ros_points": 221.4,
+   "ros_points": 217.1,
    "season_points": 79.5,
    "season_avg": 15.9,
    "bye": 13,
-   "percent_rostered": 31.45
-  },
-  {
-   "id": 4428863,
-   "name": "Evan Williams",
-   "position": "S",
-   "nfl_team": "GB",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 15.37,
-     "source": "espn"
-    },
-    "7": {
-     "points": 15.6,
-     "source": "espn"
-    },
-    "8": {
-     "points": 15.36,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 15.36,
-   "ros_points": 215.3,
-   "season_points": 102.0,
-   "season_avg": 20.4,
-   "bye": 11,
-   "percent_rostered": 41.63
+   "percent_rostered": 31.5
   },
   {
    "id": 4575517,
@@ -9281,7 +9189,38 @@
    "season_points": 90.5,
    "season_avg": 18.1,
    "bye": 13,
-   "percent_rostered": 71.05
+   "percent_rostered": 72.12
+  },
+  {
+   "id": 4428863,
+   "name": "Evan Williams",
+   "position": "S",
+   "nfl_team": "GB",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "QUESTIONABLE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 15.37,
+     "source": "espn"
+    },
+    "7": {
+     "points": 15.6,
+     "source": "espn"
+    },
+    "8": {
+     "points": 15.36,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 15.36,
+   "ros_points": 211.3,
+   "season_points": 102.0,
+   "season_avg": 20.4,
+   "bye": 11,
+   "percent_rostered": 43.07
   },
   {
    "id": 4954445,
@@ -9295,7 +9234,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 15.05,
+     "points": 15.06,
      "source": "espn"
     },
     "7": {
@@ -9303,16 +9242,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 14.42,
+     "points": 14.43,
      "source": "bot"
     }
    },
-   "ros_per_game": 14.42,
-   "ros_points": 203.6,
+   "ros_per_game": 14.43,
+   "ros_points": 203.7,
    "season_points": 83.0,
    "season_avg": 16.6,
    "bye": 10,
-   "percent_rostered": 28.07
+   "percent_rostered": 29.62
   },
   {
    "id": 4426403,
@@ -9322,7 +9261,7 @@
    "fantasy_team": null,
    "slot": null,
    "status": "FREEAGENT",
-   "injury": "QUESTIONABLE",
+   "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
@@ -9339,11 +9278,42 @@
     }
    },
    "ros_per_game": 14.39,
-   "ros_points": 198.2,
+   "ros_points": 202.1,
    "season_points": 23.0,
    "season_avg": 11.5,
    "bye": 7,
-   "percent_rostered": 15.43
+   "percent_rostered": 15.32
+  },
+  {
+   "id": 4039059,
+   "name": "Brandon Jones",
+   "position": "S",
+   "nfl_team": "DEN",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 14.35,
+     "source": "espn"
+    },
+    "7": {
+     "points": 14.94,
+     "source": "espn"
+    },
+    "8": {
+     "points": 14.02,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 14.02,
+   "ros_points": 197.5,
+   "season_points": 81.0,
+   "season_avg": 16.2,
+   "bye": 10,
+   "percent_rostered": 20.27
   },
   {
    "id": 4692025,
@@ -9374,38 +9344,7 @@
    "season_points": 0.0,
    "season_avg": 0.0,
    "bye": 6,
-   "percent_rostered": 16.71
-  },
-  {
-   "id": 4039059,
-   "name": "Brandon Jones",
-   "position": "S",
-   "nfl_team": "DEN",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 14.35,
-     "source": "espn"
-    },
-    "7": {
-     "points": 14.31,
-     "source": "espn"
-    },
-    "8": {
-     "points": 14.01,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 14.01,
-   "ros_points": 196.8,
-   "season_points": 81.0,
-   "season_avg": 16.2,
-   "bye": 10,
-   "percent_rostered": 16.89
+   "percent_rostered": 16.54
   },
   {
    "id": 4570044,
@@ -9436,7 +9375,7 @@
    "season_points": 73.5,
    "season_avg": 14.7,
    "bye": 9,
-   "percent_rostered": 14.67
+   "percent_rostered": 16.31
   },
   {
    "id": 4567098,
@@ -9467,38 +9406,38 @@
    "season_points": 74.5,
    "season_avg": 14.9,
    "bye": 6,
-   "percent_rostered": 23.5
+   "percent_rostered": 22.52
   },
   {
-   "id": -16025,
-   "name": "49ers D/ST",
+   "id": -16030,
+   "name": "Jaguars D/ST",
    "position": "D/ST",
-   "nfl_team": "SF",
+   "nfl_team": "JAX",
    "fantasy_team": null,
    "slot": null,
-   "status": "FREEAGENT",
+   "status": "WAIVERS",
    "injury": "ACTIVE",
    "locked": false,
    "projections": {
     "6": {
-     "points": 4.86,
+     "points": 6.21,
      "source": "espn"
     },
     "7": {
-     "points": 3.68,
+     "points": 0.0,
      "source": "espn"
     },
     "8": {
-     "points": 0.0,
+     "points": 5.95,
      "source": "bot"
     }
    },
-   "ros_per_game": 6.03,
-   "ros_points": 80.9,
-   "season_points": 43.0,
-   "season_avg": 8.6,
-   "bye": 8,
-   "percent_rostered": 51.8
+   "ros_per_game": 5.95,
+   "ros_points": 83.5,
+   "season_points": 36.0,
+   "season_avg": 7.2,
+   "bye": 7,
+   "percent_rostered": 60.76
   },
   {
    "id": -16027,
@@ -9516,7 +9455,7 @@
      "source": "espn"
     },
     "7": {
-     "points": 5.04,
+     "points": 4.98,
      "source": "espn"
     },
     "8": {
@@ -9525,42 +9464,11 @@
     }
    },
    "ros_per_game": 5.65,
-   "ros_points": 78.6,
+   "ros_points": 78.5,
    "season_points": 32.0,
    "season_avg": 6.4,
    "bye": 10,
-   "percent_rostered": 19.75
-  },
-  {
-   "id": -16019,
-   "name": "Giants D/ST",
-   "position": "D/ST",
-   "nfl_team": "NYG",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 5.44,
-     "source": "espn"
-    },
-    "7": {
-     "points": 4.32,
-     "source": "espn"
-    },
-    "8": {
-     "points": 0.0,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 5.35,
-   "ros_points": 74.0,
-   "season_points": 32.0,
-   "season_avg": 6.4,
-   "bye": 8,
-   "percent_rostered": 11.14
+   "percent_rostered": 22.91
   },
   {
    "id": -16021,
@@ -9574,24 +9482,55 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 4.67,
+     "points": 4.65,
      "source": "espn"
     },
     "7": {
-     "points": 3.97,
+     "points": 3.96,
      "source": "espn"
     },
     "8": {
-     "points": 4.78,
+     "points": 4.77,
      "source": "bot"
     }
    },
-   "ros_per_game": 4.78,
-   "ros_points": 66.0,
+   "ros_per_game": 4.77,
+   "ros_points": 65.9,
    "season_points": 11.0,
    "season_avg": 2.2,
    "bye": 10,
-   "percent_rostered": 50.38
+   "percent_rostered": 49.27
+  },
+  {
+   "id": -16029,
+   "name": "Panthers D/ST",
+   "position": "D/ST",
+   "nfl_team": "CAR",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 5.44,
+     "source": "espn"
+    },
+    "7": {
+     "points": 5.54,
+     "source": "espn"
+    },
+    "8": {
+     "points": 4.19,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 4.19,
+   "ros_points": 65.5,
+   "season_points": 18.0,
+   "season_avg": 4.5,
+   "bye": 5,
+   "percent_rostered": 7.02
   },
   {
    "id": -16008,
@@ -9622,7 +9561,7 @@
    "season_points": 14.0,
    "season_avg": 2.8,
    "bye": 6,
-   "percent_rostered": 31.05
+   "percent_rostered": 29.03
   },
   {
    "id": -16005,
@@ -9636,24 +9575,24 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 3.53,
+     "points": 3.49,
      "source": "espn"
     },
     "7": {
-     "points": 6.24,
+     "points": 6.2,
      "source": "espn"
     },
     "8": {
-     "points": 4.52,
+     "points": 4.5,
      "source": "bot"
     }
    },
-   "ros_per_game": 4.52,
-   "ros_points": 64.0,
+   "ros_per_game": 4.5,
+   "ros_points": 63.7,
    "season_points": 27.0,
    "season_avg": 5.4,
    "bye": 11,
-   "percent_rostered": 36.8
+   "percent_rostered": 35.22
   },
   {
    "id": -16024,
@@ -9667,7 +9606,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 3.41,
+     "points": 3.32,
      "source": "espn"
     },
     "7": {
@@ -9675,16 +9614,16 @@
      "source": "espn"
     },
     "8": {
-     "points": 4.55,
+     "points": 4.52,
      "source": "bot"
     }
    },
-   "ros_per_game": 4.55,
-   "ros_points": 62.5,
+   "ros_per_game": 4.52,
+   "ros_points": 62.1,
    "season_points": 28.0,
    "season_avg": 5.6,
    "bye": 7,
-   "percent_rostered": 15.47
+   "percent_rostered": 14.97
   },
   {
    "id": -16009,
@@ -9715,38 +9654,7 @@
    "season_points": 34.0,
    "season_avg": 6.8,
    "bye": 11,
-   "percent_rostered": 13.16
-  },
-  {
-   "id": -16001,
-   "name": "Falcons D/ST",
-   "position": "D/ST",
-   "nfl_team": "ATL",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 4.33,
-     "source": "espn"
-    },
-    "7": {
-     "points": 3.19,
-     "source": "espn"
-    },
-    "8": {
-     "points": 4.08,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 4.08,
-   "ros_points": 56.5,
-   "season_points": 28.0,
-   "season_avg": 5.6,
-   "bye": 11,
-   "percent_rostered": 6.12
+   "percent_rostered": 13.08
   },
   {
    "id": -16003,
@@ -9760,7 +9668,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 2.88,
+     "points": 2.76,
      "source": "espn"
     },
     "7": {
@@ -9768,16 +9676,47 @@
      "source": "espn"
     },
     "8": {
-     "points": 3.98,
+     "points": 3.94,
      "source": "bot"
     }
    },
-   "ros_per_game": 3.98,
-   "ros_points": 55.8,
+   "ros_per_game": 3.94,
+   "ros_points": 55.3,
    "season_points": 30.0,
    "season_avg": 6.0,
    "bye": 10,
-   "percent_rostered": 23.24
+   "percent_rostered": 19.92
+  },
+  {
+   "id": -16013,
+   "name": "Raiders D/ST",
+   "position": "D/ST",
+   "nfl_team": "LV",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 3.14,
+     "source": "espn"
+    },
+    "7": {
+     "points": 3.36,
+     "source": "espn"
+    },
+    "8": {
+     "points": 4.0,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 4.0,
+   "ros_points": 54.5,
+   "season_points": 31.0,
+   "season_avg": 6.2,
+   "bye": 13,
+   "percent_rostered": 9.74
   },
   {
    "id": 4567104,
@@ -9808,7 +9747,7 @@
    "season_points": 70.0,
    "season_avg": 14.0,
    "bye": 6,
-   "percent_rostered": 62.02
+   "percent_rostered": 58.58
   },
   {
    "id": 4697745,
@@ -9839,7 +9778,7 @@
    "season_points": 57.0,
    "season_avg": 11.4,
    "bye": 13,
-   "percent_rostered": 65.02
+   "percent_rostered": 67.78
   },
   {
    "id": 3055899,
@@ -9848,7 +9787,7 @@
    "nfl_team": "KC",
    "fantasy_team": null,
    "slot": null,
-   "status": "WAIVERS",
+   "status": "FREEAGENT",
    "injury": "ACTIVE",
    "locked": false,
    "projections": {
@@ -9870,7 +9809,7 @@
    "season_points": 36.0,
    "season_avg": 9.0,
    "bye": 5,
-   "percent_rostered": 54.6
+   "percent_rostered": 57.27
   },
   {
    "id": 4249087,
@@ -9901,7 +9840,38 @@
    "season_points": 51.0,
    "season_avg": 10.2,
    "bye": 13,
-   "percent_rostered": 21.17
+   "percent_rostered": 29.38
+  },
+  {
+   "id": 4259619,
+   "name": "Blake Grupe",
+   "position": "K",
+   "nfl_team": "LAR",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 9.86,
+     "source": "espn"
+    },
+    "7": {
+     "points": 9.1,
+     "source": "espn"
+    },
+    "8": {
+     "points": 8.99,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 8.99,
+   "ros_points": 126.8,
+   "season_points": 0.0,
+   "season_avg": 0.0,
+   "bye": 11,
+   "percent_rostered": 6.22
   },
   {
    "id": 4689936,
@@ -9932,7 +9902,7 @@
    "season_points": 49.0,
    "season_avg": 9.8,
    "bye": 6,
-   "percent_rostered": 54.89
+   "percent_rostered": 49.26
   },
   {
    "id": 3917232,
@@ -9963,7 +9933,7 @@
    "season_points": 45.0,
    "season_avg": 9.0,
    "bye": 7,
-   "percent_rostered": 13.96
+   "percent_rostered": 15.99
   },
   {
    "id": 10621,
@@ -9994,7 +9964,7 @@
    "season_points": 42.0,
    "season_avg": 8.4,
    "bye": 11,
-   "percent_rostered": 6.39
+   "percent_rostered": 7.23
   },
   {
    "id": 17372,
@@ -10025,7 +9995,7 @@
    "season_points": 41.0,
    "season_avg": 8.2,
    "bye": 9,
-   "percent_rostered": 29.11
+   "percent_rostered": 29.67
   },
   {
    "id": 17427,
@@ -10039,7 +10009,7 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 8.17,
+     "points": 8.16,
      "source": "espn"
     },
     "7": {
@@ -10056,38 +10026,7 @@
    "season_points": 37.0,
    "season_avg": 7.4,
    "bye": 10,
-   "percent_rostered": 26.9
-  },
-  {
-   "id": 4362081,
-   "name": "Cameron Dicker",
-   "position": "K",
-   "nfl_team": "LAC",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 7.66,
-     "source": "espn"
-    },
-    "7": {
-     "points": 0.0,
-     "source": "espn"
-    },
-    "8": {
-     "points": 7.66,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 7.66,
-   "ros_points": 107.2,
-   "season_points": 30.0,
-   "season_avg": 6.0,
-   "bye": 7,
-   "percent_rostered": 73.35
+   "percent_rostered": 26.23
   },
   {
    "id": 15928,
@@ -10118,7 +10057,38 @@
    "season_points": 12.0,
    "season_avg": 3.0,
    "bye": 5,
-   "percent_rostered": 34.47
+   "percent_rostered": 34.18
+  },
+  {
+   "id": 2977680,
+   "name": "Bradley Pinion",
+   "position": "P",
+   "nfl_team": "MIA",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "WAIVERS",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "6": {
+     "points": 0.0,
+     "source": "espn"
+    },
+    "7": {
+     "points": 2.46,
+     "source": "espn"
+    },
+    "8": {
+     "points": 2.88,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 2.88,
+   "ros_points": 39.9,
+   "season_points": 14.0,
+   "season_avg": 2.8,
+   "bye": 6,
+   "percent_rostered": 58.53
   },
   {
    "id": 3915398,
@@ -10149,7 +10119,7 @@
    "season_points": 10.0,
    "season_avg": 2.0,
    "bye": 9,
-   "percent_rostered": 88.95
+   "percent_rostered": 87.85
   },
   {
    "id": 16166,
@@ -10180,7 +10150,7 @@
    "season_points": 12.0,
    "season_avg": 2.4,
    "bye": 7,
-   "percent_rostered": 25.96
+   "percent_rostered": 28.58
   },
   {
    "id": 4035685,
@@ -10211,7 +10181,7 @@
    "season_points": 11.0,
    "season_avg": 2.2,
    "bye": 11,
-   "percent_rostered": 25.19
+   "percent_rostered": 23.91
   },
   {
    "id": 4608820,
@@ -10242,7 +10212,7 @@
    "season_points": 19.0,
    "season_avg": 3.8,
    "bye": 6,
-   "percent_rostered": 9.47
+   "percent_rostered": 8.91
   },
   {
    "id": 4035239,
@@ -10256,24 +10226,24 @@
    "locked": false,
    "projections": {
     "6": {
-     "points": 2.55,
+     "points": 2.62,
      "source": "espn"
     },
     "7": {
-     "points": 2.42,
+     "points": 2.48,
      "source": "espn"
     },
     "8": {
-     "points": 2.64,
+     "points": 2.67,
      "source": "bot"
     }
    },
-   "ros_per_game": 2.64,
-   "ros_points": 36.7,
+   "ros_per_game": 2.67,
+   "ros_points": 37.1,
    "season_points": 20.0,
    "season_avg": 4.0,
    "bye": 10,
-   "percent_rostered": 30.09
+   "percent_rostered": 31.41
   },
   {
    "id": 5084956,
@@ -10304,7 +10274,7 @@
    "season_points": 16.0,
    "season_avg": 3.2,
    "bye": 13,
-   "percent_rostered": 7.34
+   "percent_rostered": 8.27
   },
   {
    "id": 4260224,
@@ -10335,7 +10305,7 @@
    "season_points": 15.0,
    "season_avg": 3.0,
    "bye": 8,
-   "percent_rostered": 51.79
+   "percent_rostered": 51.74
   },
   {
    "id": 4361496,
@@ -10366,38 +10336,7 @@
    "season_points": 14.2,
    "season_avg": 3.55,
    "bye": 5,
-   "percent_rostered": 9.52
-  },
-  {
-   "id": 3126368,
-   "name": "JK Scott",
-   "position": "P",
-   "nfl_team": "LAC",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "6": {
-     "points": 3.12,
-     "source": "espn"
-    },
-    "7": {
-     "points": 0.0,
-     "source": "espn"
-    },
-    "8": {
-     "points": 2.47,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 2.47,
-   "ros_points": 35.3,
-   "season_points": 8.0,
-   "season_avg": 1.6,
-   "bye": 7,
-   "percent_rostered": 16.25
+   "percent_rostered": 9.85
   }
  ]
 }
