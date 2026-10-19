@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T18:44:06+00:00",
+ "generated_at": "2026-10-19T19:59:24+00:00",
  "league": {
   "id": 473811221,
   "name": "ScreamStream 2024 League",
@@ -1034,7 +1034,7 @@
    "season_points": 44.9,
    "season_avg": 8.98,
    "bye": 7,
-   "percent_rostered": 59.9
+   "percent_rostered": 59.89
   },
   {
    "id": -16016,
@@ -1468,7 +1468,7 @@
    "season_points": 89.5,
    "season_avg": 17.9,
    "bye": 6,
-   "percent_rostered": 60.76
+   "percent_rostered": 60.75
   },
   {
    "id": 4047650,
@@ -1654,7 +1654,7 @@
    "season_points": 86.0,
    "season_avg": 21.5,
    "bye": 5,
-   "percent_rostered": 55.39
+   "percent_rostered": 55.38
   },
   {
    "id": -16017,
@@ -1995,7 +1995,7 @@
    "season_points": 93.5,
    "season_avg": 18.7,
    "bye": 6,
-   "percent_rostered": 76.28
+   "percent_rostered": 76.27
   },
   {
    "id": 4040715,
@@ -2677,7 +2677,7 @@
    "season_points": 122.0,
    "season_avg": 24.4,
    "bye": 6,
-   "percent_rostered": 48.75
+   "percent_rostered": 48.74
   },
   {
    "id": 16800,
@@ -2832,7 +2832,7 @@
    "season_points": 56.0,
    "season_avg": 9.333333333333334,
    "bye": 8,
-   "percent_rostered": 59.26
+   "percent_rostered": 59.25
   },
   {
    "id": 2969939,
@@ -2925,7 +2925,7 @@
    "season_points": 18.2,
    "season_avg": 9.1,
    "bye": 10,
-   "percent_rostered": 55.72
+   "percent_rostered": 55.71
   },
   {
    "id": 4685415,
@@ -3607,7 +3607,7 @@
    "season_points": 63.7,
    "season_avg": 15.925,
    "bye": 6,
-   "percent_rostered": 99.85
+   "percent_rostered": 99.84
   },
   {
    "id": 3918298,
@@ -3762,7 +3762,7 @@
    "season_points": 67.9,
    "season_avg": 16.975,
    "bye": 5,
-   "percent_rostered": 87.77
+   "percent_rostered": 87.76
   },
   {
    "id": 4832955,
@@ -4351,7 +4351,7 @@
    "season_points": 89.0,
    "season_avg": 17.8,
    "bye": 6,
-   "percent_rostered": 68.57
+   "percent_rostered": 68.56
   },
   {
    "id": 4038941,
@@ -4599,7 +4599,7 @@
    "season_points": 30.0,
    "season_avg": 6.0,
    "bye": null,
-   "percent_rostered": 28.21
+   "percent_rostered": 28.19
   },
   {
    "id": 3046439,
@@ -4754,7 +4754,7 @@
    "season_points": 65.0,
    "season_avg": 10.833333333333334,
    "bye": 13,
-   "percent_rostered": 42.43
+   "percent_rostered": 42.42
   },
   {
    "id": 4430807,
@@ -4971,7 +4971,7 @@
    "season_points": 108.5,
    "season_avg": 21.7,
    "bye": 8,
-   "percent_rostered": 98.76
+   "percent_rostered": 98.77
   },
   {
    "id": 4432708,
@@ -5033,7 +5033,7 @@
    "season_points": 53.0,
    "season_avg": 13.25,
    "bye": 7,
-   "percent_rostered": 80.12
+   "percent_rostered": 80.11
   },
   {
    "id": 4034949,
@@ -5281,7 +5281,7 @@
    "season_points": 73.5,
    "season_avg": 12.25,
    "bye": 11,
-   "percent_rostered": 81.64
+   "percent_rostered": 81.63
   },
   {
    "id": -16007,
@@ -5560,7 +5560,7 @@
    "season_points": 57.6,
    "season_avg": 11.52,
    "bye": 6,
-   "percent_rostered": 89.58
+   "percent_rostered": 89.57
   },
   {
    "id": 4430027,
@@ -6893,7 +6893,7 @@
    "season_points": 33.1,
    "season_avg": 8.275,
    "bye": 7,
-   "percent_rostered": 59.09
+   "percent_rostered": 59.1
   },
   {
    "id": 4432710,
@@ -7265,7 +7265,7 @@
    "season_points": 33.2,
    "season_avg": 8.3,
    "bye": 6,
-   "percent_rostered": 69.86
+   "percent_rostered": 69.85
   },
   {
    "id": 15818,
@@ -7482,7 +7482,7 @@
    "season_points": 45.1,
    "season_avg": 7.516666666666667,
    "bye": 13,
-   "percent_rostered": 73.36
+   "percent_rostered": 73.35
   },
   {
    "id": 3117256,
@@ -7792,7 +7792,7 @@
    "season_points": 31.0,
    "season_avg": 6.2,
    "bye": 5,
-   "percent_rostered": 9.41
+   "percent_rostered": 9.42
   },
   {
    "id": 13977,
@@ -8009,7 +8009,7 @@
    "season_points": 41.0,
    "season_avg": 8.2,
    "bye": 6,
-   "percent_rostered": 41.33
+   "percent_rostered": 41.34
   },
   {
    "id": 4685248,
@@ -8071,7 +8071,7 @@
    "season_points": 62.5,
    "season_avg": 10.416666666666666,
    "bye": 7,
-   "percent_rostered": 49.92
+   "percent_rostered": 49.91
   },
   {
    "id": 4875196,
@@ -8474,7 +8474,7 @@
    "season_points": 77.0,
    "season_avg": 12.833333333333334,
    "bye": 10,
-   "percent_rostered": 33.18
+   "percent_rostered": 33.17
   },
   {
    "id": 4249739,
@@ -8598,7 +8598,7 @@
    "season_points": 98.0,
    "season_avg": 16.333333333333332,
    "bye": 11,
-   "percent_rostered": 50.97
+   "percent_rostered": 50.98
   },
   {
    "id": 3139387,
@@ -8691,7 +8691,7 @@
    "season_points": 75.0,
    "season_avg": 15.0,
    "bye": 7,
-   "percent_rostered": 26.33
+   "percent_rostered": 26.34
   },
   {
    "id": 4259493,
@@ -9280,7 +9280,7 @@
    "season_points": 34.0,
    "season_avg": 5.666666666666667,
    "bye": 7,
-   "percent_rostered": 63.56
+   "percent_rostered": 63.55
   },
   {
    "id": -16004,
@@ -9590,7 +9590,7 @@
    "season_points": 60.0,
    "season_avg": 12.0,
    "bye": 6,
-   "percent_rostered": 21.8
+   "percent_rostered": 21.79
   },
   {
    "id": 3917232,
@@ -9714,38 +9714,7 @@
    "season_points": 49.0,
    "season_avg": 9.8,
    "bye": 6,
-   "percent_rostered": 38.87
-  },
-  {
-   "id": 4259619,
-   "name": "Blake Grupe",
-   "position": "K",
-   "nfl_team": "LAR",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "WAIVERS",
-   "injury": "QUESTIONABLE",
-   "locked": true,
-   "projections": {
-    "6": {
-     "points": 9.86,
-     "source": "espn"
-    },
-    "7": {
-     "points": 8.17,
-     "source": "espn"
-    },
-    "8": {
-     "points": 8.43,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 8.43,
-   "ros_points": 119.2,
-   "season_points": 6.0,
-   "season_avg": 6.0,
-   "bye": 11,
-   "percent_rostered": 12.56
+   "percent_rostered": 38.86
   },
   {
    "id": 17427,
@@ -9808,6 +9777,37 @@
    "season_avg": 7.166666666666667,
    "bye": 11,
    "percent_rostered": 9.02
+  },
+  {
+   "id": 4362081,
+   "name": "Cameron Dicker",
+   "position": "K",
+   "nfl_team": "LAC",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "WAIVERS",
+   "injury": "ACTIVE",
+   "locked": true,
+   "projections": {
+    "6": {
+     "points": 7.66,
+     "source": "espn"
+    },
+    "7": {
+     "points": 0.0,
+     "source": "espn"
+    },
+    "8": {
+     "points": 7.52,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 7.52,
+   "ros_points": 105.4,
+   "season_points": 36.0,
+   "season_avg": 6.0,
+   "bye": 7,
+   "percent_rostered": 68.88
   },
   {
    "id": 15928,
@@ -10117,7 +10117,7 @@
    "season_points": 15.0,
    "season_avg": 2.5,
    "bye": 8,
-   "percent_rostered": 51.18
+   "percent_rostered": 51.17
   }
  ]
 }
