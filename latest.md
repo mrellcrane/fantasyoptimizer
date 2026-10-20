@@ -22,7 +22,7 @@
 
 _Offers you sent that are still waiting. Trade ideas further down have to help whether or not these go through. Pulling one is up to you: the bot never cancels offers._
 
-1. **Team Leigh**: give Mike Evans (WR), Christian Watson (WR) for CeeDee Lamb (WR) (sent 0 h ago, expires in 48 h)
+1. **Team Leigh**: give Mike Evans (WR), Christian Watson (WR) for CeeDee Lamb (WR) (sent 1 h ago, expires in 47 h)
    - You: +35.7 season pts, +3.4% title odds. Them: -12.1 season pts. Accept chance ~2%.
    - **Pull it and send this instead.** After accept chance it's worth +1.6% title odds, vs +0.1% for this one:
      - **Team Leigh**: give Jacob Rodriguez (LB), Christian Watson (WR) for CeeDee Lamb (WR)
