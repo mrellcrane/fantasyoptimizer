@@ -6,20 +6,29 @@
 
 ## Lineup check
 
-**Week 7: swaps worth +8.9 projected points** (the bot already made them)
-- Start **David Montgomery** (8.9) over **Travis Hunter** (0.0)
+**Week 7:** your lineup is already your best one (150.0 projected points).
 
 **Week 8 heads-up:**
-- **Davante Adams** (WR) is out: start **Travis Hunter** (14.1) instead.
-- **David Montgomery** (RB) is on bye: start **Dameon Pierce** (5.8) instead.
+- **David Montgomery** (RB) is on bye: start **Travis Hunter** (14.1) instead.
 - **Dominic Zvada** (K) is on bye, and nobody on your bench can play K. Best pickup: **Will Reichard** (11.4, on waivers).
 - **Isaiah Likely** (TE) is on bye, and nobody on your bench can play TE. Best pickup: **Kyle Pitts Sr.** (9.5, on waivers).
 
 ## Moves
-- **SENT** Lineup (+8.9 projected pts this week): start David Montgomery over Travis Hunter; move Christian Watson to WR (EXECUTED)
 - **PENDING** Claim on ESPN: Will Reichard (K), drop Dominic Zvada (K)
 - **PENDING** Claim on ESPN: Sam Martin (P), drop Tress Way (P)
 - **PENDING** Claim on ESPN: Emeka Egbuka (WR), drop Jameis Winston (QB)
+
+## Your pending offers
+
+_Offers you sent that are still waiting. Trade ideas further down have to help whether or not these go through. Pulling one is up to you: the bot never cancels offers._
+
+1. **Team Leigh**: give Mike Evans (WR), Christian Watson (WR) for CeeDee Lamb (WR) (sent 0 h ago, expires in 48 h)
+   - You: +35.7 season pts, +3.4% title odds. Them: -12.1 season pts. Accept chance ~2%.
+   - **Pull it and send this instead.** After accept chance it's worth +1.6% title odds, vs +0.1% for this one:
+     - **Team Leigh**: give Jacob Rodriguez (LB), Christian Watson (WR) for CeeDee Lamb (WR)
+     - You: +25.4 season pts, +2.7% title odds. Them: +11.9 season pts. Accept chance ~60%.
+     - Your lineup: WR: CeeDee Lamb replaces Christian Watson (+49.6); LB: Ernest Jones IV fills in for Jacob Rodriguez (-23.8). Net +25.4.
+     - Pitch: "Jacob Rodriguez would start every week for you over Arvell Reese and Christian Watson would start every week for you over Xavier Worthy."
 
 ## Your roster
 
@@ -28,22 +37,21 @@
 | QB | Jared Goff (QB) | DET |  | 18.5 | 16.6 | ~18.2 | 18.2 | 6 |
 | RB | Ashton Jeanty (RB) | LV |  | 17.0 | 16.5 | ~16.4 | 16.4 | 13 |
 | RB | Jahmyr Gibbs (RB) | DET |  | 26.0 | 24.2 | ~25.6 | 25.6 | 6 |
-| WR | Davante Adams (WR) | LAR | Out | 0.0 | 0.0 | ~17.3 | 17.3 | 11 |
-| WR | Travis Hunter (WR) | JAX |  | BYE | 14.1 | ~10.5 | 10.5 | 7 |
+| WR | A.J. Brown (WR) | NE | Questionable | 16.0 | 16.3 | ~13.9 | 13.9 | 11 |
+| WR | Christian Watson (WR) | GB |  | 16.7 | 15.2 | ~15.4 | 15.4 | 11 |
 | TE | Isaiah Likely (TE) | NYG |  | 14.3 | BYE | ~13.8 | 13.8 | 8 |
-| FLEX | Christian Watson (WR) | GB |  | 16.7 | 15.2 | ~15.4 | 15.4 | 11 |
+| FLEX | David Montgomery (RB) | HOU | Questionable | 13.3 | BYE | ~11.8 | 11.8 | 8 |
 | DP | Ernest Jones IV (LB) | SEA |  | 19.8 | 20.5 | ~19.3 | 19.3 | 11 |
 | D/ST | Jets D/ST (D/ST) | NYJ |  | 7.3 | 5.9 | ~6.0 | 6.0 | 13 |
 | K | Dominic Zvada (K) | NYG |  | 10.8 | BYE | ~9.2 | 9.2 | 8 |
 | P | Tress Way (P) | WSH |  | BYE | 2.8 | ~2.6 | 2.6 | 7 |
 | BE | Chiefs D/ST (D/ST) | KC |  | 6.8 | 5.6 | ~6.5 | 6.5 | 5 |
-| BE | Dameon Pierce (RB) | PHI |  | 6.4 | 5.8 | ~6.3 | 6.3 | 10 |
-| BE | David Montgomery (RB) | HOU | Questionable | 13.3 | BYE | ~11.8 | 11.8 | 8 |
 | BE | Jacob Rodriguez (LB) | MIA |  | 19.7 | 20.5 | ~19.7 | 19.7 | 6 |
 | BE | Jameis Winston (QB) | NYG |  | 0.0 | BYE | ~12.2 | 12.2 | 8 |
 | BE | Mike Evans (WR) | SF | Questionable | 0.0 | BYE | ~12.8 | 12.8 | 8 |
+| BE | Travis Hunter (WR) | JAX |  | BYE | 14.1 | ~10.5 | 10.5 | 7 |
 | BE | Tyler Shough (QB) | NO |  | 15.3 | BYE | ~16.5 | 16.5 | 8 |
-| IR | A.J. Brown (WR) | NE | Questionable | 16.0 | 16.3 | ~13.9 | 13.9 | 11 |
+| IR | Davante Adams (WR) | LAR | Out | 0.0 | 0.0 | ~17.3 | 17.3 | 11 |
 
 ## Best pickups
 
@@ -51,13 +59,13 @@ _Alternatives, best first (at most two per position). Suggestions only: the bot 
 
 | Add | Drop | Type | Starts | Season pts | Title odds | Note |
 |---|---|---|---|---:|---:|---|
-| Chris Boswell (K) | Dameon Pierce (RB) | Waiver | 11 of 12 | +14.2 | +1.0% |  |
-| Harrison Butker (K) | Dameon Pierce (RB) | Waiver | 11 of 12 | +11.6 | +0.8% | Small gain: optional (the bot won't make it) |
-| Kyle Pitts Sr. (TE) | Dameon Pierce (RB) | Waiver | 2 of 12 (wk 7, 8) | +10.4 | +0.6% | Small gain: optional (the bot won't make it) |
-| Pat Freiermuth (TE) | Dameon Pierce (RB) | Waiver | 2 of 12 (wk 7, 8) | +10.0 | +0.5% | Small gain: optional (the bot won't make it) |
-| Jaguars D/ST (D/ST) | Chiefs D/ST (D/ST) | Waiver | 1 of 12 (wk 8) | +1.0 | +0.1% | Next week's stream: make it after Chiefs D/ST plays this week |
-| Aaron Rodgers (QB) | Dameon Pierce (RB) | Waiver | 1 of 12 (wk 7) | +1.0 | +0.0% | Only fills wk 7: add it that week |
-| Travis Etienne Jr. (RB) | Dameon Pierce (RB) | Waiver | 1 of 12 (wk 13) | +0.5 | +0.0% | Only fills wk 13: add it that week |
+| Chris Boswell (K) | (open spot) | Waiver | 11 of 12 | +14.2 | +1.0% |  |
+| Harrison Butker (K) | (open spot) | Waiver | 11 of 12 | +11.6 | +0.8% | Small gain: optional (the bot won't make it) |
+| Kyle Pitts Sr. (TE) | (open spot) | Waiver | 2 of 12 (wk 7, 8) | +10.4 | +0.6% | Small gain: optional (the bot won't make it) |
+| Pat Freiermuth (TE) | (open spot) | Waiver | 2 of 12 (wk 7, 8) | +10.0 | +0.5% | Small gain: optional (the bot won't make it) |
+| Aaron Rodgers (QB) | (open spot) | Waiver | 1 of 12 (wk 7) | +1.0 | +0.0% | Only fills wk 7: add it that week |
+| Travis Etienne Jr. (RB) | (open spot) | Waiver | 1 of 12 (wk 13) | +0.5 | +0.0% | Only fills wk 13: add it that week |
+| Kendre Miller (RB) | (open spot) | Waiver | 1 of 12 (wk 7) | +0.4 | +0.0% | Only fills wk 7: add it that week |
 
 ## Best trade ideas
 
@@ -83,41 +91,41 @@ _Good for you and good for them: the ones most likely to happen._
    - Your lineup: TE: Dallas Goedert joins the lineup (+21.5); QB: Jayden Daniels replaces Jared Goff (+16.0); RB: David Montgomery drops out of the lineup (-8.9). Net +28.7.
    - Their lineup: D/ST: Chiefs D/ST starts over Giants D/ST (+33.5); QB: Jared Goff replaces Jayden Daniels (-16.3); bench depth -1.3. Net +15.9.
    - Pitch: "Jared Goff would start every week for you over Patrick Mahomes, Chiefs D/ST would start every week for you over Giants D/ST, and Dallas Goedert mostly sits on your bench anyway."
-5. **Team Leigh**: give Jacob Rodriguez (LB), Christian Watson (WR) for CeeDee Lamb (WR)
-   - You: +25.4 season pts, +2.7% title odds. Them: +11.9 season pts. Accept chance ~60%.
-   - Your lineup: WR: CeeDee Lamb replaces Christian Watson (+49.6); LB: Ernest Jones IV fills in for Jacob Rodriguez (-23.8). Net +25.4.
-   - Their lineup: LB: Jacob Rodriguez starts over Arvell Reese (+48.7); WR: Christian Watson replaces CeeDee Lamb (-36.8). Net +11.9.
-   - Pitch: "Jacob Rodriguez would start every week for you over Arvell Reese and Christian Watson would start every week for you over Xavier Worthy."
+5. **Marcus's Magnificent Team**: give Jacob Rodriguez (LB), A.J. Brown (WR) for DeVonta Smith (WR), Jack Campbell (LB)
+   - You: +14.3 season pts, +1.6% title odds. Them: +10.3 season pts. Accept chance ~95%.
+   - Your lineup: WR: DeVonta Smith replaces A.J. Brown (+21.1); LB: Ernest Jones IV fills in for Jacob Rodriguez (-6.3). Net +14.3.
+   - Their lineup: LB: Jacob Rodriguez starts over Devin Lloyd (+27.8); WR: A.J. Brown replaces DeVonta Smith (-26.9); RB: Cam Skattebo moves into the lineup (+9.4). Net +10.3.
+   - Pitch: "Jacob Rodriguez would start every week for you over Devin Lloyd, A.J. Brown would start most weeks for you over DK Metcalf, and Jack Campbell mostly sits on your bench anyway."
 
 ## Long shots
 
 _Better for you, less likely to be accepted. Some even look slightly worse for them on paper, so the pitch matters. Worst case, they say no._
 
-1. **Sacks as a Service**: give Ashton Jeanty (RB), Chiefs D/ST (D/ST) for Christian McCaffrey (RB), Dallas Goedert (TE)
-   - You: +51.9 season pts, +4.4% title odds. Them: -13.9 season pts. Accept chance ~7%.
-   - Your lineup: RB: Christian McCaffrey replaces Ashton Jeanty (+30.3); TE: Dallas Goedert joins the lineup (+21.5). Net +51.9.
-   - Their lineup: RB: Ashton Jeanty replaces Christian McCaffrey (-46.1); D/ST: Chiefs D/ST starts over Giants D/ST (+33.5); bench depth -1.3. Net -13.9.
-   - Pitch: "Chiefs D/ST would start every week for you over Giants D/ST, Ashton Jeanty would start every week for you over Emanuel Wilson, and Dallas Goedert mostly sits on your bench anyway."
+1. **Sacks as a Service**: give Ashton Jeanty (RB), Ernest Jones IV (LB) for Christian McCaffrey (RB), Tee Higgins (WR)
+   - You: +42.0 season pts, +4.5% title odds. Them: -12.5 season pts. Accept chance ~5%.
+   - Your lineup: RB: Christian McCaffrey replaces Ashton Jeanty (+24.5); WR: Tee Higgins starts over Travis Hunter (+17.8). Net +42.0.
+   - Their lineup: WR: Jameson Williams fills in for Tee Higgins (-148.4); LB: Ernest Jones IV starts over Anthony Hill Jr. (+68.9); RB: Ashton Jeanty and Tony Pollard start over Christian McCaffrey (+67.2). Net -12.5.
+   - Pitch: "Ashton Jeanty would start every week for you over Emanuel Wilson, Ernest Jones IV would start every week for you over Anthony Hill Jr., and Jameson Williams can take over at WR."
 2. **Sacks as a Service**: give Ashton Jeanty (RB), Chiefs D/ST (D/ST) for Christian McCaffrey (RB), Tony Pollard (RB)
    - You: +50.8 season pts, +4.4% title odds. Them: -19.7 season pts. Accept chance ~5%.
    - Your lineup: RB: Christian McCaffrey replaces Ashton Jeanty (+51.1). Net +50.8.
    - Their lineup: RB: Ashton Jeanty replaces Christian McCaffrey (-74.9); D/ST: Chiefs D/ST starts over Giants D/ST (+33.5); TE: Dallas Goedert moves into the lineup (+11.0); WR: Jameson Williams moves into the lineup (+11.0). Net -19.7.
    - Pitch: "Chiefs D/ST would start every week for you over Giants D/ST, Ashton Jeanty would start every week for you over Emanuel Wilson, and Tony Pollard mostly sits on your bench anyway."
-3. **Cheeseball Champ**: give Isaiah Likely (TE), Chiefs D/ST (D/ST) for Brock Bowers (TE), Terry McLaurin (WR)
+3. **Cheeseball Champ**: give Jared Goff (QB), A.J. Brown (WR) for Lamar Jackson (QB), Drake London (WR)
+   - You: +39.0 season pts, +4.2% title odds. Them: -23.6 season pts. Accept chance ~5%.
+   - Your lineup: WR: Drake London replaces A.J. Brown (+23.7); QB: Lamar Jackson replaces Jared Goff (+15.3). Net +39.0.
+   - Their lineup: WR: A.J. Brown replaces Drake London (-23.7). Net -23.6.
+   - Pitch: "Jared Goff would start every week for you over Kirk Cousins and A.J. Brown would start every week for you over Terry McLaurin."
+4. **C-Hawks**: give Jacob Rodriguez (LB), A.J. Brown (WR) for Malik Nabers (WR), Alex Singleton (LB)
+   - You: +23.9 season pts, +4.1% title odds. Them: -14.5 season pts. Accept chance ~10%.
+   - Your lineup: WR: Malik Nabers replaces A.J. Brown (+20.0); LB: Alex Singleton replaces Jacob Rodriguez (+4.0). Net +23.9.
+   - Their lineup: WR: A.J. Brown replaces Malik Nabers (-30.5); LB: Jacob Rodriguez replaces Alex Singleton (+16.0). Net -14.5.
+   - Pitch: "Jacob Rodriguez would start every week for you and A.J. Brown would start most weeks for you over Germie Bernard."
+5. **Cheeseball Champ**: give Isaiah Likely (TE), Chiefs D/ST (D/ST) for Brock Bowers (TE), Terry McLaurin (WR)
    - You: +34.7 season pts, +4.1% title odds. Them: -24.4 season pts. Accept chance ~8%.
    - Your lineup: TE: Brock Bowers replaces Isaiah Likely (+35.1). Net +34.7.
    - Their lineup: TE: Isaiah Likely replaces Brock Bowers (-25.0); WR: losing Terry McLaurin (-9.2), best free agent to cover it: Ladd McConkey (10.9 pts/gm); D/ST: Chiefs D/ST starts over Broncos D/ST (+8.9); bench depth +1.0. Net -24.4.
    - Pitch: "Isaiah Likely would start every week for you over Brenton Strange and Terry McLaurin mostly sits on your bench anyway."
-4. **Cheeseball Champ**: give Isaiah Likely (TE), Chiefs D/ST (D/ST) for Brock Bowers (TE), Marvin Harrison Jr. (WR)
-   - You: +34.7 season pts, +4.0% title odds. Them: -23.9 season pts. Accept chance ~8%.
-   - Your lineup: TE: Brock Bowers replaces Isaiah Likely (+35.1). Net +34.7.
-   - Their lineup: TE: Isaiah Likely replaces Brock Bowers (-33.8); D/ST: Chiefs D/ST starts over Broncos D/ST (+8.9); bench depth +1.0. Net -23.9.
-   - Pitch: "Isaiah Likely would start every week for you over Brenton Strange and Marvin Harrison Jr. mostly sits on your bench anyway."
-5. **C-Hawks**: give Jacob Rodriguez (LB), Christian Watson (WR) for Justin Jefferson (WR), Alex Singleton (LB)
-   - You: +37.2 season pts, +3.9% title odds. Them: -16.4 season pts. Accept chance ~7%.
-   - Your lineup: WR: Justin Jefferson replaces Christian Watson (+33.2); LB: Alex Singleton replaces Jacob Rodriguez (+4.0). Net +37.2.
-   - Their lineup: WR: Christian Watson replaces Justin Jefferson (-32.4); LB: Jacob Rodriguez replaces Alex Singleton (+16.0). Net -16.4.
-   - Pitch: "Jacob Rodriguez would start every week for you and Christian Watson would start every week for you over Germie Bernard."
 
 ## Best available players (top 3 per position)
 
