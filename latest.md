@@ -13,18 +13,18 @@
 
 ## The trade you asked about
 
-**Marcus's Magnificent Team**: give A.J. Brown (WR), Jacob Rodriguez (LB), Tyler Shough (QB) for DeVonta Smith (WR), Chase Brown (RB)
+**Marcus's Magnificent Team**: give A.J. Brown (WR), Ernest Jones IV (LB), Tyler Shough (QB) for DeVonta Smith (WR), Devin Lloyd (LB)
 
-**Worth sending.** You: +24.1 season pts, +1.6% title odds. Them: -91.5 season pts, -3.5% title odds. Accept chance ~0%.
+**Worth sending.** You: +18.9 season pts, +1.5% title odds. Them: -24.6 season pts, -1.4% title odds. Accept chance ~30%.
 They'd have to drop Jake Bailey to fit everyone.
 
-Your lineup: RB: Chase Brown starts over David Montgomery and RJ Harvey (+54.9); LB: Ernest Jones IV fills in for Jacob Rodriguez (-23.8); WR: DeVonta Smith replaces A.J. Brown (-8.0); bench depth +1.1. Net +24.1.
+Your lineup: RB: David Montgomery moves into the lineup (+11.8); WR: DeVonta Smith replaces A.J. Brown (+8.4); bench depth -1.1. Net +18.9.
 
-Their lineup: RB: Cam Skattebo fills in for Chase Brown (-72.9); P: Jake Bailey gets cut to make room (-31.6); LB: Jacob Rodriguez starts over Devin Lloyd (+27.8); WR: A.J. Brown replaces DeVonta Smith (-14.7). Net -91.5.
+Their lineup: P: Jake Bailey gets cut to make room (-31.6); LB: Ernest Jones IV replaces Devin Lloyd (+21.6); WR: A.J. Brown replaces DeVonta Smith (-14.7). Net -24.6.
 
-Pitch: "Jacob Rodriguez would start every week for you over Devin Lloyd, A.J. Brown would start most weeks for you over DK Metcalf, and Cam Skattebo can take over at RB."
+Pitch: "Ernest Jones IV would start every week for you and A.J. Brown would start most weeks for you over DK Metcalf."
 
-Why: For you: DeVonta Smith (WR, 15.1 pts/gm) would start 11 of 12 weeks; Chase Brown (RB, 14.8 pts/gm) would start 6 of 12 weeks; out of your lineup: A.J. Brown (WR, 13.9 pts/gm) 11 wks, Jacob Rodriguez (LB, 19.7 pts/gm) 11 wks, David Montgomery (RB, 11.8 pts/gm) 2 wks; Tyler Shough (QB, 16.5 pts/gm) wouldn't start for you anyway. For them: A.J. Brown (WR, 13.9 pts/gm) would start 10 of 12 weeks; Jacob Rodriguez (LB, 19.7 pts/gm) would start 12 of 12 weeks; Tyler Shough (QB, 16.5 pts/gm) would start 0 of 12 weeks; out of their lineup: Devin Lloyd (LB, 17.8 pts/gm) 12 wks, Chase Brown (RB, 14.8 pts/gm) 12 wks, Jake Bailey (P, 2.4 pts/gm) 12 wks.
+Why: For you: DeVonta Smith (WR, 15.1 pts/gm) would start 11 of 12 weeks; Devin Lloyd (LB, 17.8 pts/gm) would start 0 of 12 weeks; out of your lineup: A.J. Brown (WR, 13.9 pts/gm) 11 wks, Ernest Jones IV (LB, 19.3 pts/gm) 1 wks, Travis Hunter (WR, 10.5 pts/gm) 1 wks; Tyler Shough (QB, 16.5 pts/gm) wouldn't start for you anyway. For them: A.J. Brown (WR, 13.9 pts/gm) would start 10 of 12 weeks; Ernest Jones IV (LB, 19.3 pts/gm) would start 11 of 12 weeks; Tyler Shough (QB, 16.5 pts/gm) would start 0 of 12 weeks; out of their lineup: Devin Lloyd (LB, 17.8 pts/gm) 12 wks, Jake Bailey (P, 2.4 pts/gm) 12 wks, DeVonta Smith (WR, 15.1 pts/gm) 11 wks.
 
 ## Moves
 - None today. Nothing cleared the thresholds.

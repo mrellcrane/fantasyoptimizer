@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T17:40:53+00:00",
+ "generated_at": "2026-10-21T17:42:38+00:00",
  "league": {
   "id": 473811221,
   "name": "ScreamStream 2024 League",
@@ -122,15 +122,15 @@
  ],
  "asked_trade": {
   "partner": "Marcus's Magnificent Team",
-  "deal": "give A.J. Brown (WR), Jacob Rodriguez (LB), Tyler Shough (QB) for DeVonta Smith (WR), Chase Brown (RB)",
-  "pitch": "Jacob Rodriguez would start every week for you over Devin Lloyd, A.J. Brown would start most weeks for you over DK Metcalf, and Cam Skattebo can take over at RB.",
-  "my_lineup": "RB: Chase Brown starts over David Montgomery and RJ Harvey (+54.9); LB: Ernest Jones IV fills in for Jacob Rodriguez (-23.8); WR: DeVonta Smith replaces A.J. Brown (-8.0); bench depth +1.1. Net +24.1.",
-  "their_lineup": "RB: Cam Skattebo fills in for Chase Brown (-72.9); P: Jake Bailey gets cut to make room (-31.6); LB: Jacob Rodriguez starts over Devin Lloyd (+27.8); WR: A.J. Brown replaces DeVonta Smith (-14.7). Net -91.5.",
-  "my_points": 24.1,
-  "their_points": -91.5,
-  "my_title_odds": 1.6249999999999987,
-  "their_title_odds": -3.5000000000000004,
-  "accept_chance": 0.0
+  "deal": "give A.J. Brown (WR), Ernest Jones IV (LB), Tyler Shough (QB) for DeVonta Smith (WR), Devin Lloyd (LB)",
+  "pitch": "Ernest Jones IV would start every week for you and A.J. Brown would start most weeks for you over DK Metcalf.",
+  "my_lineup": "RB: David Montgomery moves into the lineup (+11.8); WR: DeVonta Smith replaces A.J. Brown (+8.4); bench depth -1.1. Net +18.9.",
+  "their_lineup": "P: Jake Bailey gets cut to make room (-31.6); LB: Ernest Jones IV replaces Devin Lloyd (+21.6); WR: A.J. Brown replaces DeVonta Smith (-14.7). Net -24.6.",
+  "my_points": 18.9,
+  "their_points": -24.6,
+  "my_title_odds": 1.5000000000000013,
+  "their_title_odds": -1.4,
+  "accept_chance": 0.3
  },
  "lineup_check": {
   "week": 7,
