@@ -111,6 +111,45 @@ def test_questionable_players_this_week_carry_their_risk():
     assert expected_points(qb, league, cfg)[0] == pytest.approx(20.0 * 0.74)  # QBs don't drop off
 
 
+def test_season_projection_is_per_game_it_covers():
+    from fantasyoptimizer.projections import season_games
+    cfg = Config()
+    p = make_player(1, "WR", None, pro=1)
+    league = make_league({1: [p], 2: []}, byes={1: 4})
+    league.current_scoring_period = 3
+    p.season_actual, p.season_average = 30.0, 15.0     # played 2 of 2 games so far
+    p.season_projection = 255.0
+    assert season_games(p, league, cfg) == 17
+    assert per_game_rate(p, league, cfg) == pytest.approx(15.0)
+    # Missed a game: ESPN's total loses it, and so does the per-game divisor.
+    p.season_actual, p.season_average = 15.0, 15.0
+    p.season_projection = 240.0
+    assert season_games(p, league, cfg) == 16
+    assert per_game_rate(p, league, cfg) == pytest.approx(15.0)
+    # Ruled out this week: same again.
+    p.period_projections = {3: 0.0}
+    p.season_projection = 225.0
+    assert season_games(p, league, cfg) == 15
+    assert per_game_rate(p, league, cfg) == pytest.approx(15.0)
+
+
+def test_questionable_starter_who_sits_is_replaced_not_a_zero():
+    cfg = fast_config()
+    q = make_player(1, "WR", 15, injury="QUESTIONABLE", team=1)
+    q.period_projections = {1: 15.0}
+    fa = make_player(2, "WR", 8)
+    fa.period_projections = {1: 8.0}
+    league = make_league({1: [q], 2: []}, free_agents=[fa])
+    valuer = Valuer(league, cfg)
+    plays = 15.0 * 0.74 * 0.91
+    # Setting a lineup keeps the plain discount...
+    assert valuer.points[valuer.row[1], 0] == pytest.approx(plays)
+    # ...but valuing the roster counts the free agent he'd be swapped for when he sits.
+    assert valuer.value_points[valuer.row[1], 0] == pytest.approx(plays + 0.26 * 8.0)
+    assert valuer.weekly_points([1])[0] == pytest.approx(plays + 0.26 * 8.0)
+    assert valuer.value_points[valuer.row[1], 1] == valuer.points[valuer.row[1], 1]
+
+
 def test_questionable_player_is_active_once_inactives_are_out():
     import datetime as dt
     from fantasyoptimizer.projections import expected_points

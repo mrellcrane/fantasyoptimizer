@@ -8,7 +8,7 @@ from scipy.optimize import linear_sum_assignment
 
 from .config import Config
 from .models import League
-from .projections import projection_matrix
+from .projections import projection_matrix, sit_chance
 
 _INELIGIBLE = -1e6
 STREAMER_ID = -1_000_000   # ESPN ids are positive, or -16xxx for D/ST
@@ -49,6 +49,7 @@ class Valuer:
                                                 else np.maximum(best, self.points[i]))
         self._no_replacement = np.zeros(n_weeks)
         self._add_streamers(cfg.streaming.positions)
+        self.value_points = self._with_fallbacks()
 
         playoff_sps = {sp for mp in league.playoff_periods for sp in league.scoring_periods_of(mp)}
         self.weights = np.array([
@@ -89,6 +90,25 @@ class Valuer:
             self.eligible = np.vstack([self.eligible, self.eligible[self.row[free[0].id]]])
             self.can_start = np.append(self.can_start, True)
 
+    def _with_fallbacks(self) -> np.ndarray:
+        """Points for valuing rosters: a Questionable player who sits doesn't leave a zero.
+
+        His manager swaps him out once inactives are announced, so in the games he sits
+        his slot still scores at least what the best free agent at his position would.
+        Lineup decisions keep the plain discount (`points`), so a missed pregame check
+        never costs a whole slot.
+        """
+        out = self.points.copy()
+        league = self.league
+        if not league.horizon or league.horizon[0] != league.current_scoring_period:
+            return out
+        for pid, i in self.row.items():
+            p = league.players.get(pid)
+            sits = sit_chance(p, league, self.cfg) if p else 0.0
+            if sits > 0:
+                out[i, 0] += sits * max(0.0, float(self._replacement(pid)[0]))
+        return out
+
     def streaming(self, roster: Iterable[int]) -> list[int]:
         """Your roster plus the streamers you'd pick up. Use it for your team only."""
         roster = list(roster)
@@ -107,7 +127,7 @@ class Valuer:
         roster = [pid for pid in roster if pid in self.row]
         rows = [self.row[pid] for pid in roster]
         if points is None:
-            points = self.points[rows, column]
+            points = self.value_points[rows, column]
         slot_idx = list(range(len(self.slots))) if slots is None else slots
         if not rows or not slot_idx:
             return 0.0, {}
@@ -136,10 +156,12 @@ class Valuer:
         rows = np.array([self.row[pid] for pid in ids], dtype=int)
         k = self.cfg.value.bench_depth
         for j in range(n):
-            total, assignment = self.solve(ids, self.points[rows, j] if len(rows) else None, j)
+            points = self.value_points[rows, j] if len(rows) else None
+            total, assignment = self.solve(ids, points, j)
             starters[j] = total
             if k and len(rows):
-                bench = [self.points[self.row[pid], j] - self._replacement(pid)[j] for pid in ids
+                bench = [self.value_points[self.row[pid], j] - self._replacement(pid)[j]
+                         for pid in ids
                          if pid not in assignment and pid not in self.streamers
                          and self.can_start[self.row[pid]]]
                 bench = [b for b in bench if b > 0]
@@ -179,4 +201,4 @@ class Valuer:
     def ros_points(self, pid: int) -> float:
         """A player's raw rest-of-season expected points (roster context ignored)."""
         row = self.row.get(pid)
-        return float(self.weights @ self.points[row]) if row is not None else 0.0
+        return float(self.weights @ self.value_points[row]) if row is not None else 0.0

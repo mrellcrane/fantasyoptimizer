@@ -242,7 +242,7 @@ class Optimizer:
         for j, w in enumerate(valuer.weights):
             before, after = valuer.solve(old, column=j)[1], valuer.solve(new, column=j)[1]
             for pid in set(before) | set(after):
-                pts = w * max(float(valuer.points[valuer.row[pid], j]), 0.0)
+                pts = w * max(float(valuer.value_points[valuer.row[pid], j]), 0.0)
                 delta[pid] += pts * ((pid in after) - (pid in before))
         incoming, outgoing = set(new) - set(old), set(old) - set(new)
 

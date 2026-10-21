@@ -11,7 +11,7 @@ dry_run = true
 # How a player's expected points per game is blended. Weights are relative.
 weight_week = 0.30           # ESPN's projection for this week
 weight_ros = 0.35            # ESPN's rest-of-season per-game projection
-weight_season = 0.10         # ESPN's preseason projection
+weight_season = 0.10         # ESPN's season projection, per game it covers
 weight_actual = 0.25         # What they've actually scored per game
 actual_full_weight_games = 6 # Trust actual scoring fully after this many games
 season_games = 17

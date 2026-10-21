@@ -16,7 +16,7 @@ class ProjectionConfig:
     # How much each signal counts toward a player's per-game rate.
     weight_week: float = 0.30      # ESPN's projection for the current week
     weight_ros: float = 0.35       # ESPN's rest-of-season per-game projection
-    weight_season: float = 0.10    # ESPN's preseason projection / season_games
+    weight_season: float = 0.10    # ESPN's season projection, per game it covers
     weight_actual: float = 0.25    # Actual fantasy points per game so far
     actual_full_weight_games: float = 6.0
     season_games: int = 17

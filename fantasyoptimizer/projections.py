@@ -19,7 +19,7 @@ def per_game_rate(p: Player, league: League, cfg: Config) -> float:
     if p.ros_rate is not None and p.ros_rate > 0:
         signals.append((pc.weight_ros, p.ros_rate))
     if p.season_projection:
-        signals.append((pc.weight_season, p.season_projection / pc.season_games))
+        signals.append((pc.weight_season, p.season_projection / season_games(p, league, cfg)))
     games = p.games_played
     if games > 0 and p.season_average is not None:
         trust = min(1.0, games / pc.actual_full_weight_games)
@@ -29,6 +29,32 @@ def per_game_rate(p: Player, league: League, cfg: Config) -> float:
     if total_weight <= 0:
         return 0.0
     return sum(w * v for w, v in signals) / total_weight
+
+
+def season_games(p: Player, league: League, cfg: Config) -> float:
+    """Games ESPN's season projection covers.
+
+    ESPN's season total drops by a week's projection when a player is ruled out of it,
+    so it only covers the games he plays. Dividing by a full season would count his
+    missed games against his per-game rate.
+    """
+    full = cfg.projection.season_games
+    games = league.pro_games.get(p.pro_team_id)
+    if not games:
+        return full
+    current = league.current_scoring_period
+    missed = max(0.0, sum(n for sp, n in games.items() if sp < current) - p.games_played)
+    ruled_out = sum(n for sp, n in games.items()
+                    if sp >= current and p.period_projections.get(sp) == 0)
+    return max(1.0, full - missed - ruled_out)
+
+
+def sit_chance(p: Player, league: League, cfg: Config) -> float:
+    """Chance a Questionable player sits this week (none once inactives are out)."""
+    if p.injury_status != "QUESTIONABLE" or league.inactives_out(p.pro_team_id,
+                                                                 league.current_scoring_period):
+        return 0.0
+    return 1.0 - availability(p, 0, cfg)
 
 
 def availability(p: Player, weeks_ahead: int, cfg: Config) -> float:
@@ -47,8 +73,7 @@ def questionable_factor(p: Player, league: League, cfg: Config) -> float:
     """
     if p.injury_status != "QUESTIONABLE":
         return 1.0
-    plays = 1.0 if league.inactives_out(p.pro_team_id, league.current_scoring_period) \
-        else availability(p, 0, cfg)
+    plays = 1.0 - sit_chance(p, league, cfg)
     return plays * cfg.questionable_performance.get(p.position, 1.0)
 
 
