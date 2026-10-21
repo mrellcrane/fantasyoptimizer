@@ -1,6 +1,6 @@
 # ScreamStream 2024 League: week 7
 
-**Dry run.** Nothing was sent to ESPN. Set `DRY_RUN=false` to go live.
+**Live run.** Moves below were sent to ESPN.
 
 **Elliott Eats Everyone** is 4-2. Playoff odds **97.2%**, title odds **40.6%**, projected 9.8 wins.
 
@@ -10,21 +10,6 @@
 
 **Week 8 heads-up:**
 - **Isaiah Likely** (TE) is on bye: start **Pat Freiermuth** (8.9) instead.
-
-## The trade you asked about
-
-**Marcus's Magnificent Team**: give A.J. Brown (WR), Ernest Jones IV (LB), Tyler Shough (QB) for DeVonta Smith (WR), Devin Lloyd (LB)
-
-**Worth sending.** You: +18.9 season pts, +1.5% title odds. Them: -24.6 season pts, -1.4% title odds. Accept chance ~30%.
-They'd have to drop Jake Bailey to fit everyone.
-
-Your lineup: RB: David Montgomery moves into the lineup (+11.8); WR: DeVonta Smith replaces A.J. Brown (+8.4); bench depth -1.1. Net +18.9.
-
-Their lineup: P: Jake Bailey gets cut to make room (-31.6); LB: Ernest Jones IV replaces Devin Lloyd (+21.6); WR: A.J. Brown replaces DeVonta Smith (-14.7). Net -24.6.
-
-Pitch: "Ernest Jones IV would start every week for you and A.J. Brown would start most weeks for you over DK Metcalf."
-
-Why: For you: DeVonta Smith (WR, 15.1 pts/gm) would start 11 of 12 weeks; Devin Lloyd (LB, 17.8 pts/gm) would start 0 of 12 weeks; out of your lineup: A.J. Brown (WR, 13.9 pts/gm) 11 wks, Ernest Jones IV (LB, 19.3 pts/gm) 1 wks, Travis Hunter (WR, 10.5 pts/gm) 1 wks; Tyler Shough (QB, 16.5 pts/gm) wouldn't start for you anyway. For them: A.J. Brown (WR, 13.9 pts/gm) would start 10 of 12 weeks; Ernest Jones IV (LB, 19.3 pts/gm) would start 11 of 12 weeks; Tyler Shough (QB, 16.5 pts/gm) would start 0 of 12 weeks; out of their lineup: Devin Lloyd (LB, 17.8 pts/gm) 12 wks, Jake Bailey (P, 2.4 pts/gm) 12 wks, DeVonta Smith (WR, 15.1 pts/gm) 11 wks.
 
 ## Moves
 - None today. Nothing cleared the thresholds.
@@ -111,7 +96,7 @@ _Better for you, less likely to be accepted. Some even look slightly worse for t
    - You: +40.7 season pts, +3.9% title odds. Them: -7.7 season pts. Accept chance ~8%.
    - Your lineup: RB: Christian McCaffrey replaces Ashton Jeanty (+43.5); LB: Ernest Jones IV fills in for Jacob Rodriguez (-23.8); QB: Jayden Daniels starts over Jared Goff (+19.2); bench depth +1.9. Net +40.7.
    - Their lineup: LB: Jacob Rodriguez starts over Anthony Hill Jr. (+77.8); RB: Ashton Jeanty replaces Christian McCaffrey (-46.1); QB: Patrick Mahomes fills in for Jayden Daniels (-37.8); bench depth -1.7. Net -7.7.
-   - Pitch: "Jacob Rodriguez would start every week for you over Anthony Hill Jr., Ashton Jeanty would start every week for you over Emanuel Wilson, and Patrick Mahomes can take over at QB."
+   - Pitch: "Jacob Rodriguez would start every week for you over Anthony Hill Jr., Ashton Jeanty would start every week for you over Tony Pollard, and Patrick Mahomes can take over at QB."
 4. **Cheeseball Champ**: give Jared Goff (QB), A.J. Brown (WR) for Drake London (WR), Lamar Jackson (QB)
    - You: +42.0 season pts, +3.5% title odds. Them: -22.0 season pts. Accept chance ~10%.
    - Your lineup: WR: Drake London replaces A.J. Brown (+23.7); QB: Lamar Jackson replaces Jared Goff (+18.5). Net +42.0.
