@@ -13,17 +13,18 @@
 
 ## The trade you asked about
 
-**Marcus's Magnificent Team**: give A.J. Brown (WR), Jacob Rodriguez (LB) for DeVonta Smith (WR), Devin Lloyd (LB)
+**Marcus's Magnificent Team**: give A.J. Brown (WR), Jacob Rodriguez (LB), Tyler Shough (QB) for DeVonta Smith (WR), Devin Lloyd (LB)
 
-**Worth sending.** You: +13.7 season pts, +1.2% title odds. Them: +12.8 season pts, +0.5% title odds. Accept chance ~81%.
+**Worth sending.** You: +13.0 season pts, +0.8% title odds. Them: -18.4 season pts, -1.1% title odds. Accept chance ~84%.
+They'd have to drop Jake Bailey to fit everyone.
 
-Your lineup: RB: David Montgomery moves into the lineup (+11.8); WR: DeVonta Smith replaces A.J. Brown (+8.4); LB: Ernest Jones IV fills in for Jacob Rodriguez (-6.1). Net +13.7.
+Your lineup: RB: David Montgomery moves into the lineup (+11.8); WR: DeVonta Smith replaces A.J. Brown (+8.4); LB: Ernest Jones IV fills in for Jacob Rodriguez (-6.1); bench depth -1.1. Net +13.0.
 
-Their lineup: LB: Jacob Rodriguez replaces Devin Lloyd (+27.8); WR: A.J. Brown replaces DeVonta Smith (-14.7). Net +12.8.
+Their lineup: P: Jake Bailey gets cut to make room (-31.6); LB: Jacob Rodriguez replaces Devin Lloyd (+27.8); WR: A.J. Brown replaces DeVonta Smith (-14.7). Net -18.4.
 
 Pitch: "Jacob Rodriguez would start every week for you and A.J. Brown would start most weeks for you over DK Metcalf."
 
-Why: For you: DeVonta Smith (WR, 15.1 pts/gm) would start 11 of 12 weeks; Devin Lloyd (LB, 17.8 pts/gm) would start 1 of 12 weeks; out of your lineup: A.J. Brown (WR, 13.9 pts/gm) 11 wks, Jacob Rodriguez (LB, 19.7 pts/gm) 11 wks, Travis Hunter (WR, 10.5 pts/gm) 1 wks. For them: A.J. Brown (WR, 13.9 pts/gm) would start 10 of 12 weeks; Jacob Rodriguez (LB, 19.7 pts/gm) would start 12 of 12 weeks; out of their lineup: Devin Lloyd (LB, 17.8 pts/gm) 12 wks, DeVonta Smith (WR, 15.1 pts/gm) 11 wks, DK Metcalf (WR, 12.2 pts/gm) 1 wks.
+Why: For you: DeVonta Smith (WR, 15.1 pts/gm) would start 11 of 12 weeks; Devin Lloyd (LB, 17.8 pts/gm) would start 1 of 12 weeks; out of your lineup: A.J. Brown (WR, 13.9 pts/gm) 11 wks, Jacob Rodriguez (LB, 19.7 pts/gm) 11 wks, Travis Hunter (WR, 10.5 pts/gm) 1 wks; Tyler Shough (QB, 16.5 pts/gm) wouldn't start for you anyway. For them: A.J. Brown (WR, 13.9 pts/gm) would start 10 of 12 weeks; Jacob Rodriguez (LB, 19.7 pts/gm) would start 12 of 12 weeks; Tyler Shough (QB, 16.5 pts/gm) would start 0 of 12 weeks; out of their lineup: Devin Lloyd (LB, 17.8 pts/gm) 12 wks, Jake Bailey (P, 2.4 pts/gm) 12 wks, DeVonta Smith (WR, 15.1 pts/gm) 11 wks.
 
 ## Moves
 - None today. Nothing cleared the thresholds.
