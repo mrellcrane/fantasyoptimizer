@@ -53,65 +53,35 @@ _Alternatives, best first (at most two per position). Suggestions only: the bot 
 | Tre Tucker (WR) | (open spot) | Waiver | 1 of 11 (wk 8) | +0.7 | +0.0% | Only fills wk 8: add it that week |
 | Jakobi Meyers (WR) | (open spot) | Waiver | 1 of 11 (wk 8) | +0.7 | +0.0% | Only fills wk 8: add it that week |
 
-## Best trade ideas
-
-_Good for you and good for them: the ones most likely to happen._
-
-1. **Cheeseball Champ**: give Jared Goff (QB), Mike Evans (WR) for Lamar Jackson (QB), Marvin Harrison Jr. (WR)
-   - You: +17.7 season pts, +2.2% title odds. Them: +17.5 season pts. Accept chance ~87%.
-   - Your lineup: WR: Travis Hunter fills in for Mike Evans (-28.6); QB: Lamar Jackson replaces Jared Goff (+26.2); RB: David Montgomery moves into the lineup (+21.9); bench depth -1.9. Net +17.7.
-   - Their lineup: WR: Mike Evans starts over Denzel Boston (+29.0); QB: Jared Goff replaces Lamar Jackson (-11.6). Net +17.5.
-   - Pitch: "Jared Goff would start every week for you over Kirk Cousins, Mike Evans would start every week for you over Courtland Sutton, and Marvin Harrison Jr. mostly sits on your bench anyway."
-2. **Cheeseball Champ**: give Jared Goff (QB), Mike Evans (WR) for Lamar Jackson (QB), Kaelon Black (RB)
-   - You: +17.7 season pts, +2.2% title odds. Them: +11.6 season pts. Accept chance ~83%.
-   - Your lineup: WR: Travis Hunter fills in for Mike Evans (-28.6); QB: Lamar Jackson replaces Jared Goff (+26.2); RB: David Montgomery moves into the lineup (+21.9); bench depth -1.9. Net +17.7.
-   - Their lineup: WR: Mike Evans starts over Denzel Boston (+29.0); QB: Jared Goff replaces Lamar Jackson (-11.6); RB: losing Kaelon Black (-5.9), best free agent to cover it: Cam Skattebo (11.5 pts/gm). Net +11.6.
-   - Pitch: "Jared Goff would start every week for you over Kirk Cousins, Mike Evans would start every week for you over Courtland Sutton, and Kaelon Black mostly sits on your bench anyway."
-3. **Dabob Dungies**: give Jared Goff (QB), Will Reichard (K) for Drake Maye (QB), Ka'imi Fairbairn (K)
-   - You: +12.0 season pts, +2.4% title odds. Them: +15.2 season pts. Accept chance ~56%.
-   - Your lineup: QB: Drake Maye replaces Jared Goff (+35.3); K: Ka'imi Fairbairn replaces Will Reichard (-23.3). Net +12.0.
-   - Their lineup: K: Will Reichard replaces Ka'imi Fairbairn (+23.3); QB: Joe Burrow fills in for Drake Maye (-5.2); bench depth -2.9. Net +15.2.
-   - Pitch: "Will Reichard would start every week for you and Joe Burrow can take over at QB."
-4. **Dabob Dungies**: give DeVonta Smith (WR), Jared Goff (QB) for Drake Maye (QB), Omarion Hampton (RB)
-   - You: +11.3 season pts, +1.5% title odds. Them: +11.5 season pts. Accept chance ~87%.
-   - Your lineup: WR: Mike Evans fills in for DeVonta Smith (-42.3); QB: Drake Maye replaces Jared Goff (+35.3); RB: David Montgomery and RJ Harvey move into the lineup (+20.2); bench depth -1.9. Net +11.3.
-   - Their lineup: WR: DeVonta Smith starts over Luther Burden III (+18.3); QB: Joe Burrow fills in for Drake Maye (-5.2); RB: Kyle Monangai fills in for Omarion Hampton (-0.7), or pick up Cam Skattebo (11.5 pts/gm); bench depth -0.9. Net +11.5.
-   - Pitch: "DeVonta Smith would start most weeks for you over Omar Cooper Jr., Joe Burrow can take over at QB, and Omarion Hampton mostly sits on your bench anyway."
-5. **Cheeseball Champ**: give Jared Goff (QB), Mike Evans (WR) for Lamar Jackson (QB), Brenton Strange (TE)
-   - You: +19.1 season pts, +3.1% title odds. Them: +8.0 season pts. Accept chance ~57%.
-   - Your lineup: WR: Travis Hunter fills in for Mike Evans (-28.6); QB: Lamar Jackson replaces Jared Goff (+26.2); RB: David Montgomery moves into the lineup (+21.9); TE: Brenton Strange starts over Pat Freiermuth (+1.3); bench depth -1.8. Net +19.1.
-   - Their lineup: WR: Mike Evans starts over Denzel Boston (+37.8); TE: losing Brenton Strange (-18.1), best free agent to cover it: Harold Fannin Jr. (9.3 pts/gm); QB: Jared Goff replaces Lamar Jackson (-11.6). Net +8.0.
-   - Pitch: "Jared Goff would start every week for you over Kirk Cousins, Mike Evans would start every week for you over Courtland Sutton, and Brenton Strange mostly sits on your bench anyway."
-
 ## Long shots
 
 _Better for you, less likely to be accepted. Some even look slightly worse for them on paper, so the pitch matters. Worst case, they say no._
 
-1. **Dabob Dungies**: give Jared Goff (QB), Travis Hunter (WR) for Drake Maye (QB), Luther Burden III (WR)
-   - You: +37.1 season pts, +4.3% title odds. Them: -21.0 season pts. Accept chance ~5%.
-   - Your lineup: QB: Drake Maye replaces Jared Goff (+35.3); RB: David Montgomery moves into the lineup (+10.9); WR: Luther Burden III starts over Travis Hunter and Mike Evans (-10.4); bench depth +1.2. Net +37.1.
-   - Their lineup: WR: Travis Hunter replaces Luther Burden III (-12.9); QB: Joe Burrow fills in for Drake Maye (-5.2); bench depth -2.8. Net -21.0.
-   - Pitch: "Travis Hunter would start every week for you over Omar Cooper Jr. and Joe Burrow can take over at QB."
-2. **C-Hawks**: give DeVonta Smith (WR), Jacob Rodriguez (LB) for Malik Nabers (WR), Alex Singleton (LB)
+1. **C-Hawks**: give DeVonta Smith (WR), Jacob Rodriguez (LB) for Malik Nabers (WR), Alex Singleton (LB)
    - You: +28.4 season pts, +3.8% title odds. Them: -12.4 season pts. Accept chance ~15%.
    - Your lineup: LB: Alex Singleton replaces Jacob Rodriguez (+14.8); RB: RJ Harvey moves into the lineup (+9.3); WR: Malik Nabers replaces DeVonta Smith (+4.3). Net +28.4.
    - Their lineup: WR: DeVonta Smith replaces Malik Nabers (-14.7); LB: Jacob Rodriguez replaces Alex Singleton (+2.3). Net -12.4.
    - Pitch: "Jacob Rodriguez would start every week for you and DeVonta Smith would start most weeks for you over Germie Bernard."
-3. **Dabob Dungies**: give Jared Goff (QB), Mike Evans (WR) for Drake Maye (QB), Luther Burden III (WR)
-   - You: +35.7 season pts, +3.8% title odds. Them: -9.3 season pts. Accept chance ~9%.
-   - Your lineup: QB: Drake Maye replaces Jared Goff (+35.3); RB: David Montgomery moves into the lineup (+10.9); WR: Luther Burden III replaces Mike Evans (-10.7). Net +35.7.
-   - Their lineup: WR: Mike Evans replaces Luther Burden III (-11.6); RB: Breece Hall moves into the lineup (+10.4); QB: Joe Burrow fills in for Drake Maye (-5.2); bench depth -2.8. Net -9.3.
-   - Pitch: "Mike Evans would start every week for you over Omar Cooper Jr. and Joe Burrow can take over at QB."
-4. **C-Hawks**: give Christian Watson (WR), Jacob Rodriguez (LB) for Malik Nabers (WR), Alex Singleton (LB)
+2. **C-Hawks**: give Christian Watson (WR), Jacob Rodriguez (LB) for Malik Nabers (WR), Alex Singleton (LB)
    - You: +23.9 season pts, +3.7% title odds. Them: -10.3 season pts. Accept chance ~22%.
    - Your lineup: LB: Alex Singleton replaces Jacob Rodriguez (+14.8); RB: RJ Harvey moves into the lineup (+9.3). Net +23.9.
    - Their lineup: WR: Christian Watson replaces Malik Nabers (-12.8); LB: Jacob Rodriguez replaces Alex Singleton (+2.3). Net -10.3.
    - Pitch: "Jacob Rodriguez would start every week for you and Christian Watson would start every week for you over Germie Bernard."
-5. **Team Leigh**: give Christian Watson (WR), Jared Goff (QB) for CeeDee Lamb (WR), Matthew Stafford (QB)
-   - You: +40.8 season pts, +3.6% title odds. Them: -24.5 season pts. Accept chance ~6%.
-   - Your lineup: WR: CeeDee Lamb replaces Christian Watson (+52.9); QB: Matthew Stafford replaces Jared Goff (-12.0). Net +40.8.
-   - Their lineup: WR: Christian Watson replaces CeeDee Lamb (-51.7); QB: Jared Goff replaces Matthew Stafford (+27.2). Net -24.5.
-   - Pitch: "Christian Watson would start every week for you over Xavier Worthy and Jared Goff would start every week for you over Jordan Love."
+3. **Cheeseball Champ**: give Isaiah Likely (TE), Travis Hunter (WR) for Brock Bowers (TE), Brenton Strange (TE)
+   - You: +26.5 season pts, +3.5% title odds. Them: -24.9 season pts. Accept chance ~5%.
+   - Your lineup: TE: Brock Bowers replaces Isaiah Likely (+42.4); WR: losing Travis Hunter (-36.9), best free agent to cover it: Ladd McConkey (10.7 pts/gm); RB: David Montgomery moves into the lineup (+21.9); bench depth -0.9. Net +26.5.
+   - Their lineup: TE: Isaiah Likely replaces Brock Bowers (-50.1); WR: Travis Hunter starts over Denzel Boston (+25.1). Net -24.9.
+   - Pitch: "Isaiah Likely would start every week for you, Travis Hunter would start every week for you over Courtland Sutton, and Brenton Strange mostly sits on your bench anyway."
+4. **Cheeseball Champ**: give Isaiah Likely (TE), Jacob Rodriguez (LB) for Brock Bowers (TE), Fred Warner (LB)
+   - You: +29.3 season pts, +3.4% title odds. Them: -29.4 season pts. Accept chance ~8%.
+   - Your lineup: TE: Brock Bowers replaces Isaiah Likely (+32.0); LB: Fred Warner replaces Jacob Rodriguez (-2.8). Net +29.3.
+   - Their lineup: TE: Isaiah Likely replaces Brock Bowers (-31.2); LB: Jacob Rodriguez replaces Fred Warner (+1.8). Net -29.4.
+   - Pitch: "Jacob Rodriguez would start every week for you over Roquan Smith and Isaiah Likely would start every week for you over Brenton Strange."
+5. **Team Leigh**: give Christian Watson (WR), DeVonta Smith (WR) for CeeDee Lamb (WR), Jordan Love (QB)
+   - You: +29.9 season pts, +3.1% title odds. Them: -19.8 season pts. Accept chance ~8%.
+   - Your lineup: WR: CeeDee Lamb and Mike Evans start over Christian Watson and DeVonta Smith (+20.9); RB: RJ Harvey moves into the lineup (+9.3); QB: Jordan Love starts over Jared Goff (+1.0); bench depth -1.3. Net +29.9.
+   - Their lineup: TE: T.J. Hockenson drops out of the lineup (-11.4); WR: Christian Watson and DeVonta Smith start over CeeDee Lamb and DJ Moore (-8.8); bench depth +0.6. Net -19.8.
+   - Pitch: "Christian Watson would start every week for you over Xavier Worthy, DeVonta Smith would start most weeks for you over Xavier Worthy, and Jordan Love mostly sits on your bench anyway."
 
 ## Best available players (top 3 per position)
 
@@ -134,13 +104,13 @@ _Would start = weeks he'd make your best lineup if you added him._
 | DT | Jeffery Simmons | TEN | Waivers | 10.9 | BYE | ~10.6 | 10.6 | 9 | 63% | 0 of 11 |
 | DT | Tommy Togiai | HOU | Waivers | BYE | 9.2 | ~9.8 | 9.8 | 8 | 20% | 0 of 11 |
 | DT | DeForest Buckner | IND | Waivers | 10.2 | 10.4 | ~9.4 | 9.4 | 13 | 36% | 0 of 11 |
-| DE | Andrew Van Ginkel | MIN | Waivers | 10.6 | 10.3 | ~9.6 | 9.6 | 6 | 50% | 0 of 11 |
+| DE | Andrew Van Ginkel | MIN | Waivers | 10.6 | 10.3 | ~9.6 | 9.6 | 6 | 49% | 0 of 11 |
 | DE | Dallas Turner | MIN | Waivers | 9.9 | 9.6 | ~8.7 | 8.7 | 6 | 43% | 0 of 11 |
 | DE | Will Anderson Jr. | HOU | Waivers | BYE | 9.5 | ~9.5 | 9.5 | 8 | 69% | 0 of 11 |
 | LB | Barrett Carter | CIN | Waivers | 17.4 | 17.9 | ~17.2 | 17.2 | 6 | 18% | 0 of 11 |
 | LB | Zack Baun | PHI | Waivers | 18.5 | 19.1 | BYE | 18.2 | 10 | 67% | 0 of 11 |
 | LB | Payton Wilson | PIT | Waivers | 18.1 | BYE | ~17.8 | 17.8 | 9 | 24% | 0 of 11 |
-| CB | Quentin Lake | LAR | Waivers | 13.9 | 13.8 | ~14.0 | 14.0 | 11 | 53% | 0 of 11 |
+| CB | Quentin Lake | LAR | Waivers | 13.9 | 13.8 | ~14.0 | 14.0 | 11 | 52% | 0 of 11 |
 | CB | Amik Robertson | WSH | Waivers | 12.9 | 13.6 | ~12.4 | 12.4 | 7 | 16% | 0 of 11 |
 | CB | D.J. Reed | DET | Waivers | 12.1 | 12.0 | ~12.3 | 12.3 | 6 | 9% | 0 of 11 |
 | S | Dane Belton | NYJ | Waivers | 16.4 | 15.9 | ~15.7 | 15.7 | 13 | 35% | 0 of 11 |
