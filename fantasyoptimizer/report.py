@@ -18,6 +18,24 @@ def _pct(x: float) -> str:
     return f"{100 * x:.1f}%"
 
 
+def _ordinal(n: int) -> str:
+    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
+def waiver_line(league: League) -> str | None:
+    """Where we stand in line for waiver claims (and FAAB left, where bids decide it)."""
+    me = league.my_team
+    spot = f"{_ordinal(me.waiver_rank)} of {len(league.teams)}" if me.waiver_rank else None
+    if league.uses_faab and me.faab_remaining is not None:
+        return (f"**${me.faab_remaining}** FAAB left"
+                + (f"; waiver spot {spot} breaks tied bids." if spot else "."))
+    if spot:
+        return (f"Waiver spot: **{spot}**. Teams ahead of you get first pick of players you both "
+                "claim, and landing a claim usually sends you to the back of the line.")
+    return None
+
+
 def bye_week(league: League, p: Player) -> int | None:
     games = league.pro_games.get(p.pro_team_id)
     if not p.pro_team_id or not games:
@@ -318,6 +336,8 @@ def render(result: RunResult, max_rows: int = 8) -> str:
           f"title odds **{_pct(base.title_odds[me.id])}**, "
           f"projected {base.expected_wins[me.id]:.1f} wins.",
     ]
+    if waivers := waiver_line(league):
+        lines += ["", waivers]
     lines += lineup_section(result)
     lines += asked_trade_section(result)
     lines += ["", "## Moves"]
@@ -392,12 +412,15 @@ def render(result: RunResult, max_rows: int = 8) -> str:
 
     lines += free_agent_section(result)
 
+    show_waivers = any(t.waiver_rank for t in league.teams.values())
     lines += ["", "## League outlook", "",
-              "| Team | Record | Proj. wins | Playoffs | Title |", "|---|---|---:|---:|---:|"]
+              "| Team | Record | Proj. wins | Playoffs | Title |" + (" Waiver spot |" if show_waivers else ""),
+              "|---|---|---:|---:|---:|" + ("---:|" if show_waivers else "")]
     for t in sorted(league.teams.values(), key=lambda t: -base.title_odds[t.id]):
         name = f"**{t.name}**" if t.id == me.id else t.name
         lines.append(f"| {name} | {t.wins:g}-{t.losses:g} | {base.expected_wins[t.id]:.1f} "
-                     f"| {_pct(base.playoff_odds[t.id])} | {_pct(base.title_odds[t.id])} |")
+                     f"| {_pct(base.playoff_odds[t.id])} | {_pct(base.title_odds[t.id])} |"
+                     + (f" {t.waiver_rank or ''} |" if show_waivers else ""))
 
     if result.notes:
         lines += ["", "## Notes", ""] + [f"- {n}" for n in result.notes]
@@ -473,6 +496,7 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
             "points_for": t.points_for, "playoff_odds": round(base.playoff_odds[t.id], 4),
             "title_odds": round(base.title_odds[t.id], 4),
             "projected_wins": round(base.expected_wins[t.id], 2),
+            "waiver_rank": t.waiver_rank, "faab_remaining": t.faab_remaining,
         } for t in league.teams.values()],
         "asked_trade": (trade_json(result.asked_trade) if result.asked_trade
                         else {"error": result.asked_trade_error} if result.asked_trade_error else None),

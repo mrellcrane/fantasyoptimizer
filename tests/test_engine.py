@@ -319,3 +319,30 @@ def test_pregame_only_acts_when_one_of_your_games_is_close(tmp_path, monkeypatch
     if runs:
         text = out.read_text()
         assert "Lineup (+" in text and "## Best pickups" not in text
+
+
+def test_report_shows_where_we_are_in_the_waiver_line():
+    result = Optimizer(demo_league(), config(), State(), FakeClient(), NOW).run()
+    league = result.league
+    league.uses_faab = False
+    for t in league.teams.values():
+        t.waiver_rank = t.id
+    league.my_team.waiver_rank = 3
+    text = report.render(result)
+    assert f"Waiver spot: **3rd of {len(league.teams)}**" in text
+    outlook = text.split("## League outlook")[1]
+    assert "| Waiver spot |" in outlook
+    mine = next(l for l in outlook.splitlines() if league.my_team.name in l)
+    assert mine.endswith(" 3 |")
+    snap = report.snapshot(result)
+    assert {t["id"]: t["waiver_rank"] for t in snap["teams"]}[league.my_team_id] == 3
+
+    league.uses_faab = True
+    league.my_team.faab_remaining = 73
+    assert report.waiver_line(league) == "**$73** FAAB left; waiver spot 3rd of 10 breaks tied bids."
+    for t in league.teams.values():
+        t.waiver_rank = None
+    assert report.waiver_line(league) == "**$73** FAAB left."
+    assert "Waiver spot |" not in report.render(result)
+    assert [report._ordinal(n) for n in (1, 2, 3, 4, 11, 12, 13, 21, 22)] == \
+        ["1st", "2nd", "3rd", "4th", "11th", "12th", "13th", "21st", "22nd"]
