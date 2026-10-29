@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T15:07:28+00:00",
+ "generated_at": "2026-10-29T19:41:53+00:00",
  "league": {
   "id": 473811221,
   "name": "ScreamStream 2024 League",
@@ -124,13 +124,8 @@
  "lineup_check": {
   "week": 8,
   "best_points": 139.9,
-  "gain": 2.1,
-  "swaps": [
-   {
-    "start": "Geno Smith",
-    "sit": "Lamar Jackson"
-   }
-  ],
+  "gain": 0.0,
+  "swaps": [],
   "next_week": 9,
   "holes": [
    {
@@ -141,16 +136,7 @@
    }
   ]
  },
- "moves": [
-  {
-   "kind": "lineup",
-   "summary": "Lineup (+2.1 projected pts this week): start Geno Smith over Lamar Jackson",
-   "why": "",
-   "pitch": "",
-   "status": "SENT",
-   "response": "EXECUTED"
-  }
- ],
+ "moves": [],
  "pickup_ideas": [
   {
    "add": "Jeremy Crawshaw",
@@ -697,7 +683,7 @@
    "season_points": 62.4,
    "season_avg": 8.914285714285715,
    "bye": 10,
-   "percent_rostered": 95.25
+   "percent_rostered": 95.41
   },
   {
    "id": 4596448,
@@ -728,7 +714,7 @@
    "season_points": 109.6,
    "season_avg": 15.657142857142858,
    "bye": 10,
-   "percent_rostered": 97.56
+   "percent_rostered": 97.59
   },
   {
    "id": 12483,
@@ -759,7 +745,7 @@
    "season_points": 123.36,
    "season_avg": 17.622857142857146,
    "bye": 11,
-   "percent_rostered": 92.21
+   "percent_rostered": 92.16
   },
   {
    "id": 3915416,
@@ -790,7 +776,7 @@
    "season_points": 38.3,
    "season_avg": 9.575,
    "bye": 7,
-   "percent_rostered": 90.48
+   "percent_rostered": 90.55
   },
   {
    "id": 3122132,
@@ -821,7 +807,7 @@
    "season_points": 0.0,
    "season_avg": 0.0,
    "bye": 11,
-   "percent_rostered": 58.8
+   "percent_rostered": 58.72
   },
   {
    "id": 4569987,
@@ -883,7 +869,7 @@
    "season_points": 53.7,
    "season_avg": 8.950000000000001,
    "bye": 5,
-   "percent_rostered": 74.76
+   "percent_rostered": 74.46
   },
   {
    "id": 4036378,
@@ -914,7 +900,7 @@
    "season_points": 129.32,
    "season_avg": 18.474285714285713,
    "bye": 11,
-   "percent_rostered": 89.41
+   "percent_rostered": 89.31
   },
   {
    "id": -16016,
@@ -945,7 +931,7 @@
    "season_points": 74.0,
    "season_avg": 12.333333333333334,
    "bye": 6,
-   "percent_rostered": 88.77
+   "percent_rostered": 88.51
   },
   {
    "id": 4688813,
@@ -976,7 +962,7 @@
    "season_points": 59.4,
    "season_avg": 8.485714285714286,
    "bye": 13,
-   "percent_rostered": 63.93
+   "percent_rostered": 63.83
   },
   {
    "id": 3929645,
@@ -1007,7 +993,7 @@
    "season_points": 70.5,
    "season_avg": 10.071428571428571,
    "bye": 8,
-   "percent_rostered": 55.84
+   "percent_rostered": 55.13
   },
   {
    "id": 4036133,
@@ -1038,7 +1024,7 @@
    "season_points": 64.7,
    "season_avg": 10.783333333333333,
    "bye": 6,
-   "percent_rostered": 74.97
+   "percent_rostered": 75.77
   },
   {
    "id": -16025,
@@ -1069,7 +1055,7 @@
    "season_points": 49.0,
    "season_avg": 7.0,
    "bye": 8,
-   "percent_rostered": 41.77
+   "percent_rostered": 40.83
   },
   {
    "id": 4870998,
@@ -1100,7 +1086,7 @@
    "season_points": 140.0,
    "season_avg": 23.333333333333332,
    "bye": 10,
-   "percent_rostered": 54.42
+   "percent_rostered": 54.16
   },
   {
    "id": 17372,
@@ -1131,7 +1117,7 @@
    "season_points": 71.0,
    "season_avg": 10.142857142857142,
    "bye": 9,
-   "percent_rostered": 75.4
+   "percent_rostered": 76.11
   },
   {
    "id": 3953687,
@@ -1162,7 +1148,7 @@
    "season_points": 59.0,
    "season_avg": 8.428571428571429,
    "bye": 14,
-   "percent_rostered": 95.8
+   "percent_rostered": 95.92
   },
   {
    "id": 3126368,
@@ -1193,7 +1179,7 @@
    "season_points": 9.0,
    "season_avg": 1.5,
    "bye": 7,
-   "percent_rostered": 35.01
+   "percent_rostered": 37.26
   },
   {
    "id": 4374302,
@@ -1255,7 +1241,7 @@
    "season_points": 76.8,
    "season_avg": 12.799999999999999,
    "bye": 6,
-   "percent_rostered": 98.72
+   "percent_rostered": 98.73
   },
   {
    "id": 4361579,
@@ -1286,7 +1272,7 @@
    "season_points": 130.5,
    "season_avg": 18.642857142857142,
    "bye": 14,
-   "percent_rostered": 99.41
+   "percent_rostered": 99.42
   },
   {
    "id": 4431459,
@@ -1317,7 +1303,7 @@
    "season_points": 69.9,
    "season_avg": 13.98,
    "bye": 13,
-   "percent_rostered": 96.17
+   "percent_rostered": 96.18
   },
   {
    "id": 4569465,
@@ -1348,7 +1334,7 @@
    "season_points": 112.5,
    "season_avg": 18.75,
    "bye": 6,
-   "percent_rostered": 61.22
+   "percent_rostered": 61.27
   },
   {
    "id": 4047650,
@@ -1379,7 +1365,7 @@
    "season_points": 76.5,
    "season_avg": 10.928571428571429,
    "bye": 9,
-   "percent_rostered": 90.8
+   "percent_rostered": 90.79
   },
   {
    "id": 4701936,
@@ -1410,7 +1396,7 @@
    "season_points": 112.6,
    "season_avg": 16.085714285714285,
    "bye": 11,
-   "percent_rostered": 94.35
+   "percent_rostered": 94.34
   },
   {
    "id": 3931395,
@@ -1441,7 +1427,7 @@
    "season_points": 15.0,
    "season_avg": 2.142857142857143,
    "bye": 11,
-   "percent_rostered": 20.9
+   "percent_rostered": 20.85
   },
   {
    "id": 4685720,
@@ -1472,7 +1458,7 @@
    "season_points": 115.88,
    "season_avg": 19.313333333333333,
    "bye": 5,
-   "percent_rostered": 81.91
+   "percent_rostered": 81.67
   },
   {
    "id": 3150744,
@@ -1503,7 +1489,7 @@
    "season_points": 77.0,
    "season_avg": 11.0,
    "bye": 10,
-   "percent_rostered": 36.5
+   "percent_rostered": 37.37
   },
   {
    "id": 4711533,
@@ -1534,7 +1520,7 @@
    "season_points": 65.3,
    "season_avg": 10.883333333333333,
    "bye": 6,
-   "percent_rostered": 84.11
+   "percent_rostered": 84.38
   },
   {
    "id": 4567750,
@@ -1596,7 +1582,7 @@
    "season_points": 65.1,
    "season_avg": 9.299999999999999,
    "bye": 11,
-   "percent_rostered": 84.86
+   "percent_rostered": 85.09
   },
   {
    "id": -16003,
@@ -1627,7 +1613,7 @@
    "season_points": 46.0,
    "season_avg": 6.571428571428571,
    "bye": 10,
-   "percent_rostered": 19.35
+   "percent_rostered": 20.36
   },
   {
    "id": 4362851,
@@ -1658,7 +1644,7 @@
    "season_points": 146.0,
    "season_avg": 20.857142857142858,
    "bye": 11,
-   "percent_rostered": 87.17
+   "percent_rostered": 87.36
   },
   {
    "id": 4360689,
@@ -1689,7 +1675,7 @@
    "season_points": 127.94,
    "season_avg": 18.277142857142856,
    "bye": 8,
-   "percent_rostered": 69.08
+   "percent_rostered": 68.79
   },
   {
    "id": 4047646,
@@ -1720,7 +1706,7 @@
    "season_points": 19.1,
    "season_avg": 6.366666666666667,
    "bye": 11,
-   "percent_rostered": 96.34
+   "percent_rostered": 96.31
   },
   {
    "id": 4697815,
@@ -1751,7 +1737,7 @@
    "season_points": 48.8,
    "season_avg": 9.76,
    "bye": 7,
-   "percent_rostered": 71.17
+   "percent_rostered": 72.1
   },
   {
    "id": 4426515,
@@ -1813,7 +1799,7 @@
    "season_points": 51.1,
    "season_avg": 10.22,
    "bye": 14,
-   "percent_rostered": 94.74
+   "percent_rostered": 94.73
   },
   {
    "id": 4567048,
@@ -1875,7 +1861,7 @@
    "season_points": 63.9,
    "season_avg": 9.128571428571428,
    "bye": 10,
-   "percent_rostered": 86.94
+   "percent_rostered": 86.77
   },
   {
    "id": 4882093,
@@ -1906,7 +1892,7 @@
    "season_points": 88.4,
    "season_avg": 14.733333333333334,
    "bye": 7,
-   "percent_rostered": 93.22
+   "percent_rostered": 93.26
   },
   {
    "id": 3728281,
@@ -1937,7 +1923,7 @@
    "season_points": 124.0,
    "season_avg": 20.666666666666668,
    "bye": 6,
-   "percent_rostered": 94.11
+   "percent_rostered": 94.42
   },
   {
    "id": 4432620,
@@ -1968,7 +1954,7 @@
    "season_points": 93.9,
    "season_avg": 15.65,
    "bye": 7,
-   "percent_rostered": 95.49
+   "percent_rostered": 95.56
   },
   {
    "id": 4572680,
@@ -1999,7 +1985,7 @@
    "season_points": 73.2,
    "season_avg": 10.457142857142857,
    "bye": 11,
-   "percent_rostered": 92.15
+   "percent_rostered": 92.19
   },
   {
    "id": 4431611,
@@ -2061,7 +2047,7 @@
    "season_points": 134.0,
    "season_avg": 19.142857142857142,
    "bye": 11,
-   "percent_rostered": 77.16
+   "percent_rostered": 77.1
   },
   {
    "id": 4385690,
@@ -2092,7 +2078,7 @@
    "season_points": 60.5,
    "season_avg": 10.083333333333334,
    "bye": 7,
-   "percent_rostered": 77.24
+   "percent_rostered": 77.1
   },
   {
    "id": 4248789,
@@ -2123,7 +2109,7 @@
    "season_points": 22.0,
    "season_avg": 3.142857142857143,
    "bye": 11,
-   "percent_rostered": 40.67
+   "percent_rostered": 40.34
   },
   {
    "id": 4571557,
@@ -2154,7 +2140,7 @@
    "season_points": 93.0,
    "season_avg": 13.285714285714286,
    "bye": 13,
-   "percent_rostered": 85.75
+   "percent_rostered": 85.83
   },
   {
    "id": 4685247,
@@ -2185,7 +2171,7 @@
    "season_points": 78.3,
    "season_avg": 11.185714285714287,
    "bye": 13,
-   "percent_rostered": 80.6
+   "percent_rostered": 80.47
   },
   {
    "id": 4432577,
@@ -2216,7 +2202,7 @@
    "season_points": 128.68,
    "season_avg": 18.382857142857144,
    "bye": 8,
-   "percent_rostered": 71.14
+   "percent_rostered": 70.73
   },
   {
    "id": 4047365,
@@ -2247,7 +2233,7 @@
    "season_points": 20.1,
    "season_avg": 20.1,
    "bye": 11,
-   "percent_rostered": 92.78
+   "percent_rostered": 92.96
   },
   {
    "id": 5083754,
@@ -2278,7 +2264,7 @@
    "season_points": 63.4,
    "season_avg": 9.057142857142859,
    "bye": 14,
-   "percent_rostered": 19.27
+   "percent_rostered": 19.71
   },
   {
    "id": -16017,
@@ -2309,7 +2295,7 @@
    "season_points": 42.0,
    "season_avg": 6.0,
    "bye": 11,
-   "percent_rostered": 68.49
+   "percent_rostered": 69.17
   },
   {
    "id": 4612826,
@@ -2340,7 +2326,7 @@
    "season_points": 39.0,
    "season_avg": 7.8,
    "bye": 7,
-   "percent_rostered": 84.29
+   "percent_rostered": 84.28
   },
   {
    "id": 4429795,
@@ -2433,7 +2419,7 @@
    "season_points": 131.5,
    "season_avg": 18.785714285714285,
    "bye": 11,
-   "percent_rostered": 96.95
+   "percent_rostered": 96.96
   },
   {
    "id": 4566094,
@@ -2464,7 +2450,7 @@
    "season_points": 130.0,
    "season_avg": 21.666666666666668,
    "bye": 6,
-   "percent_rostered": 58.53
+   "percent_rostered": 58.76
   },
   {
    "id": 16800,
@@ -2495,7 +2481,7 @@
    "season_points": 104.0,
    "season_avg": 17.333333333333332,
    "bye": 11,
-   "percent_rostered": 91.7
+   "percent_rostered": 91.6
   },
   {
    "id": 4035538,
@@ -2526,7 +2512,7 @@
    "season_points": 45.5,
    "season_avg": 9.1,
    "bye": 8,
-   "percent_rostered": 80.03
+   "percent_rostered": 79.85
   },
   {
    "id": 4361050,
@@ -2557,7 +2543,7 @@
    "season_points": 112.5,
    "season_avg": 16.071428571428573,
    "bye": 8,
-   "percent_rostered": 95.31
+   "percent_rostered": 95.24
   },
   {
    "id": 4685415,
@@ -2588,7 +2574,7 @@
    "season_points": 74.9,
    "season_avg": 12.483333333333334,
    "bye": 7,
-   "percent_rostered": 28.01
+   "percent_rostered": 27.96
   },
   {
    "id": 4567104,
@@ -2619,7 +2605,7 @@
    "season_points": 82.0,
    "season_avg": 13.666666666666666,
    "bye": 6,
-   "percent_rostered": 92.02
+   "percent_rostered": 92.28
   },
   {
    "id": 15928,
@@ -2650,7 +2636,7 @@
    "season_points": 18.0,
    "season_avg": 3.0,
    "bye": 5,
-   "percent_rostered": 47.11
+   "percent_rostered": 46.93
   },
   {
    "id": 4361411,
@@ -2681,7 +2667,7 @@
    "season_points": 67.4,
    "season_avg": 9.62857142857143,
    "bye": 9,
-   "percent_rostered": 51.36
+   "percent_rostered": 50.9
   },
   {
    "id": 4568490,
@@ -2712,7 +2698,7 @@
    "season_points": 67.4,
    "season_avg": 11.233333333333334,
    "bye": 10,
-   "percent_rostered": 76.19
+   "percent_rostered": 76.12
   },
   {
    "id": 8439,
@@ -2743,7 +2729,7 @@
    "season_points": 114.26,
    "season_avg": 16.322857142857142,
    "bye": 9,
-   "percent_rostered": 46.41
+   "percent_rostered": 45.86
   },
   {
    "id": 4243256,
@@ -2774,7 +2760,7 @@
    "season_points": 94.0,
    "season_avg": 18.8,
    "bye": 5,
-   "percent_rostered": 42.36
+   "percent_rostered": 42.0
   },
   {
    "id": 4241478,
@@ -2805,7 +2791,7 @@
    "season_points": 71.0,
    "season_avg": 17.75,
    "bye": 10,
-   "percent_rostered": 97.35
+   "percent_rostered": 97.34
   },
   {
    "id": -16030,
@@ -2836,7 +2822,7 @@
    "season_points": 34.0,
    "season_avg": 5.666666666666667,
    "bye": 7,
-   "percent_rostered": 70.67
+   "percent_rostered": 72.62
   },
   {
    "id": 15864,
@@ -2844,7 +2830,7 @@
    "position": "QB",
    "nfl_team": "NYJ",
    "fantasy_team": "Elliott Eats Everyone",
-   "slot": "BE",
+   "slot": "QB",
    "status": "ONTEAM",
    "injury": "ACTIVE",
    "locked": false,
@@ -2867,7 +2853,7 @@
    "season_points": 105.12,
    "season_avg": 15.017142857142858,
    "bye": 13,
-   "percent_rostered": 25.39
+   "percent_rostered": 26.51
   },
   {
    "id": 3916387,
@@ -2875,7 +2861,7 @@
    "position": "QB",
    "nfl_team": "BAL",
    "fantasy_team": "Elliott Eats Everyone",
-   "slot": "QB",
+   "slot": "BE",
    "status": "ONTEAM",
    "injury": "QUESTIONABLE",
    "locked": false,
@@ -2898,7 +2884,7 @@
    "season_points": 79.08,
    "season_avg": 19.77,
    "bye": 13,
-   "percent_rostered": 98.59
+   "percent_rostered": 98.6
   },
   {
    "id": 4432708,
@@ -2929,7 +2915,7 @@
    "season_points": 35.5,
    "season_avg": 5.916666666666667,
    "bye": 8,
-   "percent_rostered": 70.24
+   "percent_rostered": 70.03
   },
   {
    "id": 4242335,
@@ -2991,7 +2977,7 @@
    "season_points": 38.1,
    "season_avg": 7.620000000000002,
    "bye": 10,
-   "percent_rostered": 97.86
+   "percent_rostered": 97.85
   },
   {
    "id": 4258173,
@@ -3022,7 +3008,7 @@
    "season_points": 76.1,
    "season_avg": 15.219999999999999,
    "bye": 8,
-   "percent_rostered": 99.05
+   "percent_rostered": 99.03
   },
   {
    "id": 4429615,
@@ -3053,7 +3039,7 @@
    "season_points": 122.2,
    "season_avg": 20.366666666666667,
    "bye": 13,
-   "percent_rostered": 99.25
+   "percent_rostered": 99.27
   },
   {
    "id": 4685512,
@@ -3084,7 +3070,7 @@
    "season_points": 14.0,
    "season_avg": 3.5,
    "bye": 11,
-   "percent_rostered": 65.09
+   "percent_rostered": 65.07
   },
   {
    "id": 3040151,
@@ -3115,7 +3101,7 @@
    "season_points": 106.5,
    "season_avg": 15.214285714285714,
    "bye": 8,
-   "percent_rostered": 98.2
+   "percent_rostered": 98.17
   },
   {
    "id": 4871023,
@@ -3146,7 +3132,7 @@
    "season_points": 79.3,
    "season_avg": 11.328571428571431,
    "bye": 9,
-   "percent_rostered": 86.93
+   "percent_rostered": 86.87
   },
   {
    "id": 2577417,
@@ -3177,7 +3163,7 @@
    "season_points": 128.14,
    "season_avg": 18.305714285714288,
    "bye": 14,
-   "percent_rostered": 91.83
+   "percent_rostered": 91.95
   },
   {
    "id": 4429023,
@@ -3208,7 +3194,7 @@
    "season_points": 49.2,
    "season_avg": 7.028571428571429,
    "bye": 11,
-   "percent_rostered": 39.25
+   "percent_rostered": 38.8
   },
   {
    "id": 4362759,
@@ -3239,7 +3225,7 @@
    "season_points": 125.5,
    "season_avg": 20.916666666666668,
    "bye": 5,
-   "percent_rostered": 75.68
+   "percent_rostered": 75.81
   },
   {
    "id": 4360310,
@@ -3270,7 +3256,7 @@
    "season_points": 114.2,
    "season_avg": 19.033333333333335,
    "bye": 7,
-   "percent_rostered": 90.86
+   "percent_rostered": 91.04
   },
   {
    "id": -16023,
@@ -3301,7 +3287,7 @@
    "season_points": 57.0,
    "season_avg": 8.142857142857142,
    "bye": 9,
-   "percent_rostered": 96.18
+   "percent_rostered": 96.34
   },
   {
    "id": 4426340,
@@ -3332,7 +3318,7 @@
    "season_points": 150.0,
    "season_avg": 21.428571428571427,
    "bye": 13,
-   "percent_rostered": 95.15
+   "percent_rostered": 95.18
   },
   {
    "id": 4361432,
@@ -3363,7 +3349,7 @@
    "season_points": 58.1,
    "season_avg": 9.683333333333334,
    "bye": 11,
-   "percent_rostered": 51.83
+   "percent_rostered": 51.48
   },
   {
    "id": 4869461,
@@ -3394,7 +3380,7 @@
    "season_points": 48.0,
    "season_avg": 6.857142857142857,
    "bye": 11,
-   "percent_rostered": 12.86
+   "percent_rostered": 12.81
   },
   {
    "id": 4427982,
@@ -3425,7 +3411,7 @@
    "season_points": 20.0,
    "season_avg": 2.857142857142857,
    "bye": 13,
-   "percent_rostered": 65.5
+   "percent_rostered": 65.36
   },
   {
    "id": 3054850,
@@ -3456,7 +3442,7 @@
    "season_points": 65.8,
    "season_avg": 10.966666666666667,
    "bye": 8,
-   "percent_rostered": 59.38
+   "percent_rostered": 59.21
   },
   {
    "id": 4569618,
@@ -3487,7 +3473,7 @@
    "season_points": 99.4,
    "season_avg": 14.200000000000001,
    "bye": 13,
-   "percent_rostered": 98.62
+   "percent_rostered": 98.6
   },
   {
    "id": 15847,
@@ -3518,7 +3504,7 @@
    "season_points": 70.3,
    "season_avg": 11.716666666666669,
    "bye": 5,
-   "percent_rostered": 92.74
+   "percent_rostered": 92.7
   },
   {
    "id": 4262921,
@@ -3611,7 +3597,7 @@
    "season_points": 66.0,
    "season_avg": 9.428571428571429,
    "bye": 11,
-   "percent_rostered": 93.76
+   "percent_rostered": 93.86
   },
   {
    "id": 4426385,
@@ -3642,7 +3628,7 @@
    "season_points": 0.0,
    "season_avg": 0.0,
    "bye": 11,
-   "percent_rostered": 69.97
+   "percent_rostered": 70.2
   },
   {
    "id": 4241416,
@@ -3673,7 +3659,7 @@
    "season_points": 110.1,
    "season_avg": 18.35,
    "bye": 5,
-   "percent_rostered": 95.36
+   "percent_rostered": 95.37
   },
   {
    "id": 4695883,
@@ -3704,7 +3690,7 @@
    "season_points": 69.8,
    "season_avg": 13.960000000000003,
    "bye": 5,
-   "percent_rostered": 90.25
+   "percent_rostered": 90.29
   },
   {
    "id": 4832955,
@@ -3735,7 +3721,7 @@
    "season_points": 34.1,
    "season_avg": 5.683333333333334,
    "bye": 5,
-   "percent_rostered": 12.27
+   "percent_rostered": 12.22
   },
   {
    "id": 4360761,
@@ -3766,7 +3752,7 @@
    "season_points": 83.88,
    "season_avg": 11.982857142857142,
    "bye": 14,
-   "percent_rostered": 89.69
+   "percent_rostered": 89.62
   },
   {
    "id": 4595348,
@@ -3797,7 +3783,7 @@
    "season_points": 122.5,
    "season_avg": 17.5,
    "bye": 8,
-   "percent_rostered": 99.36
+   "percent_rostered": 99.35
   },
   {
    "id": 2612151,
@@ -3828,7 +3814,7 @@
    "season_points": 179.5,
    "season_avg": 25.642857142857142,
    "bye": 10,
-   "percent_rostered": 83.27
+   "percent_rostered": 83.55
   },
   {
    "id": 4685261,
@@ -3859,7 +3845,7 @@
    "season_points": 58.8,
    "season_avg": 8.4,
    "bye": 9,
-   "percent_rostered": 75.56
+   "percent_rostered": 75.39
   },
   {
    "id": 4360569,
@@ -3890,7 +3876,7 @@
    "season_points": 18.7,
    "season_avg": 9.350000000000001,
    "bye": 6,
-   "percent_rostered": 66.91
+   "percent_rostered": 67.09
   },
   {
    "id": 4363538,
@@ -3921,7 +3907,7 @@
    "season_points": 73.0,
    "season_avg": 10.428571428571429,
    "bye": 14,
-   "percent_rostered": 18.84
+   "percent_rostered": 20.01
   },
   {
    "id": 4035239,
@@ -3952,7 +3938,7 @@
    "season_points": 29.0,
    "season_avg": 4.142857142857143,
    "bye": 10,
-   "percent_rostered": 54.44
+   "percent_rostered": 55.26
   },
   {
    "id": 4428718,
@@ -3983,7 +3969,7 @@
    "season_points": 99.8,
    "season_avg": 14.257142857142858,
    "bye": 13,
-   "percent_rostered": 70.22
+   "percent_rostered": 70.87
   },
   {
    "id": 4242512,
@@ -4014,7 +4000,7 @@
    "season_points": 86.58,
    "season_avg": 14.43,
    "bye": 6,
-   "percent_rostered": 9.09
+   "percent_rostered": 9.26
   },
   {
    "id": 4702555,
@@ -4045,7 +4031,7 @@
    "season_points": 23.7,
    "season_avg": 7.900000000000001,
    "bye": 10,
-   "percent_rostered": 41.26
+   "percent_rostered": 41.98
   },
   {
    "id": 4360635,
@@ -4076,7 +4062,7 @@
    "season_points": 30.0,
    "season_avg": 7.5,
    "bye": 7,
-   "percent_rostered": 12.1
+   "percent_rostered": 12.53
   },
   {
    "id": 4362628,
@@ -4231,7 +4217,7 @@
    "season_points": 122.8,
    "season_avg": 17.54285714285714,
    "bye": 10,
-   "percent_rostered": 97.16
+   "percent_rostered": 97.15
   },
   {
    "id": 4043130,
@@ -4262,7 +4248,7 @@
    "season_points": 107.0,
    "season_avg": 17.833333333333332,
    "bye": 6,
-   "percent_rostered": 80.9
+   "percent_rostered": 81.44
   },
   {
    "id": 4038941,
@@ -4293,7 +4279,7 @@
    "season_points": 66.44,
    "season_avg": 11.073333333333332,
    "bye": 7,
-   "percent_rostered": 36.15
+   "percent_rostered": 35.91
   },
   {
    "id": 4569173,
@@ -4324,7 +4310,7 @@
    "season_points": 86.9,
    "season_avg": 12.414285714285715,
    "bye": 11,
-   "percent_rostered": 92.33
+   "percent_rostered": 92.34
   },
   {
    "id": -16014,
@@ -4355,7 +4341,7 @@
    "season_points": 26.0,
    "season_avg": 3.7142857142857144,
    "bye": 11,
-   "percent_rostered": 89.54
+   "percent_rostered": 90.21
   },
   {
    "id": 4361741,
@@ -4386,7 +4372,7 @@
    "season_points": 146.02,
    "season_avg": 20.859999999999996,
    "bye": 8,
-   "percent_rostered": 98.39
+   "percent_rostered": 98.34
   },
   {
    "id": 4038815,
@@ -4417,7 +4403,7 @@
    "season_points": 33.0,
    "season_avg": 8.25,
    "bye": 9,
-   "percent_rostered": 62.32
+   "percent_rostered": 62.84
   },
   {
    "id": 4360078,
@@ -4448,7 +4434,7 @@
    "season_points": 12.2,
    "season_avg": 6.1,
    "bye": 13,
-   "percent_rostered": 50.95
+   "percent_rostered": 50.85
   },
   {
    "id": 3050073,
@@ -4479,7 +4465,7 @@
    "season_points": 92.0,
    "season_avg": 15.333333333333334,
    "bye": 7,
-   "percent_rostered": 51.66
+   "percent_rostered": 51.77
   },
   {
    "id": 3046439,
@@ -4510,7 +4496,7 @@
    "season_points": 71.6,
    "season_avg": 10.228571428571428,
    "bye": 11,
-   "percent_rostered": 66.39
+   "percent_rostered": 67.42
   },
   {
    "id": 3126486,
@@ -4541,7 +4527,7 @@
    "season_points": 60.4,
    "season_avg": 12.08,
    "bye": 8,
-   "percent_rostered": 71.51
+   "percent_rostered": 71.44
   },
   {
    "id": 4039396,
@@ -4572,7 +4558,7 @@
    "season_points": 15.0,
    "season_avg": 2.142857142857143,
    "bye": 11,
-   "percent_rostered": 85.91
+   "percent_rostered": 85.95
   },
   {
    "id": 4870795,
@@ -4603,7 +4589,7 @@
    "season_points": 53.9,
    "season_avg": 7.700000000000001,
    "bye": 10,
-   "percent_rostered": 39.32
+   "percent_rostered": 39.42
   },
   {
    "id": 4249087,
@@ -4634,7 +4620,7 @@
    "season_points": 73.0,
    "season_avg": 10.428571428571429,
    "bye": 13,
-   "percent_rostered": 52.04
+   "percent_rostered": 52.76
   },
   {
    "id": 4360423,
@@ -4665,7 +4651,7 @@
    "season_points": 84.68,
    "season_avg": 16.936,
    "bye": 11,
-   "percent_rostered": 16.84
+   "percent_rostered": 17.08
   },
   {
    "id": 4430807,
@@ -4820,7 +4806,7 @@
    "season_points": 153.5,
    "season_avg": 21.928571428571427,
    "bye": 8,
-   "percent_rostered": 94.61
+   "percent_rostered": 94.24
   },
   {
    "id": 2976212,
@@ -4851,7 +4837,7 @@
    "season_points": 69.4,
    "season_avg": 13.88,
    "bye": 7,
-   "percent_rostered": 83.67
+   "percent_rostered": 83.8
   },
   {
    "id": 4696044,
@@ -4882,7 +4868,7 @@
    "season_points": 30.7,
    "season_avg": 4.385714285714285,
    "bye": 8,
-   "percent_rostered": 24.05
+   "percent_rostered": 24.04
   },
   {
    "id": 3686689,
@@ -4913,7 +4899,7 @@
    "season_points": 13.52,
    "season_avg": 1.9314285714285713,
    "bye": 13,
-   "percent_rostered": 76.57
+   "percent_rostered": 76.33
   },
   {
    "id": 4710714,
@@ -4944,7 +4930,7 @@
    "season_points": 0.0,
    "season_avg": 0.0,
    "bye": 8,
-   "percent_rostered": 20.31
+   "percent_rostered": 20.28
   },
   {
    "id": 3915189,
@@ -4975,7 +4961,7 @@
    "season_points": 118.0,
    "season_avg": 16.857142857142858,
    "bye": 13,
-   "percent_rostered": 71.13
+   "percent_rostered": 70.53
   },
   {
    "id": 4430539,
@@ -5006,7 +4992,7 @@
    "season_points": 59.9,
    "season_avg": 9.983333333333334,
    "bye": 7,
-   "percent_rostered": 45.04
+   "percent_rostered": 45.77
   },
   {
    "id": 3128429,
@@ -5037,7 +5023,7 @@
    "season_points": 40.8,
    "season_avg": 5.828571428571428,
    "bye": 10,
-   "percent_rostered": 62.78
+   "percent_rostered": 62.59
   },
   {
    "id": 4832800,
@@ -5068,7 +5054,7 @@
    "season_points": 81.2,
    "season_avg": 11.6,
    "bye": 11,
-   "percent_rostered": 77.73
+   "percent_rostered": 77.72
   },
   {
    "id": -16007,
@@ -5099,7 +5085,7 @@
    "season_points": 49.0,
    "season_avg": 7.0,
    "bye": 10,
-   "percent_rostered": 85.6
+   "percent_rostered": 85.32
   },
   {
    "id": 4710855,
@@ -5130,7 +5116,7 @@
    "season_points": 29.2,
    "season_avg": 4.171428571428572,
    "bye": 11,
-   "percent_rostered": 4.33
+   "percent_rostered": 4.14
   },
   {
    "id": 14880,
@@ -5161,7 +5147,7 @@
    "season_points": 131.48,
    "season_avg": 18.782857142857146,
    "bye": 13,
-   "percent_rostered": 59.23
+   "percent_rostered": 59.4
   },
   {
    "id": 16737,
@@ -5192,7 +5178,7 @@
    "season_points": 89.0,
    "season_avg": 14.833333333333334,
    "bye": 8,
-   "percent_rostered": 92.89
+   "percent_rostered": 92.86
   },
   {
    "id": 3046779,
@@ -5223,7 +5209,7 @@
    "season_points": 133.02,
    "season_avg": 22.169999999999998,
    "bye": 6,
-   "percent_rostered": 90.4
+   "percent_rostered": 90.35
   },
   {
    "id": 3917232,
@@ -5254,7 +5240,7 @@
    "season_points": 62.0,
    "season_avg": 10.333333333333334,
    "bye": 7,
-   "percent_rostered": 49.3
+   "percent_rostered": 52.16
   },
   {
    "id": 3117251,
@@ -5316,7 +5302,7 @@
    "season_points": 24.6,
    "season_avg": 8.200000000000001,
    "bye": 6,
-   "percent_rostered": 31.25
+   "percent_rostered": 31.13
   },
   {
    "id": 4428331,
@@ -5347,7 +5333,7 @@
    "season_points": 38.0,
    "season_avg": 9.5,
    "bye": 5,
-   "percent_rostered": 94.28
+   "percent_rostered": 94.29
   },
   {
    "id": 4426354,
@@ -5378,7 +5364,7 @@
    "season_points": 99.5,
    "season_avg": 14.214285714285714,
    "bye": 14,
-   "percent_rostered": 98.83
+   "percent_rostered": 98.82
   },
   {
    "id": 4239993,
@@ -5409,7 +5395,7 @@
    "season_points": 102.1,
    "season_avg": 17.016666666666666,
    "bye": 6,
-   "percent_rostered": 97.07
+   "percent_rostered": 97.11
   },
   {
    "id": 4426348,
@@ -5440,7 +5426,7 @@
    "season_points": 85.66,
    "season_avg": 21.415,
    "bye": 7,
-   "percent_rostered": 94.36
+   "percent_rostered": 94.52
   },
   {
    "id": 4426388,
@@ -5471,7 +5457,7 @@
    "season_points": 83.7,
    "season_avg": 13.950000000000001,
    "bye": 6,
-   "percent_rostered": 91.49
+   "percent_rostered": 91.54
   },
   {
    "id": 4430027,
@@ -5502,7 +5488,7 @@
    "season_points": 79.4,
    "season_avg": 13.233333333333334,
    "bye": 6,
-   "percent_rostered": 96.48
+   "percent_rostered": 96.47
   },
   {
    "id": 3916148,
@@ -5533,7 +5519,7 @@
    "season_points": 89.8,
    "season_avg": 12.828571428571431,
    "bye": 9,
-   "percent_rostered": 88.97
+   "percent_rostered": 89.02
   },
   {
    "id": 4569587,
@@ -5564,7 +5550,7 @@
    "season_points": 61.6,
    "season_avg": 8.8,
    "bye": 9,
-   "percent_rostered": 55.24
+   "percent_rostered": 55.07
   },
   {
    "id": 3139477,
@@ -5595,7 +5581,7 @@
    "season_points": 100.06,
    "season_avg": 16.676666666666666,
    "bye": 5,
-   "percent_rostered": 90.6
+   "percent_rostered": 90.46
   },
   {
    "id": 2473037,
@@ -5626,7 +5612,7 @@
    "season_points": 67.0,
    "season_avg": 9.571428571428571,
    "bye": 11,
-   "percent_rostered": 88.77
+   "percent_rostered": 88.9
   },
   {
    "id": 3051397,
@@ -5657,7 +5643,7 @@
    "season_points": 22.0,
    "season_avg": 3.142857142857143,
    "bye": 9,
-   "percent_rostered": 76.05
+   "percent_rostered": 76.15
   },
   {
    "id": 3042519,
@@ -5688,7 +5674,7 @@
    "season_points": 73.8,
    "season_avg": 12.299999999999999,
    "bye": 6,
-   "percent_rostered": 90.38
+   "percent_rostered": 90.23
   },
   {
    "id": 4569559,
@@ -5719,7 +5705,7 @@
    "season_points": 85.8,
    "season_avg": 12.257142857142858,
    "bye": 8,
-   "percent_rostered": 61.36
+   "percent_rostered": 61.18
   },
   {
    "id": 4887558,
@@ -5750,7 +5736,7 @@
    "season_points": 76.8,
    "season_avg": 10.971428571428573,
    "bye": 11,
-   "percent_rostered": 69.35
+   "percent_rostered": 69.33
   },
   {
    "id": 3121023,
@@ -5781,7 +5767,7 @@
    "season_points": 58.8,
    "season_avg": 11.76,
    "bye": 10,
-   "percent_rostered": 84.59
+   "percent_rostered": 84.6
   },
   {
    "id": 4870805,
@@ -5812,7 +5798,7 @@
    "season_points": 143.0,
    "season_avg": 20.428571428571427,
    "bye": 9,
-   "percent_rostered": 31.87
+   "percent_rostered": 32.31
   },
   {
    "id": -16010,
@@ -5843,7 +5829,7 @@
    "season_points": 36.0,
    "season_avg": 5.142857142857143,
    "bye": 9,
-   "percent_rostered": 14.96
+   "percent_rostered": 13.76
   },
   {
    "id": 4430878,
@@ -5905,7 +5891,7 @@
    "season_points": 57.5,
    "season_avg": 9.583333333333334,
    "bye": 7,
-   "percent_rostered": 90.17
+   "percent_rostered": 90.1
   },
   {
    "id": 4361370,
@@ -5936,7 +5922,7 @@
    "season_points": 126.6,
    "season_avg": 18.085714285714285,
    "bye": 8,
-   "percent_rostered": 99.41
+   "percent_rostered": 99.39
   },
   {
    "id": 4685702,
@@ -5998,7 +5984,7 @@
    "season_points": 140.46,
    "season_avg": 20.065714285714282,
    "bye": 11,
-   "percent_rostered": 98.77
+   "percent_rostered": 98.8
   },
   {
    "id": 4685278,
@@ -6029,7 +6015,7 @@
    "season_points": 99.0,
    "season_avg": 14.142857142857142,
    "bye": 10,
-   "percent_rostered": 91.85
+   "percent_rostered": 91.91
   },
   {
    "id": 4608686,
@@ -6060,7 +6046,7 @@
    "season_points": 59.3,
    "season_avg": 14.825,
    "bye": 10,
-   "percent_rostered": 76.79
+   "percent_rostered": 76.76
   },
   {
    "id": 2971573,
@@ -6091,7 +6077,7 @@
    "season_points": 81.0,
    "season_avg": 11.571428571428571,
    "bye": 8,
-   "percent_rostered": 81.1
+   "percent_rostered": 79.96
   },
   {
    "id": 4361331,
@@ -6122,7 +6108,7 @@
    "season_points": 121.5,
    "season_avg": 17.357142857142858,
    "bye": 13,
-   "percent_rostered": 41.13
+   "percent_rostered": 41.38
   },
   {
    "id": 4429086,
@@ -6153,7 +6139,7 @@
    "season_points": 68.8,
    "season_avg": 9.828571428571427,
    "bye": 13,
-   "percent_rostered": 24.48
+   "percent_rostered": 24.31
   },
   {
    "id": 3929851,
@@ -6184,7 +6170,7 @@
    "season_points": 25.0,
    "season_avg": 3.5714285714285716,
    "bye": 11,
-   "percent_rostered": 39.61
+   "percent_rostered": 39.52
   },
   {
    "id": 3912547,
@@ -6215,7 +6201,7 @@
    "season_points": 74.8,
    "season_avg": 12.466666666666669,
    "bye": 11,
-   "percent_rostered": 30.64
+   "percent_rostered": 30.6
   },
   {
    "id": 4427729,
@@ -6246,7 +6232,7 @@
    "season_points": 114.5,
    "season_avg": 19.083333333333332,
    "bye": 6,
-   "percent_rostered": 11.25
+   "percent_rostered": 11.32
   },
   {
    "id": 4427366,
@@ -6308,7 +6294,7 @@
    "season_points": 130.12,
    "season_avg": 21.686666666666667,
    "bye": 6,
-   "percent_rostered": 98.55
+   "percent_rostered": 98.58
   },
   {
    "id": -16029,
@@ -6339,7 +6325,7 @@
    "season_points": 21.0,
    "season_avg": 3.5,
    "bye": 5,
-   "percent_rostered": 16.16
+   "percent_rostered": 15.24
   },
   {
    "id": 4431299,
@@ -6370,7 +6356,7 @@
    "season_points": 62.1,
    "season_avg": 8.871428571428572,
    "bye": 10,
-   "percent_rostered": 84.25
+   "percent_rostered": 84.16
   },
   {
    "id": 4723820,
@@ -6401,7 +6387,7 @@
    "season_points": 48.8,
    "season_avg": 16.266666666666666,
    "bye": 13,
-   "percent_rostered": 63.08
+   "percent_rostered": 64.12
   },
   {
    "id": 4429096,
@@ -6432,7 +6418,7 @@
    "season_points": 69.5,
    "season_avg": 9.928571428571429,
    "bye": 11,
-   "percent_rostered": 77.85
+   "percent_rostered": 78.15
   },
   {
    "id": 3917315,
@@ -6463,7 +6449,7 @@
    "season_points": 53.68,
    "season_avg": 10.736,
    "bye": 6,
-   "percent_rostered": 59.91
+   "percent_rostered": 59.94
   },
   {
    "id": 4426338,
@@ -6494,7 +6480,7 @@
    "season_points": 95.84,
    "season_avg": 13.691428571428572,
    "bye": 10,
-   "percent_rostered": 57.44
+   "percent_rostered": 57.25
   },
   {
    "id": 3052587,
@@ -6525,7 +6511,7 @@
    "season_points": 41.76,
    "season_avg": 10.440000000000001,
    "bye": 10,
-   "percent_rostered": 25.99
+   "percent_rostered": 26.07
   },
   {
    "id": 2578570,
@@ -6556,7 +6542,7 @@
    "season_points": 107.7,
    "season_avg": 15.385714285714286,
    "bye": 14,
-   "percent_rostered": 22.47
+   "percent_rostered": 22.65
   },
   {
    "id": 3122840,
@@ -6587,7 +6573,7 @@
    "season_points": 106.78,
    "season_avg": 15.254285714285714,
    "bye": 11,
-   "percent_rostered": 13.76
+   "percent_rostered": 13.65
   },
   {
    "id": 3917792,
@@ -6618,7 +6604,7 @@
    "season_points": 64.72,
    "season_avg": 9.245714285714286,
    "bye": 13,
-   "percent_rostered": 12.64
+   "percent_rostered": 12.56
   },
   {
    "id": 4040715,
@@ -6649,7 +6635,7 @@
    "season_points": 80.02,
    "season_avg": 16.004,
    "bye": 10,
-   "percent_rostered": 38.03
+   "percent_rostered": 37.6
   },
   {
    "id": 4433970,
@@ -6680,7 +6666,7 @@
    "season_points": 26.7,
    "season_avg": 8.9,
    "bye": 8,
-   "percent_rostered": 17.4
+   "percent_rostered": 17.14
   },
   {
    "id": 4689114,
@@ -6711,7 +6697,7 @@
    "season_points": 27.4,
    "season_avg": 13.7,
    "bye": 8,
-   "percent_rostered": 22.9
+   "percent_rostered": 22.82
   },
   {
    "id": 2969939,
@@ -6742,7 +6728,7 @@
    "season_points": 67.28,
    "season_avg": 11.213333333333333,
    "bye": 8,
-   "percent_rostered": 6.97
+   "percent_rostered": 6.8
   },
   {
    "id": 4696981,
@@ -6773,7 +6759,7 @@
    "season_points": 70.4,
    "season_avg": 10.057142857142859,
    "bye": 8,
-   "percent_rostered": 92.18
+   "percent_rostered": 92.16
   },
   {
    "id": 4239996,
@@ -6804,7 +6790,7 @@
    "season_points": 30.9,
    "season_avg": 10.3,
    "bye": 8,
-   "percent_rostered": 80.48
+   "percent_rostered": 80.43
   },
   {
    "id": 4241985,
@@ -6835,7 +6821,7 @@
    "season_points": 58.0,
    "season_avg": 8.285714285714286,
    "bye": 10,
-   "percent_rostered": 78.4
+   "percent_rostered": 77.97
   },
   {
    "id": 4371733,
@@ -6866,7 +6852,7 @@
    "season_points": 41.0,
    "season_avg": 5.857142857142857,
    "bye": 10,
-   "percent_rostered": 51.05
+   "percent_rostered": 50.96
   },
   {
    "id": 4429059,
@@ -6897,7 +6883,7 @@
    "season_points": 62.5,
    "season_avg": 8.928571428571429,
    "bye": 8,
-   "percent_rostered": 73.43
+   "percent_rostered": 73.06
   },
   {
    "id": 3116389,
@@ -6928,38 +6914,7 @@
    "season_points": 43.7,
    "season_avg": 7.283333333333334,
    "bye": 6,
-   "percent_rostered": 11.79
-  },
-  {
-   "id": 4432710,
-   "name": "TreVeyon Henderson",
-   "position": "RB",
-   "nfl_team": "NE",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "8": {
-     "points": 6.6,
-     "source": "espn"
-    },
-    "9": {
-     "points": 6.05,
-     "source": "espn"
-    },
-    "10": {
-     "points": 7.24,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 7.24,
-   "ros_points": 85.1,
-   "season_points": 33.8,
-   "season_avg": 5.633333333333333,
-   "bye": 11,
-   "percent_rostered": 72.28
+   "percent_rostered": 12.1
   },
   {
    "id": 4360238,
@@ -6990,7 +6945,38 @@
    "season_points": 30.0,
    "season_avg": 10.0,
    "bye": 10,
-   "percent_rostered": 33.41
+   "percent_rostered": 31.27
+  },
+  {
+   "id": 4432710,
+   "name": "TreVeyon Henderson",
+   "position": "RB",
+   "nfl_team": "NE",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "QUESTIONABLE",
+   "locked": false,
+   "projections": {
+    "8": {
+     "points": 6.6,
+     "source": "espn"
+    },
+    "9": {
+     "points": 6.05,
+     "source": "espn"
+    },
+    "10": {
+     "points": 7.24,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 7.24,
+   "ros_points": 82.9,
+   "season_points": 33.8,
+   "season_avg": 5.633333333333333,
+   "bye": 11,
+   "percent_rostered": 71.98
   },
   {
    "id": 4373626,
@@ -7021,7 +7007,7 @@
    "season_points": 48.0,
    "season_avg": 6.857142857142857,
    "bye": 14,
-   "percent_rostered": 49.68
+   "percent_rostered": 49.17
   },
   {
    "id": 4596334,
@@ -7052,7 +7038,7 @@
    "season_points": 37.1,
    "season_avg": 6.183333333333334,
    "bye": 7,
-   "percent_rostered": 12.52
+   "percent_rostered": 12.41
   },
   {
    "id": 3916433,
@@ -7083,7 +7069,7 @@
    "season_points": 62.7,
    "season_avg": 10.450000000000001,
    "bye": 7,
-   "percent_rostered": 68.96
+   "percent_rostered": 69.03
   },
   {
    "id": 4869645,
@@ -7114,7 +7100,7 @@
    "season_points": 41.3,
    "season_avg": 13.766666666666666,
    "bye": 6,
-   "percent_rostered": 25.18
+   "percent_rostered": 26.02
   },
   {
    "id": 4373678,
@@ -7145,7 +7131,7 @@
    "season_points": 55.0,
    "season_avg": 9.166666666666666,
    "bye": 7,
-   "percent_rostered": 59.16
+   "percent_rostered": 59.38
   },
   {
    "id": 4429205,
@@ -7176,7 +7162,7 @@
    "season_points": 37.5,
    "season_avg": 7.5,
    "bye": 6,
-   "percent_rostered": 72.28
+   "percent_rostered": 72.19
   },
   {
    "id": 4870653,
@@ -7207,7 +7193,7 @@
    "season_points": 62.9,
    "season_avg": 8.985714285714286,
    "bye": 11,
-   "percent_rostered": 56.49
+   "percent_rostered": 57.12
   },
   {
    "id": 4569603,
@@ -7238,7 +7224,7 @@
    "season_points": 56.7,
    "season_avg": 9.450000000000001,
    "bye": 6,
-   "percent_rostered": 38.01
+   "percent_rostered": 37.87
   },
   {
    "id": 15818,
@@ -7269,7 +7255,7 @@
    "season_points": 62.8,
    "season_avg": 10.466666666666667,
    "bye": 13,
-   "percent_rostered": 41.7
+   "percent_rostered": 41.71
   },
   {
    "id": 3116165,
@@ -7300,7 +7286,7 @@
    "season_points": 53.1,
    "season_avg": 7.585714285714286,
    "bye": 10,
-   "percent_rostered": 53.16
+   "percent_rostered": 53.02
   },
   {
    "id": 4427095,
@@ -7331,7 +7317,7 @@
    "season_points": 66.6,
    "season_avg": 9.514285714285714,
    "bye": 11,
-   "percent_rostered": 43.24
+   "percent_rostered": 43.47
   },
   {
    "id": 4428850,
@@ -7362,7 +7348,7 @@
    "season_points": 53.4,
    "season_avg": 8.9,
    "bye": 10,
-   "percent_rostered": 24.18
+   "percent_rostered": 23.94
   },
   {
    "id": 5083076,
@@ -7393,7 +7379,7 @@
    "season_points": 66.7,
    "season_avg": 9.528571428571428,
    "bye": 11,
-   "percent_rostered": 85.43
+   "percent_rostered": 85.4
   },
   {
    "id": 3116365,
@@ -7424,7 +7410,7 @@
    "season_points": 50.4,
    "season_avg": 7.200000000000001,
    "bye": 13,
-   "percent_rostered": 66.87
+   "percent_rostered": 66.83
   },
   {
    "id": 3116164,
@@ -7455,7 +7441,7 @@
    "season_points": 59.5,
    "season_avg": 9.916666666666666,
    "bye": 6,
-   "percent_rostered": 14.1
+   "percent_rostered": 14.24
   },
   {
    "id": 3117256,
@@ -7486,7 +7472,7 @@
    "season_points": 65.2,
    "season_avg": 9.314285714285715,
    "bye": 8,
-   "percent_rostered": 27.16
+   "percent_rostered": 26.9
   },
   {
    "id": 4576297,
@@ -7517,7 +7503,7 @@
    "season_points": 43.5,
    "season_avg": 6.214285714285714,
    "bye": 11,
-   "percent_rostered": 6.8
+   "percent_rostered": 6.91
   },
   {
    "id": 4242557,
@@ -7548,7 +7534,7 @@
    "season_points": 32.3,
    "season_avg": 5.383333333333333,
    "bye": 11,
-   "percent_rostered": 7.07
+   "percent_rostered": 7.02
   },
   {
    "id": 4808766,
@@ -7579,7 +7565,7 @@
    "season_points": 39.7,
    "season_avg": 7.94,
    "bye": 13,
-   "percent_rostered": 7.65
+   "percent_rostered": 8.36
   },
   {
    "id": 2576925,
@@ -7610,7 +7596,7 @@
    "season_points": 51.8,
    "season_avg": 8.633333333333333,
    "bye": 5,
-   "percent_rostered": 9.68
+   "percent_rostered": 9.6
   },
   {
    "id": 4242355,
@@ -7641,7 +7627,7 @@
    "season_points": 46.5,
    "season_avg": 6.642857142857143,
    "bye": 14,
-   "percent_rostered": 49.14
+   "percent_rostered": 48.79
   },
   {
    "id": 5083315,
@@ -7672,7 +7658,7 @@
    "season_points": 42.7,
    "season_avg": 6.1000000000000005,
    "bye": 13,
-   "percent_rostered": 24.0
+   "percent_rostered": 23.76
   },
   {
    "id": 4035369,
@@ -7703,7 +7689,7 @@
    "season_points": 92.5,
    "season_avg": 13.214285714285714,
    "bye": 10,
-   "percent_rostered": 62.57
+   "percent_rostered": 62.7
   },
   {
    "id": 4361366,
@@ -7734,7 +7720,7 @@
    "season_points": 78.0,
    "season_avg": 11.142857142857142,
    "bye": 8,
-   "percent_rostered": 15.38
+   "percent_rostered": 14.99
   },
   {
    "id": 2971282,
@@ -7765,7 +7751,7 @@
    "season_points": 72.0,
    "season_avg": 10.285714285714286,
    "bye": 8,
-   "percent_rostered": 31.95
+   "percent_rostered": 31.42
   },
   {
    "id": 4360277,
@@ -7796,7 +7782,7 @@
    "season_points": 48.0,
    "season_avg": 8.0,
    "bye": 6,
-   "percent_rostered": 13.37
+   "percent_rostered": 13.58
   },
   {
    "id": 4035495,
@@ -7827,7 +7813,7 @@
    "season_points": 42.0,
    "season_avg": 7.0,
    "bye": 5,
-   "percent_rostered": 9.42
+   "percent_rostered": 9.46
   },
   {
    "id": 2971622,
@@ -7858,7 +7844,7 @@
    "season_points": 51.5,
    "season_avg": 7.357142857142857,
    "bye": 11,
-   "percent_rostered": 15.68
+   "percent_rostered": 15.9
   },
   {
    "id": 13977,
@@ -7889,7 +7875,7 @@
    "season_points": 54.0,
    "season_avg": 7.714285714285714,
    "bye": 9,
-   "percent_rostered": 13.81
+   "percent_rostered": 13.89
   },
   {
    "id": 4570040,
@@ -7920,7 +7906,7 @@
    "season_points": 55.0,
    "season_avg": 7.857142857142857,
    "bye": 11,
-   "percent_rostered": 8.96
+   "percent_rostered": 9.12
   },
   {
    "id": 4040982,
@@ -7951,7 +7937,7 @@
    "season_points": 54.5,
    "season_avg": 7.785714285714286,
    "bye": 14,
-   "percent_rostered": 18.38
+   "percent_rostered": 18.39
   },
   {
    "id": 4685759,
@@ -7982,7 +7968,7 @@
    "season_points": 51.0,
    "season_avg": 7.285714285714286,
    "bye": 10,
-   "percent_rostered": 16.64
+   "percent_rostered": 16.73
   },
   {
    "id": 3133487,
@@ -8013,7 +7999,7 @@
    "season_points": 48.0,
    "season_avg": 8.0,
    "bye": 6,
-   "percent_rostered": 49.52
+   "percent_rostered": 49.67
   },
   {
    "id": 4565190,
@@ -8044,7 +8030,7 @@
    "season_points": 45.0,
    "season_avg": 7.5,
    "bye": 6,
-   "percent_rostered": 44.82
+   "percent_rostered": 45.1
   },
   {
    "id": 4685724,
@@ -8075,7 +8061,7 @@
    "season_points": 84.0,
    "season_avg": 12.0,
    "bye": 8,
-   "percent_rostered": 63.19
+   "percent_rostered": 62.74
   },
   {
    "id": 4431442,
@@ -8106,7 +8092,7 @@
    "season_points": 67.0,
    "season_avg": 11.166666666666666,
    "bye": 7,
-   "percent_rostered": 34.79
+   "percent_rostered": 35.2
   },
   {
    "id": 4362506,
@@ -8137,7 +8123,7 @@
    "season_points": 62.5,
    "season_avg": 10.416666666666666,
    "bye": 7,
-   "percent_rostered": 41.48
+   "percent_rostered": 41.94
   },
   {
    "id": 4685248,
@@ -8168,7 +8154,7 @@
    "season_points": 83.0,
    "season_avg": 11.857142857142858,
    "bye": 13,
-   "percent_rostered": 42.95
+   "percent_rostered": 42.8
   },
   {
    "id": 4875196,
@@ -8199,7 +8185,7 @@
    "season_points": 70.5,
    "season_avg": 10.071428571428571,
    "bye": 11,
-   "percent_rostered": 38.46
+   "percent_rostered": 38.74
   },
   {
    "id": 3915239,
@@ -8230,7 +8216,7 @@
    "season_points": 49.0,
    "season_avg": 8.166666666666666,
    "bye": 7,
-   "percent_rostered": 19.69
+   "percent_rostered": 20.45
   },
   {
    "id": 4426659,
@@ -8261,7 +8247,7 @@
    "season_points": 58.5,
    "season_avg": 9.75,
    "bye": 5,
-   "percent_rostered": 13.01
+   "percent_rostered": 12.99
   },
   {
    "id": 4040605,
@@ -8292,7 +8278,7 @@
    "season_points": 16.0,
    "season_avg": 8.0,
    "bye": 8,
-   "percent_rostered": 34.32
+   "percent_rostered": 34.21
   },
   {
    "id": 4431519,
@@ -8323,7 +8309,7 @@
    "season_points": 108.5,
    "season_avg": 18.083333333333332,
    "bye": 6,
-   "percent_rostered": 18.73
+   "percent_rostered": 18.79
   },
   {
    "id": 3917657,
@@ -8354,7 +8340,7 @@
    "season_points": 114.5,
    "season_avg": 19.083333333333332,
    "bye": 10,
-   "percent_rostered": 65.62
+   "percent_rostered": 65.57
   },
   {
    "id": 4361652,
@@ -8385,7 +8371,7 @@
    "season_points": 135.0,
    "season_avg": 19.285714285714285,
    "bye": 9,
-   "percent_rostered": 29.24
+   "percent_rostered": 29.71
   },
   {
    "id": 5081807,
@@ -8416,7 +8402,7 @@
    "season_points": 103.0,
    "season_avg": 17.166666666666668,
    "bye": 7,
-   "percent_rostered": 32.2
+   "percent_rostered": 32.43
   },
   {
    "id": 3917142,
@@ -8447,7 +8433,7 @@
    "season_points": 126.0,
    "season_avg": 18.0,
    "bye": 13,
-   "percent_rostered": 14.78
+   "percent_rostered": 14.84
   },
   {
    "id": 3919117,
@@ -8478,7 +8464,7 @@
    "season_points": 119.5,
    "season_avg": 19.916666666666668,
    "bye": 8,
-   "percent_rostered": 23.79
+   "percent_rostered": 23.33
   },
   {
    "id": 4243181,
@@ -8509,7 +8495,7 @@
    "season_points": 112.0,
    "season_avg": 18.666666666666668,
    "bye": 11,
-   "percent_rostered": 42.31
+   "percent_rostered": 42.36
   },
   {
    "id": 4950400,
@@ -8540,7 +8526,7 @@
    "season_points": 125.0,
    "season_avg": 17.857142857142858,
    "bye": 8,
-   "percent_rostered": 52.43
+   "percent_rostered": 51.38
   },
   {
    "id": 4245273,
@@ -8571,7 +8557,7 @@
    "season_points": 107.5,
    "season_avg": 15.357142857142858,
    "bye": 11,
-   "percent_rostered": 20.09
+   "percent_rostered": 20.35
   },
   {
    "id": 3117253,
@@ -8602,7 +8588,7 @@
    "season_points": 101.0,
    "season_avg": 16.833333333333332,
    "bye": 5,
-   "percent_rostered": 10.63
+   "percent_rostered": 10.75
   },
   {
    "id": 4249128,
@@ -8633,7 +8619,7 @@
    "season_points": 113.5,
    "season_avg": 16.214285714285715,
    "bye": 11,
-   "percent_rostered": 52.73
+   "percent_rostered": 52.78
   },
   {
    "id": 4239694,
@@ -8664,7 +8650,7 @@
    "season_points": 89.0,
    "season_avg": 14.833333333333334,
    "bye": 7,
-   "percent_rostered": 18.65
+   "percent_rostered": 18.91
   },
   {
    "id": 3139387,
@@ -8695,7 +8681,7 @@
    "season_points": 89.0,
    "season_avg": 14.833333333333334,
    "bye": 6,
-   "percent_rostered": 8.38
+   "percent_rostered": 8.37
   },
   {
    "id": 4426422,
@@ -8726,7 +8712,7 @@
    "season_points": 69.0,
    "season_avg": 11.5,
    "bye": 6,
-   "percent_rostered": 8.09
+   "percent_rostered": 8.05
   },
   {
    "id": 4575431,
@@ -8760,37 +8746,6 @@
    "percent_rostered": 30.9
   },
   {
-   "id": 4259493,
-   "name": "Keisean Nixon",
-   "position": "CB",
-   "nfl_team": "GB",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "8": {
-     "points": 12.76,
-     "source": "espn"
-    },
-    "9": {
-     "points": 12.64,
-     "source": "espn"
-    },
-    "10": {
-     "points": 12.18,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 12.18,
-   "ros_points": 147.2,
-   "season_points": 99.5,
-   "season_avg": 14.214285714285714,
-   "bye": 11,
-   "percent_rostered": 16.19
-  },
-  {
    "id": 4682618,
    "name": "Cooper DeJean",
    "position": "CB",
@@ -8819,7 +8774,7 @@
    "season_points": 101.0,
    "season_avg": 14.428571428571429,
    "bye": 10,
-   "percent_rostered": 27.32
+   "percent_rostered": 27.31
   },
   {
    "id": 4602699,
@@ -8850,7 +8805,7 @@
    "season_points": 97.0,
    "season_avg": 13.857142857142858,
    "bye": 8,
-   "percent_rostered": 38.06
+   "percent_rostered": 37.63
   },
   {
    "id": 4241223,
@@ -8881,7 +8836,7 @@
    "season_points": 56.0,
    "season_avg": 11.2,
    "bye": 8,
-   "percent_rostered": 13.07
+   "percent_rostered": 13.01
   },
   {
    "id": 4869523,
@@ -8912,7 +8867,38 @@
    "season_points": 59.0,
    "season_avg": 9.833333333333334,
    "bye": 11,
-   "percent_rostered": 49.67
+   "percent_rostered": 49.76
+  },
+  {
+   "id": 4259493,
+   "name": "Keisean Nixon",
+   "position": "CB",
+   "nfl_team": "GB",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "QUESTIONABLE",
+   "locked": false,
+   "projections": {
+    "8": {
+     "points": 12.76,
+     "source": "espn"
+    },
+    "9": {
+     "points": 12.64,
+     "source": "espn"
+    },
+    "10": {
+     "points": 12.18,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 12.18,
+   "ros_points": 143.8,
+   "season_points": 99.5,
+   "season_avg": 14.214285714285714,
+   "bye": 11,
+   "percent_rostered": 16.15
   },
   {
    "id": 4426686,
@@ -8943,7 +8929,7 @@
    "season_points": 117.5,
    "season_avg": 16.785714285714285,
    "bye": 13,
-   "percent_rostered": 35.78
+   "percent_rostered": 35.94
   },
   {
    "id": 3127287,
@@ -8974,7 +8960,7 @@
    "season_points": 99.5,
    "season_avg": 14.214285714285714,
    "bye": 14,
-   "percent_rostered": 50.77
+   "percent_rostered": 50.84
   },
   {
    "id": 4428863,
@@ -9005,7 +8991,7 @@
    "season_points": 136.0,
    "season_avg": 19.428571428571427,
    "bye": 11,
-   "percent_rostered": 53.86
+   "percent_rostered": 54.11
   },
   {
    "id": 4692025,
@@ -9036,7 +9022,7 @@
    "season_points": 11.5,
    "season_avg": 11.5,
    "bye": 6,
-   "percent_rostered": 20.67
+   "percent_rostered": 21.17
   },
   {
    "id": 4426403,
@@ -9067,7 +9053,7 @@
    "season_points": 27.0,
    "season_avg": 9.0,
    "bye": 7,
-   "percent_rostered": 12.35
+   "percent_rostered": 12.39
   },
   {
    "id": 4361964,
@@ -9098,7 +9084,7 @@
    "season_points": 36.0,
    "season_avg": 12.0,
    "bye": 5,
-   "percent_rostered": 16.63
+   "percent_rostered": 16.58
   },
   {
    "id": 4575517,
@@ -9129,7 +9115,7 @@
    "season_points": 115.5,
    "season_avg": 16.5,
    "bye": 13,
-   "percent_rostered": 71.4
+   "percent_rostered": 71.07
   },
   {
    "id": 4567098,
@@ -9160,7 +9146,7 @@
    "season_points": 85.5,
    "season_avg": 14.25,
    "bye": 6,
-   "percent_rostered": 21.36
+   "percent_rostered": 21.24
   },
   {
    "id": 4046537,
@@ -9191,7 +9177,7 @@
    "season_points": 78.0,
    "season_avg": 13.0,
    "bye": 6,
-   "percent_rostered": 10.12
+   "percent_rostered": 10.18
   },
   {
    "id": 4676004,
@@ -9222,7 +9208,7 @@
    "season_points": 89.0,
    "season_avg": 14.833333333333334,
    "bye": 7,
-   "percent_rostered": 7.62
+   "percent_rostered": 7.66
   },
   {
    "id": -16012,
@@ -9253,7 +9239,7 @@
    "season_points": 36.0,
    "season_avg": 6.0,
    "bye": 5,
-   "percent_rostered": 57.28
+   "percent_rostered": 56.53
   },
   {
    "id": -16004,
@@ -9284,7 +9270,7 @@
    "season_points": 48.0,
    "season_avg": 8.0,
    "bye": 6,
-   "percent_rostered": 51.72
+   "percent_rostered": 53.6
   },
   {
    "id": -16034,
@@ -9315,7 +9301,7 @@
    "season_points": 29.0,
    "season_avg": 4.142857142857143,
    "bye": 8,
-   "percent_rostered": 73.19
+   "percent_rostered": 71.81
   },
   {
    "id": -16005,
@@ -9346,7 +9332,7 @@
    "season_points": 42.0,
    "season_avg": 6.0,
    "bye": 11,
-   "percent_rostered": 55.53
+   "percent_rostered": 55.73
   },
   {
    "id": -16027,
@@ -9377,7 +9363,7 @@
    "season_points": 67.0,
    "season_avg": 9.571428571428571,
    "bye": 10,
-   "percent_rostered": 26.72
+   "percent_rostered": 27.06
   },
   {
    "id": -16008,
@@ -9408,7 +9394,7 @@
    "season_points": 20.0,
    "season_avg": 3.3333333333333335,
    "bye": 6,
-   "percent_rostered": 25.74
+   "percent_rostered": 26.24
   },
   {
    "id": -16028,
@@ -9439,7 +9425,7 @@
    "season_points": 23.0,
    "season_avg": 3.8333333333333335,
    "bye": 7,
-   "percent_rostered": 27.61
+   "percent_rostered": 30.53
   },
   {
    "id": -16020,
@@ -9470,7 +9456,7 @@
    "season_points": 40.0,
    "season_avg": 5.714285714285714,
    "bye": 13,
-   "percent_rostered": 37.69
+   "percent_rostered": 35.98
   },
   {
    "id": -16009,
@@ -9501,7 +9487,7 @@
    "season_points": 44.0,
    "season_avg": 6.285714285714286,
    "bye": 11,
-   "percent_rostered": 16.18
+   "percent_rostered": 16.75
   },
   {
    "id": -16033,
@@ -9532,7 +9518,7 @@
    "season_points": 33.0,
    "season_avg": 4.714285714285714,
    "bye": 13,
-   "percent_rostered": 61.1
+   "percent_rostered": 60.18
   },
   {
    "id": 4686361,
@@ -9563,7 +9549,7 @@
    "season_points": 56.0,
    "season_avg": 9.333333333333334,
    "bye": 7,
-   "percent_rostered": 65.06
+   "percent_rostered": 65.5
   },
   {
    "id": 3055899,
@@ -9594,7 +9580,7 @@
    "season_points": 53.0,
    "season_avg": 8.833333333333334,
    "bye": 5,
-   "percent_rostered": 62.7
+   "percent_rostered": 62.12
   },
   {
    "id": 4689936,
@@ -9656,7 +9642,7 @@
    "season_points": 65.0,
    "season_avg": 10.833333333333334,
    "bye": 6,
-   "percent_rostered": 21.72
+   "percent_rostered": 21.8
   },
   {
    "id": 4697745,
@@ -9687,7 +9673,7 @@
    "season_points": 67.0,
    "season_avg": 9.571428571428571,
    "bye": 13,
-   "percent_rostered": 58.67
+   "percent_rostered": 58.49
   },
   {
    "id": 17427,
@@ -9718,7 +9704,7 @@
    "season_points": 59.0,
    "season_avg": 8.428571428571429,
    "bye": 10,
-   "percent_rostered": 25.25
+   "percent_rostered": 25.29
   },
   {
    "id": 5082424,
@@ -9749,7 +9735,7 @@
    "season_points": 57.0,
    "season_avg": 8.142857142857142,
    "bye": 8,
-   "percent_rostered": 29.21
+   "percent_rostered": 27.25
   },
   {
    "id": 4568263,
@@ -9780,7 +9766,7 @@
    "season_points": 53.0,
    "season_avg": 8.833333333333334,
    "bye": 5,
-   "percent_rostered": 11.12
+   "percent_rostered": 10.74
   },
   {
    "id": 4362081,
@@ -9811,7 +9797,7 @@
    "season_points": 36.0,
    "season_avg": 6.0,
    "bye": 7,
-   "percent_rostered": 43.9
+   "percent_rostered": 43.71
   },
   {
    "id": 4034949,
@@ -9842,7 +9828,7 @@
    "season_points": 43.0,
    "season_avg": 6.142857142857143,
    "bye": 8,
-   "percent_rostered": 48.15
+   "percent_rostered": 46.68
   },
   {
    "id": 4589212,
@@ -9873,7 +9859,7 @@
    "season_points": 28.0,
    "season_avg": 4.0,
    "bye": 10,
-   "percent_rostered": 83.85
+   "percent_rostered": 84.05
   },
   {
    "id": 4608820,
@@ -9904,7 +9890,7 @@
    "season_points": 29.0,
    "season_avg": 4.833333333333333,
    "bye": 6,
-   "percent_rostered": 13.09
+   "percent_rostered": 13.44
   },
   {
    "id": 16166,
@@ -9935,7 +9921,7 @@
    "season_points": 16.0,
    "season_avg": 2.6666666666666665,
    "bye": 7,
-   "percent_rostered": 21.06
+   "percent_rostered": 21.68
   },
   {
    "id": 2977680,
@@ -9966,7 +9952,7 @@
    "season_points": 15.0,
    "season_avg": 2.5,
    "bye": 6,
-   "percent_rostered": 41.55
+   "percent_rostered": 41.5
   },
   {
    "id": 3915398,
@@ -9997,7 +9983,7 @@
    "season_points": 14.0,
    "season_avg": 2.0,
    "bye": 9,
-   "percent_rostered": 77.28
+   "percent_rostered": 76.47
   },
   {
    "id": 4361496,
@@ -10028,7 +10014,7 @@
    "season_points": 18.2,
    "season_avg": 3.033333333333333,
    "bye": 5,
-   "percent_rostered": 11.85
+   "percent_rostered": 11.99
   },
   {
    "id": 3916370,
@@ -10059,7 +10045,7 @@
    "season_points": 13.0,
    "season_avg": 2.1666666666666665,
    "bye": 6,
-   "percent_rostered": 10.17
+   "percent_rostered": 10.35
   },
   {
    "id": 4035685,
@@ -10090,7 +10076,7 @@
    "season_points": 18.0,
    "season_avg": 2.5714285714285716,
    "bye": 11,
-   "percent_rostered": 20.33
+   "percent_rostered": 20.2
   },
   {
    "id": 4799994,
@@ -10121,7 +10107,7 @@
    "season_points": 8.0,
    "season_avg": 2.0,
    "bye": 6,
-   "percent_rostered": 6.76
+   "percent_rostered": 6.83
   },
   {
    "id": 4361823,
@@ -10152,7 +10138,7 @@
    "season_points": 22.0,
    "season_avg": 3.142857142857143,
    "bye": 8,
-   "percent_rostered": 23.63
+   "percent_rostered": 22.65
   }
  ]
 }
