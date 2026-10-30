@@ -300,6 +300,68 @@ def test_trade_ideas_are_scored_against_the_roster_you_have():
     assert "**Team 2**: give RB2 (RB), RB3 (RB) for WR12 (WR), WR13 (WR)" in render(result)
 
 
+
+def _questionable_qb_league(qb_kickoff: dt.datetime, loaded_at: dt.datetime, injury="QUESTIONABLE"):
+    """Healthy QB1 starts (18.4); QB2 (22.2 if he plays) is Questionable on the bench."""
+    healthy = make_player(1, "QB", 18, pro=1)
+    shaky = make_player(2, "QB", 22, injury=injury, pro=2)
+    healthy.period_projections, shaky.period_projections = {1: 18.4}, {1: 22.2}
+    rest = [make_player(3, "RB", 14), make_player(4, "WR", 14), make_player(5, "RB", 10)]
+    league = make_league({1: [healthy, shaky] + rest, 2: full_roster(2, 100)})
+    for pid, slot in {1: 0, 3: 2, 4: 4, 5: 23}.items():
+        league.players[pid].lineup_slot = slot
+    league.kickoffs = {1: {1: qb_kickoff}, 2: {1: dt.datetime(2026, 11, 1, 18, tzinfo=dt.timezone.utc)}}
+    league.loaded_at = loaded_at
+    return league
+
+
+def test_benched_questionable_player_is_explained_until_inactives_are_out():
+    from fantasyoptimizer.engine import Optimizer
+    from fantasyoptimizer.report import render, snapshot
+    kickoff = dt.datetime(2026, 11, 1, 18, tzinfo=dt.timezone.utc)  # Sunday 1pm ET, both QBs
+    friday = kickoff - dt.timedelta(days=2)
+    league = _questionable_qb_league(kickoff, friday)
+    result = Optimizer(league, fast_config(), State(), None, friday).run()
+    check = result.lineup_check
+    assert check.swaps == []                      # 22.2 x 74% = 16.4 < 18.4: QB1 keeps the job
+    [wait] = check.waiting
+    assert (wait.player, wait.over, wait.plays_first) == (2, [1], None)
+    assert round(wait.counted, 1) == 16.4 and wait.if_active == 22.2
+    text = render(result)
+    assert ("- **QB2** (Questionable) counts as 16.4, not 22.2, until inactives are out around "
+            "Sun 11:30am ET. If he's active, the bot's next run starts him over **QB1**.") in text
+    assert snapshot(result)["lineup_check"]["waiting_on_inactives"][0]["would_start_over"] == ["QB1"]
+
+    # Once inactives are out he's either active (and starts) or Out (and the note goes away).
+    sunday = kickoff - dt.timedelta(minutes=60)
+    league = _questionable_qb_league(kickoff, sunday)
+    check = Optimizer(league, fast_config(), State(), None, sunday).lineup_check()
+    assert check.swaps == [(2, 1)] and check.waiting == []
+    league = _questionable_qb_league(kickoff, sunday, injury="OUT")
+    league.players[2].period_projections = {1: 0.0}
+    check = Optimizer(league, fast_config(), State(), None, sunday).lineup_check()
+    assert check.swaps == [] and check.waiting == []
+
+
+def test_questionable_note_says_when_the_call_cant_wait_for_inactives():
+    from fantasyoptimizer.engine import Optimizer
+    from fantasyoptimizer.report import render
+    thursday = dt.datetime(2026, 10, 30, 0, 15, tzinfo=dt.timezone.utc)  # Thu 8:15pm ET
+    friday = thursday - dt.timedelta(days=1)
+    league = _questionable_qb_league(thursday, friday)
+    result = Optimizer(league, fast_config(), State(), None, friday).run()
+    assert result.lineup_check.waiting[0].plays_first == 1
+    assert ("**QB1** kicks off first (Thu 8:15pm ET), before QB2's inactives are out, "
+            "so the call can't wait for them.") in render(result)
+
+
+def test_no_note_for_questionable_player_who_would_sit_anyway():
+    from fantasyoptimizer.engine import Optimizer
+    kickoff = dt.datetime(2026, 11, 1, 18, tzinfo=dt.timezone.utc)
+    league = _questionable_qb_league(kickoff, kickoff - dt.timedelta(days=2))
+    league.players[2].period_projections = {1: 17.0}  # worse than QB1 even if he plays
+    assert Optimizer(league, fast_config(), State(), None, league.loaded_at).lineup_check().waiting == []
+
 def test_lineup_prefers_healthy_starter_and_reads_as_a_swap():
     from fantasyoptimizer.engine import Optimizer
     healthy = make_player(1, "QB", 19)

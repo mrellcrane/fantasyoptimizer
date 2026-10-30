@@ -2,20 +2,44 @@
 from __future__ import annotations
 
 import datetime as dt
+from zoneinfo import ZoneInfo
 
-from .engine import RunResult, describe_trade
+from .engine import RunResult, WaitingOnInactives, describe_trade
 from .models import IR_SLOT, SLOT_NAMES, League, Player
 from .projections import per_game_rate
 from .trades import my_offers, offer_sides
 from .waivers import min_gain
 
 WEEKS_SHOWN = 3
+EASTERN = ZoneInfo("America/New_York")
 # How ESPN lists lineup slots: offense, flex spots, defensive players, D/ST, K.
 SLOT_DISPLAY_ORDER = [0, 1, 2, 3, 4, 5, 6, 23, 7, 24, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 
 
 def _pct(x: float) -> str:
     return f"{100 * x:.1f}%"
+
+
+def _eastern(t: dt.datetime) -> str:
+    """Sun 11:30am ET"""
+    t = t.astimezone(EASTERN)
+    return f"{t:%a} {t.hour % 12 or 12}:{t:%M}{'am' if t.hour < 12 else 'pm'} ET"
+
+
+def waiting_text(league: League, w: WaitingOnInactives) -> str:
+    """Why a Questionable player sits for now, and what happens once inactives are out."""
+    p = league.players[w.player]
+    over = " and ".join(f"**{league.players[q].name}**" for q in w.over)
+    head = f"- **{p.name}** (Questionable) counts as {w.counted:.1f}, not {w.if_active:.1f}"
+    if w.plays_first is not None:
+        first = league.players[w.plays_first]
+        kickoff = league.kickoffs.get(first.pro_team_id, {}).get(league.current_scoring_period)
+        return (f"{head}: **{first.name}** kicks off first ({_eastern(kickoff)}), before "
+                f"{p.name}'s inactives are out, so the call can't wait for them.")
+    when = f"around {_eastern(w.inactives_at)}" if w.inactives_at else "about 90 minutes before kickoff"
+    return (f"{head}, until inactives are out {when}. If he's active, the bot's next run "
+            f"starts him over {over}. GitHub can run late, so if he's still benched by then, "
+            f"swap him in yourself.")
 
 
 def bye_week(league: League, p: Player) -> int | None:
@@ -85,6 +109,7 @@ def lineup_section(result: RunResult) -> list[str]:
     else:
         lines.append(f"**Week {check.week}:** your lineup is already your best one "
                      f"({check.best:.1f} projected points).")
+    lines += [waiting_text(league, w) for w in check.waiting]
     if check.next_week:
         lines.append("")
         if not check.holes:
@@ -482,6 +507,14 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
             "gain": round(result.lineup_check.gain, 1),
             "swaps": [{"start": league.players[a].name, "sit": league.players[b].name}
                       for a, b in result.lineup_check.swaps],
+            "waiting_on_inactives": [{
+                "player": league.players[w.player].name,
+                "counted": round(w.counted, 1),
+                "if_active": round(w.if_active, 1),
+                "would_start_over": [league.players[q].name for q in w.over],
+                "inactives_at": w.inactives_at.isoformat() if w.inactives_at else None,
+                "plays_first": league.players[w.plays_first].name if w.plays_first is not None else None,
+            } for w in result.lineup_check.waiting],
             "next_week": result.lineup_check.next_week,
             "holes": [{"player": league.players[h.player].name, "reason": h.reason,
                        "fill": league.players[h.fill].name if h.fill is not None else None,

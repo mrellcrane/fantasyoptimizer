@@ -13,7 +13,7 @@ import numpy as np
 from . import espn, trades, waivers
 from .config import Config
 from .models import BENCH_SLOT, IR_SLOT, SLOT_NAMES, League, PendingTrade, Player
-from .projections import per_game_rate
+from .projections import expected_points, per_game_rate
 from .simulate import SeasonSimulator, SimResult
 from .state import State
 from .valuation import Valuer
@@ -43,6 +43,17 @@ class LineupHole:
 
 
 @dataclass
+class WaitingOnInactives:
+    """A Questionable player who sits for now but would start if he were sure to play."""
+    player: int
+    counted: float              # this week's points with the chance he sits priced in
+    if_active: float            # ...and once he's declared active
+    over: list[int]             # starters he'd replace
+    inactives_at: dt.datetime | None = None   # about when his team's inactives are out
+    plays_first: int | None = None  # one of `over` who kicks off before that: decided blind
+
+
+@dataclass
 class LineupCheck:
     week: int
     best: float                 # projected points of the best lineup this week
@@ -50,6 +61,7 @@ class LineupCheck:
     swaps: list[tuple[int, int]] = field(default_factory=list)  # (start, sit)
     next_week: int | None = None
     holes: list[LineupHole] = field(default_factory=list)
+    waiting: list[WaitingOnInactives] = field(default_factory=list)
 
 
 @dataclass
@@ -553,13 +565,18 @@ class Optimizer:
         move.title_gain = self.title_gain({**self.rosters, self.me: new}, self.odds(self.rosters))
         self.make_pickup(result, move, note=" (you asked for it)")
 
-    def lineup_plan(self) -> tuple[list[tuple[int, int, int]], float, float] | None:
-        """This week's best lineup: (moves, its projected points, current lineup's points)."""
+    def lineup_plan(self, override: dict[int, float] | None = None
+                    ) -> tuple[list[tuple[int, int, int]], float, float] | None:
+        """This week's best lineup: (moves, its projected points, current lineup's points).
+
+        `override` swaps in other points for some players (what-ifs).
+        """
         league, valuer = self.league, self.valuer
         if not league.horizon or league.horizon[0] != league.current_scoring_period:
             return None
         players = [league.players[pid] for pid in self.lineup_roster]
         points = {p.id: valuer.points[valuer.row[p.id], 0] for p in players}
+        points.update(override or {})
 
         open_slots = list(range(len(valuer.slots)))
         for p in players:  # locked starters stay put and use up their slot
@@ -604,6 +621,42 @@ class Optimizer:
     def _week_points(self, pid: int) -> float:
         return float(self.valuer.points[self.valuer.row[pid], 0])
 
+    def _starters_after(self, moves: list[tuple[int, int, int]]) -> set[int]:
+        slot_after = {pid: self.league.players[pid].lineup_slot for pid in self.lineup_roster}
+        for pid, _, target in moves:
+            slot_after[pid] = target
+        return {pid for pid, slot in slot_after.items() if _starting(slot)}
+
+    def waiting_on_inactives(self, moves: list[tuple[int, int, int]]) -> list[WaitingOnInactives]:
+        """Questionable players this lineup sits who'd start once declared active.
+
+        Until inactives are out (~90 minutes before kickoff) they count at the chance they
+        play, so a sure thing a bit below them starts instead. A later run flips it back if
+        they're active, unless someone they'd replace kicks off first.
+        """
+        league, sp = self.league, self.league.current_scoring_period
+        starters = self._starters_after(moves)
+        out = []
+        for pid in self.lineup_roster:
+            p = league.players[pid]
+            if (p.injury_status != "QUESTIONABLE" or pid in starters or p.lineup_locked
+                    or p.lineup_slot == IR_SLOT or league.inactives_out(p.pro_team_id, sp)):
+                continue
+            if_active = float(expected_points(p, league, self.cfg, assume_active=True)[0])
+            plan = self.lineup_plan({pid: if_active})
+            if plan is None or pid not in (alt := self._starters_after(plan[0])):
+                continue
+            wait = WaitingOnInactives(player=pid, counted=self._week_points(pid), if_active=if_active,
+                                      over=sorted(starters - alt, key=self._week_points, reverse=True))
+            kickoff = league.kickoffs.get(p.pro_team_id, {}).get(sp)
+            if kickoff is not None:
+                wait.inactives_at = kickoff - dt.timedelta(minutes=90)
+                kicks = {q: league.kickoffs.get(league.players[q].pro_team_id, {}).get(sp) for q in wait.over}
+                wait.plays_first = next((q for q, k in kicks.items()
+                                         if k is not None and k < kickoff - dt.timedelta(minutes=85)), None)
+            out.append(wait)
+        return out
+
     def lineup_check(self) -> LineupCheck | None:
         """The quick wins: bench-for-starter swaps this week, and holes coming next week."""
         plan = self.lineup_plan()
@@ -621,6 +674,8 @@ class Optimizer:
         check = LineupCheck(week=league.horizon[0], best=best, gain=best - now_pts)
         if check.gain >= self.cfg.lineup.min_gain:
             check.swaps = _pair_moves(moves, self._week_points)[0]
+        # Against the lineup this run leaves on ESPN (it skips moves worth less than min_gain).
+        check.waiting = self.waiting_on_inactives(moves if check.gain >= self.cfg.lineup.min_gain else [])
         if len(league.horizon) < 2:
             return check
 

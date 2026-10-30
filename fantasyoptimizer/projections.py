@@ -38,22 +38,26 @@ def availability(p: Player, weeks_ahead: int, cfg: Config) -> float:
     return float(curve[weeks_ahead])
 
 
-def questionable_factor(p: Player, league: League, cfg: Config) -> float:
+def questionable_factor(p: Player, league: League, cfg: Config, assume_active: bool = False) -> float:
     """Expected share of a Questionable player's projection this week.
 
     Before inactives are announced he might sit and plays a bit hurt if he does.
     After, a player still listed Questionable is active (inactives show as Out),
-    so only the performance hit is left.
+    so only the performance hit is left. `assume_active` asks what he's worth then.
     """
     if p.injury_status != "QUESTIONABLE":
         return 1.0
-    plays = 1.0 if league.inactives_out(p.pro_team_id, league.current_scoring_period) \
+    plays = 1.0 if assume_active or league.inactives_out(p.pro_team_id, league.current_scoring_period) \
         else availability(p, 0, cfg)
     return plays * cfg.questionable_performance.get(p.position, 1.0)
 
 
-def expected_points(p: Player, league: League, cfg: Config, rate: float | None = None) -> np.ndarray:
-    """Expected fantasy points for each scoring period in league.horizon."""
+def expected_points(p: Player, league: League, cfg: Config, rate: float | None = None,
+                    assume_active: bool = False) -> np.ndarray:
+    """Expected fantasy points for each scoring period in league.horizon.
+
+    `assume_active`: value a Questionable player this week as if he's been declared active.
+    """
     rate = per_game_rate(p, league, cfg) if rate is None else rate
     current = league.current_scoring_period
     out = np.zeros(len(league.horizon))
@@ -70,11 +74,11 @@ def expected_points(p: Player, league: League, cfg: Config, rate: float | None =
             # play, so this week's number gets the chance they actually do.
             out[j] = max(0.0, p.period_projections[sp])
             if sp == current:
-                out[j] *= questionable_factor(p, league, cfg)
+                out[j] *= questionable_factor(p, league, cfg, assume_active)
             continue
         games = league.games(p.pro_team_id, sp)
         if sp == current and p.injury_status == "QUESTIONABLE":
-            out[j] = rate * games * questionable_factor(p, league, cfg)
+            out[j] = rate * games * questionable_factor(p, league, cfg, assume_active)
         else:
             out[j] = rate * games * availability(p, sp - current, cfg)
     return out
