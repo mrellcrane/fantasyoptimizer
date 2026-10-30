@@ -45,9 +45,9 @@ Go to **Actions → Daily fantasy moves → Run workflow**, and pick `dry-run`. 
 
 Run a few dry runs. When you like what you see, set the `DRY_RUN` variable to `false`. After that it runs daily at 10:17am ET. On game days (Thursday through Monday, plus holiday and late-season Saturday games) it also runs a pregame check every 15 minutes. Each check quits in seconds unless one of your players kicks off within 90 minutes. Then it re-sets your lineup, so a Questionable player who's ruled out gets benched in time. Pregame lineup changes are saved in `history/` (as `...-pregame.md`), not as `latest`.
 
-### 4. Make the schedule reliable (recommended)
+### 4. Make the schedule reliable (don't skip this)
 
-GitHub runs scheduled workflows late or skips them when it's busy, sometimes by hours. The pregame checks give each game six chances, which covers the usual delays. To be sure, have a free outside scheduler start the runs instead:
+GitHub runs scheduled workflows late or skips them when it's busy. In October 2026 the "every 15 minutes" pregame schedule actually ran every 1.5 to 3 hours, which can miss the window between inactives and kickoff entirely. Have a free outside scheduler start the runs instead:
 
 1. **Make a token.** GitHub → Settings → Developer settings → Fine-grained tokens → Generate new token. Under repository access, pick only this repo. Under permissions, set **Actions** to **Read and write**.
 2. **Make the jobs** at [cron-job.org](https://cron-job.org) (free). Each job sends a `POST` to `https://api.github.com/repos/mrellcrane/fantasyoptimizer/actions/workflows/daily.yml/dispatches` with these headers: `Authorization: Bearer YOUR_TOKEN`, `Accept: application/vnd.github+json`.

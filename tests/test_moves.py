@@ -329,7 +329,7 @@ def test_benched_questionable_player_is_explained_until_inactives_are_out():
     assert round(wait.counted, 1) == 16.4 and wait.if_active == 22.2
     text = render(result)
     assert ("- **QB2** (Questionable) counts as 16.4, not 22.2, until inactives are out around "
-            "Sun 11:30am ET. If he's active, the bot's next run starts him over **QB1**.") in text
+            "Sun 11:30am ET. If he's active, the pregame check starts him over **QB1**.") in text
     assert snapshot(result)["lineup_check"]["waiting_on_inactives"][0]["would_start_over"] == ["QB1"]
 
     # Once inactives are out he's either active (and starts) or Out (and the note goes away).

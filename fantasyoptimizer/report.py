@@ -37,9 +37,7 @@ def waiting_text(league: League, w: WaitingOnInactives) -> str:
         return (f"{head}: **{first.name}** kicks off first ({_eastern(kickoff)}), before "
                 f"{p.name}'s inactives are out, so the call can't wait for them.")
     when = f"around {_eastern(w.inactives_at)}" if w.inactives_at else "about 90 minutes before kickoff"
-    return (f"{head}, until inactives are out {when}. If he's active, the bot's next run "
-            f"starts him over {over}. GitHub can run late, so if he's still benched by then, "
-            f"swap him in yourself.")
+    return f"{head}, until inactives are out {when}. If he's active, the pregame check starts him over {over}."
 
 
 def bye_week(league: League, p: Player) -> int | None:
