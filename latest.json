@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T16:31:46+00:00",
+ "generated_at": "2026-11-04T17:05:21+00:00",
  "league": {
   "id": 473811221,
   "name": "ScreamStream 2024 League",
@@ -16,9 +16,9 @@
    "losses": 4.0,
    "ties": 0.0,
    "points_for": 1058.4399999999998,
-   "playoff_odds": 0.2003,
-   "title_odds": 0.033,
-   "projected_wins": 6.63
+   "playoff_odds": 0.1963,
+   "title_odds": 0.032,
+   "projected_wins": 6.61
   },
   {
    "id": 2,
@@ -27,7 +27,7 @@
    "losses": 5.0,
    "ties": 0.0,
    "points_for": 1092.5,
-   "playoff_odds": 0.112,
+   "playoff_odds": 0.1118,
    "title_odds": 0.0208,
    "projected_wins": 5.81
   },
@@ -38,8 +38,8 @@
    "losses": 5.0,
    "ties": 0.0,
    "points_for": 1106.7600000000002,
-   "playoff_odds": 0.2465,
-   "title_odds": 0.0695,
+   "playoff_odds": 0.2455,
+   "title_odds": 0.069,
    "projected_wins": 6.41
   },
   {
@@ -49,9 +49,9 @@
    "losses": 4.0,
    "ties": 0.0,
    "points_for": 1205.28,
-   "playoff_odds": 0.702,
-   "title_odds": 0.2435,
-   "projected_wins": 7.69
+   "playoff_odds": 0.7073,
+   "title_odds": 0.2457,
+   "projected_wins": 7.71
   },
   {
    "id": 5,
@@ -61,7 +61,7 @@
    "ties": 0.0,
    "points_for": 1087.44,
    "playoff_odds": 0.1087,
-   "title_odds": 0.0267,
+   "title_odds": 0.0265,
    "projected_wins": 5.92
   },
   {
@@ -72,7 +72,7 @@
    "ties": 0.0,
    "points_for": 1216.5,
    "playoff_odds": 0.4355,
-   "title_odds": 0.102,
+   "title_odds": 0.1013,
    "projected_wins": 6.86
   },
   {
@@ -83,7 +83,7 @@
    "ties": 0.0,
    "points_for": 1187.9799999999998,
    "playoff_odds": 0.981,
-   "title_odds": 0.251,
+   "title_odds": 0.2515,
    "projected_wins": 10.19
   },
   {
@@ -93,8 +93,8 @@
    "losses": 3.0,
    "ties": 0.0,
    "points_for": 1140.6799999999998,
-   "playoff_odds": 0.7073,
-   "title_odds": 0.1673,
+   "playoff_odds": 0.7075,
+   "title_odds": 0.1668,
    "projected_wins": 8.14
   },
   {
@@ -105,7 +105,7 @@
    "ties": 0.0,
    "points_for": 1069.6599999999999,
    "playoff_odds": 0.026,
-   "title_odds": 0.0047,
+   "title_odds": 0.0045,
    "projected_wins": 4.76
   },
   {
@@ -115,8 +115,8 @@
    "losses": 3.0,
    "ties": 0.0,
    "points_for": 1093.4,
-   "playoff_odds": 0.4808,
-   "title_odds": 0.0815,
+   "playoff_odds": 0.4805,
+   "title_odds": 0.082,
    "projected_wins": 7.6
   }
  ],
@@ -139,22 +139,10 @@
  "moves": [],
  "pickup_ideas": [
   {
-   "add": "Travis Etienne Jr.",
-   "drop": "Devin Lloyd",
-   "season_points": 2.1,
-   "title_odds": 0.2250000000000002,
-   "waiver": false,
-   "start_weeks": [
-    10
-   ],
-   "patch": false,
-   "wait": false
-  },
-  {
    "add": "Dominic Zvada",
-   "drop": "Devin Lloyd",
+   "drop": "Pat Freiermuth",
    "season_points": 1.3,
-   "title_odds": 0.15000000000000013,
+   "title_odds": -0.025000000000000022,
    "waiver": false,
    "start_weeks": [
     10
@@ -164,7 +152,7 @@
   },
   {
    "add": "Jalen Hurts",
-   "drop": "Devin Lloyd",
+   "drop": "Pat Freiermuth",
    "season_points": 1.3,
    "title_odds": 0.10000000000000009,
    "waiver": false,
@@ -180,9 +168,9 @@
   },
   {
    "add": "Kyler Murray",
-   "drop": "Devin Lloyd",
+   "drop": "Pat Freiermuth",
    "season_points": 1.7,
-   "title_odds": 0.025000000000000022,
+   "title_odds": 0.0,
    "waiver": false,
    "start_weeks": [
     13
@@ -192,7 +180,7 @@
   },
   {
    "add": "Bo Nix",
-   "drop": "Devin Lloyd",
+   "drop": "Pat Freiermuth",
    "season_points": 1.5,
    "title_odds": 0.025000000000000022,
    "waiver": false,
@@ -206,7 +194,7 @@
    "add": "Ryan Rehkow",
    "drop": "Sam Martin",
    "season_points": 0.6,
-   "title_odds": 0.025000000000000022,
+   "title_odds": -0.07500000000000007,
    "waiver": false,
    "start_weeks": [
     10
@@ -224,111 +212,159 @@
    "partner": "Dabob Dungies",
    "deal": "give Christian Watson (WR), David Montgomery (RB) for Drake Maye (QB), Luther Burden III (WR)",
    "pitch": "Christian Watson would start every week for you and Drake Maye mostly sits on your bench anyway.",
-   "my_lineup": "QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); RB: losing David Montgomery (-33.9), best free agent to cover it: Tyler Allgeier (8.6 pts/gm); TE: Pat Freiermuth moves into the lineup (+8.2); WR: Luther Burden III replaces Christian Watson (-1.1). Net +16.8.",
-   "their_lineup": "WR: Christian Watson replaces Luther Burden III (+11.8); QB: Joe Burrow fills in for Drake Maye (-4.3); RB: David Montgomery starts over Blake Corum and Omarion Hampton (+1.7); bench depth -3.7. Net +5.5.",
-   "my_points": 16.8,
-   "their_points": 5.5,
-   "my_title_odds": 1.0000000000000009,
-   "their_title_odds": 0.4250000000000004,
-   "accept_chance": 0.65
+   "my_lineup": "QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); RB: Travis Etienne Jr. fills in for David Montgomery (-16.4); WR: Luther Burden III replaces Christian Watson (-1.1). Net +26.0.",
+   "their_lineup": "WR: Christian Watson replaces Luther Burden III (+11.8); QB: Joe Burrow fills in for Drake Maye (-4.3); RB: David Montgomery starts over Blake Corum and Omarion Hampton (+1.7); bench depth -3.6. Net +5.6.",
+   "my_points": 26.0,
+   "their_points": 5.6,
+   "my_title_odds": 1.5250000000000012,
+   "their_title_odds": 0.39999999999999897,
+   "accept_chance": 0.78
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give Ashton Jeanty (RB), DeVonta Smith (WR) for Chris Olave (WR), Drake Maye (QB)",
+   "pitch": "Ashton Jeanty would start every week for you over Blake Corum, DeVonta Smith would start most weeks for you, and Drake Maye mostly sits on your bench anyway.",
+   "my_lineup": "RB: Travis Etienne Jr. fills in for Ashton Jeanty (-63.4); QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); WR: Chris Olave replaces DeVonta Smith (+32.4); TE: Pat Freiermuth moves into the lineup (+8.5). Net +20.8.",
+   "their_lineup": "RB: Ashton Jeanty starts over Quinshon Judkins (+36.8); WR: DeVonta Smith replaces Chris Olave (-22.6); QB: Joe Burrow fills in for Drake Maye (-4.3); bench depth -2.7. Net +7.2.",
+   "my_points": 20.8,
+   "their_points": 7.2,
+   "my_title_odds": 1.2750000000000012,
+   "their_title_odds": 0.6749999999999992,
+   "accept_chance": 0.45
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give Christian Watson (WR), Jaguars D/ST (D/ST) for Drake Maye (QB), Texans D/ST (D/ST)",
+   "pitch": "Jaguars D/ST would start every week for you, Christian Watson would start most weeks for you over Luther Burden III, and Drake Maye mostly sits on your bench anyway.",
+   "my_lineup": "WR: KC Concepcion fills in for Christian Watson (-136.2), or pick up Jakobi Meyers (9.9 pts/gm); RB: Travis Etienne Jr. moves into the lineup (+103.8); QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3). Net +10.7.",
+   "their_lineup": "WR: Christian Watson starts over Luther Burden III (+28.2); RB: Blake Corum drops out of the lineup (-10.5); QB: Joe Burrow fills in for Drake Maye (-4.3); D/ST: Jaguars D/ST replaces Texans D/ST (+3.7); bench depth -1.2. Net +15.8.",
+   "my_points": 10.7,
+   "their_points": 15.8,
+   "my_title_odds": 0.5750000000000005,
+   "their_title_odds": 0.8999999999999995,
+   "accept_chance": 0.83
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give Ashton Jeanty (RB), Christian Watson (WR) for Chris Olave (WR), Drake Maye (QB)",
+   "pitch": "Ashton Jeanty would start every week for you over Blake Corum, Christian Watson would start every week for you, and Drake Maye mostly sits on your bench anyway.",
+   "my_lineup": "RB: Travis Etienne Jr. and David Montgomery fill in for Ashton Jeanty (-51.9); QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); WR: Chris Olave replaces Christian Watson (+24.6). Net +16.0.",
+   "their_lineup": "RB: Ashton Jeanty starts over Quinshon Judkins (+47.1); WR: Christian Watson replaces Chris Olave (-24.6); QB: Joe Burrow fills in for Drake Maye (-4.3); bench depth -2.8. Net +15.3.",
+   "my_points": 16.0,
+   "their_points": 15.3,
+   "my_title_odds": 0.5499999999999977,
+   "their_title_odds": 1.0999999999999996,
+   "accept_chance": 0.79
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give Ashton Jeanty (RB) for Drake Maye (QB), Luther Burden III (WR) (drop Sam Martin (P))",
+   "pitch": "Ashton Jeanty would start every week for you over Blake Corum, Rome Odunze can take over at WR, and Drake Maye mostly sits on your bench anyway.",
+   "my_lineup": "RB: Travis Etienne Jr. and David Montgomery fill in for Ashton Jeanty (-51.9); QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); WR: Luther Burden III starts over Travis Hunter and Christian Watson (+19.4); P: Sam Martin gets cut to make room (-2.5); bench depth +2.1. Net +10.4.",
+   "their_lineup": "RB: Ashton Jeanty starts over Blake Corum (+146.8); WR: Rome Odunze fills in for Luther Burden III (-124.3); QB: Joe Burrow fills in for Drake Maye (-4.3); bench depth -3.9. Net +14.2.",
+   "my_points": 10.4,
+   "their_points": 14.2,
+   "my_title_odds": 0.1250000000000001,
+   "their_title_odds": 1.3249999999999997,
+   "accept_chance": 0.8
   }
  ],
  "long_shots": [
   {
    "partner": "Dabob Dungies",
-   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Chris Olave (WR), Drake Maye (QB)",
-   "pitch": "Christian Watson would start most weeks for you and Drake Maye mostly sits on your bench anyway.",
-   "my_lineup": "QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); WR: Chris Olave replaces Christian Watson and Travis Hunter (-19.2); RB: David Montgomery moves into the lineup (+19.2); bench depth -0.7. Net +42.6.",
-   "their_lineup": "RB: Blake Corum drops out of the lineup (-10.5); WR: Christian Watson replaces Chris Olave (+5.8); QB: Joe Burrow fills in for Drake Maye (-4.3); bench depth -2.6. Net -11.7.",
-   "my_points": 42.6,
-   "their_points": -11.7,
-   "my_title_odds": 3.600000000000003,
-   "their_title_odds": -0.8500000000000008,
+   "deal": "give Christian Watson (WR), David Montgomery (RB) for Chris Olave (WR), Drake Maye (QB)",
+   "pitch": "Christian Watson would start every week for you and Drake Maye mostly sits on your bench anyway.",
+   "my_lineup": "QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); WR: Chris Olave replaces Christian Watson (+24.6); RB: Travis Etienne Jr. fills in for David Montgomery (-16.4). Net +51.7.",
+   "their_lineup": "WR: Christian Watson replaces Chris Olave (-24.6); RB: David Montgomery starts over Blake Corum and Omarion Hampton (+13.1); QB: Joe Burrow fills in for Drake Maye (-4.3); bench depth -3.7. Net -19.5.",
+   "my_points": 51.7,
+   "their_points": -19.5,
+   "my_title_odds": 4.550000000000002,
+   "their_title_odds": -1.6500000000000001,
    "accept_chance": 0.07
   },
   {
    "partner": "Dabob Dungies",
-   "deal": "give Travis Hunter (WR), Jaguars D/ST (D/ST) for Drake Maye (QB), Luther Burden III (WR)",
-   "pitch": "Travis Hunter would start every week for you, Jaguars D/ST would start every week for you over Texans D/ST, and Drake Maye mostly sits on your bench anyway.",
-   "my_lineup": "QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); D/ST: losing Jaguars D/ST (-14.9); bench depth +1.2. Net +29.4.",
-   "their_lineup": "RB: Blake Corum drops out of the lineup (-10.5); D/ST: Jaguars D/ST starts over Texans D/ST (+4.7); QB: Joe Burrow fills in for Drake Maye (-4.3); bench depth -3.7. Net -13.5.",
-   "my_points": 29.4,
-   "their_points": -13.5,
-   "my_title_odds": 3.075,
-   "their_title_odds": -0.7750000000000007,
-   "accept_chance": 0.06
-  },
-  {
-   "partner": "Cheeseball Champ",
-   "deal": "give Isaiah Likely (TE), Jaguars D/ST (D/ST) for Brock Bowers (TE), Broncos D/ST (D/ST)",
-   "pitch": "Isaiah Likely would start every week for you over Brenton Strange and Jaguars D/ST would start every week for you.",
-   "my_lineup": "TE: Brock Bowers replaces Isaiah Likely (+38.2); D/ST: Broncos D/ST replaces Jaguars D/ST (-8.4). Net +29.5.",
-   "their_lineup": "TE: Isaiah Likely replaces Brock Bowers (-38.4); D/ST: Jaguars D/ST replaces Broncos D/ST (+10.9). Net -27.5.",
-   "my_points": 29.5,
-   "their_points": -27.5,
-   "my_title_odds": 2.875,
-   "their_title_odds": -2.9,
+   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Chris Olave (WR), Drake Maye (QB)",
+   "pitch": "Christian Watson would start most weeks for you and Drake Maye mostly sits on your bench anyway.",
+   "my_lineup": "QB: Drake Maye starts over Lamar Jackson and J.J. McCarthy (+43.3); WR: Chris Olave replaces Christian Watson and Travis Hunter (-19.2); RB: David Montgomery moves into the lineup (+19.2); bench depth -0.6. Net +42.7.",
+   "their_lineup": "RB: Blake Corum drops out of the lineup (-10.5); WR: Christian Watson replaces Chris Olave (+5.8); QB: Joe Burrow fills in for Drake Maye (-4.3); bench depth -2.6. Net -11.6.",
+   "my_points": 42.7,
+   "their_points": -11.6,
+   "my_title_odds": 3.6000000000000005,
+   "their_title_odds": -0.9500000000000008,
    "accept_chance": 0.07
   },
   {
    "partner": "Team Leigh",
    "deal": "give Ashton Jeanty (RB), David Montgomery (RB) for James Cook III (RB), 49ers D/ST (D/ST)",
    "pitch": "Ashton Jeanty would start every week for you and 49ers D/ST mostly sits on your bench anyway.",
-   "my_lineup": "WR: KC Concepcion moves into the lineup (+10.7); RB: James Cook III replaces Ashton Jeanty (+10.2); TE: Pat Freiermuth moves into the lineup (+8.5). Net +29.1.",
+   "my_lineup": "RB: James Cook III replaces Ashton Jeanty (+21.6); TE: Pat Freiermuth moves into the lineup (+8.5). Net +29.7.",
    "their_lineup": "RB: Ashton Jeanty replaces James Cook III (-21.4); WR: Xavier Worthy drops out of the lineup (-9.0). Net -29.9.",
-   "my_points": 29.1,
+   "my_points": 29.7,
    "their_points": -29.9,
-   "my_title_odds": 2.650000000000002,
-   "their_title_odds": -1.2750000000000001,
-   "accept_chance": 0.08
-  },
-  {
-   "partner": "C-Hawks",
-   "deal": "give David Montgomery (RB), Jacob Rodriguez (LB) for Jonah Coleman (RB), Alex Singleton (LB)",
-   "pitch": "Jacob Rodriguez would start every week for you and David Montgomery would start every week for you over Zach Charbonnet.",
-   "my_lineup": "LB: Alex Singleton replaces Jacob Rodriguez (+21.1); RB: Jonah Coleman replaces David Montgomery (+17.1); WR: KC Concepcion starts over Travis Hunter and Christian Watson (-11.4). Net +26.7.",
-   "their_lineup": "RB: David Montgomery replaces Jonah Coleman (-13.2); LB: Jacob Rodriguez replaces Alex Singleton (-3.9). Net -17.2.",
-   "my_points": 26.7,
-   "their_points": -17.2,
-   "my_title_odds": 2.5249999999999995,
-   "their_title_odds": -1.45,
-   "accept_chance": 0.14
-  },
-  {
-   "partner": "Sacks as a Service",
-   "deal": "give David Montgomery (RB), Travis Hunter (WR) for Jayden Daniels (QB), George Pickens (WR)",
-   "pitch": "Travis Hunter would start 2 of the 10 weeks left for you and Patrick Mahomes can take over at QB.",
-   "my_lineup": "QB: Jayden Daniels starts over Lamar Jackson and J.J. McCarthy (+40.4); RB: losing David Montgomery (-33.9), best free agent to cover it: Tyler Allgeier (8.6 pts/gm); WR: George Pickens replaces Travis Hunter (+11.1); TE: Pat Freiermuth moves into the lineup (+8.5); bench depth +0.9. Net +27.0.",
-   "their_lineup": "QB: Patrick Mahomes fills in for Jayden Daniels (-26.9); WR: Jameson Williams fills in for George Pickens (+1.8); bench depth -1.0. Net -26.1.",
-   "my_points": 27.0,
-   "their_points": -26.1,
-   "my_title_odds": 2.4749999999999996,
-   "their_title_odds": -0.25,
-   "accept_chance": 0.06
-  },
-  {
-   "partner": "Sacks as a Service",
-   "deal": "give David Montgomery (RB), Jaguars D/ST (D/ST) for Jayden Daniels (QB), Aaron Jones Sr. (RB)",
-   "pitch": "Jaguars D/ST would start every week for you over Saints D/ST, Patrick Mahomes can take over at QB, and Aaron Jones Sr. mostly sits on your bench anyway.",
-   "my_lineup": "QB: Jayden Daniels starts over Lamar Jackson and J.J. McCarthy (+40.4); D/ST: losing Jaguars D/ST (-14.9); RB: Aaron Jones Sr. replaces David Montgomery (-13.9); WR: KC Concepcion moves into the lineup (+10.7). Net +22.3.",
-   "their_lineup": "QB: Patrick Mahomes fills in for Jayden Daniels (-26.9); D/ST: Jaguars D/ST starts over Saints D/ST (+22.3). Net -5.1.",
-   "my_points": 22.3,
-   "their_points": -5.1,
-   "my_title_odds": 2.450000000000002,
-   "their_title_odds": 0.0,
-   "accept_chance": 0.1
+   "my_title_odds": 2.8750000000000027,
+   "their_title_odds": -1.25,
+   "accept_chance": 0.12
   },
   {
    "partner": "Cheeseball Champ",
    "deal": "give Isaiah Likely (TE), David Montgomery (RB) for Brock Bowers (TE), Brenton Strange (TE)",
    "pitch": "Isaiah Likely would start every week for you and Brenton Strange mostly sits on your bench anyway.",
-   "my_lineup": "TE: Brock Bowers replaces Isaiah Likely (+47.2); RB: losing David Montgomery (-33.9), best free agent to cover it: Tyler Allgeier (8.6 pts/gm); WR: KC Concepcion moves into the lineup (+10.7). Net +23.8.",
-   "their_lineup": "TE: Isaiah Likely replaces Brock Bowers (-38.4); RB: David Montgomery joins the lineup (+11.2). Net -27.0.",
-   "my_points": 23.8,
-   "their_points": -27.0,
-   "my_title_odds": 2.3500000000000023,
-   "their_title_odds": -2.325000000000002,
-   "accept_chance": 0.11
+   "my_lineup": "TE: Brock Bowers replaces Isaiah Likely (+47.2); RB: Travis Etienne Jr. fills in for David Montgomery (-16.4). Net +30.5.",
+   "their_lineup": "TE: Isaiah Likely replaces Brock Bowers (-38.4); RB: David Montgomery joins the lineup (+11.2). Net -26.9.",
+   "my_points": 30.5,
+   "their_points": -26.9,
+   "my_title_odds": 2.8250000000000024,
+   "their_title_odds": -2.6999999999999997,
+   "accept_chance": 0.17
+  },
+  {
+   "partner": "Cheeseball Champ",
+   "deal": "give Isaiah Likely (TE), Jaguars D/ST (D/ST) for Brock Bowers (TE), Broncos D/ST (D/ST)",
+   "pitch": "Isaiah Likely would start every week for you over Brenton Strange and Jaguars D/ST would start every week for you.",
+   "my_lineup": "TE: Brock Bowers replaces Isaiah Likely (+38.2); D/ST: Broncos D/ST replaces Jaguars D/ST (-8.4). Net +29.7.",
+   "their_lineup": "TE: Isaiah Likely replaces Brock Bowers (-38.4); D/ST: Jaguars D/ST replaces Broncos D/ST (+10.9). Net -27.5.",
+   "my_points": 29.7,
+   "their_points": -27.5,
+   "my_title_odds": 2.8250000000000024,
+   "their_title_odds": -2.8499999999999996,
+   "accept_chance": 0.07
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give David Montgomery (RB), Travis Hunter (WR) for Jayden Daniels (QB), George Pickens (WR)",
+   "pitch": "Travis Hunter would start 2 of the 10 weeks left for you and Patrick Mahomes can take over at QB.",
+   "my_lineup": "QB: Jayden Daniels starts over Lamar Jackson and J.J. McCarthy (+40.4); RB: Travis Etienne Jr. fills in for David Montgomery (-16.4); TE: Pat Freiermuth moves into the lineup (+8.5); bench depth +0.8. Net +33.6.",
+   "their_lineup": "QB: Patrick Mahomes fills in for Jayden Daniels (-26.9); WR: Jameson Williams fills in for George Pickens (+1.8); bench depth -0.9. Net -26.0.",
+   "my_points": 33.6,
+   "their_points": -26.0,
+   "my_title_odds": 2.7750000000000026,
+   "their_title_odds": -0.19999999999999996,
+   "accept_chance": 0.1
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give Christian Watson (WR), David Montgomery (RB) for Tee Higgins (WR), Patrick Mahomes (QB)",
+   "pitch": "Christian Watson would start most weeks for you over Jameson Williams and Patrick Mahomes mostly sits on your bench anyway.",
+   "my_lineup": "WR: Tee Higgins replaces Christian Watson (+32.8); RB: Travis Etienne Jr. fills in for David Montgomery (-16.4); QB: Patrick Mahomes starts over Lamar Jackson (+15.2). Net +31.5.",
+   "their_lineup": "WR: Christian Watson replaces Tee Higgins (-17.5). Net -17.9.",
+   "my_points": 31.5,
+   "their_points": -17.9,
+   "my_title_odds": 2.6499999999999995,
+   "their_title_odds": -0.22499999999999998,
+   "accept_chance": 0.1
+  },
+  {
+   "partner": "C-Hawks",
+   "deal": "give Ashton Jeanty (RB), Travis Hunter (WR) for Josh Allen (QB), Jalen Coker (WR)",
+   "pitch": "Ashton Jeanty would start every week for you over Zach Charbonnet, Malik Willis can take over at QB (or Kyler Murray is a free agent), and Jalen Coker mostly sits on your bench anyway.",
+   "my_lineup": "QB: Josh Allen starts over Lamar Jackson and J.J. McCarthy (+71.7); RB: Travis Etienne Jr. and David Montgomery fill in for Ashton Jeanty (-51.9); TE: Pat Freiermuth moves into the lineup (+8.5); WR: Jalen Coker replaces Travis Hunter (-3.7). Net +24.6.",
+   "their_lineup": "RB: Ashton Jeanty starts over Jonah Coleman and Zach Charbonnet (+141.4); WR: Travis Hunter starts over Michael Wilson (-89.1); QB: Malik Willis fills in for Josh Allen (-80.5), or pick up Kyler Murray (15.7 pts/gm); bench depth +1.4. Net -26.9.",
+   "my_points": 24.6,
+   "their_points": -26.9,
+   "my_title_odds": 2.425000000000002,
+   "their_title_odds": -2.0250000000000004,
+   "accept_chance": 0.14
   },
   {
    "partner": "C-Hawks",
@@ -338,9 +374,21 @@
    "their_lineup": "",
    "my_points": 24.9,
    "their_points": -25.0,
-   "my_title_odds": 2.0000000000000018,
-   "their_title_odds": -2.4499999999999993,
-   "accept_chance": 0.06
+   "my_title_odds": 1.899999999999999,
+   "their_title_odds": -2.3500000000000005,
+   "accept_chance": 0.07
+  },
+  {
+   "partner": "Alexandra's Halftime Show ",
+   "deal": "give Travis Etienne Jr. (RB) for Caleb Williams (QB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 18.1,
+   "their_points": -15.5,
+   "my_title_odds": 1.7750000000000017,
+   "their_title_odds": -1.0000000000000009,
+   "accept_chance": 0.08
   },
   {
    "partner": "Team Leigh",
@@ -348,23 +396,11 @@
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 24.2,
+   "my_points": 24.8,
    "their_points": -24.6,
-   "my_title_odds": 1.5500000000000014,
-   "their_title_odds": -0.6250000000000002,
+   "my_title_odds": 1.3750000000000013,
+   "their_title_odds": -0.5500000000000002,
    "accept_chance": 0.11
-  },
-  {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Trevor Lawrence (QB), Zay Flowers (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 17.2,
-   "their_points": -24.9,
-   "my_title_odds": 1.4749999999999985,
-   "their_title_odds": -0.9749999999999999,
-   "accept_chance": 0.09
   },
   {
    "partner": "The (Jordan) Love Train",
@@ -374,8 +410,8 @@
    "their_lineup": "",
    "my_points": 25.1,
    "their_points": -24.1,
-   "my_title_odds": 1.4249999999999985,
-   "their_title_odds": -0.8,
+   "my_title_odds": 1.325000000000001,
+   "their_title_odds": -0.775,
    "accept_chance": 0.08
   },
   {
@@ -384,11 +420,11 @@
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 22.2,
-   "their_points": -23.1,
-   "my_title_odds": 1.3749999999999984,
+   "my_points": 20.0,
+   "their_points": -23.2,
+   "my_title_odds": 1.1499999999999981,
    "their_title_odds": -0.5500000000000002,
-   "accept_chance": 0.08
+   "accept_chance": 0.09
   },
   {
    "partner": "Alexandra's Halftime Show ",
@@ -396,155 +432,11 @@
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 21.0,
+   "my_points": 19.1,
    "their_points": -25.7,
-   "my_title_odds": 1.2249999999999983,
-   "their_title_odds": -2.1000000000000005,
+   "my_title_odds": 0.9999999999999981,
+   "their_title_odds": -2.0500000000000003,
    "accept_chance": 0.07
-  },
-  {
-   "partner": "Marcus's Magnificent Team",
-   "deal": "give Christian Watson (WR), David Montgomery (RB) for Chase Brown (RB), Emeka Egbuka (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 17.7,
-   "their_points": -26.7,
-   "my_title_odds": 1.150000000000001,
-   "their_title_odds": -0.6000000000000002,
-   "accept_chance": 0.05
-  },
-  {
-   "partner": "Dabob Dungies",
-   "deal": "give David Montgomery (RB) for Drake Maye (QB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 28.9,
-   "their_points": -5.0,
-   "my_title_odds": 2.675,
-   "their_title_odds": -0.30000000000000027,
-   "accept_chance": 0.16
-  },
-  {
-   "partner": "Dabob Dungies",
-   "deal": "give David Montgomery (RB), Jaguars D/ST (D/ST) for Drake Maye (QB), Texans D/ST (D/ST)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 28.7,
-   "their_points": -1.3,
-   "my_title_odds": 2.650000000000002,
-   "their_title_odds": -0.17500000000000016,
-   "accept_chance": 0.34
-  },
-  {
-   "partner": "Sacks as a Service",
-   "deal": "give Christian Watson (WR), David Montgomery (RB) for Tee Higgins (WR), Patrick Mahomes (QB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 24.9,
-   "their_points": -18.1,
-   "my_title_odds": 2.224999999999999,
-   "their_title_odds": -0.27499999999999997,
-   "accept_chance": 0.07
-  },
-  {
-   "partner": "Sacks as a Service",
-   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Tee Higgins (WR), Patrick Mahomes (QB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 22.4,
-   "their_points": -14.7,
-   "my_title_odds": 2.224999999999999,
-   "their_title_odds": -0.2,
-   "accept_chance": 0.08
-  },
-  {
-   "partner": "Dabob Dungies",
-   "deal": "give Christian Watson (WR) for Drake Maye (QB), Luther Burden III (WR) (drop Sam Martin (P))",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 29.3,
-   "their_points": 2.7,
-   "my_title_odds": 1.924999999999999,
-   "their_title_odds": 0.050000000000000044,
-   "accept_chance": 0.1
-  },
-  {
-   "partner": "C-Hawks",
-   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Justin Jefferson (WR), Jalen Coker (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 27.2,
-   "their_points": -13.2,
-   "my_title_odds": 1.8500000000000016,
-   "their_title_odds": -1.2499999999999998,
-   "accept_chance": 0.05
-  },
-  {
-   "partner": "C-Hawks",
-   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Justin Jefferson (WR), Michael Wilson (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 25.1,
-   "their_points": -13.5,
-   "my_title_odds": 1.8500000000000016,
-   "their_title_odds": -1.4249999999999998,
-   "accept_chance": 0.08
-  },
-  {
-   "partner": "C-Hawks",
-   "deal": "give Ashton Jeanty (RB), David Montgomery (RB) for Chuba Hubbard (RB), Jalen Coker (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 24.9,
-   "their_points": -22.8,
-   "my_title_odds": 1.5000000000000013,
-   "their_title_odds": -1.974999999999999,
-   "accept_chance": 0.07
-  },
-  {
-   "partner": "Sacks as a Service",
-   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Tee Higgins (WR), George Pickens (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 22.8,
-   "their_points": -17.3,
-   "my_title_odds": 1.4249999999999985,
-   "their_title_odds": -0.25,
-   "accept_chance": 0.06
-  },
-  {
-   "partner": "Cheeseball Champ",
-   "deal": "give Christian Watson (WR), David Montgomery (RB) for Kyren Williams (RB), Stefon Diggs (WR)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 21.8,
-   "their_points": -16.7,
-   "my_title_odds": 1.200000000000001,
-   "their_title_odds": -1.200000000000001,
-   "accept_chance": 0.08
-  },
-  {
-   "partner": "Cheeseball Champ",
-   "deal": "give Christian Watson (WR), Jacob Rodriguez (LB) for Drake London (WR), Fred Warner (LB)",
-   "pitch": "",
-   "my_lineup": "",
-   "their_lineup": "",
-   "my_points": 18.5,
-   "their_points": -18.5,
-   "my_title_odds": 1.200000000000001,
-   "their_title_odds": -1.2750000000000012,
-   "accept_chance": 0.08
   },
   {
    "partner": "The (Jordan) Love Train",
@@ -554,33 +446,153 @@
    "their_lineup": "",
    "my_points": 17.9,
    "their_points": -27.0,
-   "my_title_odds": 1.0249999999999981,
+   "my_title_odds": 0.9499999999999981,
    "their_title_odds": -0.8500000000000001,
    "accept_chance": 0.07
   },
   {
-   "partner": "The (Jordan) Love Train",
-   "deal": "give Ashton Jeanty (RB), Christian Watson (WR) for Jonathan Taylor (RB), Saquon Barkley (RB)",
+   "partner": "Dabob Dungies",
+   "deal": "give David Montgomery (RB), Travis Hunter (WR) for Drake Maye (QB), Luther Burden III (WR)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 17.9,
-   "their_points": -28.1,
-   "my_title_odds": 0.9749999999999981,
-   "their_title_odds": -0.9499999999999998,
-   "accept_chance": 0.06
+   "my_points": 36.3,
+   "their_points": -15.9,
+   "my_title_odds": 3.1250000000000027,
+   "their_title_odds": -0.9500000000000008,
+   "accept_chance": 0.29
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give David Montgomery (RB), Jaguars D/ST (D/ST) for Drake Maye (QB), Texans D/ST (D/ST)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 35.5,
+   "their_points": -1.2,
+   "my_title_odds": 3.0,
+   "their_title_odds": -0.30000000000000027,
+   "accept_chance": 0.57
+  },
+  {
+   "partner": "Dabob Dungies",
+   "deal": "give David Montgomery (RB) for Drake Maye (QB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 35.5,
+   "their_points": -4.9,
+   "my_title_odds": 3.0,
+   "their_title_odds": -0.4750000000000004,
+   "accept_chance": 0.39
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give David Montgomery (RB), Jaguars D/ST (D/ST) for Jayden Daniels (QB), George Pickens (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 28.4,
+   "their_points": -7.5,
+   "my_title_odds": 2.275000000000002,
+   "their_title_odds": 0.025000000000000022,
+   "accept_chance": 0.09
+  },
+  {
+   "partner": "Cheeseball Champ",
+   "deal": "give Ashton Jeanty (RB), Isaiah Likely (TE) for Brock Bowers (TE), Drake London (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 21.3,
+   "their_points": -26.9,
+   "my_title_odds": 1.8499999999999988,
+   "their_title_odds": -2.6999999999999997,
+   "accept_chance": 0.15
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give Ashton Jeanty (RB), DeVonta Smith (WR) for Tee Higgins (WR), Jayden Daniels (QB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 26.0,
+   "their_points": -18.3,
+   "my_title_odds": 1.8250000000000015,
+   "their_title_odds": -0.22499999999999998,
+   "accept_chance": 0.08
+  },
+  {
+   "partner": "Sacks as a Service",
+   "deal": "give Ashton Jeanty (RB), Travis Hunter (WR) for Tee Higgins (WR), Jayden Daniels (QB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 26.9,
+   "their_points": -26.5,
+   "my_title_odds": 1.799999999999999,
+   "their_title_odds": -0.19999999999999996,
+   "accept_chance": 0.08
+  },
+  {
+   "partner": "C-Hawks",
+   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Justin Jefferson (WR), Jalen Coker (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 27.2,
+   "their_points": -13.2,
+   "my_title_odds": 1.7250000000000014,
+   "their_title_odds": -1.225000000000001,
+   "accept_chance": 0.05
+  },
+  {
+   "partner": "C-Hawks",
+   "deal": "give Christian Watson (WR), David Montgomery (RB) for Malik Nabers (WR), Michael Wilson (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 23.0,
+   "their_points": -28.4,
+   "my_title_odds": 1.7250000000000014,
+   "their_title_odds": -2.575000000000001,
+   "accept_chance": 0.09
+  },
+  {
+   "partner": "C-Hawks",
+   "deal": "give Christian Watson (WR), Travis Hunter (WR) for Justin Jefferson (WR), Michael Wilson (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 25.2,
+   "their_points": -13.5,
+   "my_title_odds": 1.5999999999999988,
+   "their_title_odds": -1.4000000000000012,
+   "accept_chance": 0.08
+  },
+  {
+   "partner": "Cheeseball Champ",
+   "deal": "give Christian Watson (WR), David Montgomery (RB) for Kyren Williams (RB), Stefon Diggs (WR)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 19.7,
+   "their_points": -16.7,
+   "my_title_odds": 0.9750000000000009,
+   "their_title_odds": -1.150000000000001,
+   "accept_chance": 0.08
   },
   {
    "partner": "The (Jordan) Love Train",
-   "deal": "give Isaiah Likely (TE), David Montgomery (RB) for George Kittle (TE), Saquon Barkley (RB)",
+   "deal": "give Christian Watson (WR), David Montgomery (RB) for Trevor Lawrence (QB), Garrett Wilson (WR)",
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 18.6,
-   "their_points": -20.8,
-   "my_title_odds": 0.9000000000000008,
-   "their_title_odds": -0.8250000000000001,
-   "accept_chance": 0.09
+   "my_points": 21.0,
+   "their_points": -24.4,
+   "my_title_odds": 0.9250000000000008,
+   "their_title_odds": -0.9749999999999999,
+   "accept_chance": 0.21
   },
   {
    "partner": "Cheeseball Champ",
@@ -588,11 +600,35 @@
    "pitch": "",
    "my_lineup": "",
    "their_lineup": "",
-   "my_points": 18.0,
+   "my_points": 21.0,
    "their_points": -16.6,
-   "my_title_odds": 0.7000000000000006,
-   "their_title_odds": -1.150000000000001,
+   "my_title_odds": 0.899999999999998,
+   "their_title_odds": -1.3000000000000012,
    "accept_chance": 0.07
+  },
+  {
+   "partner": "The (Jordan) Love Train",
+   "deal": "give Isaiah Likely (TE), David Montgomery (RB) for George Kittle (TE), Saquon Barkley (RB)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 19.5,
+   "their_points": -20.8,
+   "my_title_odds": 0.849999999999998,
+   "their_title_odds": -0.8,
+   "accept_chance": 0.1
+  },
+  {
+   "partner": "Team Leigh",
+   "deal": "give Isaiah Likely (TE), Christian Watson (WR) for CeeDee Lamb (WR), T.J. Hockenson (TE)",
+   "pitch": "",
+   "my_lineup": "",
+   "their_lineup": "",
+   "my_points": 17.8,
+   "their_points": -23.1,
+   "my_title_odds": 0.849999999999998,
+   "their_title_odds": -0.5250000000000001,
+   "accept_chance": 0.11
   }
  ],
  "players": [
@@ -2674,37 +2710,6 @@
    "percent_rostered": 45.38
   },
   {
-   "id": 4243256,
-   "name": "Devin Lloyd",
-   "position": "LB",
-   "nfl_team": "CAR",
-   "fantasy_team": "Elliott Eats Everyone",
-   "slot": "BE",
-   "status": "ONTEAM",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "9": {
-     "points": 16.7,
-     "source": "espn"
-    },
-    "10": {
-     "points": 17.21,
-     "source": "espn"
-    },
-    "11": {
-     "points": 16.6,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 16.6,
-   "ros_points": 199.9,
-   "season_points": 108.0,
-   "season_avg": 18.0,
-   "bye": 5,
-   "percent_rostered": 38.67
-  },
-  {
    "id": 4241478,
    "name": "DeVonta Smith",
    "position": "WR",
@@ -2920,6 +2925,37 @@
    "season_avg": 8.7,
    "bye": 11,
    "percent_rostered": 59.49
+  },
+  {
+   "id": 4239996,
+   "name": "Travis Etienne Jr.",
+   "position": "RB",
+   "nfl_team": "NO",
+   "fantasy_team": "Elliott Eats Everyone",
+   "slot": "BE",
+   "status": "ONTEAM",
+   "injury": "INJURY_RESERVE",
+   "locked": false,
+   "projections": {
+    "9": {
+     "points": 0.0,
+     "source": "espn"
+    },
+    "10": {
+     "points": 13.55,
+     "source": "espn"
+    },
+    "11": {
+     "points": 0.0,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 12.07,
+   "ros_points": 104.1,
+   "season_points": 30.9,
+   "season_avg": 10.3,
+   "bye": 8,
+   "percent_rostered": 82.31
   },
   {
    "id": 4242335,
@@ -6704,37 +6740,6 @@
    "percent_rostered": 21.73
   },
   {
-   "id": 4239996,
-   "name": "Travis Etienne Jr.",
-   "position": "RB",
-   "nfl_team": "NO",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "INJURY_RESERVE",
-   "locked": false,
-   "projections": {
-    "9": {
-     "points": 0.0,
-     "source": "espn"
-    },
-    "10": {
-     "points": 13.55,
-     "source": "espn"
-    },
-    "11": {
-     "points": 0.0,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 12.07,
-   "ros_points": 104.1,
-   "season_points": 30.9,
-   "season_avg": 10.3,
-   "bye": 8,
-   "percent_rostered": 82.31
-  },
-  {
    "id": 4373626,
    "name": "Tyler Allgeier",
    "position": "RB",
@@ -7012,6 +7017,37 @@
    "season_avg": 6.433333333333334,
    "bye": 8,
    "percent_rostered": 23.65
+  },
+  {
+   "id": 4596334,
+   "name": "Keaton Mitchell",
+   "position": "RB",
+   "nfl_team": "LAC",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "9": {
+     "points": 6.48,
+     "source": "espn"
+    },
+    "10": {
+     "points": 6.07,
+     "source": "espn"
+    },
+    "11": {
+     "points": 6.37,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 6.37,
+   "ros_points": 76.2,
+   "season_points": 42.4,
+   "season_avg": 6.057142857142857,
+   "bye": 7,
+   "percent_rostered": 10.94
   },
   {
    "id": 3916433,
@@ -8347,6 +8383,37 @@
    "percent_rostered": 18.87
   },
   {
+   "id": 4243256,
+   "name": "Devin Lloyd",
+   "position": "LB",
+   "nfl_team": "CAR",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "WAIVERS",
+   "injury": "ACTIVE",
+   "locked": false,
+   "projections": {
+    "9": {
+     "points": 16.7,
+     "source": "espn"
+    },
+    "10": {
+     "points": 17.21,
+     "source": "espn"
+    },
+    "11": {
+     "points": 16.6,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 16.6,
+   "ros_points": 199.9,
+   "season_points": 108.0,
+   "season_avg": 18.0,
+   "bye": 5,
+   "percent_rostered": 38.67
+  },
+  {
    "id": 5081807,
    "name": "Sonny Styles",
    "position": "LB",
@@ -8531,37 +8598,6 @@
    "season_avg": 16.125,
    "bye": 13,
    "percent_rostered": 30.96
-  },
-  {
-   "id": 4036261,
-   "name": "Devin Bush",
-   "position": "LB",
-   "nfl_team": "CHI",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "9": {
-     "points": 17.1,
-     "source": "espn"
-    },
-    "10": {
-     "points": 0.0,
-     "source": "espn"
-    },
-    "11": {
-     "points": 15.86,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 15.86,
-   "ros_points": 175.7,
-   "season_points": 98.0,
-   "season_avg": 12.25,
-   "bye": 10,
-   "percent_rostered": 30.8
   },
   {
    "id": 4249128,
@@ -8905,37 +8941,6 @@
    "percent_rostered": 38.5
   },
   {
-   "id": 4567098,
-   "name": "Jordan Battle",
-   "position": "S",
-   "nfl_team": "CIN",
-   "fantasy_team": null,
-   "slot": null,
-   "status": "FREEAGENT",
-   "injury": "ACTIVE",
-   "locked": false,
-   "projections": {
-    "9": {
-     "points": 14.29,
-     "source": "espn"
-    },
-    "10": {
-     "points": 14.55,
-     "source": "espn"
-    },
-    "11": {
-     "points": 14.29,
-     "source": "bot"
-    }
-   },
-   "ros_per_game": 14.29,
-   "ros_points": 171.8,
-   "season_points": 112.5,
-   "season_avg": 16.071428571428573,
-   "bye": 6,
-   "percent_rostered": 23.93
-  },
-  {
    "id": 4426403,
    "name": "Nick Cross",
    "position": "S",
@@ -8996,6 +9001,37 @@
    "season_avg": 15.0,
    "bye": 6,
    "percent_rostered": 13.48
+  },
+  {
+   "id": 4567098,
+   "name": "Jordan Battle",
+   "position": "S",
+   "nfl_team": "CIN",
+   "fantasy_team": null,
+   "slot": null,
+   "status": "FREEAGENT",
+   "injury": "QUESTIONABLE",
+   "locked": false,
+   "projections": {
+    "9": {
+     "points": 14.29,
+     "source": "espn"
+    },
+    "10": {
+     "points": 14.55,
+     "source": "espn"
+    },
+    "11": {
+     "points": 14.29,
+     "source": "bot"
+    }
+   },
+   "ros_per_game": 14.29,
+   "ros_points": 168.1,
+   "season_points": 112.5,
+   "season_avg": 16.071428571428573,
+   "bye": 6,
+   "percent_rostered": 23.93
   },
   {
    "id": 4428863,
