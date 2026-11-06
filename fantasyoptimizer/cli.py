@@ -11,7 +11,7 @@ from pathlib import Path
 
 import requests
 
-from . import report
+from . import report, watch
 from .config import load_config
 from .engine import Optimizer
 from .espn import EspnClient, EspnError
@@ -51,6 +51,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--pregame", action="store_true",
                     help="lineup only, and only if one of your players kicks off soon "
                          "(after inactives are out); writes no report unless it changes something")
+    ap.add_argument("--watch", action="store_true",
+                    help="check free agents and ping (NOTIFY_URL) when a pickup worth making "
+                         "shows up; never makes moves. Combine with --pregame for the "
+                         "15-minute check")
+    ap.add_argument("--watch-state", default=".state/watch.json",
+                    help="which pickups --watch already pinged about")
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
 
@@ -88,22 +94,57 @@ def main(argv: list[str] | None = None) -> int:
                 return 0
             raise
 
+    # Quick checks (--pregame, --watch) run every 15 minutes and stay quiet unless
+    # they find something.
+    quick = args.pregame or args.watch
+    streams_auto = cfg.streaming.auto  # the daily run makes those pickups; don't ping
+    soon: list[int] = []
     if args.pregame:
         soon = league.kicking_off(league.my_team.roster, dt.timedelta(minutes=cfg.lineup.pregame_minutes))
-        if not soon:
+        if soon:
+            print("Pregame check: kicking off soon: "
+                  + ", ".join(league.players[pid].name for pid in soon))
+        else:
             print(f"Pregame check: none of your players kick off in the next "
-                  f"{cfg.lineup.pregame_minutes} minutes. Nothing to do.")
+                  f"{cfg.lineup.pregame_minutes} minutes.")
+    if quick:
+        cfg.lineup.enabled &= bool(soon)
+        cfg.trades.enabled = False
+        cfg.waivers.enabled = args.watch
+        if args.watch:  # alerts only: you make the pickup
+            cfg.waivers.max_moves_per_run = 0
+            cfg.streaming.auto = False
+        if not cfg.lineup.enabled and not args.watch:
+            print("Nothing to do.")
             return 0
-        print("Pregame check: kicking off soon: "
-              + ", ".join(league.players[pid].name for pid in soon))
 
     state = State.load(args.state)
-    result = Optimizer(league, cfg, state, client, score_trade=args.score_trade,
-                       move="" if args.pregame else args.move).run()
+    result = Optimizer(league, cfg, state, client, score_trade="" if quick else args.score_trade,
+                       move="" if quick else args.move).run()
     if not result.dry_run:
         state.save()
-    if args.pregame and not result.actions:
-        print("Pregame check: your lineup is already the best one. Nothing to do.")
+
+    alerts = []
+    if args.watch:
+        now = dt.datetime.now(dt.timezone.utc)
+        memory = watch.WatchMemory.load(args.watch_state)
+        worth = watch.worth_it(result, cfg, skip_streams=streams_auto)
+        alerts = watch.new_alerts(result, cfg, memory, now, skip_streams=streams_auto)
+        if alerts:
+            print(watch.alert_text(result, alerts))
+            memory.record(alerts, now)
+            memory.save()
+            if os.environ.get("GITHUB_OUTPUT"):  # the workflow saves the memory
+                with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+                    fh.write("watch_changed=true\n")
+        elif worth:
+            print("Free agent watch: already pinged about "
+                  + ", ".join(m.add.name for m in worth) + ".")
+        else:
+            print("Free agent watch: no pickup worth making right now.")
+    if soon and not result.actions:
+        print("Pregame check: your lineup is already the best one.")
+    if quick and not result.actions and not alerts:
         return 0
 
     text = report.render(result)
@@ -113,8 +154,17 @@ def main(argv: list[str] | None = None) -> int:
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as fh:
             fh.write(text)
+    if os.environ.get("GITHUB_OUTPUT"):  # how the workflow files this report
+        kind = "" if not quick else "pregame" if result.actions else "watch"
+        with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+            fh.write(f"report_kind={kind}\n")
+    ping = [report.short_summary(result)] if result.actions or not quick else []
+    if alerts:
+        ping.append(watch.alert_text(result, alerts))
     if os.environ.get("NOTIFY_URL"):
-        notify(report.short_summary(result), os.environ["NOTIFY_URL"])
+        notify("\n\n".join(ping), os.environ["NOTIFY_URL"])
+    elif alerts:
+        log.warning("Set the NOTIFY_URL secret to get pickup alerts on your phone.")
 
     failed = [a for a in result.actions if a.executed and not a.ok]
     return 2 if failed else 0
