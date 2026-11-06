@@ -16,7 +16,8 @@ Every run saves its output on the `reports` branch:
   number, `bot` is the bot's estimate), rest-of-season points per game, bye week,
   injury, and fantasy team. It also has team records and odds.
 - `history/<date>-<time>.md|json`: every past run. Pregame checks that changed the lineup
-  are saved here as `<date>-<time>-pregame.*` and don't replace `latest`.
+  are saved here as `<date>-<time>-pregame.*`, and free agent watch alerts as
+  `<date>-<time>-watch.*`. Neither replaces `latest`.
 
 Read them with GitHub's get_file_contents on ref `reports`. If they look stale, the
 latest "Daily fantasy moves" Actions run log has the same report.

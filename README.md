@@ -5,6 +5,7 @@ A bot that manages an ESPN fantasy football team once a day, with one goal: rais
 Every run, it:
 
 1. **Picks up free agents.** It finds the add/drop (or waiver claim, with a FAAB bid) that most improves your team for the rest of the season.
+   - **Watches free agency all day.** Every 15 minutes it checks whether someone dropped a player worth picking up, and pings your phone the first time one shows up: who to add, who to drop, and whether to claim them on waivers or grab them now. It only alerts; you make the move.
 2. **Sets your lineup.** It benches players who are on bye, OUT, or projected low, and starts the best available players. Players whose games have started stay put. On game days it checks again every 15 minutes, acting only once inactives are out for one of your games.
 3. **Proposes trades.** It looks for deals that make you better *and* fill a real need on the other manager's team, since a lopsided offer just gets rejected. Players are valued by how much better they are than the best free agent at their position. Each idea comes with a one-line pitch to send them.
 4. **Grades trade offers sent to you.** It tells you whether to accept. It never accepts on its own.
@@ -36,14 +37,14 @@ Your league and team ids are already in `optimizer.toml` (`[general]`). The cook
 |---|---|---|
 | Secret | `ESPN_S2` | the `espn_s2` cookie |
 | Secret | `ESPN_SWID` | the `SWID` cookie, braces included |
-| Secret (optional) | `NOTIFY_URL` | an [ntfy.sh](https://ntfy.sh) topic URL, or a Discord/Slack webhook, for a phone ping after each run |
+| Secret (optional) | `NOTIFY_URL` | an [ntfy.sh](https://ntfy.sh) topic URL, or a Discord/Slack webhook, for a phone ping after each run. The free agent watch needs this to reach you. |
 | Variable | `DRY_RUN` | leave unset (dry run) until you trust it, then set to `false` |
 
 ### 3. Try it
 
 Go to **Actions → Daily fantasy moves → Run workflow**, and pick `dry-run`. Open the run and read the summary. It shows exactly what it *would* have done.
 
-Run a few dry runs. When you like what you see, set the `DRY_RUN` variable to `false`. After that it runs daily at 10:17am ET. On game days (Thursday through Monday, plus holiday and late-season Saturday games) it also runs a pregame check every 15 minutes. Each check quits in seconds unless one of your players kicks off within 90 minutes. Then it re-sets your lineup, so a Questionable player who's ruled out gets benched in time. Pregame lineup changes are saved in `history/` (as `...-pregame.md`), not as `latest`.
+Run a few dry runs. When you like what you see, set the `DRY_RUN` variable to `false`. After that it runs daily at 10:17am ET. On game days (Thursday through Monday, plus holiday and late-season Saturday games) it also runs a pregame check every 15 minutes. Each check quits in seconds unless one of your players kicks off within 90 minutes. Then it re-sets your lineup, so a Questionable player who's ruled out gets benched in time. Pregame lineup changes are saved in `history/` (as `...-pregame.md`), not as `latest`. The same 15-minute check runs around the clock as a free agent watch: when a pickup clears the same bar the daily run uses (`[waivers] min_gain_points` and `min_title_gain`), it pings `NOTIFY_URL` once (again after `[watch] cooldown_days`, or when a player on waivers becomes a free agent) and saves the report as `...-watch.md`.
 
 ### 4. Make the schedule reliable (recommended)
 
@@ -94,6 +95,7 @@ Everything lives in `optimizer.toml`, with comments. The ones you'll most likely
 - `streaming.positions`: positions you stream week to week (default `["D/ST"]`; add `"K"` if you stream kickers, or `[]` to hold everyone).
 - `streaming.auto`: make streaming pickups automatically even when `max_moves_per_run = 0`. It only ever swaps a defense for a defense, never cuts another player, and waits until your current one has played if it's better this week.
 - `waivers.max_moves_per_run`: `0` lists pickups in the report but never makes them.
+- `watch.cooldown_days` / `watch.max_alerts`: how often the free agent watch pings about the same player, and how many it lists at once. Raise `waivers.min_gain_points` if it pings too much.
 - `lineup.enabled`, `waivers.enabled`, `trades.enabled`: turn pieces off.
 
 ## Things to know
@@ -123,6 +125,7 @@ The layout:
 | `valuation.py` | Optimal lineups and roster value |
 | `simulate.py` | Season and playoff Monte Carlo |
 | `waivers.py` | Pickup search |
+| `watch.py` | The 15-minute free agent watch and its alerts |
 | `trades.py` | Trade search |
 | `engine.py` | Runs it all and executes moves |
 | `report.py` | Builds the markdown report and JSON snapshot |

@@ -4,17 +4,18 @@ on:
   schedule:
     # The full run: every day at 10:17 ET (9:17 once daylight time ends).
     - cron: "17 14 * * *"
-    # Pregame checks every 15 minutes through the NFL's game windows (Thu-Mon, incl.
-    # London, Thanksgiving, Christmas and late-season Saturdays). Each one quits in
-    # seconds unless one of your players kicks off within 90 minutes, after inactives
-    # are out. GitHub sometimes runs schedules late or skips them, so several chances
-    # per game matter. Times are UTC.
-    - cron: "7-59/15 12-23 * * 0,1,4,5,6"
-    - cron: "7-59/15 0-1 * * 0,1,2,5,6"   # night games, which end after midnight UTC
+    # The 15-minute check, around the clock. It does two things:
+    # - Free agent watch: pings you (NOTIFY_URL) when someone drops a player worth
+    #   picking up. It never makes the move itself.
+    # - Pregame lineup: only when one of your players kicks off within 90 minutes,
+    #   after inactives are out. GitHub sometimes runs schedules late or skips them,
+    #   so several chances per game matter.
+    # Each check takes about a minute and stays quiet unless it finds something.
+    - cron: "7-59/15 * * * *"
   workflow_dispatch:
     inputs:
       job:
-        description: "full = everything; pregame = lineup only, if one of your games starts soon"
+        description: "full = everything; pregame = the 15-minute check (free agent watch, plus lineup if one of your games starts soon)"
         type: choice
         options: [full, pregame]
         default: full
@@ -65,7 +66,16 @@ jobs:
           key: optimizer-state-${{ github.run_id }}
           restore-keys: optimizer-state-
 
+      - name: Restore free agent watch memory
+        if: env.PREGAME
+        uses: actions/cache/restore@v4
+        with:
+          path: .state/watch.json
+          key: watch-state-${{ github.run_id }}
+          restore-keys: watch-state-
+
       - name: Run optimizer
+        id: run
         env:
           ESPN_LEAGUE_ID: ${{ secrets.ESPN_LEAGUE_ID }}
           ESPN_S2: ${{ secrets.ESPN_S2 }}
@@ -75,7 +85,7 @@ jobs:
           TRADE: ${{ inputs.trade }}
           MOVE: ${{ inputs.move }}
           DRY_RUN: ${{ inputs.mode == 'live' && 'false' || inputs.mode == 'dry-run' && 'true' || vars.DRY_RUN || 'true' }}
-        run: python -m fantasyoptimizer ${PREGAME:+--pregame}
+        run: python -m fantasyoptimizer ${PREGAME:+--pregame --watch}
 
       - name: Save memory
         if: always() && !env.PREGAME && hashFiles('.state/state.json') != ''
@@ -83,6 +93,13 @@ jobs:
         with:
           path: .state
           key: optimizer-state-${{ github.run_id }}
+
+      - name: Save free agent watch memory
+        if: always() && steps.run.outputs.watch_changed == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .state/watch.json
+          key: watch-state-${{ github.run_id }}
 
       - name: Upload report
         if: always()
@@ -96,6 +113,8 @@ jobs:
 
       - name: Save report to the reports branch
         if: success() && hashFiles('snapshot.json') != ''
+        env:
+          KIND: ${{ steps.run.outputs.report_kind }}
         run: |
           set -euo pipefail
           stamp=$(date -u +%Y-%m-%d-%H%M)
@@ -110,11 +129,11 @@ jobs:
             git -C pub rm -rfq .
           fi
           mkdir -p pub/history
-          if [ -z "$PREGAME" ]; then   # pregame lineup changes go in history only
+          if [ -z "$KIND" ]; then   # pregame changes and pickup alerts go in history only
             cp report.md pub/latest.md
             cp snapshot.json pub/latest.json
           else
-            stamp="$stamp-pregame"
+            stamp="$stamp-$KIND"
           fi
           cp report.md "pub/history/$stamp.md"
           cp snapshot.json "pub/history/$stamp.json"

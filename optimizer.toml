@@ -67,6 +67,14 @@ auto = true                  # Make streaming pickups automatically, even though
                              # waivers.max_moves_per_run = 0 keeps all others manual.
                              # The code default is false.
 
+[watch]
+# The 15-minute free agent watch: pings you (NOTIFY_URL) when someone drops a player
+# worth picking up. Same bar as [waivers] (min_gain_points, min_title_gain). It never
+# makes the move itself. Defenses are left to the daily run while [streaming] auto is on.
+cooldown_days = 3            # Don't ping about the same player again for this long
+                             # (unless he clears waivers and becomes a free agent)
+max_alerts = 3               # Most pickups listed in one ping
+
 [trades]
 enabled = true
 max_proposals_per_run = 0    # 0 = suggest trades in the report but never send them

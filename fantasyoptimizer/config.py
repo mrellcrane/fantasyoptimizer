@@ -75,6 +75,15 @@ class StreamingConfig:
 
 
 @dataclass
+class WatchConfig:
+    # --watch: check free agents every 15 minutes and ping when a pickup worth making
+    # shows up. Same bar as [waivers]; it only alerts, never makes moves.
+    cooldown_days: int = 3         # Don't ping about the same player again for this long
+                                   # (unless he clears waivers and becomes a free agent)
+    max_alerts: int = 3            # Most pickups listed in one ping
+
+
+@dataclass
 class TradeConfig:
     enabled: bool = True
     max_proposals_per_run: int = 1
@@ -123,6 +132,7 @@ class Config:
     lineup: LineupConfig = field(default_factory=LineupConfig)
     waivers: WaiverConfig = field(default_factory=WaiverConfig)
     streaming: StreamingConfig = field(default_factory=StreamingConfig)
+    watch: WatchConfig = field(default_factory=WatchConfig)
     trades: TradeConfig = field(default_factory=TradeConfig)
     # Questionable players who do play score less (RB/WR ~8.5-10% less, QBs no drop;
     # 4for4 injury study). Multiplier on their projection when they play.
