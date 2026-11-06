@@ -2,7 +2,7 @@
 
 **Live run.** Moves below were sent to ESPN.
 
-**Elliott Eats Everyone** is 4-4. Playoff odds **71.5%**, title odds **24.1%**, projected 7.7 wins.
+**Elliott Eats Everyone** is 4-4. Playoff odds **71.3%**, title odds **24.3%**, projected 7.7 wins.
 
 ## Lineup check
 
@@ -45,7 +45,7 @@ _Alternatives, best first (at most two per position). Suggestions only: the bot 
 | Add | Drop | Type | Starts | Season pts | Title odds | Note |
 |---|---|---|---|---:|---:|---|
 | Jalen Hurts (QB) | Geno Smith (QB) | Free agent | 5 of 10 | +1.0 | +0.1% | Small gain: optional (the bot won't make it) |
-| Dominic Zvada (K) | Geno Smith (QB) | Free agent | 1 of 10 (wk 10) | +1.0 | +0.1% | Only fills wk 10: add it that week |
+| Dominic Zvada (K) | Geno Smith (QB) | Free agent | 1 of 10 (wk 10) | +1.0 | +0.0% | Only fills wk 10: add it that week |
 | Tommy Townsend (P) | Sam Martin (P) | Free agent | 1 of 10 (wk 10) | +0.6 | +0.0% | Only fills wk 10: add it that week |
 | Brett Thorson (P) | Sam Martin (P) | Free agent | 1 of 10 (wk 10) | +0.5 | +0.0% | Only fills wk 10: add it that week |
 
@@ -53,28 +53,28 @@ _Alternatives, best first (at most two per position). Suggestions only: the bot 
 
 _Better for you, less likely to be accepted. Some even look slightly worse for them on paper, so the pitch matters. Worst case, they say no._
 
-1. **Cheeseball Champ**: give Isaiah Likely (TE), Jaguars D/ST (D/ST) for Brock Bowers (TE), Brenton Strange (TE)
-   - You: +23.1 season pts, +2.8% title odds. Them: -26.2 season pts. Accept chance ~7%.
-   - Your lineup: TE: Brock Bowers replaces Isaiah Likely (+38.3); D/ST: a streamed D/ST fills in for Jaguars D/ST (-15.2). Net +23.1.
-   - Their lineup: TE: Isaiah Likely replaces Brock Bowers (-38.3); D/ST: Jaguars D/ST starts over Broncos D/ST (+12.2). Net -26.2.
-   - Pitch: "Isaiah Likely would start every week for you, Jaguars D/ST would start every week for you over Broncos D/ST, and Brenton Strange mostly sits on your bench anyway."
-2. **Alexandra's Halftime Show **: give Ashton Jeanty (RB), J.J. McCarthy (QB) for Josh Jacobs (RB), Caleb Williams (QB)
-   - You: +21.5 season pts, +2.7% title odds. Them: -16.4 season pts. Accept chance ~8%.
+1. **Alexandra's Halftime Show **: give Ashton Jeanty (RB), J.J. McCarthy (QB) for Josh Jacobs (RB), Caleb Williams (QB)
+   - You: +21.5 season pts, +2.6% title odds. Them: -16.4 season pts. Accept chance ~8%.
    - Your lineup: QB: Caleb Williams starts over Lamar Jackson and Bo Nix (+17.9); RB: Josh Jacobs replaces Ashton Jeanty (+3.6). Net +21.5.
    - Their lineup: QB: C.J. Stroud fills in for Caleb Williams (-11.7); RB: Ashton Jeanty replaces Josh Jacobs (-4.8). Net -16.4.
    - Pitch: "Ashton Jeanty would start every week for you."
-3. **The (Jordan) Love Train**: give Isaiah Likely (TE), Bo Nix (QB) for George Kittle (TE), Dak Prescott (QB)
-   - You: +31.8 season pts, +2.6% title odds. Them: -15.6 season pts. Accept chance ~5%.
+2. **The (Jordan) Love Train**: give Isaiah Likely (TE), Bo Nix (QB) for George Kittle (TE), Dak Prescott (QB)
+   - You: +31.8 season pts, +2.4% title odds. Them: -15.6 season pts. Accept chance ~5%.
    - Your lineup: QB: Dak Prescott starts over Lamar Jackson and Bo Nix (+17.5); TE: George Kittle replaces Isaiah Likely (+14.1). Net +31.8.
    - Their lineup: TE: Isaiah Likely replaces George Kittle (-14.1); bench depth -1.5. Net -15.6.
    - Pitch: "Isaiah Likely would start every week for you and Dak Prescott mostly sits on your bench anyway."
+3. **Cheeseball Champ**: give Isaiah Likely (TE), Jaguars D/ST (D/ST) for Brock Bowers (TE), Brenton Strange (TE)
+   - You: +23.1 season pts, +2.4% title odds. Them: -26.2 season pts. Accept chance ~7%.
+   - Your lineup: TE: Brock Bowers replaces Isaiah Likely (+38.3); D/ST: a streamed D/ST fills in for Jaguars D/ST (-15.2). Net +23.1.
+   - Their lineup: TE: Isaiah Likely replaces Brock Bowers (-38.3); D/ST: Jaguars D/ST starts over Broncos D/ST (+12.2). Net -26.2.
+   - Pitch: "Isaiah Likely would start every week for you, Jaguars D/ST would start every week for you over Broncos D/ST, and Brenton Strange mostly sits on your bench anyway."
 4. **The (Jordan) Love Train**: give Isaiah Likely (TE), J.J. McCarthy (QB) for George Kittle (TE), Dak Prescott (QB)
-   - You: +31.3 season pts, +2.6% title odds. Them: -15.2 season pts. Accept chance ~7%.
+   - You: +31.3 season pts, +2.4% title odds. Them: -15.2 season pts. Accept chance ~7%.
    - Your lineup: QB: Dak Prescott starts over Lamar Jackson and Bo Nix (+17.1); TE: George Kittle replaces Isaiah Likely (+14.1). Net +31.3.
    - Their lineup: TE: Isaiah Likely replaces George Kittle (-14.1); bench depth -1.1. Net -15.2.
    - Pitch: "Isaiah Likely would start every week for you and Dak Prescott mostly sits on your bench anyway."
 5. **Cheeseball Champ**: give Isaiah Likely (TE), Jaguars D/ST (D/ST) for Brock Bowers (TE), Broncos D/ST (D/ST)
-   - You: +21.2 season pts, +2.4% title odds. Them: -26.2 season pts. Accept chance ~8%.
+   - You: +21.2 season pts, +2.0% title odds. Them: -26.2 season pts. Accept chance ~8%.
    - Your lineup: TE: Brock Bowers replaces Isaiah Likely (+29.8); D/ST: a streamed D/ST fills in for Jaguars D/ST (-8.7). Net +21.2.
    - Their lineup: TE: Isaiah Likely replaces Brock Bowers (-38.3); D/ST: Jaguars D/ST replaces Broncos D/ST (+12.2). Net -26.2.
    - Pitch: "Isaiah Likely would start every week for you over Brenton Strange and Jaguars D/ST would start every week for you."
@@ -85,10 +85,10 @@ _Would start = weeks he'd make your best lineup if you added him._
 
 | Pos | Player | NFL | Status | Wk 9 | Wk 10 | Wk 11 | ROS/gm | Bye | Rostered | Would start |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---|
-| QB | Kyler Murray | MIN | FA, Questionable | 0.0 | 13.6 | ~14.8 | 14.8 | 6 | 54% | 0 of 10 |
+| QB | Kyler Murray | MIN | FA, Questionable | 0.0 | 13.6 | ~14.8 | 14.8 | 6 | 53% | 0 of 10 |
 | QB | Aaron Rodgers | PIT | FA | BYE | 14.7 | ~13.3 | 13.3 | 9 | 34% | 0 of 10 |
 | QB | Baker Mayfield | TB | FA | 12.6 | BYE | ~12.7 | 12.7 | 10 | 23% | 0 of 10 |
-| RB | Devin Singletary | NYG | FA | 13.5 | 8.4 | ~10.5 | 10.5 | 8 | 15% | 0 of 10 |
+| RB | Devin Singletary | NYG | FA | 13.5 | 8.4 | ~10.5 | 10.5 | 8 | 16% | 0 of 10 |
 | RB | Jadarian Price | SEA | Waivers | 10.8 | 11.4 | BYE | 8.7 | 11 | 74% | 0 of 10 |
 | RB | J.K. Dobbins | DEN | FA | 8.2 | BYE | ~8.8 | 8.8 | 10 | 72% | 0 of 10 |
 | WR | Jakobi Meyers | JAX | Waivers | 10.7 | 11.5 | ~9.9 | 9.9 | 7 | 69% | 1 of 10 (wk 9) |
@@ -126,15 +126,15 @@ _Would start = weeks he'd make your best lineup if you added him._
 
 | Team | Record | Proj. wins | Playoffs | Title |
 |---|---|---:|---:|---:|
-| Kat's Top-Notch Team | 7-1 | 10.3 | 98.6% | 25.9% |
-| **Elliott Eats Everyone** | 4-4 | 7.7 | 71.5% | 24.1% |
-| Cheeseball Champ | 5-3 | 8.1 | 69.0% | 16.1% |
-| C-Hawks | 4-4 | 6.8 | 40.3% | 9.5% |
-| Alexandra's Halftime Show  | 3-5 | 6.6 | 31.8% | 8.6% |
-| Dabob Dungies | 5-3 | 7.5 | 45.8% | 7.8% |
-| Team Leigh | 4-4 | 6.7 | 21.4% | 3.5% |
-| The (Jordan) Love Train | 3-5 | 5.8 | 9.7% | 2.2% |
-| Marcus's Magnificent Team | 3-5 | 5.7 | 9.7% | 1.8% |
+| Kat's Top-Notch Team | 7-1 | 10.3 | 98.5% | 26.1% |
+| **Elliott Eats Everyone** | 4-4 | 7.7 | 71.3% | 24.3% |
+| Cheeseball Champ | 5-3 | 8.1 | 69.7% | 16.1% |
+| C-Hawks | 4-4 | 6.8 | 41.8% | 9.7% |
+| Alexandra's Halftime Show  | 3-5 | 6.6 | 31.6% | 8.5% |
+| Dabob Dungies | 5-3 | 7.5 | 44.8% | 7.5% |
+| Team Leigh | 4-4 | 6.7 | 20.4% | 3.3% |
+| The (Jordan) Love Train | 3-5 | 5.9 | 10.0% | 2.2% |
+| Marcus's Magnificent Team | 3-5 | 5.7 | 9.6% | 1.7% |
 | Sacks as a Service | 2-6 | 4.7 | 2.3% | 0.4% |
 
 _Weekly numbers are ESPN projections; ~ marks the bot's own estimate (ESPN hasn't published that week yet). ROS/gm = the bot's rest-of-season points per game. Season pts = change in projected starting-lineup points over the rest of the season (playoff weeks weighted up). Title odds = change in simulated championship probability, in percentage points._
