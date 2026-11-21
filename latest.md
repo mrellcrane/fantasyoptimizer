@@ -2,7 +2,7 @@
 
 **Live run.** Moves below were sent to ESPN.
 
-**Elliott Eats Everyone** is 5-5. Playoff odds **44.4%**, title odds **10.2%**, projected 7.1 wins.
+**Elliott Eats Everyone** is 5-5. Playoff odds **44.5%**, title odds **10.2%**, projected 7.1 wins.
 
 ## Lineup check
 
@@ -62,8 +62,8 @@ _Better for you, less likely to be accepted. Some even look slightly worse for t
    - Their lineup: WR: DeVonta Smith replaces Justin Jefferson (-37.7); RB: Ashton Jeanty replaces Emmett Johnson (+14.3). Net -23.4.
    - Pitch: "DeVonta Smith would start every week for you and Ashton Jeanty would start every week for you over Zach Charbonnet."
 3. **Marcus's Magnificent Team**: give Ashton Jeanty (RB), DeVonta Smith (WR) for Amon-Ra St. Brown (WR), Ollie Gordon II (RB)
-   - You: +29.8 season pts, +3.4% title odds. Them: -26.1 season pts. Accept chance ~9%.
-   - Your lineup: WR: Amon-Ra St. Brown replaces DeVonta Smith (+46.1); RB: David Montgomery and Ollie Gordon II start over Ashton Jeanty (-15.7); bench depth -0.6. Net +29.8.
+   - You: +29.9 season pts, +3.4% title odds. Them: -26.1 season pts. Accept chance ~9%.
+   - Your lineup: WR: Amon-Ra St. Brown replaces DeVonta Smith (+46.1); RB: David Montgomery and Ollie Gordon II start over Ashton Jeanty (-15.7); bench depth -0.6. Net +29.9.
    - Their lineup: WR: DeVonta Smith starts over Amon-Ra St. Brown and Emeka Egbuka (-115.2); RB: Ashton Jeanty replaces Ollie Gordon II (+89.1). Net -26.1.
    - Pitch: "DeVonta Smith would start every week for you over Emeka Egbuka and Ashton Jeanty would start every week for you."
 4. **Team Leigh**: give Isaiah Likely (TE), DeVonta Smith (WR) for CeeDee Lamb (WR), T.J. Hockenson (TE)
@@ -84,16 +84,16 @@ _Would start = weeks he'd make your best lineup if you added him._
 | Pos | Player | NFL | Status | Wk 11 | Wk 12 | Wk 13 | ROS/gm | Bye | Rostered | Would start |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---|
 | QB | Aaron Rodgers | PIT | FA | 15.2 | 14.4 | ~13.8 | 13.8 | 9 | 39% | 0 of 8 |
-| QB | J.J. McCarthy | NYG | FA | 13.4 | 16.2 | ~11.3 | 11.3 | 8 | 26% | 0 of 8 |
+| QB | J.J. McCarthy | NYG | FA | 13.4 | 16.2 | ~11.3 | 11.3 | 8 | 25% | 0 of 8 |
 | QB | Baker Mayfield | TB | FA, Questionable | 12.0 | 13.1 | ~12.2 | 12.2 | 10 | 18% | 0 of 8 |
-| RB | Jordan Mason | MIN | Waivers | 8.6 | 11.7 | ~8.2 | 8.2 | 6 | 56% | 0 of 8 |
-| RB | Kenny Gainwell | TB | FA | 8.8 | 9.4 | ~8.3 | 8.3 | 10 | 58% | 0 of 8 |
+| RB | Jordan Mason | MIN | FA | 8.6 | 11.7 | ~8.2 | 8.2 | 6 | 56% | 0 of 8 |
+| RB | Kenny Gainwell | TB | FA | 8.8 | 9.4 | ~8.3 | 8.3 | 10 | 59% | 0 of 8 |
 | RB | Dameon Pierce | PHI | FA, Questionable | 0.0 | 0.0 | ~10.0 | 10.0 | 10 | 9% | 0 of 8 |
-| WR | Jaylen Waddle | DEN | FA | 12.5 | 10.8 | ~10.7 | 10.7 | 10 | 84% | 0 of 8 |
+| WR | Jaylen Waddle | DEN | FA | 12.5 | 10.8 | ~10.7 | 10.7 | 10 | 85% | 0 of 8 |
 | WR | DK Metcalf | PIT | FA | 11.1 | 11.2 | ~10.5 | 10.5 | 9 | 88% | 0 of 8 |
 | WR | Jakobi Meyers | JAX | FA | 10.9 | 12.0 | ~9.8 | 9.8 | 7 | 74% | 0 of 8 |
 | TE | Harold Fannin Jr. | CLE | FA | BYE | 11.2 | ~10.1 | 10.1 | 11 | 90% | 0 of 8 |
-| TE | Dalton Kincaid | BUF | Waivers, Doubtful | 0.0 | 8.2 | ~9.4 | 9.4 | 7 | 79% | 0 of 8 |
+| TE | Dalton Kincaid | BUF | Waivers, Doubtful | 0.0 | 8.2 | ~9.4 | 9.4 | 7 | 77% | 0 of 8 |
 | TE | Pat Freiermuth | PIT | FA | 7.6 | 7.6 | ~8.2 | 8.2 | 9 | 43% | 0 of 8 |
 | DT | Jeffery Simmons | CHI | FA | 10.8 | 11.1 | ~10.4 | 10.4 | 10 | 60% | 0 of 8 |
 | DT | Tommy Togiai | HOU | Waivers | 8.8 | 8.7 | ~9.3 | 9.3 | 8 | 16% | 0 of 8 |
@@ -101,7 +101,7 @@ _Would start = weeks he'd make your best lineup if you added him._
 | DE | Will Anderson Jr. | HOU | Waivers | 10.0 | 9.4 | ~9.5 | 9.5 | 8 | 64% | 0 of 8 |
 | DE | Andrew Van Ginkel | MIN | FA | 9.4 | 9.0 | ~9.2 | 9.2 | 6 | 51% | 0 of 8 |
 | DE | David Bailey | NYJ | FA | 10.7 | 10.5 | BYE | 9.2 | 13 | 48% | 0 of 8 |
-| LB | Kaden Elliss | NO | FA | 18.5 | 18.1 | ~17.3 | 17.3 | 8 | 22% | 0 of 8 |
+| LB | Kaden Elliss | NO | FA | 18.5 | 18.1 | ~17.3 | 17.3 | 8 | 23% | 0 of 8 |
 | LB | Barrett Carter | CIN | FA | 18.1 | 18.3 | ~17.1 | 17.1 | 6 | 29% | 0 of 8 |
 | LB | Devin Lloyd | CAR | FA | 17.1 | 17.4 | ~16.7 | 16.7 | 5 | 37% | 0 of 8 |
 | CB | Jalen Pitre | HOU | Waivers | 12.7 | 12.4 | ~12.0 | 12.0 | 8 | 18% | 0 of 8 |
@@ -110,15 +110,15 @@ _Would start = weeks he'd make your best lineup if you added him._
 | S | Brian Branch | DET | FA | 15.9 | 16.5 | ~13.9 | 13.9 | 6 | 41% | 0 of 8 |
 | S | Kevin Winston Jr. | TEN | FA | 15.0 | 14.5 | ~14.2 | 14.2 | 9 | 12% | 0 of 8 |
 | S | Nick Cross | WSH | FA | 14.9 | 14.7 | ~14.0 | 14.0 | 7 | 24% | 0 of 8 |
-| D/ST | Buccaneers D/ST | TB | FA | 4.6 | 7.5 | ~6.3 | 6.3 | 10 | 35% | 1 of 8 (wk 12) |
+| D/ST | Buccaneers D/ST | TB | FA | 4.5 | 7.5 | ~6.2 | 6.2 | 10 | 35% | 1 of 8 (wk 12) |
 | D/ST | Bengals D/ST | CIN | FA | 5.0 | 6.4 | ~5.0 | 5.0 | 6 | 35% | 0 of 8 |
 | D/ST | Giants D/ST | NYG | FA | 3.7 | 5.8 | ~4.7 | 4.7 | 8 | 18% | 0 of 8 |
 | K | Chris Boswell | PIT | FA | 10.2 | 10.3 | ~8.8 | 8.8 | 9 | 62% | 1 of 8 (wk 11) |
-| K | Cairo Santos | CHI | FA | 9.8 | 9.1 | ~8.7 | 8.7 | 10 | 29% | 0 of 8 |
+| K | Cairo Santos | CHI | FA | 9.8 | 9.1 | ~8.7 | 8.7 | 10 | 30% | 0 of 8 |
 | K | Jake Bates | DET | FA | 9.1 | 9.5 | ~8.5 | 8.5 | 6 | 53% | 0 of 8 |
 | P | Sam Martin | CAR | FA | 2.7 | 3.5 | ~2.8 | 2.8 | 5 | 46% | 0 of 8 |
 | P | Tress Way | WSH | FA | 3.0 | 2.6 | ~2.6 | 2.6 | 7 | 45% | 0 of 8 |
-| P | Bradley Pinion | MIA | FA, Out | 2.8 | 2.4 | ~2.6 | 2.6 | 6 | 38% | 0 of 8 |
+| P | Bradley Pinion | MIA | FA, Out | 2.8 | 2.4 | ~2.6 | 2.6 | 6 | 36% | 0 of 8 |
 
 ## League outlook
 
@@ -128,7 +128,7 @@ _Would start = weeks he'd make your best lineup if you added him._
 | Kat's Top-Notch Team | 9-1 | 10.9 | 100.0% | 24.4% |
 | C-Hawks | 5-5 | 7.4 | 60.9% | 14.7% |
 | Dabob Dungies | 6-4 | 8.2 | 70.8% | 11.0% |
-| **Elliott Eats Everyone** | 5-5 | 7.1 | 44.4% | 10.2% |
+| **Elliott Eats Everyone** | 5-5 | 7.1 | 44.5% | 10.2% |
 | Cheeseball Champ | 5-5 | 6.6 | 14.5% | 3.3% |
 | The (Jordan) Love Train | 4-6 | 6.3 | 12.3% | 2.1% |
 | Alexandra's Halftime Show  | 4-6 | 5.8 | 5.1% | 1.1% |
