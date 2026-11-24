@@ -2,42 +2,39 @@
 
 **Live run.** Moves below were sent to ESPN.
 
-**Elliott Eats Everyone** is 5-6. Playoff odds **24.4%**, title odds **6.8%**, projected 6.7 wins.
+**Elliott Eats Everyone** is 5-6. Playoff odds **24.5%**, title odds **6.7%**, projected 6.7 wins.
 
 ## Lineup check
 
-**Week 12: swaps worth +9.6 projected points** (the bot already made them)
-- Start **Deshaun Watson** (19.9) over **Bo Nix** (14.1)
-- Start **Christian Watson** (14.1) over **David Montgomery** (11.3)
-- Start **Jeremy Crawshaw** (3.7) over **Riley Dixon** (2.8)
+**Week 12:** your lineup is already your best one (156.2 projected points).
 
 **Week 13 heads-up:**
 - **Ashton Jeanty** (RB) is on bye: start **Travis Etienne Jr.** (12.0) instead.
 
 ## Moves
-- **SENT** Lineup (+9.6 projected pts this week): start Deshaun Watson over Bo Nix; start Christian Watson over David Montgomery; start Jeremy Crawshaw over Riley Dixon (EXECUTED)
+- None today. Nothing cleared the thresholds.
 
 ## Your roster
 
 | Slot | Player | NFL | Status | Wk 12 | Wk 13 | Wk 14 | ROS/gm | Bye |
 |---|---|---|---|---:|---:|---:|---:|---:|
-| QB | Bo Nix (QB) | DEN |  | 14.1 | 17.4 | ~14.9 | 14.9 | 10 |
+| QB | Deshaun Watson (QB) | CLE |  | 19.9 | 15.7 | ~15.0 | 15.0 | 11 |
 | RB | Ashton Jeanty (RB) | LV |  | 15.3 | BYE | ~15.2 | 15.2 | 13 |
 | RB | Jahmyr Gibbs (RB) | DET |  | 25.6 | 28.0 | ~24.2 | 24.2 | 6 |
 | WR | DeVonta Smith (WR) | PHI |  | 14.4 | 13.5 | ~13.7 | 13.7 | 10 |
 | WR | Travis Hunter (WR) | JAX |  | 13.9 | 13.8 | ~11.2 | 11.2 | 7 |
 | TE | Isaiah Likely (TE) | NYG |  | 12.2 | 12.4 | ~12.2 | 12.2 | 8 |
-| FLEX | David Montgomery (RB) | HOU |  | 11.3 | 9.4 | ~11.0 | 11.0 | 8 |
+| FLEX | Christian Watson (WR) | GB |  | 14.1 | 15.2 | ~14.0 | 14.0 | 11 |
 | DP | Jacob Rodriguez (LB) | MIA |  | 19.1 | 19.3 | ~18.1 | 18.1 | 6 |
 | D/ST | Jaguars D/ST (D/ST) | JAX |  | 6.9 | 5.9 | ~6.0 | 6.0 | 7 |
 | K | Will Reichard (K) | MIN |  | 11.0 | 10.8 | ~9.4 | 9.4 | 6 |
-| P | Riley Dixon (P) | TB |  | 2.8 | 2.7 | ~2.2 | 2.2 | 10 |
-| BE | Christian Watson (WR) | GB |  | 14.1 | 15.2 | ~14.0 | 14.0 | 11 |
-| BE | Deshaun Watson (QB) | CLE |  | 19.9 | 15.7 | ~15.0 | 15.0 | 11 |
+| P | Jeremy Crawshaw (P) | DEN |  | 3.7 | 3.1 | ~3.0 | 3.0 | 10 |
+| BE | Bo Nix (QB) | DEN |  | 14.1 | 17.4 | ~14.9 | 14.9 | 10 |
+| BE | David Montgomery (RB) | HOU |  | 11.3 | 9.4 | ~11.0 | 11.0 | 8 |
 | BE | Dominic Zvada (K) | NYG |  | 10.5 | 10.5 | ~8.8 | 8.8 | 8 |
 | BE | Geno Smith (QB) | NYJ |  | 15.5 | BYE | ~13.9 | 13.9 | 13 |
-| BE | Jeremy Crawshaw (P) | DEN |  | 3.7 | 3.1 | ~3.0 | 3.0 | 10 |
 | BE | Lamar Jackson (QB) | BAL | Injury Reserve | 0.0 | BYE | ~0.0 | 15.8 | 13 |
+| BE | Riley Dixon (P) | TB |  | 2.8 | 2.7 | ~2.2 | 2.2 | 10 |
 | BE | Travis Etienne Jr. (RB) | NO |  | 12.0 | 12.0 | ~11.4 | 11.4 | 8 |
 | IR | Davante Adams (WR) | LAR | Injury Reserve | 0.0 | 0.0 | ~0.0 | 13.8 | 11 |
 
@@ -60,9 +57,9 @@ _Alternatives, best first (at most two per position). Suggestions only: the bot 
 _Good for you and good for them: the ones most likely to happen._
 
 1. **The (Jordan) Love Train**: give DeVonta Smith (WR), Will Reichard (K) for Zay Flowers (WR), Dak Prescott (QB)
-   - You: +10.8 season pts, -0.1% title odds. Them: +9.9 season pts. Accept chance ~75%.
+   - You: +10.8 season pts, -0.1% title odds. Them: +10.0 season pts. Accept chance ~75%.
    - Your lineup: QB: Dak Prescott starts over Lamar Jackson and Deshaun Watson (+16.1); WR: Zay Flowers replaces DeVonta Smith (-10.1); RB: David Montgomery moves into the lineup (+9.4); K: Dominic Zvada fills in for Will Reichard (-4.7). Net +10.8.
-   - Their lineup: TE: Travis Kelce drops out of the lineup (-11.7); K: Will Reichard starts over Evan McPherson (+11.7); WR: DeVonta Smith replaces Zay Flowers (+10.1). Net +9.9.
+   - Their lineup: TE: Travis Kelce drops out of the lineup (-11.7); K: Will Reichard starts over Evan McPherson (+11.7); WR: DeVonta Smith replaces Zay Flowers (+10.1). Net +10.0.
    - Pitch: "DeVonta Smith would start every week for you, Will Reichard would start every week for you over Evan McPherson, and Dak Prescott mostly sits on your bench anyway."
 
 ## Long shots
@@ -144,10 +141,10 @@ _Would start = weeks he'd make your best lineup if you added him._
 |---|---|---:|---:|---:|
 | Team Leigh | 7-4 | 8.8 | 92.4% | 30.4% |
 | Kat's Top-Notch Team | 10-1 | 11.3 | 100.0% | 28.1% |
-| C-Hawks | 6-5 | 7.7 | 71.5% | 14.5% |
-| Dabob Dungies | 7-4 | 8.7 | 82.7% | 13.7% |
-| **Elliott Eats Everyone** | 5-6 | 6.7 | 24.4% | 6.8% |
-| Cheeseball Champ | 5-6 | 6.6 | 13.1% | 3.5% |
+| C-Hawks | 6-5 | 7.7 | 71.3% | 14.5% |
+| Dabob Dungies | 7-4 | 8.7 | 82.7% | 13.8% |
+| **Elliott Eats Everyone** | 5-6 | 6.7 | 24.5% | 6.7% |
+| Cheeseball Champ | 5-6 | 6.6 | 13.3% | 3.6% |
 | The (Jordan) Love Train | 5-6 | 6.8 | 15.7% | 2.9% |
 | Alexandra's Halftime Show  | 4-7 | 5.3 | 0.1% | 0.0% |
 | Marcus's Magnificent Team | 3-8 | 4.2 | 0.0% | 0.0% |
