@@ -11,7 +11,7 @@ from pathlib import Path
 
 import requests
 
-from . import report
+from . import commentary, report
 from .config import load_config
 from .engine import Optimizer
 from .espn import EspnClient, EspnError
@@ -37,6 +37,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--state", default=".state/state.json")
     ap.add_argument("--report", default="report.md")
     ap.add_argument("--snapshot", default="snapshot.json", help="full run data as JSON")
+    ap.add_argument("--history", default=".reports/history",
+                    help="past runs' JSON (from the reports branch), for the odds trend")
     mode = ap.add_mutually_exclusive_group()
     mode.add_argument("--live", action="store_true", help="send moves to ESPN (overrides DRY_RUN)")
     mode.add_argument("--dry-run", action="store_true", help="never send anything to ESPN")
@@ -105,6 +107,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.pregame and not result.actions:
         print("Pregame check: your lineup is already the best one. Nothing to do.")
         return 0
+
+    if cfg.commentary.enabled and not args.pregame and league.horizon:
+        history = commentary.load_odds_history(args.history, league.my_team_id)
+        result.story = commentary.season_story(result, history)
+        result.commentary, by = commentary.write(result.story, cfg.commentary.model, cfg.commentary.effort)
+        log.info("Season story written by %s", by)
 
     text = report.render(result)
     print(text)

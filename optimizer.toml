@@ -130,3 +130,11 @@ SUSPENSION = [0.0]
 RB = 0.91
 WR = 0.91
 TE = 0.91
+
+[commentary]
+# "The story so far" at the top of the report: color commentary on your week, your
+# season, your luck and your playoff path. Claude writes it when the ANTHROPIC_API_KEY
+# secret is set (a few cents a day); without it, a plainer template does.
+enabled = true
+model = "claude-opus-5-5"
+effort = "medium"            # low / medium / high: how hard Claude thinks before writing

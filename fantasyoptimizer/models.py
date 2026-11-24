@@ -83,6 +83,14 @@ class Matchup:
     away: int | None
     winner: str = "UNDECIDED"
     playoff_tier: str = "NONE"
+    home_points: float | None = None   # final, or live while the week is being played
+    away_points: float | None = None
+
+    def points(self, team_id: int) -> float | None:
+        return self.home_points if team_id == self.home else self.away_points
+
+    def opponent(self, team_id: int) -> int | None:
+        return self.away if team_id == self.home else self.home
 
 
 @dataclass
@@ -382,6 +390,8 @@ def parse_league(
             away=int(away) if away is not None else None,
             winner=m.get("winner", "UNDECIDED"),
             playoff_tier=m.get("playoffTierType", "NONE"),
+            home_points=_team_points(m.get("home")),
+            away_points=_team_points(m.get("away")),
         ))
 
     matchup_periods = {
@@ -443,6 +453,13 @@ def parse_league(
         pro_team_abbrevs=abbrevs,
         kickoffs=kickoffs,
     )
+
+
+def _team_points(side: dict | None) -> float | None:
+    if not side:
+        return None
+    pts = side.get("totalPointsLive", side.get("totalPoints"))
+    return float(pts) if pts is not None else None
 
 
 def parse_pending_claims(data: dict, team_id: int) -> list[PendingClaim]:

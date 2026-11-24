@@ -312,6 +312,10 @@ def render(result: RunResult, max_rows: int = 8) -> str:
         ("**Dry run.** Nothing was sent to ESPN. Set `DRY_RUN=false` to go live."
          if result.dry_run else "**Live run.** Moves below were sent to ESPN."),
         "",
+    ]
+    if result.commentary:
+        lines += ["## The story so far", "", result.commentary, ""]
+    lines += [
         f"**{me.name}** is {me.wins:g}-{me.losses:g}"
         + (f"-{me.ties:g}" if me.ties else "")
         + f". Playoff odds **{_pct(base.playoff_odds[me.id])}**, "
@@ -505,4 +509,6 @@ def snapshot(result: RunResult, free_agents_per_position: int = 10) -> dict:
         "trade_ideas": [trade_json(t) for t in result.trade_ideas],
         "long_shots": [trade_json(t) for t in result.long_shots],
         "players": [player(p) for p in rostered + available],
+        "commentary": result.commentary or None,
+        "story": result.story,
     }

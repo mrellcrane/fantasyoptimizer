@@ -36,6 +36,7 @@ Your league and team ids are already in `optimizer.toml` (`[general]`). The cook
 |---|---|---|
 | Secret | `ESPN_S2` | the `espn_s2` cookie |
 | Secret | `ESPN_SWID` | the `SWID` cookie, braces included |
+| Secret (optional) | `ANTHROPIC_API_KEY` | a [Claude API key](https://platform.claude.com/settings/keys), so Claude writes the season story at the top of each report (a few cents a day). Without it, a plainer template writes it |
 | Secret (optional) | `NOTIFY_URL` | an [ntfy.sh](https://ntfy.sh) topic URL, or a Discord/Slack webhook, for a phone ping after each run |
 | Variable | `DRY_RUN` | leave unset (dry run) until you trust it, then set to `false` |
 
@@ -73,7 +74,7 @@ python -m fantasyoptimizer --live                  # actually send moves
 
 Each run saves its report on the `reports` branch:
 
-- `latest.md` is the report you'd read. It has your roster with this week's and the next two weeks' projections, the best available players, moves with the reasoning behind them, trade ideas, and the league's odds.
+- `latest.md` is the report you'd read. It opens with "The story so far": color commentary on your latest game, how the season's gone, how lucky you've been (your record against your all-play record), and what has to happen for the playoffs (wins needed, games to root for). Then it has your roster with this week's and the next two weeks' projections, the best available players, moves with the reasoning behind them, trade ideas, and the league's odds.
 - `latest.json` has the same data for every rostered player in the league plus the top 10 free agents at each position. It's handy for digging into trades or asking Claude about it.
 - `history/` keeps every past run.
 
