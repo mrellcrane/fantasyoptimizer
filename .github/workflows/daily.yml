@@ -65,8 +65,17 @@ jobs:
           key: optimizer-state-${{ github.run_id }}
           restore-keys: optimizer-state-
 
+      - name: Fetch past reports (for the odds trend in the season story)
+        if: ${{ !env.PREGAME }}
+        continue-on-error: true
+        run: |
+          mkdir -p .reports
+          git fetch -q --depth=1 origin reports
+          git archive FETCH_HEAD history | tar -x -C .reports --wildcards '*.json'
+
       - name: Run optimizer
         env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ESPN_LEAGUE_ID: ${{ secrets.ESPN_LEAGUE_ID }}
           ESPN_S2: ${{ secrets.ESPN_S2 }}
           ESPN_SWID: ${{ secrets.ESPN_SWID }}

@@ -110,6 +110,14 @@ class TradeConfig:
 
 
 @dataclass
+class CommentaryConfig:
+    enabled: bool = True
+    # Claude writes the season story when ANTHROPIC_API_KEY is set; otherwise a template does.
+    model: str = "claude-opus-5-5"
+    effort: str = "medium"
+
+
+@dataclass
 class Config:
     league_id: int = 0
     year: int = 0
@@ -124,6 +132,7 @@ class Config:
     waivers: WaiverConfig = field(default_factory=WaiverConfig)
     streaming: StreamingConfig = field(default_factory=StreamingConfig)
     trades: TradeConfig = field(default_factory=TradeConfig)
+    commentary: CommentaryConfig = field(default_factory=CommentaryConfig)
     # Questionable players who do play score less (RB/WR ~8.5-10% less, QBs no drop;
     # 4for4 injury study). Multiplier on their projection when they play.
     questionable_performance: dict[str, float] = field(default_factory=lambda: {

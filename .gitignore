@@ -7,3 +7,4 @@ report.md
 .env
 snapshot.json
 pub/
+.reports/

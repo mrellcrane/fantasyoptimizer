@@ -14,7 +14,7 @@ from . import espn, trades, waivers
 from .config import Config
 from .models import BENCH_SLOT, IR_SLOT, SLOT_NAMES, League, PendingTrade, Player
 from .projections import per_game_rate
-from .simulate import SeasonSimulator, SimResult
+from .simulate import Scenarios, SeasonSimulator, SimResult
 from .state import State
 from .valuation import Valuer
 
@@ -141,6 +141,10 @@ class RunResult:
     notes: list[str] = field(default_factory=list)
     valuer: Valuer | None = None
     max_moves: int = 1
+    period_means: dict[int, dict[int, float]] = field(default_factory=dict)  # team -> period -> pts
+    scenarios: Scenarios | None = None
+    story: dict | None = None       # facts behind the commentary
+    commentary: str = ""            # the season story at the top of the report
 
 
 class Optimizer:
@@ -165,10 +169,13 @@ class Optimizer:
 
     # ------------------------------------------------------------ odds
 
-    def odds(self, rosters: dict[int, list[int]]) -> SimResult:
+    def means(self, rosters: dict[int, list[int]]) -> dict[int, dict[int, float]]:
         # You stream (say) your D/ST; nobody else is assumed to.
-        return self.sim.run({t: self.valuer.period_means(self.valuer.streaming(r) if t == self.me else r)
-                             for t, r in rosters.items()})
+        return {t: self.valuer.period_means(self.valuer.streaming(r) if t == self.me else r)
+                for t, r in rosters.items()}
+
+    def odds(self, rosters: dict[int, list[int]]) -> SimResult:
+        return self.sim.run(self.means(rosters))
 
     def title_gain(self, rosters: dict[int, list[int]], baseline: SimResult) -> float:
         """Change in our championship odds, in percentage points."""
@@ -439,6 +446,8 @@ class Optimizer:
         baseline = self.odds(self.rosters)
         result = RunResult(league=league, dry_run=self.dry_run, baseline=baseline, valuer=self.valuer,
                            max_moves=cfg.waivers.max_moves_per_run)
+        result.period_means = self.means(self.rosters)
+        result.scenarios = self.sim.scenarios(result.period_means, self.me)
         if not league.horizon:
             result.notes.append("Season is over. Nothing to do.")
             return result

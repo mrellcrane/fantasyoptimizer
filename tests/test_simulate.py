@@ -54,3 +54,19 @@ def test_mid_playoffs_uses_current_bracket():
     res = sim.run(means)
     assert res.title_odds[1] == res.title_odds[4] == 0.0
     assert abs(res.title_odds[2] + res.title_odds[3] - 1.0) < 1e-9
+
+
+def test_scenarios_add_up_to_the_overall_odds():
+    league = four_team_league()
+    sim = SeasonSimulator(league, SimConfig(n_sims=3000))
+    means = {t: {mp: 100.0 + 5 * t for mp in range(1, 5)} for t in league.teams}
+    overall = sim.run(means)
+    sc = sim.scenarios(means, 1)
+    assert abs(sum(c for c, _, _ in sc.by_wins.values()) - 1.0) < 1e-9
+    assert abs(sum(c * po for c, po, _ in sc.by_wins.values()) - overall.playoff_odds[1]) < 1e-9
+    # More wins never hurts.
+    odds = [sc.by_wins[w][1] for w in sorted(sc.by_wins)]
+    assert odds == sorted(odds)
+    # Everyone else's games are rooting interests; you root against your rivals.
+    assert sc.rooting and all(1 not in (r.root_for, r.against) for r in sc.rooting)
+    assert abs(sum(sc.seeds.values()) - overall.playoff_odds[1]) < 1e-9
